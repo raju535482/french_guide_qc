@@ -1802,7 +1802,7 @@
 
     .ve-table th {
       background: var(--surface-2);
-      padding: 0.5rem 0.875rem;
+      padding: 0.55rem 1rem;
       text-align: left;
       font-size: 0.67rem;
       font-weight: 600;
@@ -1813,9 +1813,10 @@
     }
 
     .ve-table td {
-      padding: 0.5rem 0.875rem;
+      padding: 0.65rem 1rem;
       border-bottom: 1px solid var(--border-subtle);
       vertical-align: middle;
+      line-height: 1.5;
     }
 
     .ve-table tr:last-child td {
@@ -1834,7 +1835,15 @@
       font-size: 0.9375rem;
       display: flex;
       align-items: baseline;
-      gap: 0;
+      gap: 1px;
+      flex-wrap: wrap;
+    }
+
+    .ve-table .td-en {
+      color: var(--text-secondary);
+      font-style: italic;
+      font-size: 0.82rem;
+      padding-left: 1.25rem;
     }
 
     .ve-form-stem {
@@ -2346,13 +2355,16 @@
 
     @media (max-width: 800px) {
       #nav-bar {
-        position: relative; /* Sometimes sticky + mobile causes touch event issues */
-        top: 0;
-        z-index: 9999;
+        position: sticky;
+        top: var(--header-h, 3.5rem);
+        z-index: 99;
         pointer-events: auto;
       }
       .nav-inner {
         padding-bottom: 5px; /* give touch area */
+      }
+      #scroll-progress {
+        top: calc(var(--header-h, 3.5rem) + 2.75rem);
       }
     }
   </style>
@@ -3723,6 +3735,50 @@ const sections = [
           ]
         },
         "tip": "💡 To distinguish 'this' vs 'that', add -ci (here) or -là (there): 'ce livre-ci' (this book) vs 'ce livre-là' (that book)."
+      },
+      {
+        "rule": "Demonstrative Pronouns — celui-ci vs celui-là",
+        "english": "Demonstrative pronouns replace a noun to avoid repetition (meaning 'this one' or 'that one'). They agree in gender and number with the noun they replace. Add '-ci' for something close (this one) and '-là' for something farther (that one).",
+        "table": {
+          "headers": [
+            "Gender / Number",
+            "This one (-ci)",
+            "That one (-là)"
+          ],
+          "rows": [
+            [
+              "Masculine Singular",
+              "celui-ci",
+              "celui-là"
+            ],
+            [
+              "Feminine Singular",
+              "celle-ci",
+              "celle-là"
+            ],
+            [
+              "Masculine Plural",
+              "ceux-ci",
+              "ceux-là"
+            ],
+            [
+              "Feminine Plural",
+              "celles-ci",
+              "celles-là"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "french": "Quel manteau tu préfères ? Celui-ci ou celui-là ?",
+            "english": "Which coat do you prefer? This one or that one?"
+          },
+          {
+            "french": "Je ne veux pas ces chaussures, je veux celles-là.",
+            "english": "I don't want these shoes, I want those ones."
+          }
+        ],
+        "tip": "🍁 Quebec: In everyday spoken Quebec French, people overwhelmingly use '-là' for everything (celui-là, celle-là, ceux-là, celles-là), even for things right in front of them! '-ci' can sound formal."
       }
     ]
   },
@@ -9910,7 +9966,7 @@ const sections = [
       {
         "rule": "Interactive Timeline Explorer",
         "english": "Select a preposition to see how it works on the timeline, plus tricky edge cases.",
-        "customHtml": "\n<style>\n.tl-btn { padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary); cursor: pointer; font-weight: 500; transition: all 0.2s; }\n.tl-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 2px 8px color-mix(in srgb, var(--primary) 40%, transparent); }\n.tl-tricky { margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary); padding-top: 10px; border-top: 1px dashed var(--border-subtle); }\n.tl-tricky-title { font-weight: 600; color: var(--orange, #f59e0b); display: flex; align-items: center; gap: 4px; margin-bottom: 4px; }\n</style>\n<div class='block animate-in' style='margin-top: 15px; padding: 15px; background: var(--surface-2); border-radius: var(--r-md); border: 1px solid var(--border); overflow: hidden;'>\n  <div style='display:flex; gap:8px; margin-bottom: 15px; flex-wrap: wrap; justify-content: center;'>\n    <button class='tl-btn active' onclick='showTimeline(\"depuis\")' id='btn-depuis'>depuis</button>\n    <button class='tl-btn' onclick='showTimeline(\"ilya\")' id='btn-ilya'>il y a</button>\n    <button class='tl-btn' onclick='showTimeline(\"dans\")' id='btn-dans'>dans</button>\n    <button class='tl-btn' onclick='showTimeline(\"pendant\")' id='btn-pendant'>pendant</button>\n  </div>\n  \n  <div id='timeline-visual' style='position:relative; margin: 40px 0 20px 0; height: 60px; display:flex; align-items:center; justify-content:center; width: 100%;'>\n    <div style='position:absolute; width: 90%; height: 4px; background: var(--border); top: 50%; transform: translateY(-50%); border-radius: 2px;'></div>\n    \n    <div style='position:absolute; left: 10%; display:flex; flex-direction:column; align-items:center;'>\n      <div style='width: 12px; height: 12px; border-radius: 50%; background: var(--text-muted); z-index:2;'></div>\n      <div style='font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;' data-i18n-tl=\"past\">Pass\u00e9</div>\n    </div>\n    <div style='position:absolute; left: 50%; transform: translateX(-50%); display:flex; flex-direction:column; align-items:center;'>\n      <div style='width: 16px; height: 16px; border-radius: 50%; background: var(--primary); z-index:2; border: 3px solid var(--surface-2); box-shadow: 0 0 0 2px var(--primary);'></div>\n      <div style='font-size: 0.85rem; font-weight: bold; color: var(--primary); margin-top: 4px;' data-i18n-tl=\"present\">Pr\u00e9sent</div>\n    </div>\n    <div style='position:absolute; right: 10%; display:flex; flex-direction:column; align-items:center;'>\n      <div style='width: 12px; height: 12px; border-radius: 50%; background: var(--text-muted); z-index:2;'></div>\n      <div style='font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;' data-i18n-tl=\"future\">Futur</div>\n    </div>\n\n    <div id='tl-overlay' style='position:absolute; height: 8px; background: var(--blue); top: 50%; transform: translateY(-50%); border-radius: 4px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0;'></div>\n    <div id='tl-label' style='position:absolute; top: -15px; font-weight: 600; color: var(--blue); transition: all 0.4s ease; opacity: 0; text-align: center; white-space: nowrap; font-size: 0.85rem;'></div>\n  </div>\n\n  <div id='tl-info' style='background: var(--surface-1); padding: 15px; border-radius: var(--r-sm); border-left: 4px solid var(--primary); min-height: 120px; transition: all 0.3s ease;'>\n  </div>\n</div>\n\n<script>\nwindow.tlTranslations = {\n  en: {\n    past: \"Past\", present: \"Present\", future: \"Future\",\n    trickyLabel: \"Tricky Rule\",\n    depuisLbl: \"Action continues to present\",\n    depuisDesc: \"<b>depuis</b> (since/for) describes an action that started in the past and is STILL continuing in the present.\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(I have been working here since 2020.)</i>\",\n    depuisTricky: \"Do not use past tense! In French, if it is still happening, use the <b>present tense</b>. <br>\u274c <i>J\\'ai travaill\u00e9 ici depuis un an.</i><br>\u2705 <i>Je travaille ici depuis un an.</i>\",\n    ilyaLbl: \"Point in time past\",\n    ilyaDesc: \"<b>il y a</b> (ago) points to a specific completed moment in the past.\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(The train left 10 minutes ago.)</i>\",\n    ilyaTricky: \"Always use it with a past tense (like Pass\u00e9 Compos\u00e9). It translates literally to 'there is', but means 'ago'.\",\n    dansLbl: \"Countdown to future\",\n    dansDesc: \"<b>dans</b> (in) gives a countdown to when a future action will happen.\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(The class starts in 5 minutes.)</i>\",\n    dansTricky: \"Use <b>dans</b> for 'in [time from now]' (countdown). Use <b>en</b> for 'takes [time duration] to complete'.<br>\u2705 <i>Il part dans 1h (countdown).</i><br>\u2705 <i>Il a fait ses devoirs en 1h (duration).</i>\",\n    pendantLbl: \"Closed block of time\",\n    pendantDesc: \"<b>pendant</b> (for/during) describes a completed or defined duration with a clear start and end.\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(I slept for 9 hours.)</i>\",\n    pendantTricky: \"If the action is over, use <b>pendant</b>. If it is still happening, use <b>depuis</b>.\"\n  },\n  gu: {\n    past: \"\u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\", present: \"\u0ab5\u0ab0\u0acd\u0aa4\u0aae\u0abe\u0aa8\", future: \"\u0aad\u0ab5\u0abf\u0ab7\u0acd\u0aaf\", trickyLabel: \"\u0aae\u0ac1\u0ab6\u0acd\u0a95\u0ac7\u0ab2 \u0aa8\u0abf\u0aaf\u0aae\",\n    depuisLbl: \"\u0a95\u0acd\u0ab0\u0abf\u0aaf\u0abe \u0ab5\u0ab0\u0acd\u0aa4\u0aae\u0abe\u0aa8 \u0ab8\u0ac1\u0aa7\u0ac0 \u0a9a\u0abe\u0ab2\u0ac1 \u0ab0\u0ab9\u0ac7 \u0a9b\u0ac7\",\n    depuisDesc: \"<b>depuis</b> (\u0aa4\u0acd\u0aaf\u0abe\u0ab0\u0aa5\u0ac0/\u0aae\u0abe\u0a9f\u0ac7) \u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\u0aae\u0abe\u0a82 \u0ab6\u0ab0\u0ac2 \u0aa5\u0aaf\u0ac7\u0ab2\u0ac0 \u0a85\u0aa8\u0ac7 \u0ab5\u0ab0\u0acd\u0aa4\u0aae\u0abe\u0aa8\u0aae\u0abe\u0a82 \u0ab9\u0a9c\u0ac0 \u0a9a\u0abe\u0ab2\u0ac1 \u0a95\u0acd\u0ab0\u0abf\u0aaf\u0abe\u0aa8\u0ac1\u0a82 \u0ab5\u0ab0\u0acd\u0aa3\u0aa8 \u0a95\u0ab0\u0ac7 \u0a9b\u0ac7.\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\u0ab9\u0ac1\u0a82 2020 \u0aa5\u0ac0 \u0a85\u0ab9\u0ac0\u0a82 \u0a95\u0abe\u0aae \u0a95\u0ab0\u0ac1\u0a82 \u0a9b\u0ac1\u0a82.)</i>\",\n    depuisTricky: \"\u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 \u0a95\u0ab0\u0ab6\u0acb \u0aa8\u0ab9\u0ac0\u0a82! \u0a9c\u0acb \u0aa4\u0ac7 \u0ab9\u0a9c\u0ac0 \u0a9a\u0abe\u0ab2\u0ac1 \u0ab9\u0acb\u0aaf, \u0aa4\u0acb <b>\u0ab5\u0ab0\u0acd\u0aa4\u0aae\u0abe\u0aa8 \u0a95\u0abe\u0ab3</b> \u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 \u0a95\u0ab0\u0acb. <br>\u274c <i>J\\'ai travaill\u00e9 ici depuis un an.</i><br>\u2705 <i>Je travaille ici depuis un an.</i>\",\n    ilyaLbl: \"\u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\u0aa8\u0acb \u0a9a\u0acb\u0a95\u0acd\u0a95\u0ab8 \u0ab8\u0aae\u0aaf\",\n    ilyaDesc: \"<b>il y a</b> (\u0aaa\u0ab9\u0ac7\u0ab2\u0abe\u0a82) \u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\u0aa8\u0ac0 \u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0aaf\u0ac7\u0ab2\u0ac0 \u0a9a\u0acb\u0a95\u0acd\u0a95\u0ab8 \u0a95\u0acd\u0ab7\u0aa3 \u0aa6\u0ab0\u0acd\u0ab6\u0abe\u0ab5\u0ac7 \u0a9b\u0ac7.\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\u0a9f\u0acd\u0ab0\u0ac7\u0aa8 10 \u0aae\u0abf\u0aa8\u0abf\u0a9f \u0aaa\u0ab9\u0ac7\u0ab2\u0abe\u0a82 \u0aa8\u0ac0\u0a95\u0ab3\u0ac0 \u0ab9\u0aa4\u0ac0.)</i>\",\n    ilyaTricky: \"\u0ab9\u0a82\u0aae\u0ac7\u0ab6\u0abe \u0aa4\u0ac7\u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 \u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3 \u0ab8\u0abe\u0aa5\u0ac7 \u0a95\u0ab0\u0acb. \u0aa4\u0ac7\u0aa8\u0acb \u0ab6\u0abe\u0aac\u0acd\u0aa6\u0abf\u0a95 \u0a85\u0ab0\u0acd\u0aa5 '\u0aa4\u0acd\u0aaf\u0abe\u0a82 \u0a9b\u0ac7' \u0aa5\u0abe\u0aaf \u0a9b\u0ac7, \u0aaa\u0aa3 \u0aae\u0aa4\u0ab2\u0aac '\u0aaa\u0ab9\u0ac7\u0ab2\u0abe\u0a82' \u0aa5\u0abe\u0aaf \u0a9b\u0ac7.\",\n    dansLbl: \"\u0aad\u0ab5\u0abf\u0ab7\u0acd\u0aaf \u0aae\u0abe\u0a9f\u0ac7 \u0a95\u0abe\u0a89\u0aa8\u0acd\u0a9f\u0aa1\u0abe\u0a89\u0aa8\",\n    dansDesc: \"<b>dans</b> (\u0aae\u0abe\u0a82) \u0aad\u0ab5\u0abf\u0ab7\u0acd\u0aaf\u0aa8\u0ac0 \u0a95\u0acd\u0ab0\u0abf\u0aaf\u0abe \u0a95\u0acd\u0aaf\u0abe\u0ab0\u0ac7 \u0aa5\u0ab6\u0ac7 \u0aa4\u0ac7\u0aa8\u0ac1\u0a82 \u0a95\u0abe\u0a89\u0aa8\u0acd\u0a9f\u0aa1\u0abe\u0a89\u0aa8 \u0a86\u0aaa\u0ac7 \u0a9b\u0ac7.\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\u0ab5\u0ab0\u0acd\u0a97 5 \u0aae\u0abf\u0aa8\u0abf\u0a9f\u0aae\u0abe\u0a82 \u0ab6\u0ab0\u0ac2 \u0aa5\u0ab6\u0ac7.)</i>\",\n    dansTricky: \"<b>dans</b> \u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 '\u0ab9\u0ab5\u0ac7 \u0aaa\u0a9b\u0ac0\u0aa8\u0abe \u0ab8\u0aae\u0aaf\u0aae\u0abe\u0a82' \u0aae\u0abe\u0a9f\u0ac7 \u0a95\u0ab0\u0acb. <b>en</b> \u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 '\u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0ab5\u0abe\u0aae\u0abe\u0a82 \u0ab2\u0abe\u0a97\u0aa4\u0acb \u0ab8\u0aae\u0aaf' \u0aae\u0abe\u0a9f\u0ac7 \u0a95\u0ab0\u0acb.\",\n    pendantLbl: \"\u0aa8\u0abf\u0ab6\u0acd\u0a9a\u0abf\u0aa4 \u0ab8\u0aae\u0aaf\u0a97\u0abe\u0ab3\u0acb\",\n    pendantDesc: \"<b>pendant</b> (\u0aa6\u0ab0\u0aae\u0abf\u0aaf\u0abe\u0aa8/\u0aae\u0abe\u0a9f\u0ac7) \u0ab8\u0acd\u0aaa\u0ab7\u0acd\u0a9f \u0ab6\u0ab0\u0ac2\u0a86\u0aa4 \u0a85\u0aa8\u0ac7 \u0a85\u0a82\u0aa4 \u0ab8\u0abe\u0aa5\u0ac7 \u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0aaf\u0ac7\u0ab2 \u0a85\u0aa5\u0ab5\u0abe \u0ab5\u0acd\u0aaf\u0abe\u0a96\u0acd\u0aaf\u0abe\u0aaf\u0abf\u0aa4 \u0ab8\u0aae\u0aaf\u0a97\u0abe\u0ab3\u0abe\u0aa8\u0ac1\u0a82 \u0ab5\u0ab0\u0acd\u0aa3\u0aa8 \u0a95\u0ab0\u0ac7 \u0a9b\u0ac7.\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\u0ab9\u0ac1\u0a82 9 \u0a95\u0ab2\u0abe\u0a95 \u0a8a\u0a82\u0a98\u0acd\u0aaf\u0acb.)</i>\",\n    pendantTricky: \"\u0a9c\u0acb \u0a95\u0acd\u0ab0\u0abf\u0aaf\u0abe \u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0a88 \u0a97\u0a88 \u0ab9\u0acb\u0aaf, \u0aa4\u0acb <b>pendant</b> \u0ab5\u0abe\u0aaa\u0ab0\u0acb. \u0a9c\u0acb \u0ab9\u0a9c\u0ac0 \u0a9a\u0abe\u0ab2\u0ac1 \u0ab9\u0acb\u0aaf, \u0aa4\u0acb <b>depuis</b> \u0ab5\u0abe\u0aaa\u0ab0\u0acb.\"\n  },\n  hi: {\n    past: \"\u0905\u0924\u0940\u0924\", present: \"\u0935\u0930\u094d\u0924\u092e\u093e\u0928\", future: \"\u092d\u0935\u093f\u0937\u094d\u092f\", trickyLabel: \"\u0915\u0920\u093f\u0928 \u0928\u093f\u092f\u092e\",\n    depuisLbl: \"\u0915\u093e\u0930\u094d\u0930\u0935\u093e\u0908 \u0935\u0930\u094d\u0924\u092e\u093e\u0928 \u092e\u0947\u0902 \u091c\u093e\u0930\u0940 \u0939\u0948\",\n    depuisDesc: \"<b>depuis</b> (\u0938\u0947/\u0915\u0947 \u0932\u093f\u090f) \u0909\u0938 \u0915\u093e\u0930\u094d\u0930\u0935\u093e\u0908 \u0915\u093e \u0935\u0930\u094d\u0923\u0928 \u0915\u0930\u0924\u093e \u0939\u0948 \u091c\u094b \u0905\u0924\u0940\u0924 \u092e\u0947\u0902 \u0936\u0941\u0930\u0942 \u0939\u0941\u0908 \u0925\u0940 \u0914\u0930 \u0935\u0930\u094d\u0924\u092e\u093e\u0928 \u092e\u0947\u0902 \u0905\u092d\u0940 \u092d\u0940 \u091c\u093e\u0930\u0940 \u0939\u0948\u0964\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\u092e\u0948\u0902 2020 \u0938\u0947 \u092f\u0939\u093e\u0902 \u0915\u093e\u092e \u0915\u0930 \u0930\u0939\u093e \u0939\u0942\u0902\u0964)</i>\",\n    depuisTricky: \"\u092d\u0942\u0924\u0915\u093e\u0932 \u0915\u093e \u092a\u094d\u0930\u092f\u094b\u0917 \u0928 \u0915\u0930\u0947\u0902! \u092f\u0926\u093f \u092f\u0939 \u0905\u092d\u0940 \u092d\u0940 \u0939\u094b \u0930\u0939\u093e \u0939\u0948, \u0924\u094b <b>\u0935\u0930\u094d\u0924\u092e\u093e\u0928 \u0915\u093e\u0932</b> \u0915\u093e \u092a\u094d\u0930\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964 <br>\u274c <i>J\\'ai travaill\u00e9 ici depuis un an.</i><br>\u2705 <i>Je travaille ici depuis un an.</i>\",\n    ilyaLbl: \"\u0905\u0924\u0940\u0924 \u0915\u093e \u090f\u0915 \u092c\u093f\u0902\u0926\u0941\",\n    ilyaDesc: \"<b>il y a</b> (\u092a\u0939\u0932\u0947) \u0905\u0924\u0940\u0924 \u092e\u0947\u0902 \u090f\u0915 \u0935\u093f\u0936\u093f\u0937\u094d\u091f \u092a\u0942\u0930\u094d\u0923 \u0915\u094d\u0937\u0923 \u0915\u094b \u0907\u0902\u0917\u093f\u0924 \u0915\u0930\u0924\u093e \u0939\u0948\u0964\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\u091f\u094d\u0930\u0947\u0928 10 \u092e\u093f\u0928\u091f \u092a\u0939\u0932\u0947 \u0928\u093f\u0915\u0932 \u0917\u0908\u0964)</i>\",\n    ilyaTricky: \"\u0907\u0938\u0947 \u0939\u092e\u0947\u0936\u093e \u092d\u0942\u0924\u0915\u093e\u0932 \u0915\u0947 \u0938\u093e\u0925 \u092a\u094d\u0930\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964 \u0907\u0938\u0915\u093e \u0936\u093e\u092c\u094d\u0926\u093f\u0915 \u0905\u0928\u0941\u0935\u093e\u0926 '\u0935\u0939\u093e\u0901 \u0939\u0948' \u0939\u094b\u0924\u093e \u0939\u0948, \u0932\u0947\u0915\u093f\u0928 \u0905\u0930\u094d\u0925 '\u092a\u0939\u0932\u0947' \u0939\u094b\u0924\u093e \u0939\u0948\u0964\",\n    dansLbl: \"\u092d\u0935\u093f\u0937\u094d\u092f \u0915\u0947 \u0932\u093f\u090f \u0909\u0932\u091f\u0940 \u0917\u093f\u0928\u0924\u0940\",\n    dansDesc: \"<b>dans</b> (\u092e\u0947\u0902) \u090f\u0915 \u0909\u0932\u091f\u0940 \u0917\u093f\u0928\u0924\u0940 \u0926\u0947\u0924\u093e \u0939\u0948 \u0915\u093f \u092d\u0935\u093f\u0937\u094d\u092f \u0915\u0940 \u0915\u093e\u0930\u094d\u0930\u0935\u093e\u0908 \u0915\u092c \u0939\u094b\u0917\u0940\u0964\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\u0915\u0915\u094d\u0937\u093e 5 \u092e\u093f\u0928\u091f \u092e\u0947\u0902 \u0936\u0941\u0930\u0942 \u0939\u094b\u0924\u0940 \u0939\u0948\u0964)</i>\",\n    dansTricky: \"<b>dans</b> \u0915\u093e \u092a\u094d\u0930\u092f\u094b\u0917 '\u0905\u092c \u0938\u0947 [\u0938\u092e\u092f] \u092e\u0947\u0902' \u0915\u0947 \u0932\u093f\u090f \u0915\u0930\u0947\u0902\u0964 <b>en</b> \u0915\u093e \u092a\u094d\u0930\u092f\u094b\u0917 '\u092a\u0942\u0930\u093e \u0939\u094b\u0928\u0947 \u092e\u0947\u0902 [\u0905\u0935\u0927\u093f] \u0932\u0917\u0924\u093e \u0939\u0948' \u0915\u0947 \u0932\u093f\u090f \u0915\u0930\u0947\u0902\u0964\",\n    pendantLbl: \"\u0938\u092e\u092f \u0915\u093e \u090f\u0915 \u0928\u093f\u0936\u094d\u091a\u093f\u0924 \u0916\u0902\u0921\",\n    pendantDesc: \"<b>pendant</b> (\u0915\u0947 \u0926\u094c\u0930\u093e\u0928/\u0915\u0947 \u0932\u093f\u090f) \u0938\u094d\u092a\u0937\u094d\u091f \u0936\u0941\u0930\u0941\u0906\u0924 \u0914\u0930 \u0905\u0902\u0924 \u0915\u0947 \u0938\u093e\u0925 \u090f\u0915 \u092a\u0942\u0930\u094d\u0923 \u092f\u093e \u092a\u0930\u093f\u092d\u093e\u0937\u093f\u0924 \u0905\u0935\u0927\u093f \u0915\u093e \u0935\u0930\u094d\u0923\u0928 \u0915\u0930\u0924\u093e \u0939\u0948\u0964\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\u092e\u0948\u0902 9 \u0918\u0902\u091f\u0947 \u0938\u094b\u092f\u093e\u0964)</i>\",\n    pendantTricky: \"\u092f\u0926\u093f \u0915\u093e\u0930\u094d\u0930\u0935\u093e\u0908 \u0938\u092e\u093e\u092a\u094d\u0924 \u0939\u094b \u0917\u0908 \u0939\u0948, \u0924\u094b <b>pendant</b> \u0915\u093e \u0909\u092a\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964 \u092f\u0926\u093f \u092f\u0939 \u0905\u092d\u0940 \u092d\u0940 \u0939\u094b \u0930\u0939\u093e \u0939\u0948, \u0924\u094b <b>depuis</b> \u0915\u093e \u0909\u092a\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964\"\n  },\n  ta: {\n    past: \"\u0b95\u0b9f\u0ba8\u0bcd\u0ba4\u0b95\u0bbe\u0bb2\u0bae\u0bcd\", present: \"\u0ba8\u0bbf\u0b95\u0bb4\u0bcd\u0b95\u0bbe\u0bb2\u0bae\u0bcd\", future: \"\u0b8e\u0ba4\u0bbf\u0bb0\u0bcd\u0b95\u0bbe\u0bb2\u0bae\u0bcd\", trickyLabel: \"\u0b95\u0b9f\u0bbf\u0ba9\u0bae\u0bbe\u0ba9 \u0bb5\u0bbf\u0ba4\u0bbf\",\n    depuisLbl: \"\u0b9a\u0bc6\u0baf\u0bb2\u0bcd \u0ba8\u0bbf\u0b95\u0bb4\u0bcd\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0ba4\u0bca\u0b9f\u0bb0\u0bcd\u0b95\u0bbf\u0bb1\u0ba4\u0bc1\",\n    depuisDesc: \"<b>depuis</b> (\u0b87\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1/\u0b95\u0bcd\u0b95\u0bbe\u0b95) \u0b95\u0b9f\u0ba8\u0bcd\u0ba4 \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0ba4\u0bca\u0b9f\u0b99\u0bcd\u0b95\u0bbf \u0ba4\u0bb1\u0bcd\u0baa\u0bcb\u0ba4\u0bc1 \u0bb5\u0bb0\u0bc8 \u0ba4\u0bca\u0b9f\u0bb0\u0bc1\u0bae\u0bcd \u0b92\u0bb0\u0bc1 \u0b9a\u0bc6\u0baf\u0bb2\u0bc8 \u0bb5\u0bbf\u0bb5\u0bb0\u0bbf\u0b95\u0bcd\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\u0ba8\u0bbe\u0ba9\u0bcd 2020 \u0bae\u0bc1\u0ba4\u0bb2\u0bcd \u0b87\u0b99\u0bcd\u0b95\u0bc1 \u0bb5\u0bc7\u0bb2\u0bc8 \u0b9a\u0bc6\u0baf\u0bcd\u0b95\u0bbf\u0bb1\u0bc7\u0ba9\u0bcd.)</i>\",\n    depuisTricky: \"\u0b95\u0b9f\u0ba8\u0bcd\u0ba4 \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bc8 \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4 \u0bb5\u0bc7\u0ba3\u0bcd\u0b9f\u0bbe\u0bae\u0bcd! \u0b85\u0ba4\u0bc1 \u0b87\u0ba9\u0bcd\u0ba9\u0bc1\u0bae\u0bcd \u0ba8\u0b9f\u0ba8\u0bcd\u0ba4\u0bbe\u0bb2\u0bcd, <b>\u0ba8\u0bbf\u0b95\u0bb4\u0bcd\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bc8</b> \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.\",\n    ilyaLbl: \"\u0b95\u0b9f\u0ba8\u0bcd\u0ba4\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0b92\u0bb0\u0bc1 \u0baa\u0bc1\u0bb3\u0bcd\u0bb3\u0bbf\",\n    ilyaDesc: \"<b>il y a</b> (\u0bae\u0bc1\u0ba9\u0bcd\u0baa\u0bc1) \u0b95\u0b9f\u0ba8\u0bcd\u0ba4\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc1\u0b9f\u0bbf\u0ba8\u0bcd\u0ba4 \u0b92\u0bb0\u0bc1 \u0b95\u0bc1\u0bb1\u0bbf\u0baa\u0bcd\u0baa\u0bbf\u0b9f\u0bcd\u0b9f \u0ba8\u0bc7\u0bb0\u0ba4\u0bcd\u0ba4\u0bc8 \u0b95\u0bc1\u0bb1\u0bbf\u0b95\u0bcd\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\u0bb0\u0baf\u0bbf\u0bb2\u0bcd 10 \u0ba8\u0bbf\u0bae\u0bbf\u0b9f\u0b99\u0bcd\u0b95\u0bb3\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0bae\u0bc1\u0ba9\u0bcd\u0baa\u0bc1 \u0b9a\u0bc6\u0ba9\u0bcd\u0bb1\u0ba4\u0bc1.)</i>\",\n    ilyaTricky: \"\u0b8e\u0baa\u0bcd\u0baa\u0bcb\u0ba4\u0bc1\u0bae\u0bcd \u0b85\u0ba4\u0bc8 \u0b87\u0bb1\u0ba8\u0bcd\u0ba4 \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bc1\u0b9f\u0ba9\u0bcd \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.\",\n    dansLbl: \"\u0b8e\u0ba4\u0bbf\u0bb0\u0bcd\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb1\u0bcd\u0b95\u0bbe\u0ba9 \u0b95\u0bb5\u0bc1\u0ba3\u0bcd\u0b9f\u0bb5\u0bc1\u0ba9\u0bcd\",\n    dansDesc: \"<b>dans</b> (\u0b87\u0bb2\u0bcd) \u0b8e\u0ba4\u0bbf\u0bb0\u0bcd\u0b95\u0bbe\u0bb2 \u0b9a\u0bc6\u0baf\u0bb2\u0bcd \u0b8e\u0baa\u0bcd\u0baa\u0bcb\u0ba4\u0bc1 \u0ba8\u0b9f\u0b95\u0bcd\u0b95\u0bc1\u0bae\u0bcd \u0b8e\u0ba9\u0bcd\u0baa\u0ba4\u0bb1\u0bcd\u0b95\u0bbe\u0ba9 \u0b95\u0bb5\u0bc1\u0ba3\u0bcd\u0b9f\u0bb5\u0bc1\u0ba9\u0bc8 \u0bb5\u0bb4\u0b99\u0bcd\u0b95\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\u0bb5\u0b95\u0bc1\u0baa\u0bcd\u0baa\u0bc1 5 \u0ba8\u0bbf\u0bae\u0bbf\u0b9f\u0b99\u0bcd\u0b95\u0bb3\u0bbf\u0bb2\u0bcd \u0ba4\u0bca\u0b9f\u0b99\u0bcd\u0b95\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.)</i>\",\n    dansTricky: \"<b>dans</b> \u0b90 '\u0b87\u0ba9\u0bbf\u0bae\u0bc7\u0bb2\u0bcd' \u0b8e\u0ba9\u0bcd\u0baa\u0ba4\u0bb1\u0bcd\u0b95\u0bc1\u0bae\u0bcd, <b>en</b> \u0b90 '\u0bae\u0bc1\u0b9f\u0bbf\u0b95\u0bcd\u0b95 \u0b86\u0b95\u0bc1\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb1\u0bcd\u0b95\u0bc1\u0bae\u0bcd' \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.\",\n    pendantLbl: \"\u0ba8\u0bc7\u0bb0\u0ba4\u0bcd\u0ba4\u0bbf\u0ba9\u0bcd \u0bb5\u0bb0\u0bc8\u0baf\u0bb1\u0bc1\u0b95\u0bcd\u0b95\u0baa\u0bcd\u0baa\u0b9f\u0bcd\u0b9f \u0ba4\u0bca\u0b95\u0bc1\u0ba4\u0bbf\",\n    pendantDesc: \"<b>pendant</b> (\u0bb5\u0bbf\u0ba9\u0bcd \u0baa\u0bcb\u0ba4\u0bc1/\u0b95\u0bcd\u0b95\u0bbe\u0b95) \u0ba4\u0bc6\u0bb3\u0bbf\u0bb5\u0bbe\u0ba9 \u0ba4\u0bca\u0b9f\u0b95\u0bcd\u0b95\u0bae\u0bcd \u0bae\u0bb1\u0bcd\u0bb1\u0bc1\u0bae\u0bcd \u0bae\u0bc1\u0b9f\u0bbf\u0bb5\u0bc1\u0b9f\u0ba9\u0bcd \u0bae\u0bc1\u0b9f\u0bbf\u0ba8\u0bcd\u0ba4 \u0b92\u0bb0\u0bc1 \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bc8 \u0bb5\u0bbf\u0bb5\u0bb0\u0bbf\u0b95\u0bcd\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\u0ba8\u0bbe\u0ba9\u0bcd 9 \u0bae\u0ba3\u0bbf \u0ba8\u0bc7\u0bb0\u0bae\u0bcd \u0ba4\u0bc2\u0b99\u0bcd\u0b95\u0bbf\u0ba9\u0bc7\u0ba9\u0bcd.)</i>\",\n    pendantTricky: \"\u0b9a\u0bc6\u0baf\u0bb2\u0bcd \u0bae\u0bc1\u0b9f\u0bbf\u0ba8\u0bcd\u0ba4\u0bc1\u0bb5\u0bbf\u0b9f\u0bcd\u0b9f\u0bbe\u0bb2\u0bcd, <b>pendant</b> \u0b90\u0baa\u0bcd \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd. \u0ba4\u0bca\u0b9f\u0bb0\u0bcd\u0ba8\u0bcd\u0ba4\u0bbe\u0bb2\u0bcd, <b>depuis</b> \u0b90\u0baa\u0bcd \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.\"\n  },\n  ko: {\n    past: \"\uacfc\uac70\", present: \"\ud604\uc7ac\", future: \"\ubbf8\ub798\", trickyLabel: \"\uae4c\ub2e4\ub85c\uc6b4 \uaddc\uce59\",\n    depuisLbl: \"\ud604\uc7ac\uae4c\uc9c0 \uacc4\uc18d\ub418\ub294 \ub3d9\uc791\",\n    depuisDesc: \"<b>depuis</b> (~\ubd80\ud130/~\ub3d9\uc548)\ub294 \uacfc\uac70\uc5d0 \uc2dc\uc791\ub418\uc5b4 \ud604\uc7ac\uc5d0\ub3c4 \uacc4\uc18d \uc9c4\ud589 \uc911\uc778 \ub3d9\uc791\uc744 \uc124\uba85\ud569\ub2c8\ub2e4.\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\uc800\ub294 2020\ub144\ubd80\ud130 \uc5ec\uae30\uc11c \uc77c\ud558\uace0 \uc788\uc2b5\ub2c8\ub2e4.)</i>\",\n    depuisTricky: \"\uacfc\uac70 \uc2dc\uc81c\ub97c \uc0ac\uc6a9\ud558\uc9c0 \ub9c8\uc138\uc694! \uc544\uc9c1 \uc9c4\ud589 \uc911\uc774\ub77c\uba74 <b>\ud604\uc7ac \uc2dc\uc81c</b>\ub97c \uc0ac\uc6a9\ud574\uc57c \ud569\ub2c8\ub2e4.\",\n    ilyaLbl: \"\uacfc\uac70\uc758 \uc2dc\uc810\",\n    ilyaDesc: \"<b>il y a</b> (~\uc804\uc5d0)\ub294 \uacfc\uac70\uc758 \uc644\ub8cc\ub41c \ud2b9\uc815 \uc21c\uac04\uc744 \uac00\ub9ac\ud0b5\ub2c8\ub2e4.\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\uae30\ucc28\ub294 10\ubd84 \uc804\uc5d0 \ub5a0\ub0ac\uc2b5\ub2c8\ub2e4.)</i>\",\n    ilyaTricky: \"\ud56d\uc0c1 \uacfc\uac70 \uc2dc\uc81c(\ubcf5\ud569 \uacfc\uac70 \ub4f1)\uc640 \ud568\uaed8 \uc0ac\uc6a9\ud558\uc138\uc694. \uc9c1\uc5ed\ud558\uba74 '\uc788\ub2e4'\uc9c0\ub9cc, '~\uc804\uc5d0'\ub97c \uc758\ubbf8\ud569\ub2c8\ub2e4.\",\n    dansLbl: \"\ubbf8\ub798\ub97c \ud5a5\ud55c \uce74\uc6b4\ud2b8\ub2e4\uc6b4\",\n    dansDesc: \"<b>dans</b> (~\ud6c4\uc5d0)\ub294 \ubbf8\ub798 \ub3d9\uc791\uc774 \uc5b8\uc81c \ubc1c\uc0dd\ud560\uc9c0\uc5d0 \ub300\ud55c \uce74\uc6b4\ud2b8\ub2e4\uc6b4\uc744 \uc81c\uacf5\ud569\ub2c8\ub2e4.\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\uc218\uc5c5\uc740 5\ubd84 \ud6c4\uc5d0 \uc2dc\uc791\ub429\ub2c8\ub2e4.)</i>\",\n    dansTricky: \"<b>dans</b>\ub294 '\uc9c0\uae08\ubd80\ud130 ~\ud6c4\uc5d0'\uc5d0 \uc0ac\uc6a9\ud558\uace0, <b>en</b>\uc740 '\uc644\ub8cc\ud558\ub294 \ub370 ~\uac00 \uac78\ub9b0\ub2e4'\uc5d0 \uc0ac\uc6a9\ud569\ub2c8\ub2e4.\",\n    pendantLbl: \"\ud55c\uc815\ub41c \uc2dc\uac04 \ub2e8\uc704\",\n    pendantDesc: \"<b>pendant</b> (~\ub3d9\uc548)\ub294 \uc2dc\uc791\uacfc \ub05d\uc774 \uba85\ud655\ud788 \uc644\ub8cc\ub418\uac70\ub098 \uc815\uc758\ub41c \uc9c0\uc18d \uae30\uac04\uc744 \uc124\uba85\ud569\ub2c8\ub2e4.\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\uc800\ub294 9\uc2dc\uac04 \ub3d9\uc548 \uc7a4\uc2b5\ub2c8\ub2e4.)</i>\",\n    pendantTricky: \"\ub3d9\uc791\uc774 \ub05d\ub0ac\ub2e4\uba74 <b>pendant</b>\uc744 \uc0ac\uc6a9\ud558\uace0, \uc544\uc9c1 \uc9c4\ud589 \uc911\uc774\ub77c\uba74 <b>depuis</b>\ub97c \uc0ac\uc6a9\ud558\uc138\uc694.\"\n  },\n  zh: {\n    past: \"\u8fc7\u53bb\", present: \"\u73b0\u5728\", future: \"\u5c06\u6765\", trickyLabel: \"\u68d8\u624b\u89c4\u5219\",\n    depuisLbl: \"\u52a8\u4f5c\u6301\u7eed\u5230\u73b0\u5728\",\n    depuisDesc: \"<b>depuis</b> (\u81ea\u4ece/\u6301\u7eed) \u63cf\u8ff0\u4e00\u4e2a\u8fc7\u53bb\u5f00\u59cb\u4e14\u73b0\u5728\u4ecd\u5728\u7ee7\u7eed\u7684\u52a8\u4f5c\u3002\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\u6211\u4ece2020\u5e74\u5f00\u59cb\u5728\u8fd9\u91cc\u5de5\u4f5c\u3002)</i>\",\n    depuisTricky: \"\u4e0d\u8981\u4f7f\u7528\u8fc7\u53bb\u65f6\uff01\u5982\u679c\u5b83\u4ecd\u5728\u53d1\u751f\uff0c\u8bf7\u4f7f\u7528<b>\u73b0\u5728\u65f6</b>\u3002\",\n    ilyaLbl: \"\u8fc7\u53bb\u7684\u65f6\u95f4\u70b9\",\n    ilyaDesc: \"<b>il y a</b> (\u4ee5\u524d) \u6307\u5411\u8fc7\u53bb\u4e00\u4e2a\u7279\u5b9a\u5df2\u5b8c\u6210\u7684\u65f6\u523b\u3002\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\u706b\u8f6610\u5206\u949f\u524d\u79bb\u5f00\u4e86\u3002)</i>\",\n    ilyaTricky: \"\u603b\u662f\u548c\u8fc7\u53bb\u65f6\u4e00\u8d77\u4f7f\u7528\u3002\u5b83\u7684\u5b57\u9762\u7ffb\u8bd1\u662f'\u6709'\uff0c\u4f46\u610f\u601d\u662f'\u4ee5\u524d'\u3002\",\n    dansLbl: \"\u5012\u8ba1\u65f6\u5230\u5c06\u6765\",\n    dansDesc: \"<b>dans</b> (\u5728...\u4e4b\u540e) \u7ed9\u51fa\u5c06\u6765\u52a8\u4f5c\u53d1\u751f\u65f6\u95f4\u7684\u5012\u8ba1\u65f6\u3002\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\u8bfe\u7a0b\u57285\u5206\u949f\u540e\u5f00\u59cb\u3002)</i>\",\n    dansTricky: \"\u7528<b>dans</b>\u8868\u793a'\u4ece\u73b0\u5728\u8d77(\u5012\u8ba1\u65f6)'\u3002\u7528<b>en</b>\u8868\u793a'\u82b1\u8d39(\u6301\u7eed\u65f6\u95f4)\u5b8c\u6210'\u3002\",\n    pendantLbl: \"\u5c01\u95ed\u7684\u65f6\u95f4\u6bb5\",\n    pendantDesc: \"<b>pendant</b> (\u5728...\u671f\u95f4/\u6301\u7eed) \u63cf\u8ff0\u4e00\u4e2a\u5df2\u5b8c\u6210\u6216\u6709\u660e\u786e\u8d77\u6b62\u7684\u6301\u7eed\u65f6\u95f4\u3002\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\u6211\u7761\u4e869\u4e2a\u5c0f\u65f6\u3002)</i>\",\n    pendantTricky: \"\u5982\u679c\u52a8\u4f5c\u7ed3\u675f\u4e86\uff0c\u7528<b>pendant</b>\u3002\u5982\u679c\u8fd8\u5728\u7ee7\u7eed\uff0c\u7528<b>depuis</b>\u3002\"\n  }\n};\n\nwindow.tlDataConfig = {\n  depuis: { left: '15%', width: '35%', color: '#3b82f6' },\n  ilya:   { left: '25%', width: '12px', color: '#ef4444' },\n  dans:   { left: '55%', width: '25%', color: '#10b981' },\n  pendant:{ left: '15%', width: '20%', color: '#8b5cf6' }\n};\n\nwindow.currentTlPrep = 'depuis';\n\nfunction updateTlLang() {\n  const lang = window.currentLang || 'en';\n  const t = window.tlTranslations[lang] || window.tlTranslations.en;\n  document.querySelector('[data-i18n-tl=\"past\"]').textContent = t.past;\n  document.querySelector('[data-i18n-tl=\"present\"]').textContent = t.present;\n  document.querySelector('[data-i18n-tl=\"future\"]').textContent = t.future;\n  showTimeline(window.currentTlPrep); // refresh text\n}\n\nfunction showTimeline(prep) {\n  window.currentTlPrep = prep;\n  document.querySelectorAll('.tl-btn').forEach(b => b.classList.remove('active'));\n  document.getElementById('btn-' + prep).classList.add('active');\n  \n  const dCfg = window.tlDataConfig[prep];\n  const lang = window.currentLang || 'en';\n  const t = window.tlTranslations[lang] || window.tlTranslations.en;\n  \n  const ov = document.getElementById('tl-overlay');\n  ov.style.left = dCfg.left;\n  ov.style.width = dCfg.width;\n  ov.style.backgroundColor = dCfg.color;\n  ov.style.opacity = '0.7';\n  \n  if (prep === 'ilya' || prep === 'dans') {\n    ov.style.borderRadius = '6px';\n  } else {\n    ov.style.borderRadius = '4px';\n  }\n\n  const lbl = document.getElementById('tl-label');\n  lbl.textContent = t[prep + 'Lbl'];\n  lbl.style.color = dCfg.color;\n  lbl.style.opacity = '1';\n  \n  if (prep === 'depuis') lbl.style.left = '20%';\n  if (prep === 'ilya') lbl.style.left = '10%';\n  if (prep === 'dans') lbl.style.left = '55%';\n  if (prep === 'pendant') lbl.style.left = '10%';\n  \n  const info = document.getElementById('tl-info');\n  info.style.borderLeftColor = dCfg.color;\n  info.innerHTML = `\n    <div style=\"font-size:1.05rem; margin-bottom: 8px; color: var(--text-primary);\">${t[prep + 'Desc']}</div>\n    <div style=\"background: color-mix(in srgb, ${dCfg.color} 10%, transparent); padding: 10px 14px; border-radius: 6px; margin-bottom: 8px; font-size: 0.95rem; line-height: 1.4;\">${t[prep + 'Ex']}</div>\n    <div class=\"tl-tricky\">\n      <div class=\"tl-tricky-title\"><span class=\"ms ms-sm\">warning</span> ${t.trickyLabel}</div>\n      ${t[prep + 'Tricky']}\n    </div>\n  `;\n}\n\n// Intercept window.render to also update our timeline translation\nconst oldRenderTl = window.render;\nif (oldRenderTl) {\n  window.render = function() {\n    oldRenderTl();\n    if(document.getElementById('timeline-visual')) {\n      updateTlLang();\n    }\n  }\n} else {\n  // if this runs before render is defined, we can hook into updateAppSubtitle maybe\n  // or just setInterval for safety\n  setInterval(() => {\n    if(document.getElementById('timeline-visual') && document.getElementById('btn-depuis').dataset.lang !== window.currentLang) {\n      document.getElementById('btn-depuis').dataset.lang = window.currentLang;\n      updateTlLang();\n    }\n  }, 500);\n}\n\nsetTimeout(() => showTimeline('depuis'), 100);\n<\/script>\n"
+        "customHtml": "\n<style>\n.tl-wrap { margin-top:16px; background: linear-gradient(160deg, color-mix(in srgb, var(--blue) 6%, transparent), transparent 50%), var(--surface-1); border:1px solid var(--border); border-radius: var(--r-lg); padding: 20px 22px 22px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }\n.tl-btns { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:24px; }\n.tl-btn { padding:7px 18px; border-radius:999px; border:1px solid var(--border); background:var(--surface-2); color:var(--text-secondary); cursor:pointer; font-weight:600; font-size:0.82rem; font-family:inherit; letter-spacing:0.02em; transition:all 0.2s cubic-bezier(0.4,0,0.2,1); }\n.tl-btn:hover:not(.active) { background:var(--surface-3); color:var(--text-primary); border-color:var(--border-strong); }\n.tl-btn.active { background:var(--primary); color:#fff; border-color:transparent; box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 25%,transparent), 0 4px 12px color-mix(in srgb,var(--primary) 35%,transparent); }\n.tl-stage { position:relative; margin:60px 0 28px; height:56px; display:flex; align-items:center; }\n.tl-rail { position:absolute; left:5%; width:90%; height:5px; background: linear-gradient(90deg, var(--border-subtle), var(--border), var(--border-subtle)); border-radius:3px; top:50%; transform:translateY(-50%); }\n.tl-tick { position:absolute; top:50%; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:6px; }\n.tl-tick-dot { width:11px; height:11px; border-radius:50%; background:var(--surface-3); border:2px solid var(--border-strong); z-index:2; }\n.tl-tick-now { width:16px; height:16px; border-radius:50%; background:var(--primary); border:3px solid var(--surface-1); box-shadow:0 0 0 2.5px var(--primary), 0 0 12px color-mix(in srgb,var(--primary) 55%,transparent); z-index:3; }\n.tl-tick-lbl { font-size:0.72rem; font-weight:600; color:var(--text-muted); white-space:nowrap; margin-top:2px; }\n.tl-tick-lbl.now { color:var(--primary); font-size:0.78rem; }\n.tl-overlay { position:absolute; height:9px; top:50%; transform:translateY(-50%); border-radius:5px; transition:all 0.45s cubic-bezier(0.4,0,0.2,1); opacity:0; z-index:1; filter:brightness(1.15); }\n.tl-lbl { position:absolute; top:-38px; font-size:0.78rem; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; transition:all 0.4s ease; opacity:0; transform:translateX(-50%); white-space:nowrap; padding:3px 8px; border-radius:6px; }\n.tl-info { background:var(--surface-2); border-radius:var(--r-md); border-left:4px solid var(--primary); padding:16px 18px; min-height:110px; transition:border-color 0.3s ease; }\n.tl-desc { font-size:0.9rem; color:var(--text-primary); margin-bottom:10px; line-height:1.6; }\n.tl-ex { padding:10px 14px; border-radius:8px; margin-bottom:10px; font-size:0.875rem; line-height:1.5; font-family: 'Azeret Mono', monospace; }\n.tl-tricky { margin-top:10px; font-size:0.83rem; color:var(--text-secondary); padding:10px 12px; border-radius:8px; background:rgba(245,158,11,0.07); border:1px solid rgba(245,158,11,0.15); line-height:1.55; }\n.tl-tricky-title { font-weight:700; color:#f59e0b; display:flex; align-items:center; gap:5px; margin-bottom:5px; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; }\n@media(max-width:600px){.tl-btn{padding:6px 13px;font-size:0.78rem;}.tl-lbl{font-size:0.7rem;}}\n</style>\n<div class='tl-wrap'>\n  <div class='tl-btns'>\n    <button class='tl-btn active' onclick='showTimeline(\"depuis\")' id='btn-depuis'>depuis</button>\n    <button class='tl-btn' onclick='showTimeline(\"ilya\")' id='btn-ilya'>il y a</button>\n    <button class='tl-btn' onclick='showTimeline(\"dans\")' id='btn-dans'>dans</button>\n    <button class='tl-btn' onclick='showTimeline(\"pendant\")' id='btn-pendant'>pendant</button>\n  </div>\n  <div id='timeline-visual' class='tl-stage'>\n    <div class='tl-rail'></div>\n    <div class='tl-tick' style='left:10%'>\n      <div class='tl-tick-dot'></div>\n      <div class='tl-tick-lbl' data-i18n-tl=\"past\">Past</div>\n    </div>\n    <div class='tl-tick' style='left:50%'>\n      <div class='tl-tick-now'></div>\n      <div class='tl-tick-lbl now' data-i18n-tl=\"present\">Present</div>\n    </div>\n    <div class='tl-tick' style='left:90%'>\n      <div class='tl-tick-dot'></div>\n      <div class='tl-tick-lbl' data-i18n-tl=\"future\">Future</div>\n    </div>\n    <div class='tl-overlay' id='tl-overlay'></div>\n    <div class='tl-lbl' id='tl-label'></div>\n  </div>\n  <div class='tl-info' id='tl-info'></div>\n</div>\n\n<script>\nwindow.tlTranslations = {\n  en: {\n    past: \"Past\", present: \"Present\", future: \"Future\",\n    trickyLabel: \"Tricky Rule\",\n    depuisLbl: \"Action continues to present\",\n    depuisDesc: \"<b>depuis</b> (since/for) describes an action that started in the past and is STILL continuing in the present.\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(I have been working here since 2020.)</i>\",\n    depuisTricky: \"Do not use past tense! In French, if it is still happening, use the <b>present tense</b>. <br>\u274c <i>J\\'ai travaill\u00e9 ici depuis un an.</i><br>\u2705 <i>Je travaille ici depuis un an.</i>\",\n    ilyaLbl: \"Point in time past\",\n    ilyaDesc: \"<b>il y a</b> (ago) points to a specific completed moment in the past.\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(The train left 10 minutes ago.)</i>\",\n    ilyaTricky: \"Always use it with a past tense (like Pass\u00e9 Compos\u00e9). It translates literally to 'there is', but means 'ago'.\",\n    dansLbl: \"Countdown to future\",\n    dansDesc: \"<b>dans</b> (in) gives a countdown to when a future action will happen.\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(The class starts in 5 minutes.)</i>\",\n    dansTricky: \"Use <b>dans</b> for 'in [time from now]' (countdown). Use <b>en</b> for 'takes [time duration] to complete'.<br>\u2705 <i>Il part dans 1h (countdown).</i><br>\u2705 <i>Il a fait ses devoirs en 1h (duration).</i>\",\n    pendantLbl: \"Closed block of time\",\n    pendantDesc: \"<b>pendant</b> (for/during) describes a completed or defined duration with a clear start and end.\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(I slept for 9 hours.)</i>\",\n    pendantTricky: \"If the action is over, use <b>pendant</b>. If it is still happening, use <b>depuis</b>.\"\n  },\n  gu: {\n    past: \"\u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\", present: \"\u0ab5\u0ab0\u0acd\u0aa4\u0aae\u0abe\u0aa8\", future: \"\u0aad\u0ab5\u0abf\u0ab7\u0acd\u0aaf\", trickyLabel: \"\u0aae\u0ac1\u0ab6\u0acd\u0a95\u0ac7\u0ab2 \u0aa8\u0abf\u0aaf\u0aae\",\n    depuisLbl: \"\u0a95\u0acd\u0ab0\u0abf\u0aaf\u0abe \u0ab5\u0ab0\u0acd\u0aa4\u0aae\u0abe\u0aa8 \u0ab8\u0ac1\u0aa7\u0ac0 \u0a9a\u0abe\u0ab2\u0ac1 \u0ab0\u0ab9\u0ac7 \u0a9b\u0ac7\",\n    depuisDesc: \"<b>depuis</b> (\u0aa4\u0acd\u0aaf\u0abe\u0ab0\u0aa5\u0ac0/\u0aae\u0abe\u0a9f\u0ac7) \u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\u0aae\u0abe\u0a82 \u0ab6\u0ab0\u0ac2 \u0aa5\u0aaf\u0ac7\u0ab2\u0ac0 \u0a85\u0aa8\u0ac7 \u0ab5\u0ab0\u0acd\u0aa4\u0aae\u0abe\u0aa8\u0aae\u0abe\u0a82 \u0ab9\u0a9c\u0ac0 \u0a9a\u0abe\u0ab2\u0ac1 \u0a95\u0acd\u0ab0\u0abf\u0aaf\u0abe\u0aa8\u0ac1\u0a82 \u0ab5\u0ab0\u0acd\u0aa3\u0aa8 \u0a95\u0ab0\u0ac7 \u0a9b\u0ac7.\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\u0ab9\u0ac1\u0a82 2020 \u0aa5\u0ac0 \u0a85\u0ab9\u0ac0\u0a82 \u0a95\u0abe\u0aae \u0a95\u0ab0\u0ac1\u0a82 \u0a9b\u0ac1\u0a82.)</i>\",\n    depuisTricky: \"\u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 \u0a95\u0ab0\u0ab6\u0acb \u0aa8\u0ab9\u0ac0\u0a82! \u0a9c\u0acb \u0aa4\u0ac7 \u0ab9\u0a9c\u0ac0 \u0a9a\u0abe\u0ab2\u0ac1 \u0ab9\u0acb\u0aaf, \u0aa4\u0acb <b>\u0ab5\u0ab0\u0acd\u0aa4\u0aae\u0abe\u0aa8 \u0a95\u0abe\u0ab3</b> \u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 \u0a95\u0ab0\u0acb. <br>\u274c <i>J\\'ai travaill\u00e9 ici depuis un an.</i><br>\u2705 <i>Je travaille ici depuis un an.</i>\",\n    ilyaLbl: \"\u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\u0aa8\u0acb \u0a9a\u0acb\u0a95\u0acd\u0a95\u0ab8 \u0ab8\u0aae\u0aaf\",\n    ilyaDesc: \"<b>il y a</b> (\u0aaa\u0ab9\u0ac7\u0ab2\u0abe\u0a82) \u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3\u0aa8\u0ac0 \u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0aaf\u0ac7\u0ab2\u0ac0 \u0a9a\u0acb\u0a95\u0acd\u0a95\u0ab8 \u0a95\u0acd\u0ab7\u0aa3 \u0aa6\u0ab0\u0acd\u0ab6\u0abe\u0ab5\u0ac7 \u0a9b\u0ac7.\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\u0a9f\u0acd\u0ab0\u0ac7\u0aa8 10 \u0aae\u0abf\u0aa8\u0abf\u0a9f \u0aaa\u0ab9\u0ac7\u0ab2\u0abe\u0a82 \u0aa8\u0ac0\u0a95\u0ab3\u0ac0 \u0ab9\u0aa4\u0ac0.)</i>\",\n    ilyaTricky: \"\u0ab9\u0a82\u0aae\u0ac7\u0ab6\u0abe \u0aa4\u0ac7\u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 \u0aad\u0ac2\u0aa4\u0a95\u0abe\u0ab3 \u0ab8\u0abe\u0aa5\u0ac7 \u0a95\u0ab0\u0acb. \u0aa4\u0ac7\u0aa8\u0acb \u0ab6\u0abe\u0aac\u0acd\u0aa6\u0abf\u0a95 \u0a85\u0ab0\u0acd\u0aa5 '\u0aa4\u0acd\u0aaf\u0abe\u0a82 \u0a9b\u0ac7' \u0aa5\u0abe\u0aaf \u0a9b\u0ac7, \u0aaa\u0aa3 \u0aae\u0aa4\u0ab2\u0aac '\u0aaa\u0ab9\u0ac7\u0ab2\u0abe\u0a82' \u0aa5\u0abe\u0aaf \u0a9b\u0ac7.\",\n    dansLbl: \"\u0aad\u0ab5\u0abf\u0ab7\u0acd\u0aaf \u0aae\u0abe\u0a9f\u0ac7 \u0a95\u0abe\u0a89\u0aa8\u0acd\u0a9f\u0aa1\u0abe\u0a89\u0aa8\",\n    dansDesc: \"<b>dans</b> (\u0aae\u0abe\u0a82) \u0aad\u0ab5\u0abf\u0ab7\u0acd\u0aaf\u0aa8\u0ac0 \u0a95\u0acd\u0ab0\u0abf\u0aaf\u0abe \u0a95\u0acd\u0aaf\u0abe\u0ab0\u0ac7 \u0aa5\u0ab6\u0ac7 \u0aa4\u0ac7\u0aa8\u0ac1\u0a82 \u0a95\u0abe\u0a89\u0aa8\u0acd\u0a9f\u0aa1\u0abe\u0a89\u0aa8 \u0a86\u0aaa\u0ac7 \u0a9b\u0ac7.\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\u0ab5\u0ab0\u0acd\u0a97 5 \u0aae\u0abf\u0aa8\u0abf\u0a9f\u0aae\u0abe\u0a82 \u0ab6\u0ab0\u0ac2 \u0aa5\u0ab6\u0ac7.)</i>\",\n    dansTricky: \"<b>dans</b> \u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 '\u0ab9\u0ab5\u0ac7 \u0aaa\u0a9b\u0ac0\u0aa8\u0abe \u0ab8\u0aae\u0aaf\u0aae\u0abe\u0a82' \u0aae\u0abe\u0a9f\u0ac7 \u0a95\u0ab0\u0acb. <b>en</b> \u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 '\u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0ab5\u0abe\u0aae\u0abe\u0a82 \u0ab2\u0abe\u0a97\u0aa4\u0acb \u0ab8\u0aae\u0aaf' \u0aae\u0abe\u0a9f\u0ac7 \u0a95\u0ab0\u0acb.\",\n    pendantLbl: \"\u0aa8\u0abf\u0ab6\u0acd\u0a9a\u0abf\u0aa4 \u0ab8\u0aae\u0aaf\u0a97\u0abe\u0ab3\u0acb\",\n    pendantDesc: \"<b>pendant</b> (\u0aa6\u0ab0\u0aae\u0abf\u0aaf\u0abe\u0aa8/\u0aae\u0abe\u0a9f\u0ac7) \u0ab8\u0acd\u0aaa\u0ab7\u0acd\u0a9f \u0ab6\u0ab0\u0ac2\u0a86\u0aa4 \u0a85\u0aa8\u0ac7 \u0a85\u0a82\u0aa4 \u0ab8\u0abe\u0aa5\u0ac7 \u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0aaf\u0ac7\u0ab2 \u0a85\u0aa5\u0ab5\u0abe \u0ab5\u0acd\u0aaf\u0abe\u0a96\u0acd\u0aaf\u0abe\u0aaf\u0abf\u0aa4 \u0ab8\u0aae\u0aaf\u0a97\u0abe\u0ab3\u0abe\u0aa8\u0ac1\u0a82 \u0ab5\u0ab0\u0acd\u0aa3\u0aa8 \u0a95\u0ab0\u0ac7 \u0a9b\u0ac7.\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\u0ab9\u0ac1\u0a82 9 \u0a95\u0ab2\u0abe\u0a95 \u0a8a\u0a82\u0a98\u0acd\u0aaf\u0acb.)</i>\",\n    pendantTricky: \"\u0a9c\u0acb \u0a95\u0acd\u0ab0\u0abf\u0aaf\u0abe \u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0a88 \u0a97\u0a88 \u0ab9\u0acb\u0aaf, \u0aa4\u0acb <b>pendant</b> \u0ab5\u0abe\u0aaa\u0ab0\u0acb. \u0a9c\u0acb \u0ab9\u0a9c\u0ac0 \u0a9a\u0abe\u0ab2\u0ac1 \u0ab9\u0acb\u0aaf, \u0aa4\u0acb <b>depuis</b> \u0ab5\u0abe\u0aaa\u0ab0\u0acb.\"\n  },\n  hi: {\n    past: \"\u0905\u0924\u0940\u0924\", present: \"\u0935\u0930\u094d\u0924\u092e\u093e\u0928\", future: \"\u092d\u0935\u093f\u0937\u094d\u092f\", trickyLabel: \"\u0915\u0920\u093f\u0928 \u0928\u093f\u092f\u092e\",\n    depuisLbl: \"\u0915\u093e\u0930\u094d\u0930\u0935\u093e\u0908 \u0935\u0930\u094d\u0924\u092e\u093e\u0928 \u092e\u0947\u0902 \u091c\u093e\u0930\u0940 \u0939\u0948\",\n    depuisDesc: \"<b>depuis</b> (\u0938\u0947/\u0915\u0947 \u0932\u093f\u090f) \u0909\u0938 \u0915\u093e\u0930\u094d\u0930\u0935\u093e\u0908 \u0915\u093e \u0935\u0930\u094d\u0923\u0928 \u0915\u0930\u0924\u093e \u0939\u0948 \u091c\u094b \u0905\u0924\u0940\u0924 \u092e\u0947\u0902 \u0936\u0941\u0930\u0942 \u0939\u0941\u0908 \u0925\u0940 \u0914\u0930 \u0935\u0930\u094d\u0924\u092e\u093e\u0928 \u092e\u0947\u0902 \u0905\u092d\u0940 \u092d\u0940 \u091c\u093e\u0930\u0940 \u0939\u0948\u0964\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\u092e\u0948\u0902 2020 \u0938\u0947 \u092f\u0939\u093e\u0902 \u0915\u093e\u092e \u0915\u0930 \u0930\u0939\u093e \u0939\u0942\u0902\u0964)</i>\",\n    depuisTricky: \"\u092d\u0942\u0924\u0915\u093e\u0932 \u0915\u093e \u092a\u094d\u0930\u092f\u094b\u0917 \u0928 \u0915\u0930\u0947\u0902! \u092f\u0926\u093f \u092f\u0939 \u0905\u092d\u0940 \u092d\u0940 \u0939\u094b \u0930\u0939\u093e \u0939\u0948, \u0924\u094b <b>\u0935\u0930\u094d\u0924\u092e\u093e\u0928 \u0915\u093e\u0932</b> \u0915\u093e \u092a\u094d\u0930\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964 <br>\u274c <i>J\\'ai travaill\u00e9 ici depuis un an.</i><br>\u2705 <i>Je travaille ici depuis un an.</i>\",\n    ilyaLbl: \"\u0905\u0924\u0940\u0924 \u0915\u093e \u090f\u0915 \u092c\u093f\u0902\u0926\u0941\",\n    ilyaDesc: \"<b>il y a</b> (\u092a\u0939\u0932\u0947) \u0905\u0924\u0940\u0924 \u092e\u0947\u0902 \u090f\u0915 \u0935\u093f\u0936\u093f\u0937\u094d\u091f \u092a\u0942\u0930\u094d\u0923 \u0915\u094d\u0937\u0923 \u0915\u094b \u0907\u0902\u0917\u093f\u0924 \u0915\u0930\u0924\u093e \u0939\u0948\u0964\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\u091f\u094d\u0930\u0947\u0928 10 \u092e\u093f\u0928\u091f \u092a\u0939\u0932\u0947 \u0928\u093f\u0915\u0932 \u0917\u0908\u0964)</i>\",\n    ilyaTricky: \"\u0907\u0938\u0947 \u0939\u092e\u0947\u0936\u093e \u092d\u0942\u0924\u0915\u093e\u0932 \u0915\u0947 \u0938\u093e\u0925 \u092a\u094d\u0930\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964 \u0907\u0938\u0915\u093e \u0936\u093e\u092c\u094d\u0926\u093f\u0915 \u0905\u0928\u0941\u0935\u093e\u0926 '\u0935\u0939\u093e\u0901 \u0939\u0948' \u0939\u094b\u0924\u093e \u0939\u0948, \u0932\u0947\u0915\u093f\u0928 \u0905\u0930\u094d\u0925 '\u092a\u0939\u0932\u0947' \u0939\u094b\u0924\u093e \u0939\u0948\u0964\",\n    dansLbl: \"\u092d\u0935\u093f\u0937\u094d\u092f \u0915\u0947 \u0932\u093f\u090f \u0909\u0932\u091f\u0940 \u0917\u093f\u0928\u0924\u0940\",\n    dansDesc: \"<b>dans</b> (\u092e\u0947\u0902) \u090f\u0915 \u0909\u0932\u091f\u0940 \u0917\u093f\u0928\u0924\u0940 \u0926\u0947\u0924\u093e \u0939\u0948 \u0915\u093f \u092d\u0935\u093f\u0937\u094d\u092f \u0915\u0940 \u0915\u093e\u0930\u094d\u0930\u0935\u093e\u0908 \u0915\u092c \u0939\u094b\u0917\u0940\u0964\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\u0915\u0915\u094d\u0937\u093e 5 \u092e\u093f\u0928\u091f \u092e\u0947\u0902 \u0936\u0941\u0930\u0942 \u0939\u094b\u0924\u0940 \u0939\u0948\u0964)</i>\",\n    dansTricky: \"<b>dans</b> \u0915\u093e \u092a\u094d\u0930\u092f\u094b\u0917 '\u0905\u092c \u0938\u0947 [\u0938\u092e\u092f] \u092e\u0947\u0902' \u0915\u0947 \u0932\u093f\u090f \u0915\u0930\u0947\u0902\u0964 <b>en</b> \u0915\u093e \u092a\u094d\u0930\u092f\u094b\u0917 '\u092a\u0942\u0930\u093e \u0939\u094b\u0928\u0947 \u092e\u0947\u0902 [\u0905\u0935\u0927\u093f] \u0932\u0917\u0924\u093e \u0939\u0948' \u0915\u0947 \u0932\u093f\u090f \u0915\u0930\u0947\u0902\u0964\",\n    pendantLbl: \"\u0938\u092e\u092f \u0915\u093e \u090f\u0915 \u0928\u093f\u0936\u094d\u091a\u093f\u0924 \u0916\u0902\u0921\",\n    pendantDesc: \"<b>pendant</b> (\u0915\u0947 \u0926\u094c\u0930\u093e\u0928/\u0915\u0947 \u0932\u093f\u090f) \u0938\u094d\u092a\u0937\u094d\u091f \u0936\u0941\u0930\u0941\u0906\u0924 \u0914\u0930 \u0905\u0902\u0924 \u0915\u0947 \u0938\u093e\u0925 \u090f\u0915 \u092a\u0942\u0930\u094d\u0923 \u092f\u093e \u092a\u0930\u093f\u092d\u093e\u0937\u093f\u0924 \u0905\u0935\u0927\u093f \u0915\u093e \u0935\u0930\u094d\u0923\u0928 \u0915\u0930\u0924\u093e \u0939\u0948\u0964\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\u092e\u0948\u0902 9 \u0918\u0902\u091f\u0947 \u0938\u094b\u092f\u093e\u0964)</i>\",\n    pendantTricky: \"\u092f\u0926\u093f \u0915\u093e\u0930\u094d\u0930\u0935\u093e\u0908 \u0938\u092e\u093e\u092a\u094d\u0924 \u0939\u094b \u0917\u0908 \u0939\u0948, \u0924\u094b <b>pendant</b> \u0915\u093e \u0909\u092a\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964 \u092f\u0926\u093f \u092f\u0939 \u0905\u092d\u0940 \u092d\u0940 \u0939\u094b \u0930\u0939\u093e \u0939\u0948, \u0924\u094b <b>depuis</b> \u0915\u093e \u0909\u092a\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964\"\n  },\n  ta: {\n    past: \"\u0b95\u0b9f\u0ba8\u0bcd\u0ba4\u0b95\u0bbe\u0bb2\u0bae\u0bcd\", present: \"\u0ba8\u0bbf\u0b95\u0bb4\u0bcd\u0b95\u0bbe\u0bb2\u0bae\u0bcd\", future: \"\u0b8e\u0ba4\u0bbf\u0bb0\u0bcd\u0b95\u0bbe\u0bb2\u0bae\u0bcd\", trickyLabel: \"\u0b95\u0b9f\u0bbf\u0ba9\u0bae\u0bbe\u0ba9 \u0bb5\u0bbf\u0ba4\u0bbf\",\n    depuisLbl: \"\u0b9a\u0bc6\u0baf\u0bb2\u0bcd \u0ba8\u0bbf\u0b95\u0bb4\u0bcd\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0ba4\u0bca\u0b9f\u0bb0\u0bcd\u0b95\u0bbf\u0bb1\u0ba4\u0bc1\",\n    depuisDesc: \"<b>depuis</b> (\u0b87\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1/\u0b95\u0bcd\u0b95\u0bbe\u0b95) \u0b95\u0b9f\u0ba8\u0bcd\u0ba4 \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0ba4\u0bca\u0b9f\u0b99\u0bcd\u0b95\u0bbf \u0ba4\u0bb1\u0bcd\u0baa\u0bcb\u0ba4\u0bc1 \u0bb5\u0bb0\u0bc8 \u0ba4\u0bca\u0b9f\u0bb0\u0bc1\u0bae\u0bcd \u0b92\u0bb0\u0bc1 \u0b9a\u0bc6\u0baf\u0bb2\u0bc8 \u0bb5\u0bbf\u0bb5\u0bb0\u0bbf\u0b95\u0bcd\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\u0ba8\u0bbe\u0ba9\u0bcd 2020 \u0bae\u0bc1\u0ba4\u0bb2\u0bcd \u0b87\u0b99\u0bcd\u0b95\u0bc1 \u0bb5\u0bc7\u0bb2\u0bc8 \u0b9a\u0bc6\u0baf\u0bcd\u0b95\u0bbf\u0bb1\u0bc7\u0ba9\u0bcd.)</i>\",\n    depuisTricky: \"\u0b95\u0b9f\u0ba8\u0bcd\u0ba4 \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bc8 \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4 \u0bb5\u0bc7\u0ba3\u0bcd\u0b9f\u0bbe\u0bae\u0bcd! \u0b85\u0ba4\u0bc1 \u0b87\u0ba9\u0bcd\u0ba9\u0bc1\u0bae\u0bcd \u0ba8\u0b9f\u0ba8\u0bcd\u0ba4\u0bbe\u0bb2\u0bcd, <b>\u0ba8\u0bbf\u0b95\u0bb4\u0bcd\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bc8</b> \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.\",\n    ilyaLbl: \"\u0b95\u0b9f\u0ba8\u0bcd\u0ba4\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0b92\u0bb0\u0bc1 \u0baa\u0bc1\u0bb3\u0bcd\u0bb3\u0bbf\",\n    ilyaDesc: \"<b>il y a</b> (\u0bae\u0bc1\u0ba9\u0bcd\u0baa\u0bc1) \u0b95\u0b9f\u0ba8\u0bcd\u0ba4\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc1\u0b9f\u0bbf\u0ba8\u0bcd\u0ba4 \u0b92\u0bb0\u0bc1 \u0b95\u0bc1\u0bb1\u0bbf\u0baa\u0bcd\u0baa\u0bbf\u0b9f\u0bcd\u0b9f \u0ba8\u0bc7\u0bb0\u0ba4\u0bcd\u0ba4\u0bc8 \u0b95\u0bc1\u0bb1\u0bbf\u0b95\u0bcd\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\u0bb0\u0baf\u0bbf\u0bb2\u0bcd 10 \u0ba8\u0bbf\u0bae\u0bbf\u0b9f\u0b99\u0bcd\u0b95\u0bb3\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0bae\u0bc1\u0ba9\u0bcd\u0baa\u0bc1 \u0b9a\u0bc6\u0ba9\u0bcd\u0bb1\u0ba4\u0bc1.)</i>\",\n    ilyaTricky: \"\u0b8e\u0baa\u0bcd\u0baa\u0bcb\u0ba4\u0bc1\u0bae\u0bcd \u0b85\u0ba4\u0bc8 \u0b87\u0bb1\u0ba8\u0bcd\u0ba4 \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bc1\u0b9f\u0ba9\u0bcd \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.\",\n    dansLbl: \"\u0b8e\u0ba4\u0bbf\u0bb0\u0bcd\u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb1\u0bcd\u0b95\u0bbe\u0ba9 \u0b95\u0bb5\u0bc1\u0ba3\u0bcd\u0b9f\u0bb5\u0bc1\u0ba9\u0bcd\",\n    dansDesc: \"<b>dans</b> (\u0b87\u0bb2\u0bcd) \u0b8e\u0ba4\u0bbf\u0bb0\u0bcd\u0b95\u0bbe\u0bb2 \u0b9a\u0bc6\u0baf\u0bb2\u0bcd \u0b8e\u0baa\u0bcd\u0baa\u0bcb\u0ba4\u0bc1 \u0ba8\u0b9f\u0b95\u0bcd\u0b95\u0bc1\u0bae\u0bcd \u0b8e\u0ba9\u0bcd\u0baa\u0ba4\u0bb1\u0bcd\u0b95\u0bbe\u0ba9 \u0b95\u0bb5\u0bc1\u0ba3\u0bcd\u0b9f\u0bb5\u0bc1\u0ba9\u0bc8 \u0bb5\u0bb4\u0b99\u0bcd\u0b95\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\u0bb5\u0b95\u0bc1\u0baa\u0bcd\u0baa\u0bc1 5 \u0ba8\u0bbf\u0bae\u0bbf\u0b9f\u0b99\u0bcd\u0b95\u0bb3\u0bbf\u0bb2\u0bcd \u0ba4\u0bca\u0b9f\u0b99\u0bcd\u0b95\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.)</i>\",\n    dansTricky: \"<b>dans</b> \u0b90 '\u0b87\u0ba9\u0bbf\u0bae\u0bc7\u0bb2\u0bcd' \u0b8e\u0ba9\u0bcd\u0baa\u0ba4\u0bb1\u0bcd\u0b95\u0bc1\u0bae\u0bcd, <b>en</b> \u0b90 '\u0bae\u0bc1\u0b9f\u0bbf\u0b95\u0bcd\u0b95 \u0b86\u0b95\u0bc1\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bbf\u0bb1\u0bcd\u0b95\u0bc1\u0bae\u0bcd' \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.\",\n    pendantLbl: \"\u0ba8\u0bc7\u0bb0\u0ba4\u0bcd\u0ba4\u0bbf\u0ba9\u0bcd \u0bb5\u0bb0\u0bc8\u0baf\u0bb1\u0bc1\u0b95\u0bcd\u0b95\u0baa\u0bcd\u0baa\u0b9f\u0bcd\u0b9f \u0ba4\u0bca\u0b95\u0bc1\u0ba4\u0bbf\",\n    pendantDesc: \"<b>pendant</b> (\u0bb5\u0bbf\u0ba9\u0bcd \u0baa\u0bcb\u0ba4\u0bc1/\u0b95\u0bcd\u0b95\u0bbe\u0b95) \u0ba4\u0bc6\u0bb3\u0bbf\u0bb5\u0bbe\u0ba9 \u0ba4\u0bca\u0b9f\u0b95\u0bcd\u0b95\u0bae\u0bcd \u0bae\u0bb1\u0bcd\u0bb1\u0bc1\u0bae\u0bcd \u0bae\u0bc1\u0b9f\u0bbf\u0bb5\u0bc1\u0b9f\u0ba9\u0bcd \u0bae\u0bc1\u0b9f\u0bbf\u0ba8\u0bcd\u0ba4 \u0b92\u0bb0\u0bc1 \u0b95\u0bbe\u0bb2\u0ba4\u0bcd\u0ba4\u0bc8 \u0bb5\u0bbf\u0bb5\u0bb0\u0bbf\u0b95\u0bcd\u0b95\u0bbf\u0bb1\u0ba4\u0bc1.\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\u0ba8\u0bbe\u0ba9\u0bcd 9 \u0bae\u0ba3\u0bbf \u0ba8\u0bc7\u0bb0\u0bae\u0bcd \u0ba4\u0bc2\u0b99\u0bcd\u0b95\u0bbf\u0ba9\u0bc7\u0ba9\u0bcd.)</i>\",\n    pendantTricky: \"\u0b9a\u0bc6\u0baf\u0bb2\u0bcd \u0bae\u0bc1\u0b9f\u0bbf\u0ba8\u0bcd\u0ba4\u0bc1\u0bb5\u0bbf\u0b9f\u0bcd\u0b9f\u0bbe\u0bb2\u0bcd, <b>pendant</b> \u0b90\u0baa\u0bcd \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd. \u0ba4\u0bca\u0b9f\u0bb0\u0bcd\u0ba8\u0bcd\u0ba4\u0bbe\u0bb2\u0bcd, <b>depuis</b> \u0b90\u0baa\u0bcd \u0baa\u0baf\u0ba9\u0bcd\u0baa\u0b9f\u0bc1\u0ba4\u0bcd\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.\"\n  },\n  ko: {\n    past: \"\uacfc\uac70\", present: \"\ud604\uc7ac\", future: \"\ubbf8\ub798\", trickyLabel: \"\uae4c\ub2e4\ub85c\uc6b4 \uaddc\uce59\",\n    depuisLbl: \"\ud604\uc7ac\uae4c\uc9c0 \uacc4\uc18d\ub418\ub294 \ub3d9\uc791\",\n    depuisDesc: \"<b>depuis</b> (~\ubd80\ud130/~\ub3d9\uc548)\ub294 \uacfc\uac70\uc5d0 \uc2dc\uc791\ub418\uc5b4 \ud604\uc7ac\uc5d0\ub3c4 \uacc4\uc18d \uc9c4\ud589 \uc911\uc778 \ub3d9\uc791\uc744 \uc124\uba85\ud569\ub2c8\ub2e4.\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\uc800\ub294 2020\ub144\ubd80\ud130 \uc5ec\uae30\uc11c \uc77c\ud558\uace0 \uc788\uc2b5\ub2c8\ub2e4.)</i>\",\n    depuisTricky: \"\uacfc\uac70 \uc2dc\uc81c\ub97c \uc0ac\uc6a9\ud558\uc9c0 \ub9c8\uc138\uc694! \uc544\uc9c1 \uc9c4\ud589 \uc911\uc774\ub77c\uba74 <b>\ud604\uc7ac \uc2dc\uc81c</b>\ub97c \uc0ac\uc6a9\ud574\uc57c \ud569\ub2c8\ub2e4.\",\n    ilyaLbl: \"\uacfc\uac70\uc758 \uc2dc\uc810\",\n    ilyaDesc: \"<b>il y a</b> (~\uc804\uc5d0)\ub294 \uacfc\uac70\uc758 \uc644\ub8cc\ub41c \ud2b9\uc815 \uc21c\uac04\uc744 \uac00\ub9ac\ud0b5\ub2c8\ub2e4.\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\uae30\ucc28\ub294 10\ubd84 \uc804\uc5d0 \ub5a0\ub0ac\uc2b5\ub2c8\ub2e4.)</i>\",\n    ilyaTricky: \"\ud56d\uc0c1 \uacfc\uac70 \uc2dc\uc81c(\ubcf5\ud569 \uacfc\uac70 \ub4f1)\uc640 \ud568\uaed8 \uc0ac\uc6a9\ud558\uc138\uc694. \uc9c1\uc5ed\ud558\uba74 '\uc788\ub2e4'\uc9c0\ub9cc, '~\uc804\uc5d0'\ub97c \uc758\ubbf8\ud569\ub2c8\ub2e4.\",\n    dansLbl: \"\ubbf8\ub798\ub97c \ud5a5\ud55c \uce74\uc6b4\ud2b8\ub2e4\uc6b4\",\n    dansDesc: \"<b>dans</b> (~\ud6c4\uc5d0)\ub294 \ubbf8\ub798 \ub3d9\uc791\uc774 \uc5b8\uc81c \ubc1c\uc0dd\ud560\uc9c0\uc5d0 \ub300\ud55c \uce74\uc6b4\ud2b8\ub2e4\uc6b4\uc744 \uc81c\uacf5\ud569\ub2c8\ub2e4.\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\uc218\uc5c5\uc740 5\ubd84 \ud6c4\uc5d0 \uc2dc\uc791\ub429\ub2c8\ub2e4.)</i>\",\n    dansTricky: \"<b>dans</b>\ub294 '\uc9c0\uae08\ubd80\ud130 ~\ud6c4\uc5d0'\uc5d0 \uc0ac\uc6a9\ud558\uace0, <b>en</b>\uc740 '\uc644\ub8cc\ud558\ub294 \ub370 ~\uac00 \uac78\ub9b0\ub2e4'\uc5d0 \uc0ac\uc6a9\ud569\ub2c8\ub2e4.\",\n    pendantLbl: \"\ud55c\uc815\ub41c \uc2dc\uac04 \ub2e8\uc704\",\n    pendantDesc: \"<b>pendant</b> (~\ub3d9\uc548)\ub294 \uc2dc\uc791\uacfc \ub05d\uc774 \uba85\ud655\ud788 \uc644\ub8cc\ub418\uac70\ub098 \uc815\uc758\ub41c \uc9c0\uc18d \uae30\uac04\uc744 \uc124\uba85\ud569\ub2c8\ub2e4.\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\uc800\ub294 9\uc2dc\uac04 \ub3d9\uc548 \uc7a4\uc2b5\ub2c8\ub2e4.)</i>\",\n    pendantTricky: \"\ub3d9\uc791\uc774 \ub05d\ub0ac\ub2e4\uba74 <b>pendant</b>\uc744 \uc0ac\uc6a9\ud558\uace0, \uc544\uc9c1 \uc9c4\ud589 \uc911\uc774\ub77c\uba74 <b>depuis</b>\ub97c \uc0ac\uc6a9\ud558\uc138\uc694.\"\n  },\n  zh: {\n    past: \"\u8fc7\u53bb\", present: \"\u73b0\u5728\", future: \"\u5c06\u6765\", trickyLabel: \"\u68d8\u624b\u89c4\u5219\",\n    depuisLbl: \"\u52a8\u4f5c\u6301\u7eed\u5230\u73b0\u5728\",\n    depuisDesc: \"<b>depuis</b> (\u81ea\u4ece/\u6301\u7eed) \u63cf\u8ff0\u4e00\u4e2a\u8fc7\u53bb\u5f00\u59cb\u4e14\u73b0\u5728\u4ecd\u5728\u7ee7\u7eed\u7684\u52a8\u4f5c\u3002\",\n    depuisEx: \"Je travaille ici <b>depuis</b> 2020. <br><i>(\u6211\u4ece2020\u5e74\u5f00\u59cb\u5728\u8fd9\u91cc\u5de5\u4f5c\u3002)</i>\",\n    depuisTricky: \"\u4e0d\u8981\u4f7f\u7528\u8fc7\u53bb\u65f6\uff01\u5982\u679c\u5b83\u4ecd\u5728\u53d1\u751f\uff0c\u8bf7\u4f7f\u7528<b>\u73b0\u5728\u65f6</b>\u3002\",\n    ilyaLbl: \"\u8fc7\u53bb\u7684\u65f6\u95f4\u70b9\",\n    ilyaDesc: \"<b>il y a</b> (\u4ee5\u524d) \u6307\u5411\u8fc7\u53bb\u4e00\u4e2a\u7279\u5b9a\u5df2\u5b8c\u6210\u7684\u65f6\u523b\u3002\",\n    ilyaEx: \"Le train est parti <b>il y a</b> dix minutes. <br><i>(\u706b\u8f6610\u5206\u949f\u524d\u79bb\u5f00\u4e86\u3002)</i>\",\n    ilyaTricky: \"\u603b\u662f\u548c\u8fc7\u53bb\u65f6\u4e00\u8d77\u4f7f\u7528\u3002\u5b83\u7684\u5b57\u9762\u7ffb\u8bd1\u662f'\u6709'\uff0c\u4f46\u610f\u601d\u662f'\u4ee5\u524d'\u3002\",\n    dansLbl: \"\u5012\u8ba1\u65f6\u5230\u5c06\u6765\",\n    dansDesc: \"<b>dans</b> (\u5728...\u4e4b\u540e) \u7ed9\u51fa\u5c06\u6765\u52a8\u4f5c\u53d1\u751f\u65f6\u95f4\u7684\u5012\u8ba1\u65f6\u3002\",\n    dansEx: \"Le cours commence <b>dans</b> cinq minutes. <br><i>(\u8bfe\u7a0b\u57285\u5206\u949f\u540e\u5f00\u59cb\u3002)</i>\",\n    dansTricky: \"\u7528<b>dans</b>\u8868\u793a'\u4ece\u73b0\u5728\u8d77(\u5012\u8ba1\u65f6)'\u3002\u7528<b>en</b>\u8868\u793a'\u82b1\u8d39(\u6301\u7eed\u65f6\u95f4)\u5b8c\u6210'\u3002\",\n    pendantLbl: \"\u5c01\u95ed\u7684\u65f6\u95f4\u6bb5\",\n    pendantDesc: \"<b>pendant</b> (\u5728...\u671f\u95f4/\u6301\u7eed) \u63cf\u8ff0\u4e00\u4e2a\u5df2\u5b8c\u6210\u6216\u6709\u660e\u786e\u8d77\u6b62\u7684\u6301\u7eed\u65f6\u95f4\u3002\",\n    pendantEx: \"J\\'ai dormi <b>pendant</b> neuf heures. <br><i>(\u6211\u7761\u4e869\u4e2a\u5c0f\u65f6\u3002)</i>\",\n    pendantTricky: \"\u5982\u679c\u52a8\u4f5c\u7ed3\u675f\u4e86\uff0c\u7528<b>pendant</b>\u3002\u5982\u679c\u8fd8\u5728\u7ee7\u7eed\uff0c\u7528<b>depuis</b>\u3002\"\n  }\n};\n\nwindow.tlDataConfig = {\n  depuis: { left: '15%', width: '35%', color: '#3b82f6' },\n  ilya:   { left: '25%', width: '12px', color: '#ef4444' },\n  dans:   { left: '55%', width: '25%', color: '#10b981' },\n  pendant:{ left: '15%', width: '20%', color: '#8b5cf6' }\n};\n\nwindow.currentTlPrep = 'depuis';\n\nfunction updateTlLang() {\n  const lang = window.currentLang || 'en';\n  const t = window.tlTranslations[lang] || window.tlTranslations.en;\n  document.querySelector('[data-i18n-tl=\"past\"]').textContent = t.past;\n  document.querySelector('[data-i18n-tl=\"present\"]').textContent = t.present;\n  document.querySelector('[data-i18n-tl=\"future\"]').textContent = t.future;\n  showTimeline(window.currentTlPrep); // refresh text\n}\n\nfunction showTimeline(prep) {\n  window.currentTlPrep = prep;\n  document.querySelectorAll('.tl-btn').forEach(b => b.classList.remove('active'));\n  document.getElementById('btn-' + prep).classList.add('active');\n  \n  const dCfg = window.tlDataConfig[prep];\n  const lang = window.currentLang || 'en';\n  const t = window.tlTranslations[lang] || window.tlTranslations.en;\n  \n  const ov = document.getElementById('tl-overlay');\n  ov.style.left = dCfg.left;\n  ov.style.width = dCfg.width;\n  ov.style.backgroundColor = dCfg.color;\n  ov.style.opacity = '0.7';\n  \n  if (prep === 'ilya') {\n    ov.style.height = '12px';\n    ov.style.borderRadius = '50%';\n  } else {\n    ov.style.height = '8px';\n    ov.style.borderRadius = '4px';\n  }\n\n  const lbl = document.getElementById('tl-label');\n  lbl.textContent = t[prep + 'Lbl'];\n  lbl.style.color = dCfg.color;\n  lbl.style.opacity = '1';\n  \n  if (prep === 'depuis') lbl.style.left = '32.5%';\n  if (prep === 'ilya') lbl.style.left = '25%';\n  if (prep === 'dans') lbl.style.left = '67.5%';\n  if (prep === 'pendant') lbl.style.left = '25%';\n  \n  const info = document.getElementById('tl-info');\n  info.style.borderLeftColor = dCfg.color;\n  info.innerHTML = `\n    <div style=\"font-size:1.05rem; margin-bottom: 8px; color: var(--text-primary);\">${t[prep + 'Desc']}</div>\n    <div style=\"background: color-mix(in srgb, ${dCfg.color} 10%, transparent); padding: 10px 14px; border-radius: 6px; margin-bottom: 8px; font-size: 0.95rem; line-height: 1.4;\">${t[prep + 'Ex']}</div>\n    <div class=\"tl-tricky\">\n      <div class=\"tl-tricky-title\"><span class=\"ms ms-sm\">warning</span> ${t.trickyLabel}</div>\n      ${t[prep + 'Tricky']}\n    </div>\n  `;\n}\n\n// Intercept window.render to also update our timeline translation\nconst oldRenderTl = window.render;\nif (oldRenderTl) {\n  window.render = function() {\n    oldRenderTl();\n    if(document.getElementById('timeline-visual')) {\n      updateTlLang();\n    }\n  }\n} else {\n  // if this runs before render is defined, we can hook into updateAppSubtitle maybe\n  // or just setInterval for safety\n  setInterval(() => {\n    if(document.getElementById('timeline-visual') && document.getElementById('btn-depuis').dataset.lang !== window.currentLang) {\n      document.getElementById('btn-depuis').dataset.lang = window.currentLang;\n      updateTlLang();\n    }\n  }, 500);\n}\n\nsetTimeout(() => showTimeline('depuis'), 100);\n<\/script>\n"
       }
     ]
   }
@@ -9971,6 +10027,7 @@ const sections = [
           quizLabel_poss: 'Pick the right possessive adjective',
           quizLabel_clock: 'Set the time — learn to say it in French',
           quizLabel_sorter: 'Drag each verb to its auxiliary',
+          quizLabel_pc: 'Passé Composé — Build the Sentence',
           quizLabel_cod: 'Replace the noun with the right pronoun',
           quizLabel_imp: 'Build the command form',
           quizLabel_fut: 'Near future — pick the right aller form',
@@ -10054,6 +10111,13 @@ const sections = [
           conjugate: 'Build the conjugation',
           erVerb: '-ER verb',
           pronoun: 'Pronoun', person: 'Person', verb: 'Verb',
+          quizLabel_fp: 'Near future — build the sentence',
+          quizLabel_fs: 'Simple future — conjugate the verb',
+          quizLabel_impf: 'Imparfait — conjugate in the past',
+          quizLabel_cond: 'Conditionnel — conjugate the verb',
+          quizLabel_pr: 'Passé récent — build the sentence',
+          quizLabel_ger: 'Gérondif — build the gerund',
+          quizLabel_y: 'Pronom y — replace the location',
         },
       },
 
@@ -10081,6 +10145,7 @@ const sections = [
           quizLabel_poss: 'સાચો possessive adjective પસંદ કરો',
           quizLabel_clock: 'સમય સેટ કરો — ફ્રેન્ચમાં બોલો',
           quizLabel_sorter: 'દરેક ક્રિયાpada ને auxiliary પર ખેંચો',
+          quizLabel_pc: 'Passé Composé — Build the Sentence',
           quizLabel_cod: 'Noun ને સાચા pronoun થી બદલો',
           quizLabel_imp: 'Command form બનાવો',
           quizLabel_fut: 'Near future — સાચો aller form પસંદ કરો',
@@ -10164,6 +10229,13 @@ const sections = [
           conjugate: 'Conjugation બનાવો',
           erVerb: '-ER ક્રિયાpada',
           pronoun: 'Pronoun', person: 'Person', verb: 'Verb',
+          quizLabel_fp: 'નજીકનો ભવિષ્યકાળ — વાક્ય બનાવો',
+          quizLabel_fs: 'સાદો ભવિષ્યકાળ — ક્રિયાપદનું રૂપ બનાવો',
+          quizLabel_impf: 'અપૂર્ણ ભૂતકાળ — ક્રિયાપદનું રૂપ બનાવો',
+          quizLabel_cond: 'શરતી વર્તમાનકાળ — ક્રિયાપદનું રૂપ બનાવો',
+          quizLabel_pr: 'તાજેતરનો ભૂતકાળ — વાક્ય બનાવો',
+          quizLabel_ger: 'કૃદંત (Gérondif) — કૃદંત રૂપ બનાવો',
+          quizLabel_y: 'સર્વનામ Y — સ્થળ બદલો',
         },
       },
 
@@ -10191,6 +10263,7 @@ const sections = [
           quizLabel_poss: 'सही possessive adjective चुनें',
           quizLabel_clock: 'समय सेट करें — फ्रेंच में बोलें',
           quizLabel_sorter: 'हर क्रिया को उसके auxiliary पर खींचें',
+          quizLabel_pc: 'Passé Composé — Build the Sentence',
           quizLabel_cod: 'Noun को सही pronoun से बदलें',
           quizLabel_imp: 'Command form बनाएं',
           quizLabel_fut: 'Near future — सही aller form चुनें',
@@ -10274,6 +10347,13 @@ const sections = [
           conjugate: 'Conjugation बनाएं',
           erVerb: '-ER क्रिया',
           pronoun: 'Pronoun', person: 'Person', verb: 'Verb',
+          quizLabel_fp: 'निकट भविष्य काल — वाक्य बनाएं',
+          quizLabel_fs: 'सामान्य भविष्य काल — क्रिया रूप बनाएं',
+          quizLabel_impf: 'अपूर्ण भूतकाल — क्रिया रूप बनाएं',
+          quizLabel_cond: 'सशर्त वर्तमान काल — क्रिया रूप बनाएं',
+          quizLabel_pr: 'तत्काल भूतकाल — वाक्य बनाएं',
+          quizLabel_ger: 'कृदंत (Gérondif) — कृदंत रूप बनाएं',
+          quizLabel_y: 'सर्वनाम Y — स्थान बदलें',
         },
       },
 
@@ -10301,6 +10381,7 @@ const sections = [
           quizLabel_poss: 'சரியான possessive adjective தேர்ந்தெடு',
           quizLabel_clock: 'நேரம் அமை — பிரெஞ்சில் சொல்',
           quizLabel_sorter: 'ஒவ்வொரு வினையையும் அதன் auxiliary-க்கு இழு',
+          quizLabel_pc: 'Passé Composé — Build the Sentence',
           quizLabel_cod: 'Noun-ஐ சரியான pronoun-ஆல் மாற்று',
           quizLabel_imp: 'Command form உருவாக்கு',
           quizLabel_fut: 'Near future — சரியான aller form தேர்ந்தெடு',
@@ -10384,6 +10465,13 @@ const sections = [
           conjugate: 'Conjugation உருவாக்கு',
           erVerb: '-ER வினை',
           pronoun: 'Pronoun', person: 'Person', verb: 'Verb',
+          quizLabel_fp: 'அண்மை எதிர்காலம் — வாக்கியத்தை உருவாக்குங்கள்',
+          quizLabel_fs: 'சாதாரண எதிர்காலம் — வினையை இணையுங்கள்',
+          quizLabel_impf: 'இறந்தகால வினை — வினையை இணையுங்கள்',
+          quizLabel_cond: 'நிபந்தனை நிகழ்காலம் — வினையை இணையுங்கள்',
+          quizLabel_pr: 'அண்மை இறந்தகாலம் — வாக்கியத்தை உருவாக்குங்கள்',
+          quizLabel_ger: 'வினையெச்சம் (Gérondif) — வடிவத்தை உருவாக்குங்கள்',
+          quizLabel_y: 'பிரதிபெயர் Y — இடத்தை மாற்றுக',
         },
       },
 
@@ -10411,6 +10499,7 @@ const sections = [
           quizLabel_poss: '올바른 소유형용사 선택하기',
           quizLabel_clock: '시간을 맞추세요 — 프랑스어로 말하기',
           quizLabel_sorter: '각 동사를 조동사에 끌어다 놓으세요',
+          quizLabel_pc: 'Passé Composé — Build the Sentence',
           quizLabel_cod: '명사를 올바른 대명사로 바꾸세요',
           quizLabel_imp: '명령형 만들기',
           quizLabel_fut: '근접미래 — 올바른 aller 형태 선택',
@@ -10494,6 +10583,13 @@ const sections = [
           conjugate: '활용형 만들기',
           erVerb: '-ER 동사',
           pronoun: '인칭대명사', person: '인칭', verb: '동사',
+          quizLabel_fp: '근접 미래 — 문장 만들기',
+          quizLabel_fs: '단순 미래 — 동사 활용하기',
+          quizLabel_impf: '반과거 — 동사 활용하기',
+          quizLabel_cond: '조건법 현재 — 동사 활용하기',
+          quizLabel_pr: '최근 과거 — 문장 만들기',
+          quizLabel_ger: '제롱디프 — 동사 활용하기',
+          quizLabel_y: '대명사 Y — 장소 대체하기',
         },
       },
 
@@ -10521,6 +10617,7 @@ const sections = [
           quizLabel_poss: '选择正确的物主形容词',
           quizLabel_clock: '设定时间 — 用法语说出来',
           quizLabel_sorter: '将每个动词拖到其助动词',
+          quizLabel_pc: 'Passé Composé — Build the Sentence',
           quizLabel_cod: '用正确的代词替换名词',
           quizLabel_imp: '构建命令形式',
           quizLabel_fut: '近将来时 — 选择正确的 aller 形式',
@@ -10604,6 +10701,13 @@ const sections = [
           conjugate: '构建变位',
           erVerb: '-ER 动词',
           pronoun: '主语代词', person: '人称', verb: '动词',
+          quizLabel_fp: '最近将来时 — 构建句子',
+          quizLabel_fs: '简单将来时 — 动词变位',
+          quizLabel_impf: '未完成过去时 — 动词变位',
+          quizLabel_cond: '条件式现在时 — 动词变位',
+          quizLabel_pr: '最近过去时 — 构建句子',
+          quizLabel_ger: '副动词 — 构建副动词形式',
+          quizLabel_y: '代词 Y — 替代地点',
         },
       },
     };
@@ -12257,6 +12361,28 @@ const sections = [
         // ── 10. POSSESSIVES — possessive quiz
         'possessives_0': () => quizShell('poss', t('quizLabel_poss')),
 
+        'possessives_1': () => widgetShell('w-dem', t('quizLabel_dem') || 'Demonstratives: Distance', `
+          <div style="text-align:center; padding: 20px; font-family: 'Azeret Mono', monospace; background: var(--surface-1); border-radius: var(--r-md);">
+            <div style="margin-bottom: 20px; font-size: 1.2rem;" id="dem-sentence">
+              Je prends <strong id="dem-pronoun" style="color:var(--blue); transition: color 0.3s;">celui-ci</strong>.
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 15px; font-size: 0.8rem; font-weight: bold; color: var(--text-secondary);">
+              <span id="dem-lbl-close">Here (-ci)</span>
+              <span id="dem-lbl-far">There (-là)</span>
+            </div>
+            <input type="range" min="0" max="100" value="0" id="dem-slider" oninput="window.demUpdate()" style="width:100%; accent-color: var(--blue); cursor: ew-resize;">
+            
+            <div style="margin-top:20px; display:flex; gap:10px; justify-content:center; flex-wrap: wrap;">
+              <button class="w-pill selected" onclick="window.demSetType('ms', this)">Masc. Sg.</button>
+              <button class="w-pill" onclick="window.demSetType('fs', this)">Fem. Sg.</button>
+              <button class="w-pill" onclick="window.demSetType('mp', this)">Masc. Pl.</button>
+              <button class="w-pill" onclick="window.demSetType('fp', this)">Fem. Pl.</button>
+            </div>
+            <div id="dem-translation" style="margin-top:15px; font-style:italic; color:var(--text-secondary); min-height: 2.5em;">
+              I'm taking this one.
+            </div>
+          </div>`),
+
         // ── 11. NUMBERS — interactive clock
         'numbers_1': () => widgetShell('w-clock', t('quizLabel_clock'), `
           <div class="clock-wrap">
@@ -12284,6 +12410,22 @@ const sections = [
           </div>`),
 
         // ── 12. PASSÉ COMPOSÉ — être/avoir drag sorter
+        'passe_compose_0': () => widgetShell('w-pc', t('quizLabel_pc') || 'Passé Composé — Build the Sentence', `
+          <div class="ve-workshop" id="ve-pc-workshop">
+            <div class="ve-input-row">
+              <input class="ve-input" id="ve-pc-input" type="text" placeholder="manger…" oninput="veUpdateTense('pc')" autocomplete="off" autocorrect="off" spellcheck="false">
+              <span style="font-size:0.8rem;color:var(--text-muted)">— any French verb</span>
+            </div>
+            <div class="ve-split" id="ve-pc-split" style="display:none"></div>
+            <div class="tbl-wrap" id="ve-pc-table" style="display:none">
+              <table class="ve-tbl">
+                <thead><tr><th style="width:25%">PRONOUN</th><th style="width:40%">FORM</th><th>ENGLISH</th></tr></thead>
+                <tbody id="ve-pc-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        `),
+
         'passe_compose_2': () => widgetShell('w-sorter', t('quizLabel_sorter'), `
           <div class="sorter-source" id="sorter-source"></div>
           <div class="sorter-wrap">
@@ -12342,6 +12484,7 @@ const sections = [
         'pronominal_0': () => quizShell('pron2', t('quizLabel_pron2')),
 
         // ── 19. VERB ENDINGS — conjugation workshop
+        // ── 19. VERB ENDINGS — conjugation workshop
         'verb_endings_0': () => widgetShell('w-ve-groups', t('quizLabel_ve_compare') || 'All three groups side-by-side', `
           <div class="ve-compare" id="ve-compare-grid"></div>`),
 
@@ -12395,11 +12538,517 @@ const sections = [
             </div>
             <div class="article-score" id="vep-score"></div>
           </div>`),
+
+        'futur_proche_0': () => widgetShell('w-fp', t('quizLabel_fp') || 'Futur Proche Builder', `
+          <div class="ve-workshop" id="ve-fp-workshop">
+            <div class="ve-input-row">
+              <input class="ve-input" id="ve-fp-input" type="text" placeholder="parler…" oninput="veUpdateTense('fp')" autocomplete="off" autocorrect="off" spellcheck="false">
+              <span style="font-size:0.8rem;color:var(--text-muted)">— any French verb</span>
+            </div>
+            <div class="ve-split" id="ve-fp-split" style="display:none"></div>
+            <div class="tbl-wrap" id="ve-fp-table" style="display:none">
+              <table class="ve-table"><thead><tr><th>Pronoun</th><th>Form</th><th>English</th></tr></thead>
+              <tbody id="ve-fp-tbody"></tbody></table>
+            </div>
+          </div>`),
+
+        'futur_simple_0': () => widgetShell('w-fs', t('quizLabel_fs') || 'Futur Simple Builder', `
+          <div class="ve-workshop" id="ve-fs-workshop">
+            <div class="ve-input-row">
+              <input class="ve-input" id="ve-fs-input" type="text" placeholder="parler…" oninput="veUpdateTense('fs')" autocomplete="off" autocorrect="off" spellcheck="false">
+              <span style="font-size:0.8rem;color:var(--text-muted)">— any regular French verb</span>
+            </div>
+            <div class="ve-split" id="ve-fs-split" style="display:none"></div>
+            <div class="tbl-wrap" id="ve-fs-table" style="display:none">
+              <table class="ve-table"><thead><tr><th>Pronoun</th><th>Form</th><th>English</th></tr></thead>
+              <tbody id="ve-fs-tbody"></tbody></table>
+            </div>
+          </div>`),
+
+        'imparfait_0': () => widgetShell('w-impf', t('quizLabel_impf') || 'Imparfait Builder', `
+          <div class="ve-workshop" id="ve-impf-workshop">
+            <div class="ve-input-row">
+              <input class="ve-input" id="ve-impf-input" type="text" placeholder="parler…" oninput="veUpdateTense('impf')" autocomplete="off" autocorrect="off" spellcheck="false">
+              <span style="font-size:0.8rem;color:var(--text-muted)">— any regular French verb</span>
+            </div>
+            <div class="ve-split" id="ve-impf-split" style="display:none"></div>
+            <div class="tbl-wrap" id="ve-impf-table" style="display:none">
+              <table class="ve-table"><thead><tr><th>Pronoun</th><th>Form</th><th>English</th></tr></thead>
+              <tbody id="ve-impf-tbody"></tbody></table>
+            </div>
+          </div>`),
+
+        'conditionnel_0': () => widgetShell('w-cond', t('quizLabel_cond') || 'Conditionnel Builder', `
+          <div class="ve-workshop" id="ve-cond-workshop">
+            <div class="ve-input-row">
+              <input class="ve-input" id="ve-cond-input" type="text" placeholder="parler…" oninput="veUpdateTense('cond')" autocomplete="off" autocorrect="off" spellcheck="false">
+              <span style="font-size:0.8rem;color:var(--text-muted)">— any regular French verb</span>
+            </div>
+            <div class="ve-split" id="ve-cond-split" style="display:none"></div>
+            <div class="tbl-wrap" id="ve-cond-table" style="display:none">
+              <table class="ve-table"><thead><tr><th>Pronoun</th><th>Form</th><th>English</th></tr></thead>
+              <tbody id="ve-cond-tbody"></tbody></table>
+            </div>
+          </div>`),
+
+        'passe_recent_0': () => widgetShell('w-pr', t('quizLabel_pr') || 'Passé Récent Builder', `
+          <div class="ve-workshop" id="ve-pr-workshop">
+            <div class="ve-input-row">
+              <input class="ve-input" id="ve-pr-input" type="text" placeholder="parler…" oninput="veUpdateTense('pr')" autocomplete="off" autocorrect="off" spellcheck="false">
+              <span style="font-size:0.8rem;color:var(--text-muted)">— any French verb</span>
+            </div>
+            <div class="ve-split" id="ve-pr-split" style="display:none"></div>
+            <div class="tbl-wrap" id="ve-pr-table" style="display:none">
+              <table class="ve-table"><thead><tr><th>Pronoun</th><th>Form</th><th>English</th></tr></thead>
+              <tbody id="ve-pr-tbody"></tbody></table>
+            </div>
+          </div>`),
+
+        'gerondif_0': () => widgetShell('w-ger', t('quizLabel_ger') || 'Le Gérondif Builder', `
+          <div class="ve-workshop" id="ve-ger-workshop">
+            <div class="ve-input-row">
+              <input class="ve-input" id="ve-ger-input" type="text" placeholder="parler…" oninput="veUpdateTense('ger')" autocomplete="off" autocorrect="off" spellcheck="false">
+              <span style="font-size:0.8rem;color:var(--text-muted)">— any regular French verb</span>
+            </div>
+            <div class="ve-split" id="ve-ger-split" style="display:none"></div>
+            <div class="tbl-wrap" id="ve-ger-table" style="display:none">
+              <table class="ve-table"><thead><tr><th>Form</th><th>English</th></tr></thead>
+              <tbody id="ve-ger-tbody"></tbody></table>
+            </div>
+          </div>`),
+
+        'pronom_y_0': () => widgetShell('w-y', t('quizLabel_y') || 'Le Pronom Y', `
+          <div class="ve-workshop" id="ve-y-workshop">
+            <div class="ve-input-row">
+              <input class="ve-input" id="ve-y-input" type="text" placeholder="à Montréal…" oninput="veUpdateTense('y')" autocomplete="off" autocorrect="off" spellcheck="false">
+              <span style="font-size:0.8rem;color:var(--text-muted)">— any destination/location</span>
+            </div>
+            <div class="ve-split" id="ve-y-split" style="display:none"></div>
+            <div class="tbl-wrap" id="ve-y-table" style="display:none">
+              <table class="ve-table"><thead><tr><th>Original Sentence</th><th>With Pronom Y</th><th>English</th></tr></thead>
+              <tbody id="ve-y-tbody"></tbody></table>
+            </div>
+          </div>`),
       };
       return W[key] ? W[key]() : null;
     }
 
     // ── Widget initialisation ───────────────────────────────────
+
+    const engBaseDict = {
+      // Irregulars / high-frequency
+      "être": "be", "avoir": "have", "aller": "go", "faire": "do",
+      "pouvoir": "can", "vouloir": "want", "devoir": "must",
+      "savoir": "know", "valoir": "be worth", "pleuvoir": "rain",
+      "falloir": "have to",
+      // -er verbs: daily life & body
+      "laver": "wash", "nettoyer": "clean", "ranger": "tidy up",
+      "coucher": "put to bed", "réveiller": "wake up", "habiller": "dress",
+      "peigner": "comb", "doucher": "shower", "baigner": "bathe",
+      "manger": "eat", "boire": "drink", "cuisiner": "cook",
+      "préparer": "prepare", "commander": "order", "goûter": "taste",
+      "habiter": "live", "loger": "stay", "déménager": "move",
+      "visiter": "visit", "rencontrer": "meet", "inviter": "invite",
+      "parler": "speak", "chanter": "sing", "danser": "dance",
+      "jouer": "play", "regarder": "watch", "écouter": "listen",
+      "travailler": "work", "étudier": "study", "apprendre": "learn",
+      "voyager": "travel", "marcher": "walk", "courir": "run",
+      "nager": "swim", "conduire": "drive", "monter": "go up",
+      "entrer": "enter", "sortir": "go out", "rentrer": "come back",
+      "rester": "stay", "tomber": "fall", "arriver": "arrive",
+      "partir": "leave", "revenir": "come back",
+      "chercher": "look for", "trouver": "find", "perdre": "lose",
+      "oublier": "forget", "apporter": "bring", "emporter": "take away",
+      "donner": "give", "montrer": "show", "expliquer": "explain",
+      "demander": "ask", "répondre": "answer", "dire": "say",
+      "appeler": "call", "téléphoner": "call", "envoyer": "send",
+      "recevoir": "receive", "lire": "read", "écrire": "write",
+      "dessiner": "draw", "créer": "create", "peindre": "paint",
+      "choisir": "choose", "décider": "decide", "refuser": "refuse",
+      "accepter": "accept", "essayer": "try", "réussir": "succeed",
+      "échouer": "fail", "gagner": "win", "perdre": "lose",
+      "changer": "change", "améliorer": "improve", "réparer": "fix",
+      "construire": "build", "détruire": "destroy",
+      "penser": "think", "croire": "believe", "comprendre": "understand",
+      "prendre": "take", "mettre": "put", "poser": "put down",
+      "jeter": "throw", "ramasser": "pick up", "porter": "carry",
+      "laisser": "leave", "passer": "pass", "traverser": "cross",
+      "espérer": "hope", "préférer": "prefer", "regretter": "regret",
+      "aimer": "love", "adorer": "adore", "détester": "hate",
+      "vouloir": "want", "devoir": "must",
+      "dormir": "sleep", "sentir": "feel", "souffrir": "suffer",
+      "naître": "be born", "mourir": "die", "vivre": "live",
+      "voir": "see", "entendre": "hear", "toucher": "touch",
+      "décevoir": "disappoint", "impressionner": "impress",
+      "sourire": "smile", "rire": "laugh", "pleurer": "cry",
+      "crier": "shout", "chuchoter": "whisper",
+      "promettre": "promise", "permettre": "allow",
+      "connaître": "know", "paraître": "appear", "sembler": "seem",
+      "devenir": "become", "tenir": "hold", "suivre": "follow",
+      "rendre": "give back", "défendre": "defend", "attendre": "wait",
+      "prêter": "lend", "emprunter": "borrow", "voler": "steal",
+      "garder": "keep", "utiliser": "use",
+      "agir": "act", "réfléchir": "reflect",
+      "grandir": "grow", "remplir": "fill", "rappeler": "remind",
+      "continuer": "continue", "arrêter": "stop", "finir": "finish",
+      "commencer": "start", "terminer": "finish", "répéter": "repeat",
+      "couvrir": "cover", "offrir": "offer", "ouvrir": "open",
+      "servir": "serve", "courir": "run",
+      "fondre": "melt", "mordre": "bite",
+      "venir": "come", "descendre": "go down",
+      "payer": "pay", "acheter": "buy", "vendre": "sell",
+      "trouver": "find", "montrer": "show", "porter": "wear",
+      "continuer": "continue", "oublier": "forget", "travailler": "work",
+      "écouter": "listen", "rappeler": "remind",
+      "changer": "change", "expliquer": "explain",
+      "accepter": "accept", "réfléchir": "reflect", "agir": "act",
+      "punir": "punish", "entendre": "hear",
+      "prendre": "take", "mettre": "put",
+      "lire": "read", "écrire": "write", "rire": "laugh",
+      "boire": "drink",
+      "savoir": "know", "valoir": "be worth",
+      "couvrir": "cover", "offrir": "offer", "souffrir": "suffer",
+      "venir": "come", "tenir": "hold", "devenir": "become",
+      "revenir": "come back", "dormir": "sleep",
+      "partir": "leave", "sentir": "feel", "servir": "serve",
+      "vivre": "live", "suivre": "follow", "payer": "pay",
+      "envoyer": "send", "nettoyer": "clean", "jeter": "throw",
+      "espérer": "hope", "préférer": "prefer", "répéter": "repeat",
+      "fermer": "close", "aider": "help", "jouer": "play",
+      "passer": "pass", "laisser": "leave", "chercher": "look for",
+      "commencer": "start", "essayer": "try", "appeler": "call",
+      "gagner": "win", "changer": "change", "expliquer": "explain",
+      "parler": "speak", "arriver": "arrive", "travailler": "work",
+      "donner": "give", "demander": "ask"
+    };
+
+    function getEngVerbInfo(frenchVerb) {
+      let fullEng = engBaseDict[frenchVerb];
+      // Fallback: use the French infinitive itself — never produce a broken stem
+      if (!fullEng) fullEng = frenchVerb;
+
+      // Handle multi-word verbs like "wake up" or "put to bed"
+      const parts = fullEng.split(' ');
+      let eng = parts[0];
+      const rest = parts.slice(1).length > 0 ? ' ' + parts.slice(1).join(' ') : '';
+
+      let s = eng;
+      if (!eng.endsWith('s') && !eng.endsWith('sh') && !eng.endsWith('ch') && !eng.endsWith('x') && !eng.endsWith('z') && !eng.endsWith('o')) {
+          s = eng + "s";
+      } else {
+          s = eng + "es";
+      }
+      if (eng === 'have') s = 'has';
+      if (eng === 'be') s = 'is';
+      if (eng === 'do') s = 'does';
+      if (eng === 'go') s = 'goes';
+      if (eng.endsWith('y') && !/[aeiou]y$/.test(eng)) s = eng.slice(0, -1) + 'ies';
+      
+      let ed = eng + "ed";
+      if (eng.endsWith('e')) ed = eng + "d";
+      if (eng.endsWith('y') && !/[aeiou]y$/.test(eng)) ed = eng.slice(0, -1) + 'ied';
+      const pasts = {'speak': 'spoke', 'eat': 'ate', 'go': 'went', 'see': 'saw', 'have': 'had', 'do': 'did', 'take': 'took', 'make': 'made', 'know': 'knew', 'think': 'thought', 'come': 'came', 'give': 'gave', 'find': 'found', 'tell': 'told', 'become': 'became', 'show': 'showed', 'leave': 'left', 'feel': 'felt', 'put': 'put', 'bring': 'brought', 'begin': 'began', 'keep': 'kept', 'hold': 'held', 'write': 'wrote', 'stand': 'stood', 'hear': 'heard', 'let': 'let', 'mean': 'meant', 'set': 'set', 'meet': 'met', 'run': 'ran', 'pay': 'paid', 'sit': 'sat', 'lie': 'lay', 'lead': 'led', 'read': 'read', 'grow': 'grew', 'lose': 'lost', 'fall': 'fell', 'send': 'sent', 'build': 'built', 'understand': 'understood', 'draw': 'drew', 'break': 'broke', 'spend': 'spent', 'cut': 'cut', 'rise': 'rose', 'drive': 'drove', 'buy': 'bought', 'wear': 'wore', 'choose': 'chose', 'wake': 'woke', 'sleep': 'slept', 'sweep': 'swept', 'catch': 'caught', 'teach': 'taught', 'win': 'won', 'sell': 'sold', 'tell': 'told', 'hide': 'hid', 'bite': 'bit', 'forget': 'forgot', 'fly': 'flew', 'throw': 'threw', 'blow': 'blew', 'draw': 'drew', 'drink': 'drank', 'sing': 'sang', 'swim': 'swam'};
+      if (pasts[eng]) ed = pasts[eng];
+      
+      let ing = eng + "ing";
+      if (eng.endsWith('e') && eng !== 'be' && eng !== 'see') ing = eng.slice(0, -1) + "ing";
+      // Double consonant cases
+      if (['run', 'sit', 'get', 'swim', 'put', 'let', 'set', 'cut', 'win', 'stop'].includes(eng)) ing = eng + eng.slice(-1) + 'ing';
+
+      return { 
+        base: fullEng, 
+        s: s + rest, 
+        ing: ing + rest, 
+        ed: ed + rest 
+      };
+    }
+
+    window.veUpdateTense = function (tense) {
+      const inp = document.getElementById('ve-' + tense + '-input');
+      const splitEl = document.getElementById('ve-' + tense + '-split');
+      const tableEl = document.getElementById('ve-' + tense + '-table');
+      const tbodyEl = document.getElementById('ve-' + tense + '-tbody');
+      if (!inp || !splitEl) return;
+
+      const raw = inp.value.trim().toLowerCase();
+      if (!raw) {
+        splitEl.style.display = 'none';
+        if (tableEl) tableEl.style.display = 'none';
+        return;
+      }
+
+      if (tense === 'y') {
+        splitEl.style.display = 'flex';
+        splitEl.innerHTML = `<span class="ve-split-label">Location</span><span class="ve-stem">${raw}</span><span class="ve-arrow">→</span><span class="ve-split-label" style="margin-left:0;color:var(--text-secondary)">replaced by "y"</span>`;
+        if (tableEl) tableEl.style.display = 'block';
+        if (tbodyEl) {
+          const examples = [
+            { verb: 'aller', frOrig: `Je vais ${raw}`, frY: `J'y vais`, en: `I'm going there` },
+            { verb: 'habiter', frOrig: `J'habite ${raw}`, frY: `J'y habite`, en: `I live there` },
+            { verb: 'penser', frOrig: `Je pense ${raw}`, frY: `J'y pense`, en: `I think about it` },
+            { verb: 'être', frOrig: `Je suis ${raw}`, frY: `J'y suis`, en: `I am there` }
+          ];
+          tbodyEl.innerHTML = examples.map(ex => `
+            <tr>
+              <td style="color: var(--text-secondary); text-decoration: line-through;">${ex.frOrig}</td>
+              <td><div class="ve-form"><span class="ve-form-stem">${ex.frY.split('y')[0]}</span><span class="ve-form-ending er" style="color:var(--blue)">y</span><span class="ve-form-stem">${ex.frY.split('y')[1]}</span></div></td>
+              <td class="td-en">${ex.en}</td>
+            </tr>
+          `).join('');
+        }
+        return;
+      }
+
+      const lookupVerb = raw.trim().toLowerCase();
+      
+      // Auto-fetch missing translations via free MyMemory API
+      if (!window._verbApiCache) window._verbApiCache = {};
+      if (!engBaseDict[lookupVerb] && !window._verbApiCache[lookupVerb]) {
+        window._verbApiCache[lookupVerb] = 'fetching';
+        fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(lookupVerb)}&langpair=fr|en`)
+          .then(r => r.json())
+          .then(data => {
+            if (data?.responseData?.translatedText) {
+              let t = data.responseData.translatedText.toLowerCase();
+              t = t.replace(/^to\s+/, '').replace(/[^\w\s]/g, '').trim(); 
+              
+              if (t && t !== lookupVerb && !t.includes("mymemory") && !t.includes("warning")) {
+                engBaseDict[lookupVerb] = t;
+                window._verbApiCache[lookupVerb] = 'done';
+                
+                const currentInp = document.getElementById('ve-' + tense + '-input');
+                if (currentInp && currentInp.value.trim().toLowerCase() === lookupVerb) {
+                  window.veUpdateTense(tense);
+                }
+              } else {
+                 window._verbApiCache[lookupVerb] = 'failed';
+              }
+            }
+          }).catch(e => {
+            window._verbApiCache[lookupVerb] = 'failed';
+          });
+      }
+
+      const vInfo = getEngVerbInfo(lookupVerb);
+
+      // Reflexive handling
+      let isReflex = false;
+      let baseRaw = lookupVerb;
+      if (lookupVerb.startsWith('se ')) {
+        isReflex = true;
+        baseRaw = lookupVerb.slice(3);
+      } else if (lookupVerb.startsWith("s'")) {
+        isReflex = true;
+        baseRaw = lookupVerb.slice(2);
+      }
+
+      let suffix = '';
+      if (baseRaw.endsWith('être') || baseRaw === 'être') suffix = 'être';
+      else if (baseRaw.endsWith('avoir') || baseRaw === 'avoir') suffix = 'avoir';
+      else if (baseRaw.endsWith('er')) suffix = 'er';
+      else if (baseRaw.endsWith('ir')) suffix = 'ir';
+      else if (baseRaw.endsWith('re')) suffix = 're';
+
+      const stem = suffix ? baseRaw.slice(0, -suffix.length) : baseRaw;
+
+      splitEl.style.display = 'flex';
+      if (suffix) {
+        splitEl.innerHTML = `<span class="ve-split-label">Stem</span><span class="ve-stem">${isReflex ? lookupVerb.slice(0, lookupVerb.indexOf(' ')+1) + stem : (stem || '…')}</span><span class="ve-arrow">+</span><span class="ve-removed er">${suffix}</span><span class="ve-arrow">→</span><span class="ve-split-label" style="margin-left:0;color:var(--text-secondary)">live conjugation</span>`;
+      } else {
+        splitEl.innerHTML = `<span class="ve-arrow" style="color:var(--red)">⚠ type a full verb ending in -er, -ir, -re, être, or avoir</span>`;
+        if (tableEl) tableEl.style.display = 'none';
+        return;
+      }
+
+      if (tableEl) tableEl.style.display = 'block';
+      if (!tbodyEl) return;
+
+      const prons = [
+        { pron: 'je' }, { pron: 'tu' }, { pron: 'il/elle/on' },
+        { pron: 'nous' }, { pron: 'vous' }, { pron: 'ils/elles' }
+      ];
+
+      if (tense === 'ger') {
+        let gerStem = stem;
+        if (baseRaw === 'être') gerStem = 'ét';
+        else if (baseRaw === 'avoir') gerStem = 'ay';
+        else if (baseRaw === 'aller') gerStem = 'all';
+        else if (suffix === 'ir') gerStem = stem + 'iss';
+
+        const reflexHTML = isReflex ? `<span class="ve-form-ending er" style="color:var(--text-secondary); margin-right:4px;">se</span>` : '';
+        const form = `${reflexHTML}<span class="ve-form-stem">en ${gerStem}</span><span class="ve-form-ending er">ant</span>`;
+        const english = `while/by ${vInfo.ing}`;
+        tbodyEl.innerHTML = `
+          <tr>
+            <td><div class="ve-form">${form}</div></td>
+            <td class="td-en">${english}</td>
+          </tr>
+        `;
+        return;
+      }
+
+      const startsWithVowel = (str) => /^[aeiouéèêëàâîïôùûh]/i.test(str);
+      const enSubj = {
+        'je': 'I', 'tu': 'you', 'il/elle/on': 'he/she',
+        'nous': 'we', 'vous': 'you (pl.)', 'ils/elles': 'they'
+      };
+
+      const getReflexivePronoun = (pron, nextWord) => {
+        if (!isReflex) return '';
+        const vw = startsWithVowel(nextWord);
+        const map = {
+          'je': vw ? "m'" : "me ",
+          'tu': vw ? "t'" : "te ",
+          'il/elle/on': vw ? "s'" : "se ",
+          'nous': "nous ",
+          'vous': "vous ",
+          'ils/elles': vw ? "s'" : "se "
+        };
+        return map[pron];
+      };
+
+      tbodyEl.innerHTML = prons.map(p => {
+        let form = '';
+        let english = '';
+        let pronDisplay = p.pron;
+
+        if (tense === 'fp') {
+          const aller = { 'je': 'vais', 'tu': 'vas', 'il/elle/on': 'va', 'nous': 'allons', 'vous': 'allez', 'ils/elles': 'vont' };
+          const allerForm = aller[p.pron];
+          const rp = getReflexivePronoun(p.pron, baseRaw);
+          const rpHTML = isReflex ? `<span class="ve-form-ending er" style="color:var(--text-secondary); margin:0 4px;">${rp.trim()}${rp.endsWith("'")?'':' '}</span>` : ' ';
+          
+          pronDisplay = p.pron;
+          form = `<span class="ve-form-stem">${allerForm}</span>${rpHTML}<span class="ve-form-ending er">${baseRaw}</span>`;
+          const enBe = p.pron === 'je' ? 'am' : (p.pron === 'il/elle/on' ? 'is' : 'are');
+          english = `${enSubj[p.pron]} ${enBe} going to ${vInfo.base.replace('oneself', enSubj[p.pron] === 'I' ? 'myself' : (enSubj[p.pron] === 'we' ? 'ourselves' : (enSubj[p.pron] === 'you' ? 'yourself' : 'themselves')))}`;
+        }
+        else if (tense === 'fs') {
+          const fsEnds = { 'je': 'ai', 'tu': 'as', 'il/elle/on': 'a', 'nous': 'ons', 'vous': 'ez', 'ils/elles': 'ont' };
+          let fsStem = baseRaw;
+          if (baseRaw === 'aller') fsStem = 'ir';
+          else if (baseRaw === 'avoir') fsStem = 'aur';
+          else if (baseRaw === 'être') fsStem = 'ser';
+          else if (baseRaw.endsWith('re')) fsStem = baseRaw.slice(0, -1);
+
+          const rp = getReflexivePronoun(p.pron, fsStem);
+          const nextAfterSubj = isReflex ? rp : fsStem;
+          pronDisplay = (p.pron === 'je' && startsWithVowel(nextAfterSubj)) ? "j'" : p.pron;
+          
+          const rpHTML = isReflex ? `<span class="ve-form-ending er" style="color:var(--text-secondary); margin-right:4px;">${rp.trim()}${rp.endsWith("'")?'':' '}</span>` : '';
+          form = `${rpHTML}<span class="ve-form-stem">${fsStem}</span><span class="ve-form-ending er">${fsEnds[p.pron]}</span>`;
+          english = `${enSubj[p.pron]} will ${vInfo.base.replace('oneself', '')}`;
+        }
+        else if (tense === 'impf') {
+          const impfEnds = { 'je': 'ais', 'tu': 'ais', 'il/elle/on': 'ait', 'nous': 'ions', 'vous': 'iez', 'ils/elles': 'aient' };
+          let impfStem = stem;
+          if (baseRaw === 'être') impfStem = 'ét';
+          else if (baseRaw === 'avoir') impfStem = 'av';
+          else if (baseRaw === 'aller') impfStem = 'all';
+          else if (suffix === 'ir') impfStem = stem + 'iss';
+
+          const rp = getReflexivePronoun(p.pron, impfStem);
+          const nextAfterSubj = isReflex ? rp : impfStem;
+          pronDisplay = (p.pron === 'je' && startsWithVowel(nextAfterSubj)) ? "j'" : p.pron;
+
+          const rpHTML = isReflex ? `<span class="ve-form-ending er" style="color:var(--text-secondary); margin-right:4px;">${rp.trim()}${rp.endsWith("'")?'':' '}</span>` : '';
+          form = `${rpHTML}<span class="ve-form-stem">${impfStem}</span><span class="ve-form-ending er">${impfEnds[p.pron]}</span>`;
+          const enWas = (p.pron === 'je' || p.pron === 'il/elle/on') ? 'was' : 'were';
+          english = `${enSubj[p.pron]} ${enWas} ${vInfo.ing.replace('oneself', '')} / used to ${vInfo.base.replace('oneself', '')}`;
+        }
+        else if (tense === 'cond') {
+          const condEnds = { 'je': 'ais', 'tu': 'ais', 'il/elle/on': 'ait', 'nous': 'ions', 'vous': 'iez', 'ils/elles': 'aient' };
+          let condStem = baseRaw;
+          if (baseRaw === 'aller') condStem = 'ir';
+          else if (baseRaw === 'avoir') condStem = 'aur';
+          else if (baseRaw === 'être') condStem = 'ser';
+          else if (baseRaw.endsWith('re')) condStem = baseRaw.slice(0, -1);
+
+          const rp = getReflexivePronoun(p.pron, condStem);
+          const nextAfterSubj = isReflex ? rp : condStem;
+          pronDisplay = (p.pron === 'je' && startsWithVowel(nextAfterSubj)) ? "j'" : p.pron;
+
+          const rpHTML = isReflex ? `<span class="ve-form-ending er" style="color:var(--text-secondary); margin-right:4px;">${rp.trim()}${rp.endsWith("'")?'':' '}</span>` : '';
+          form = `${rpHTML}<span class="ve-form-stem">${condStem}</span><span class="ve-form-ending er">${condEnds[p.pron]}</span>`;
+          english = `${enSubj[p.pron]} would ${vInfo.base.replace('oneself', '')}`;
+        }
+        else if (tense === 'pc') {
+          let auxType = 'avoir';
+          const vandertramp = ['aller', 'venir', 'arriver', 'partir', 'entrer', 'sortir', 'monter', 'descendre', 'naître', 'mourir', 'rester', 'tomber', 'retourner', 'passer'];
+          if (isReflex || vandertramp.includes(baseRaw)) {
+            auxType = 'être';
+          }
+          
+          const irregPP = {
+            'être': 'été', 'avoir': 'eu', 'faire': 'fait', 'dire': 'dit', 'écrire': 'écrit', 
+            'prendre': 'pris', 'apprendre': 'appris', 'comprendre': 'compris', 'mettre': 'mis',
+            'voir': 'vu', 'boire': 'bu', 'lire': 'lu', 'devoir': 'dû', 'pouvoir': 'pu', 'vouloir': 'voulu',
+            'savoir': 'su', 'connaître': 'connu', 'recevoir': 'reçu', 'pleuvoir': 'plu',
+            'courir': 'couru', 'venir': 'venu', 'devenir': 'devenu', 'revenir': 'revenu', 'tenir': 'tenu', 
+            'descendre': 'descendu', 'attendre': 'attendu', 'entendre': 'entendu', 'perdre': 'perdu', 'répondre': 'répondu',
+            'vendre': 'vendu', 'rendre': 'rendu', 'naître': 'né', 'mourir': 'mort',
+            'ouvrir': 'ouvert', 'offrir': 'offert', 'découvrir': 'découvert', 'souffrir': 'souffert',
+            'peindre': 'peint', 'craindre': 'craint', 'joindre': 'joint', 'rire': 'ri', 'sourire': 'souri',
+            'suivre': 'suivi', 'vivre': 'vécu'
+          };
+
+          let pp = '';
+          if (irregPP[baseRaw]) pp = irregPP[baseRaw];
+          else if (suffix === 'er') pp = stem + 'é';
+          else if (suffix === 'ir') pp = stem + 'i';
+          else if (suffix === 're') pp = stem + 'u';
+
+          const avoirAux = { 'je': 'ai', 'tu': 'as', 'il/elle/on': 'a', 'nous': 'avons', 'vous': 'avez', 'ils/elles': 'ont' };
+          const etreAux = { 'je': 'suis', 'tu': 'es', 'il/elle/on': 'est', 'nous': 'sommes', 'vous': 'êtes', 'ils/elles': 'sont' };
+
+          const aux = auxType === 'avoir' ? avoirAux[p.pron] : etreAux[p.pron];
+          const rp = getReflexivePronoun(p.pron, aux); 
+          const rpHTML = isReflex ? `<span class="ve-form-ending er" style="color:var(--text-secondary); margin-right:4px;">${rp.trim()}${rp.endsWith("'")?'':' '}</span>` : '';
+          
+          if (auxType === 'avoir' && p.pron === 'je' && !isReflex) {
+             pronDisplay = "j'";
+          } else if (p.pron === 'je') {
+             pronDisplay = "je";
+          } else {
+             pronDisplay = p.pron;
+          }
+
+          let agree = '';
+          if (auxType === 'être') {
+             if (p.pron === 'je' || p.pron === 'tu' || p.pron === 'il/elle/on') agree = '(e)';
+             if (p.pron === 'nous' || p.pron === 'vous' || p.pron === 'ils/elles') agree = '(e)s';
+          }
+          const agreeHTML = agree ? `<span style="color:var(--text-muted); font-size: 0.85em; margin-left:1px;">${agree}</span>` : '';
+
+          form = `${rpHTML}<span class="ve-form-stem" style="margin-right: 0.4em;">${aux}</span><span class="ve-form-ending er">${pp}${agreeHTML}</span>`;
+          english = `${enSubj[p.pron]} ${vInfo.ed.replace('oneself', '')}`;
+        }
+        else if (tense === 'pr') {
+          const venir = { 'je': 'viens', 'tu': 'viens', 'il/elle/on': 'vient', 'nous': 'venons', 'vous': 'venez', 'ils/elles': 'viennent' };
+          const venirForm = venir[p.pron];
+          const rp = getReflexivePronoun(p.pron, baseRaw);
+          const nextAfterDe = isReflex ? rp : baseRaw;
+          const de = startsWithVowel(nextAfterDe) ? "d'" : "de ";
+          
+          pronDisplay = p.pron === 'je' ? 'je' : p.pron;
+          
+          const rpHTML = isReflex ? `<span class="ve-form-ending er" style="color:var(--text-secondary); margin-right:4px;">${rp.trim()}${rp.endsWith("'")?'':' '}</span>` : '';
+          form = `<span class="ve-form-stem">${venirForm} ${de}</span>${rpHTML}<span class="ve-form-ending er">${baseRaw}</span>`;
+          english = `${enSubj[p.pron]} just ${vInfo.ed.replace('oneself', '')}`;
+        }
+
+        // Clean up English double spaces from stripping "oneself"
+        english = english.replace(/\s+/g, ' ').trim();
+
+        return `
+          <tr>
+            <td class="td-pron">${pronDisplay}</td>
+            <td><div class="ve-form">${form}</div></td>
+            <td class="td-en">${english}</td>
+          </tr>
+        `;
+      }).join('');
+    };
 
     function initWidgets(sid) {
 
@@ -12871,6 +13520,62 @@ const sections = [
           },
         });
         window['w-poss_reset'] = () => window['poss_reset']();
+        
+        // Demonstrative Pronouns Logic
+        window._demState = { type: 'ms', distance: 0 };
+        window.demSetType = function(t, btn) {
+          const container = btn.parentElement;
+          container.querySelectorAll('.w-pill').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          window._demState.type = t;
+          window.demUpdate();
+        };
+        window.demUpdate = function() {
+          const slider = document.getElementById('dem-slider');
+          if (!slider) return;
+          window._demState.distance = parseInt(slider.value);
+          
+          const isClose = window._demState.distance < 50;
+          
+          const forms = {
+            'ms': { close: 'celui-ci', far: 'celui-là', enClose: 'this one', enFar: 'that one' },
+            'fs': { close: 'celle-ci', far: 'celle-là', enClose: 'this one', enFar: 'that one' },
+            'mp': { close: 'ceux-ci', far: 'ceux-là', enClose: 'these ones', enFar: 'those ones' },
+            'fp': { close: 'celles-ci', far: 'celles-là', enClose: 'these ones', enFar: 'those ones' }
+          };
+          
+          const data = forms[window._demState.type];
+          const pron = isClose ? data.close : data.far;
+          
+          const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
+          const translations = window.demTranslations && window.demTranslations[lang] ? window.demTranslations[lang] : window.demTranslations.en;
+          
+          const pronEl = document.getElementById('dem-pronoun');
+          const transEl = document.getElementById('dem-translation');
+          const lblClose = document.getElementById('dem-lbl-close');
+          const lblFar = document.getElementById('dem-lbl-far');
+          
+          if(pronEl) {
+            pronEl.textContent = pron;
+            pronEl.style.color = isClose ? 'var(--blue)' : 'var(--red)';
+            slider.style.accentColor = isClose ? 'var(--blue)' : 'var(--red)';
+          }
+          
+          if(lblClose) lblClose.textContent = translations.here;
+          if(lblFar) lblFar.textContent = translations.there;
+          
+          if(transEl) {
+            let tr = translations.sentence.replace('{pronoun}', isClose ? translations.close[window._demState.type] : translations.far[window._demState.type]);
+            transEl.innerHTML = tr + (isClose ? '' : '<br><span style="font-size:0.8rem;color:#EA4335">🍁 Quebec spoken: often just <b>' + data.far + '</b> for everything!</span>');
+          }
+        };
+        window['w-dem_reset'] = function() {
+          const slider = document.getElementById('dem-slider');
+          if(slider) { slider.value = 0; window.demUpdate(); }
+          const btns = document.querySelectorAll('#w-dem .w-pill');
+          if(btns.length) window.demSetType('ms', btns[0]);
+        };
+        if(document.getElementById('dem-slider')) window.demUpdate();
       }
 
       // ── NUMBERS: interactive clock ─────────────────────────
@@ -13348,7 +14053,23 @@ const sections = [
               }
 
               const fullForm = pronDisplay + ' ' + formStem + (group === 'ir' && ['nous', 'vous', 'ils/elles'].includes(pron) ? 'iss' : '') + (endingBody || '');
-              const enWord = ex.meanings[i] || '';
+              let enWord = '';
+              const lowerVerb = raw;
+              if (verbDict[lowerVerb]) {
+                const vInfo = verbDict[lowerVerb];
+                const prons = ['je', 'tu', 'il/elle/on', 'nous', 'vous', 'ils/elles'];
+                const pIdx = prons.indexOf(pron);
+                if (pIdx !== -1) {
+                  if (pron === 'je') enWord = 'I ' + vInfo.base;
+                  else if (pron === 'tu') enWord = 'you ' + vInfo.base;
+                  else if (pron === 'il/elle/on') enWord = 'he/she ' + vInfo.s;
+                  else if (pron === 'nous') enWord = 'we ' + vInfo.base;
+                  else if (pron === 'vous') enWord = 'you ' + vInfo.base;
+                  else if (pron === 'ils/elles') enWord = 'they ' + vInfo.base;
+                }
+              } else {
+                enWord = ex.meanings[i] || '';
+              }
 
               return '<tr>' +
                 '<td class="td-pron">' + pronDisplay + '</td>' +
@@ -13363,6 +14084,10 @@ const sections = [
             }).join('');
           }
         };
+
+        // Verb dictionary for live translation
+
+
 
         // Pre-fill with examples
         ['er', 'ir', 're'].forEach(g => {
@@ -13536,6 +14261,44 @@ const sections = [
         });
         window['w-pron2_reset'] = () => window['pron2_reset']();
       }
+
+      // ── NEW TENSE BUILDERS ─────────────────────────
+      if (sid === 'futur_proche') {
+        window['w-fp_reset'] = () => { const i = document.getElementById('ve-fp-input'); if (i) { i.value = 'parler'; veUpdateTense('fp'); } };
+        const inp = document.getElementById('ve-fp-input');
+        if (inp) { inp.value = 'parler'; veUpdateTense('fp'); }
+      }
+      if (sid === 'futur_simple') {
+        window['w-fs_reset'] = () => { const i = document.getElementById('ve-fs-input'); if (i) { i.value = 'parler'; veUpdateTense('fs'); } };
+        const inp = document.getElementById('ve-fs-input');
+        if (inp) { inp.value = 'parler'; veUpdateTense('fs'); }
+      }
+      if (sid === 'imparfait') {
+        window['w-impf_reset'] = () => { const i = document.getElementById('ve-impf-input'); if (i) { i.value = 'parler'; veUpdateTense('impf'); } };
+        const inp = document.getElementById('ve-impf-input');
+        if (inp) { inp.value = 'parler'; veUpdateTense('impf'); }
+      }
+      if (sid === 'conditionnel') {
+        window['w-cond_reset'] = () => { const i = document.getElementById('ve-cond-input'); if (i) { i.value = 'parler'; veUpdateTense('cond'); } };
+        const inp = document.getElementById('ve-cond-input');
+        if (inp) { inp.value = 'parler'; veUpdateTense('cond'); }
+      }
+      if (sid === 'passe_recent') {
+        window['w-pr_reset'] = () => { const i = document.getElementById('ve-pr-input'); if (i) { i.value = 'parler'; veUpdateTense('pr'); } };
+        const inp = document.getElementById('ve-pr-input');
+        if (inp) { inp.value = 'parler'; veUpdateTense('pr'); }
+      }
+      if (sid === 'gerondif') {
+        window['w-ger_reset'] = () => { const i = document.getElementById('ve-ger-input'); if (i) { i.value = 'parler'; veUpdateTense('ger'); } };
+        const inp = document.getElementById('ve-ger-input');
+        if (inp) { inp.value = 'parler'; veUpdateTense('ger'); }
+      }
+      if (sid === 'pronom_y') {
+        window['w-y_reset'] = () => { const i = document.getElementById('ve-y-input'); if (i) { i.value = 'à Paris'; veUpdateTense('y'); } };
+        const inp = document.getElementById('ve-y-input');
+        if (inp) { inp.value = 'à Paris'; veUpdateTense('y'); }
+      }
+
     }
 
     /* ============================================================
@@ -14085,52 +14848,16 @@ const sections = [
     window.runVerbBuilder = function() {
         const verb = document.getElementById('vb-input').value.toLowerCase().trim();
         
-        const verbDict = {
-            "être": "be", "avoir": "have", "aller": "go", "faire": "do", 
-            "pouvoir": "be able to", "vouloir": "want", "devoir": "have to", 
-            "parler": "speak", "finir": "finish", "vendre": "sell",
-            "chanter": "sing", "manger": "eat", "aimer": "love", "choisir": "choose",
-            "attendre": "wait", "répondre": "answer", "perdre": "lose",
-            "jouer": "play", "donner": "give", "trouver": "find",
-            "laisser": "leave", "passer": "pass", "demander": "ask",
-            "penser": "think", "regarder": "watch", "arriver": "arrive",
-            "chercher": "look for", "porter": "wear", "montrer": "show",
-            "continuer": "continue", "oublier": "forget", "travailler": "work",
-            "écouter": "listen", "acheter": "buy", "rappeler": "remind",
-            "changer": "change", "gagner": "win", "expliquer": "explain",
-            "commencer": "start", "essayer": "try", "appeler": "call",
-            "accepter": "accept", "refuser": "refuse", "décider": "decide",
-            "réussir": "succeed", "grandir": "grow", "remplir": "fill",
-            "réfléchir": "reflect", "agir": "act", "punir": "punish",
-            "entendre": "hear", "descendre": "go down", "rendre": "return",
-            "défendre": "defend", "fondre": "melt", "mordre": "bite",
-            "prendre": "take", "apprendre": "learn", "comprendre": "understand",
-            "mettre": "put", "promettre": "promise", "permettre": "allow",
-            "connaître": "know", "paraître": "appear", "naître": "be born",
-            "lire": "read", "dire": "say", "écrire": "write", "rire": "laugh",
-            "sourire": "smile", "boire": "drink", "croire": "believe",
-            "voir": "see", "recevoir": "receive", "décevoir": "disappoint",
-            "savoir": "know", "valoir": "be worth", "pleuvoir": "rain",
-            "courir": "run", "mourir": "die", "ouvrir": "open",
-            "couvrir": "cover", "offrir": "offer", "souffrir": "suffer",
-            "venir": "come", "tenir": "hold", "devenir": "become",
-            "revenir": "come back", "dormir": "sleep", "sortir": "go out",
-            "partir": "leave", "sentir": "feel", "servir": "serve",
-            "vivre": "live", "suivre": "follow", "payer": "pay",
-            "envoyer": "send", "nettoyer": "clean", "jeter": "throw",
-            "espérer": "hope", "préférer": "prefer", "répéter": "repeat"
-        };
-        
         let engInput = document.getElementById('vb-eng-input');
         let eng = "";
         if (engInput && engInput.value.trim()) {
             eng = engInput.value.toLowerCase().trim();
         } else {
-            eng = verbDict[verb] || "[verb]"; // fallback to a placeholder if unknown
+            eng = engBaseDict[verb] || "[verb]"; // fallback to a placeholder if unknown
         }
         
         // Update the input field so the user sees what was used
-        if (engInput && !engInput.value.trim() && verbDict[verb]) {
+        if (engInput && !engInput.value.trim() && engBaseDict[verb]) {
             engInput.value = eng;
         }
 
@@ -14291,6 +15018,51 @@ const sections = [
   </script>
 
 <script>
+window.demTranslations = {
+  en: {
+    here: "Here (-ci)",
+    there: "There (-là)",
+    sentence: "I'm taking {pronoun}.",
+    close: { ms: "this one (m)", fs: "this one (f)", mp: "these ones (m)", fp: "these ones (f)" },
+    far: { ms: "that one (m)", fs: "that one (f)", mp: "those ones (m)", fp: "those ones (f)" }
+  },
+  gu: {
+    here: "અહીં (-ci)",
+    there: "ત્યાં (-là)",
+    sentence: "હું {pronoun} લઈ રહ્યો છું.",
+    close: { ms: "આ (પુ)", fs: "આ (સ્ત્રી)", mp: "આ બધા (પુ)", fp: "આ બધા (સ્ત્રી)" },
+    far: { ms: "તે (પુ)", fs: "તે (સ્ત્રી)", mp: "તે બધા (પુ)", fp: "તે બધા (સ્ત્રી)" }
+  },
+  hi: {
+    here: "यहाँ (-ci)",
+    there: "वहाँ (-là)",
+    sentence: "मैं {pronoun} ले रहा हूँ।",
+    close: { ms: "यह वाला (पु)", fs: "यह वाली (स्त्री)", mp: "ये वाले (पु)", fp: "ये वाली (स्त्री)" },
+    far: { ms: "वह वाला (पु)", fs: "वह वाली (स्त्री)", mp: "वे वाले (पु)", fp: "वे वाली (स्त्री)" }
+  },
+  ta: {
+    here: "இங்கே (-ci)",
+    there: "அங்கே (-là)",
+    sentence: "நான் {pronoun} எடுக்கிறேன்.",
+    close: { ms: "இதை (ஆண்)", fs: "இதை (பெண்)", mp: "இவற்றை (ஆண்)", fp: "இவற்றை (பெண்)" },
+    far: { ms: "அதை (ஆண்)", fs: "அதை (பெண்)", mp: "அவற்றை (ஆண்)", fp: "அவற்றை (பெண்)" }
+  },
+  ko: {
+    here: "여기 (-ci)",
+    there: "저기 (-là)",
+    sentence: "나는 {pronoun} 가져갈게.",
+    close: { ms: "이것 (남)", fs: "이것 (여)", mp: "이것들 (남)", fp: "이것들 (여)" },
+    far: { ms: "저것 (남)", fs: "저것 (여)", mp: "저것들 (남)", fp: "저것들 (여)" }
+  },
+  zh: {
+    here: "这里 (-ci)",
+    there: "那里 (-là)",
+    sentence: "我要拿{pronoun}。",
+    close: { ms: "这个 (阳)", fs: "这个 (阴)", mp: "这些 (阳)", fp: "这些 (阴)" },
+    far: { ms: "那个 (阳)", fs: "那个 (阴)", mp: "那些 (阳)", fp: "那些 (阴)" }
+  }
+};
+
 // --- Interactive Timeline Logic ---
 window.tlTranslations = {
   en: {
@@ -14462,16 +15234,16 @@ function showTimeline(prep) {
   lbl.style.color = dCfg.color;
   lbl.style.opacity = '1';
   
-  if (prep === 'depuis') lbl.style.left = '20%';
-  if (prep === 'ilya') lbl.style.left = '10%';
-  if (prep === 'dans') lbl.style.left = '55%';
-  if (prep === 'pendant') lbl.style.left = '10%';
+  if (prep === 'depuis') lbl.style.left = '30%';
+  if (prep === 'ilya') lbl.style.left = '25%';
+  if (prep === 'dans') lbl.style.left = '68%';
+  if (prep === 'pendant') lbl.style.left = '22%';
   
   const info = document.getElementById('tl-info');
   info.style.borderLeftColor = dCfg.color;
   info.innerHTML = `
-    <div style="font-size:1.05rem; margin-bottom: 8px; color: var(--text-primary);">${t[prep + 'Desc']}</div>
-    <div style="background: color-mix(in srgb, ${dCfg.color} 10%, transparent); padding: 10px 14px; border-radius: 6px; margin-bottom: 8px; font-size: 0.95rem; line-height: 1.4;">${t[prep + 'Ex']}</div>
+    <div class="tl-desc">${t[prep + 'Desc']}</div>
+    <div class="tl-ex" style="background: color-mix(in srgb, ${dCfg.color} 12%, transparent); border: 1px solid color-mix(in srgb, ${dCfg.color} 22%, transparent);">${t[prep + 'Ex']}</div>
     <div class="tl-tricky">
       <div class="tl-tricky-title"><span class="ms ms-sm">warning</span> ${t.trickyLabel}</div>
       ${t[prep + 'Tricky']}
