@@ -14054,19 +14054,44 @@ const sections = [
 
               const fullForm = pronDisplay + ' ' + formStem + (group === 'ir' && ['nous', 'vous', 'ils/elles'].includes(pron) ? 'iss' : '') + (endingBody || '');
               let enWord = '';
-              const lowerVerb = raw;
-              if (verbDict[lowerVerb]) {
-                const vInfo = verbDict[lowerVerb];
-                const prons = ['je', 'tu', 'il/elle/on', 'nous', 'vous', 'ils/elles'];
-                const pIdx = prons.indexOf(pron);
-                if (pIdx !== -1) {
-                  if (pron === 'je') enWord = 'I ' + vInfo.base;
-                  else if (pron === 'tu') enWord = 'you ' + vInfo.base;
-                  else if (pron === 'il/elle/on') enWord = 'he/she ' + vInfo.s;
-                  else if (pron === 'nous') enWord = 'we ' + vInfo.base;
-                  else if (pron === 'vous') enWord = 'you ' + vInfo.base;
-                  else if (pron === 'ils/elles') enWord = 'they ' + vInfo.base;
+              const lowerVerb = raw.trim().toLowerCase();
+              
+              // Auto-fetch missing translations
+              if (typeof engBaseDict !== 'undefined' && !engBaseDict[lowerVerb]) {
+                if (!window._verbApiCache) window._verbApiCache = {};
+                if (!window._verbApiCache[lowerVerb]) {
+                  window._verbApiCache[lowerVerb] = 'fetching';
+                  fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(lowerVerb)}&langpair=fr|en`)
+                    .then(r => r.json())
+                    .then(data => {
+                      if (data?.responseData?.translatedText) {
+                        let t = data.responseData.translatedText.toLowerCase();
+                        t = t.replace(/^to\s+/, '').replace(/[^\w\s]/g, '').trim(); 
+                        if (t && t !== lowerVerb && !t.includes("mymemory") && !t.includes("warning")) {
+                          engBaseDict[lowerVerb] = t;
+                          window._verbApiCache[lowerVerb] = 'done';
+                          const currentInp = document.getElementById('ve-' + group + '-input');
+                          if (currentInp && currentInp.value.trim().toLowerCase() === lowerVerb) {
+                            window.veUpdate(group);
+                          }
+                        } else {
+                           window._verbApiCache[lowerVerb] = 'failed';
+                        }
+                      }
+                    }).catch(e => {
+                      window._verbApiCache[lowerVerb] = 'failed';
+                    });
                 }
+              }
+
+              if (typeof engBaseDict !== 'undefined' && (engBaseDict[lowerVerb] || window._verbApiCache?.[lowerVerb] === 'done')) {
+                const vInfo = typeof getEngVerbInfo === 'function' ? getEngVerbInfo(lowerVerb) : { base: engBaseDict[lowerVerb], s: engBaseDict[lowerVerb] + 's' };
+                if (pron === 'je' || pron === "je / j'") enWord = 'I ' + vInfo.base;
+                else if (pron === 'tu') enWord = 'you ' + vInfo.base;
+                else if (pron === 'il/elle/on') enWord = 'he/she ' + vInfo.s;
+                else if (pron === 'nous') enWord = 'we ' + vInfo.base;
+                else if (pron === 'vous') enWord = 'you ' + vInfo.base;
+                else if (pron === 'ils/elles') enWord = 'they ' + vInfo.base;
               } else {
                 enWord = ex.meanings[i] || '';
               }
