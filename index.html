@@ -12486,7 +12486,10 @@ const sections = [
         // ── 19. VERB ENDINGS — conjugation workshop
         // ── 19. VERB ENDINGS — conjugation workshop
         'verb_endings_0': () => widgetShell('w-ve-groups', t('quizLabel_ve_compare') || 'All three groups side-by-side', `
-          <div class="ve-compare" id="ve-compare-grid"></div>`),
+          <div class="ve-compare" id="ve-compare-grid"></div>
+          <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary); font-size: 1.1rem;">Other Tenses</h4>
+          <style>@media (min-width: 768px) { #ve-tenses-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 0.5rem; } }</style>
+          <div class="ve-compare" id="ve-tenses-grid"></div>`),
 
         'verb_endings_1': () => widgetShell('w-ve-er', t('quizLabel_ve_er') || 'Build any -ER conjugation live', `
           <div class="ve-workshop" id="ve-er-workshop">
@@ -13993,6 +13996,38 @@ const sections = [
               rows +
               '</div>';
           }).join('');
+        }
+        
+        const tensesGrid = document.getElementById('ve-tenses-grid');
+        if (tensesGrid) {
+            const imparfait = [
+              { pron: 'je', end: '-ais' }, { pron: 'tu', end: '-ais' }, { pron: 'il/elle', end: '-ait' },
+              { pron: 'nous', end: '-ions' }, { pron: 'vous', end: '-iez' }, { pron: 'ils', end: '-aient' }
+            ];
+            const futurSimple = [
+              { pron: 'je', end: '-ai' }, { pron: 'tu', end: '-as' }, { pron: 'il/elle', end: '-a' },
+              { pron: 'nous', end: '-ons' }, { pron: 'vous', end: '-ez' }, { pron: 'ils', end: '-ont' }
+            ];
+            const cond = [
+              { pron: 'je', end: '-ais' }, { pron: 'tu', end: '-ais' }, { pron: 'il/elle', end: '-ait' },
+              { pron: 'nous', end: '-ions' }, { pron: 'vous', end: '-iez' }, { pron: 'ils', end: '-aient' }
+            ];
+            const pc = [
+              { pron: '-ER verb', end: '-é' }, { pron: '-IR verb', end: '-i' }, { pron: '-RE verb', end: '-u' }
+            ];
+
+            const renderCol = (title, data, color, rgbaStr) => {
+              return '<div class="ve-compare-col" style="border-color: ' + rgbaStr + ';">' +
+                '<div class="ve-compare-title" style="color: ' + color + ';">' + title + '</div>' +
+                data.map(e => '<div class="ve-compare-row"><span class="ve-compare-pron">' + e.pron + '</span><span class="ve-compare-end" style="color: ' + color + '; font-weight: 500;">' + e.end + '</span></div>').join('') +
+                '</div>';
+            };
+
+            tensesGrid.innerHTML = 
+              renderCol('Imparfait', imparfait, '#f59e0b', 'rgba(245, 158, 11, 0.3)') +
+              renderCol('Futur Simple', futurSimple, '#3b82f6', 'rgba(59, 130, 246, 0.3)') +
+              renderCol('Conditionnel', cond, '#8b5cf6', 'rgba(139, 92, 246, 0.3)') +
+              renderCol('P. Composé (PP)', pc, '#10b981', 'rgba(16, 185, 129, 0.3)');
         }
 
         // ── Widgets 1–3: live conjugation builders ──
