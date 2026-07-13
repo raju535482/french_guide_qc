@@ -12869,11 +12869,16 @@ const sections = [
       ];
 
       if (tense === 'ger') {
-        let gerStem = stem;
+        const irregImpfStems = { 'être': 'ét', 'avoir': 'av', 'aller': 'all', 'faire': 'fais', 'pouvoir': 'pouv', 'vouloir': 'voul', 'voir': 'voy', 'savoir': 'sav', 'venir': 'ven', 'devenir': 'deven', 'revenir': 'reven', 'tenir': 'ten', 'devoir': 'dev', 'recevoir': 'recev', 'boire': 'buv', 'croire': 'croy', 'prendre': 'pren', 'comprendre': 'compren', 'apprendre': 'appren', 'dire': 'dis', 'lire': 'lis', 'écrire': 'écriv', 'mettre': 'mett', 'connaître': 'connaiss', 'paraître': 'paraiss', 'vivre': 'viv', 'suivre': 'suiv', 'dormir': 'dorm', 'partir': 'part', 'sortir': 'sort', 'servir': 'serv', 'courir': 'cour', 'mourir': 'mour', 'rire': 'ri', 'sourire': 'souri', 'craindre': 'craign', 'peindre': 'peign', 'joindre': 'joign', 'falloir': 'fall', 'valoir': 'val', 'pleuvoir': 'pleuv' };
+        let gerStem = irregImpfStems[baseRaw] || (suffix === 'ir' && !baseRaw.endsWith('oir') ? stem + 'iss' : stem);
         if (baseRaw === 'être') gerStem = 'ét';
         else if (baseRaw === 'avoir') gerStem = 'ay';
-        else if (baseRaw === 'aller') gerStem = 'all';
-        else if (suffix === 'ir') gerStem = stem + 'iss';
+        else if (baseRaw === 'savoir') gerStem = 'sach';
+
+        if (!irregImpfStems[baseRaw] && suffix === 'er') {
+          if (stem.endsWith('g')) gerStem = stem + 'e';
+          else if (stem.endsWith('c')) gerStem = stem.slice(0, -1) + 'ç';
+        }
 
         const reflexHTML = isReflex ? `<span class="ve-form-ending er" style="color:var(--text-secondary); margin-right:4px;">se</span>` : '';
         const form = `${reflexHTML}<span class="ve-form-stem">en ${gerStem}</span><span class="ve-form-ending er">ant</span>`;
@@ -12925,11 +12930,8 @@ const sections = [
         }
         else if (tense === 'fs') {
           const fsEnds = { 'je': 'ai', 'tu': 'as', 'il/elle/on': 'a', 'nous': 'ons', 'vous': 'ez', 'ils/elles': 'ont' };
-          let fsStem = baseRaw;
-          if (baseRaw === 'aller') fsStem = 'ir';
-          else if (baseRaw === 'avoir') fsStem = 'aur';
-          else if (baseRaw === 'être') fsStem = 'ser';
-          else if (baseRaw.endsWith('re')) fsStem = baseRaw.slice(0, -1);
+          const irregFStems = { 'aller': 'ir', 'avoir': 'aur', 'être': 'ser', 'faire': 'fer', 'pouvoir': 'pourr', 'vouloir': 'voudr', 'voir': 'verr', 'savoir': 'saur', 'venir': 'viendr', 'devenir': 'deviendr', 'revenir': 'reviendr', 'tenir': 'tiendr', 'devoir': 'devr', 'recevoir': 'recevr', 'pleuvoir': 'pleuvr', 'falloir': 'faudr', 'courir': 'courr', 'mourir': 'mourr', 'envoyer': 'enverr', 'valoir': 'vaudr' };
+          let fsStem = irregFStems[baseRaw] || (baseRaw.endsWith('re') ? baseRaw.slice(0, -1) : baseRaw);
 
           const rp = getReflexivePronoun(p.pron, fsStem);
           const nextAfterSubj = isReflex ? rp : fsStem;
@@ -12941,28 +12943,30 @@ const sections = [
         }
         else if (tense === 'impf') {
           const impfEnds = { 'je': 'ais', 'tu': 'ais', 'il/elle/on': 'ait', 'nous': 'ions', 'vous': 'iez', 'ils/elles': 'aient' };
-          let impfStem = stem;
-          if (baseRaw === 'être') impfStem = 'ét';
-          else if (baseRaw === 'avoir') impfStem = 'av';
-          else if (baseRaw === 'aller') impfStem = 'all';
-          else if (suffix === 'ir') impfStem = stem + 'iss';
+          const irregImpfStems = { 'être': 'ét', 'avoir': 'av', 'aller': 'all', 'faire': 'fais', 'pouvoir': 'pouv', 'vouloir': 'voul', 'voir': 'voy', 'savoir': 'sav', 'venir': 'ven', 'devenir': 'deven', 'revenir': 'reven', 'tenir': 'ten', 'devoir': 'dev', 'recevoir': 'recev', 'boire': 'buv', 'croire': 'croy', 'prendre': 'pren', 'comprendre': 'compren', 'apprendre': 'appren', 'dire': 'dis', 'lire': 'lis', 'écrire': 'écriv', 'mettre': 'mett', 'connaître': 'connaiss', 'paraître': 'paraiss', 'vivre': 'viv', 'suivre': 'suiv', 'dormir': 'dorm', 'partir': 'part', 'sortir': 'sort', 'servir': 'serv', 'courir': 'cour', 'mourir': 'mour', 'rire': 'ri', 'sourire': 'souri', 'craindre': 'craign', 'peindre': 'peign', 'joindre': 'joign', 'falloir': 'fall', 'valoir': 'val', 'pleuvoir': 'pleuv' };
+          let impfStem = irregImpfStems[baseRaw] || (suffix === 'ir' && !baseRaw.endsWith('oir') ? stem + 'iss' : stem);
 
           const rp = getReflexivePronoun(p.pron, impfStem);
           const nextAfterSubj = isReflex ? rp : impfStem;
           pronDisplay = (p.pron === 'je' && startsWithVowel(nextAfterSubj)) ? "j'" : p.pron;
 
           const rpHTML = isReflex ? `<span class="ve-form-ending er" style="color:var(--text-secondary); margin-right:4px;">${rp.trim()}${rp.endsWith("'")?'':' '}</span>` : '';
-          form = `${rpHTML}<span class="ve-form-stem">${impfStem}</span><span class="ve-form-ending er">${impfEnds[p.pron]}</span>`;
+          
+          let end = impfEnds[p.pron];
+          let displayStem = impfStem;
+          if (!irregImpfStems[baseRaw] && suffix === 'er') {
+            if (stem.endsWith('g') && !end.startsWith('i')) displayStem = stem + 'e';
+            else if (stem.endsWith('c') && !end.startsWith('i')) displayStem = stem.slice(0, -1) + 'ç';
+          }
+          
+          form = `${rpHTML}<span class="ve-form-stem">${displayStem}</span><span class="ve-form-ending er">${end}</span>`;
           const enWas = (p.pron === 'je' || p.pron === 'il/elle/on') ? 'was' : 'were';
           english = `${enSubj[p.pron]} ${enWas} ${vInfo.ing.replace('oneself', '')} / used to ${vInfo.base.replace('oneself', '')}`;
         }
         else if (tense === 'cond') {
           const condEnds = { 'je': 'ais', 'tu': 'ais', 'il/elle/on': 'ait', 'nous': 'ions', 'vous': 'iez', 'ils/elles': 'aient' };
-          let condStem = baseRaw;
-          if (baseRaw === 'aller') condStem = 'ir';
-          else if (baseRaw === 'avoir') condStem = 'aur';
-          else if (baseRaw === 'être') condStem = 'ser';
-          else if (baseRaw.endsWith('re')) condStem = baseRaw.slice(0, -1);
+          const irregFStems = { 'aller': 'ir', 'avoir': 'aur', 'être': 'ser', 'faire': 'fer', 'pouvoir': 'pourr', 'vouloir': 'voudr', 'voir': 'verr', 'savoir': 'saur', 'venir': 'viendr', 'devenir': 'deviendr', 'revenir': 'reviendr', 'tenir': 'tiendr', 'devoir': 'devr', 'recevoir': 'recevr', 'pleuvoir': 'pleuvr', 'falloir': 'faudr', 'courir': 'courr', 'mourir': 'mourr', 'envoyer': 'enverr', 'valoir': 'vaudr' };
+          let condStem = irregFStems[baseRaw] || (baseRaw.endsWith('re') ? baseRaw.slice(0, -1) : baseRaw);
 
           const rp = getReflexivePronoun(p.pron, condStem);
           const nextAfterSubj = isReflex ? rp : condStem;
@@ -12974,7 +12978,7 @@ const sections = [
         }
         else if (tense === 'pc') {
           let auxType = 'avoir';
-          const vandertramp = ['aller', 'venir', 'arriver', 'partir', 'entrer', 'sortir', 'monter', 'descendre', 'naître', 'mourir', 'rester', 'tomber', 'retourner', 'passer'];
+          const vandertramp = ['aller', 'venir', 'arriver', 'partir', 'entrer', 'sortir', 'monter', 'descendre', 'naître', 'mourir', 'rester', 'tomber', 'retourner', 'passer', 'rentrer', 'redevenir', 'repartir', 'ressortir', 'remonter', 'redescendre', 'retomber'];
           if (isReflex || vandertramp.includes(baseRaw)) {
             auxType = 'être';
           }
@@ -12989,7 +12993,9 @@ const sections = [
             'vendre': 'vendu', 'rendre': 'rendu', 'naître': 'né', 'mourir': 'mort',
             'ouvrir': 'ouvert', 'offrir': 'offert', 'découvrir': 'découvert', 'souffrir': 'souffert',
             'peindre': 'peint', 'craindre': 'craint', 'joindre': 'joint', 'rire': 'ri', 'sourire': 'souri',
-            'suivre': 'suivi', 'vivre': 'vécu'
+            'suivre': 'suivi', 'vivre': 'vécu', 'asseoir': 'assis', 'conduire': 'conduit', 'traduire': 'traduit', 
+            'construire': 'construit', 'produire': 'produit', 'plaire': 'plu', 'taire': 'tu', 'croire': 'cru', 
+            'falloir': 'fallu', 'valoir': 'valu', 'battre': 'battu'
           };
 
           let pp = '';
@@ -14961,8 +14967,11 @@ const sections = [
            pc = ["ai dû", "as dû", "a dû", "avons dû", "avez dû", "ont dû"];
            imp = ["devais", "devais", "devait", "devions", "deviez", "devaient"];
            fut = ["devrai", "devras", "devra", "devrons", "devrez", "devront"];
+        } else if ({ 'voir':1, 'savoir':1, 'venir':1, 'devenir':1, 'revenir':1, 'tenir':1, 'recevoir':1, 'boire':1, 'croire':1, 'prendre':1, 'comprendre':1, 'apprendre':1, 'dire':1, 'lire':1, 'écrire':1, 'mettre':1, 'connaître':1, 'paraître':1, 'vivre':1, 'suivre':1, 'dormir':1, 'partir':1, 'sortir':1, 'servir':1, 'courir':1, 'mourir':1, 'rire':1, 'sourire':1, 'craindre':1, 'peindre':1, 'joindre':1, 'falloir':1, 'valoir':1, 'pleuvoir':1, 'asseoir':1 }[verb]) {
+           out.innerHTML = "<p style='color:var(--tertiary); font-weight: bold;'>Sorry, full conjugation for this highly irregular verb is not supported in the Verb Builder. (Try using the interactive widgets in the sections above!)</p>";
+           return;
         } else if (verb.endsWith('er')) {
-           const stem = verb.slice(0, -2);
+               const stem = verb.slice(0, -2);
            pres = [stem+"e", stem+"es", stem+"e", stem+"ons", stem+"ez", stem+"ent"];
            if (stem.endsWith('g')) { pres[3] = stem+"eons"; }
            if (stem.endsWith('c')) { pres[3] = stem.slice(0,-1)+"çons"; }
