@@ -1,4 +1,21 @@
 window.demTranslations = {
+  fa: {
+    "here": "اینجا (-ci)",
+    "there": "آنجا (-là)",
+    "sentence": "من {pronoun} را برمی‌دارم.",
+    "close": {
+        "ms": "این یکی (مذکر)",
+        "fs": "این یکی (مؤنث)",
+        "mp": "این‌ها (مذکر)",
+        "fp": "این‌ها (مؤنث)"
+    },
+    "far": {
+        "ms": "آن یکی (مذکر)",
+        "fs": "آن یکی (مؤنث)",
+        "mp": "آن‌ها (مذکر)",
+        "fp": "آن‌ها (مؤنث)"
+    }
+},
   en: {
     here: "Here (-ci)",
     there: "There (-là)",
@@ -45,6 +62,28 @@ window.demTranslations = {
 
 // --- Interactive Timeline Logic ---
 window.tlTranslations = {
+  fa: {
+    "past": "گذشته",
+    "present": "زمان حال",
+    "future": "آینده",
+    "trickyLabel": "نکته کلیدی",
+    "depuisLbl": "عملی که تا زمان حال ادامه دارد",
+    "depuisDesc": "<b>depuis</b> (از... تا کنون) عملی را توصیف می‌کند که در گذشته آغاز شده و هنوز در زمان حال در جریان است.",
+    "depuisEx": "Je travaille ici <b>depuis</b> 2020. <br><i>(من از سال ۲۰۲۰ در اینجا کار می‌کنم.)</i>",
+    "depuisTricky": "از زمان گذشته استفاده نکنید! در فرانسوی اگر کاری همچنان ادامه دارد باید از <b>زمان حال</b> استفاده شود.<br>❌ <i>J'ai travaillé ici depuis un an.</i><br>✅ <i>Je travaille ici depuis un an.</i>",
+    "ilyaLbl": "لحظه‌ای پایان‌یافته در گذشته",
+    "ilyaDesc": "<b>il y a</b> (... پیش) به مقطع زمانی مشخص و پایان‌یافته‌ای در گذشته اشاره دارد.",
+    "ilyaEx": "Le train est parti <b>il y a</b> dix minutes. <br><i>(قطار ده دقیقه پیش حرکت کرد.)</i>",
+    "ilyaTricky": "همیشه با زمان گذشته (مانند گذشته مرکب) استفاده می‌شود و به معنی «... قبل/پیش» است.",
+    "dansLbl": "شمارش معکوس به سوی آینده",
+    "dansDesc": "<b>dans</b> (تا / ظرفِ) فاصله زمانی تا آغاز یک رویداد در آینده را نشان می‌دهد.",
+    "dansEx": "Le cours commence <b>dans</b> cinq minutes. <br><i>(کلاس ۵ دقیقه دیگر شروع می‌شود.)</i>",
+    "dansTricky": "از <b>dans</b> برای 'تا چند وقت دیگر' استفاده کنید. از <b>en</b> برای 'مدت زمانی که طول می‌کشد' بهره ببرید.<br>✅ <i>Il part dans 1h (شروع بعد از ۱ ساعت).</i><br>✅ <i>Il a fait ses devoirs en 1h (مدت انجام کار ۱ ساعت بود).</i>",
+    "pendantLbl": "بازه زمانی معین و خاتمه‌یافته",
+    "pendantDesc": "<b>pendant</b> (به مدتِ / در طولِ) بیانگر دوره زمانی پایان‌یافته با آغاز و فرجام معین است.",
+    "pendantEx": "J'ai dormi <b>pendant</b> neuf heures. <br><i>(من به مدت ۹ ساعت خوابیدم.)</i>",
+    "pendantTricky": "اگر عمل به پایان رسیده است از <b>pendant</b> استفاده کنید. اگر همچنان ادامه دارد از <b>depuis</b> بهره ببرید."
+},
   en: {
     past: "Past", present: "Present", future: "Future",
     trickyLabel: "Tricky Rule",

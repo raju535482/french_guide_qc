@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Google+Sans:wght@400;500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Google+Sans:wght@400;500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Space+Grotesk:wght@500;600;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,900&family=JetBrains+Mono:wght@400;600;800&family=Quicksand:wght@500;600;700&family=VT323&family=Vazirmatn:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,10 +22,35 @@
       <h1>French Grammar Guide</h1>
       <span class="header-divider"></span>
       <div class="subtitle" id="app-subtitle">Québec A1–A2</div>
-      <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme"
-        aria-label="Toggle dark/light mode">
-        <span class="ms ms-sm" id="theme-icon">dark_mode</span>
-      </button>
+      <div class="header-controls">
+        <div class="style-select-wrap">
+          <label for="style-select" class="style-select-label" title="Visual Theme">
+            <span class="ms ms-sm">palette</span>
+          </label>
+          <select class="style-select" id="style-select" onchange="changeStyleTheme(this.value)" title="Choose Visual Design Style" aria-label="Visual design style theme">
+            <option value="default">✦ Modern</option>
+            <option value="neo-brutalist">⚡ Neo-Brutalist</option>
+            <option value="minimalist">◻ Minimalist</option>
+            <option value="glassmorphism">❄ Glassmorphism</option>
+            <option value="claymorphism">☁ Claymorphism</option>
+            <option value="cyberpunk">☣ Cyberpunk</option>
+            <option value="y2k-retro">💾 Retro / Y2K</option>
+            <option value="maximalism">💥 Maximalism</option>
+          </select>
+        </div>
+        <button class="audio-speed-btn" id="audio-speed-btn" onclick="toggleAudioSpeed()" title="French Audio Speed (Normal: 0.9x / Slow: 0.7x)" aria-label="Toggle French audio speed">
+          <span class="ms ms-sm">volume_up</span>
+          <span class="speed-label" id="audio-speed-label">0.9x</span>
+        </button>
+        <button class="audio-speed-btn" id="phonetic-toggle-btn" onclick="togglePhoneticsCues()" title="Toggle Pronunciation Visual Cues (Silent letters & Liaisons)" aria-label="Toggle pronunciation cues">
+          <span class="ms ms-sm">record_voice_over</span>
+          <span class="speed-label" id="phonetic-toggle-label">Cues: On</span>
+        </button>
+        <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme"
+          aria-label="Toggle dark/light mode">
+          <span class="ms ms-sm" id="theme-icon">dark_mode</span>
+        </button>
+      </div>
     </div>
   </header>
 
