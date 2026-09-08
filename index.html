@@ -46,6 +46,10 @@
           <span class="ms ms-sm">record_voice_over</span>
           <span class="speed-label" id="phonetic-toggle-label">Cues: On</span>
         </button>
+        <button class="audio-speed-btn conj-lookup-btn" id="conj-lookup-btn" onclick="openVerbModal()" title="Instant French Verb Conjugator (7,800+ verbs, all tenses)" aria-label="Lookup any French verb conjugation">
+          <span class="ms ms-sm" style="color:var(--yellow);">auto_stories</span>
+          <span class="speed-label">Conjugator</span>
+        </button>
         <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme"
           aria-label="Toggle dark/light mode">
           <span class="ms ms-sm" id="theme-icon">dark_mode</span>
@@ -86,6 +90,58 @@
 
   </div>
 
+  <!-- UNIVERSAL VERB CONJUGATOR MODAL (7,800+ VERBS) -->
+  <div class="vmodal-backdrop" id="vmodal-backdrop" onclick="closeVerbModal(event)">
+    <div class="vmodal-dialog" onclick="event.stopPropagation()">
+      <div class="vmodal-header">
+        <div class="vmodal-title-wrap">
+          <span class="ms ms-fill" style="color:var(--yellow);font-size:1.5rem">auto_stories</span>
+          <div>
+            <h3 class="vmodal-title">French Verb Conjugator</h3>
+            <p class="vmodal-subtitle">Full conjugations across all tenses & moods for 7,800+ verbs</p>
+          </div>
+        </div>
+        <button class="vmodal-close-btn" onclick="closeVerbModal()" aria-label="Close modal" title="Close (Esc)">
+          <span class="ms">close</span>
+        </button>
+      </div>
+
+      <div class="vmodal-search-bar">
+        <div class="vmodal-input-wrap">
+          <span class="ms ms-sm vmodal-search-icon">search</span>
+          <input type="text" id="vmodal-input" class="vmodal-input" placeholder="Type any French verb (e.g. aller, être, manger, s'asseoir, vouloir)..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter') doModalConjugate();" oninput="handleModalSearchInput(this.value)">
+          <button class="vmodal-clear-btn" id="vmodal-clear-btn" onclick="clearModalInput()" style="display:none;" title="Clear">
+            <span class="ms ms-sm">clear</span>
+          </button>
+        </div>
+        <button class="vmodal-submit-btn" onclick="doModalConjugate()">Conjugate</button>
+      </div>
+
+      <div class="vmodal-suggestions" id="vmodal-suggestions"></div>
+
+      <div class="vmodal-content" id="vmodal-content">
+        <div class="vmodal-empty-state">
+          <span class="ms ms-lg" style="color:var(--text-muted);margin-bottom:8px">manage_search</span>
+          <p>Search any verb or click any of the quick suggestions below:</p>
+          <div class="vmodal-quick-chips">
+            <button class="vmodal-chip" onclick="quickConjugate('être')">être</button>
+            <button class="vmodal-chip" onclick="quickConjugate('avoir')">avoir</button>
+            <button class="vmodal-chip" onclick="quickConjugate('aller')">aller</button>
+            <button class="vmodal-chip" onclick="quickConjugate('faire')">faire</button>
+            <button class="vmodal-chip" onclick="quickConjugate('pouvoir')">pouvoir</button>
+            <button class="vmodal-chip" onclick="quickConjugate('vouloir')">vouloir</button>
+            <button class="vmodal-chip" onclick="quickConjugate('prendre')">prendre</button>
+            <button class="vmodal-chip" onclick="quickConjugate('venir')">venir</button>
+            <button class="vmodal-chip" onclick="quickConjugate('aimer')">aimer</button>
+            <button class="vmodal-chip" onclick="quickConjugate('manger')">manger</button>
+            <button class="vmodal-chip" onclick="quickConjugate('finir')">finir</button>
+            <button class="vmodal-chip" onclick="quickConjugate('se lever')">se lever</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/sections/00_articles.js"></script>
   <script src="js/sections/01_nouns.js"></script>
   <script src="js/sections/02_pronouns.js"></script>
@@ -114,6 +170,7 @@
   <script src="js/sections/25_prepositions_temps.js"></script>
   <script src="js/sections/26_histoire_montreal.js"></script>
   <script src="js/sections/27_pc_vs_imparfait.js"></script>
+  <script src="data/verbs_db.js"></script>
   <script src="js/conjugator.js"></script>
   <script src="js/translations.js"></script>
   <script src="js/dem_translations.js"></script>

@@ -9,13 +9,13 @@ window.sectionsData.push({
   "color": "#EC4899",
   "content": [
     {
-      "rule": "1. The 'Movie Scene' Golden Rule",
-      "english": "Think of the past as a movie scene: Imparfait paints the ongoing background scenery (weather, emotions, what was already in progress). Passé Composé is the lightning strike or sudden event that moves the story forward.",
+      "rule": "1. The 'Video Camera 🎥 vs Photo Snapshot 📸' Golden Rule",
+      "english": "Think of the past as a movie scene: Imparfait is the Video Camera 🎥 running continuously in the background (weather, emotions, 'was doing', ongoing states with no start/end). Passé Composé is the Photo Snapshot 📸 (the sudden 'BAM!', single completed action, 'did it').",
       "table": {
         "headers": [
           "Feature",
-          "Imparfait 🖼️ (Background / Setting)",
-          "Passé Composé ⚡ (Action / Event)"
+          "Imparfait 🎥 (Video Camera / Setting)",
+          "Passé Composé 📸 (Photo Snapshot / Event)"
         ],
         "rows": [
           [
@@ -26,7 +26,7 @@ window.sectionsData.push({
           [
             "Action Type",
             "Continuous, habitual, open-ended, background",
-            "Single completed action, interrupted event, sequence"
+            "Single completed action, sudden interruption, sequence"
           ],
           [
             "English Meaning",
@@ -40,7 +40,7 @@ window.sectionsData.push({
           ]
         ]
       },
-      "tip": "💡 Memory trick: Imparfait is the movie stage setup. Passé Composé is what the actors suddenly do!"
+      "tip": "💡 Memory trick: Imparfait = 🎥 video camera rolling in the background. Passé Composé = 📸 flash snapshot capturing a sudden 'BAM!' action."
     },
     {
       "rule": "2. Interrupted Actions (Quand & Pendant que)",
@@ -304,7 +304,7 @@ window.sectionsData.push({
           ]
         ]
       },
-      "tip": "🍁 Quebec memory: 'Pendant qu'il neigeait (IMP), on a déneigé la voiture (PC) et on est allés au chalet (PC)!'."
+      "tip": "💡 Master Example Breakdown: 'Pendant que je cuisinais (IMP: long ongoing video camera background), le téléphone a soudainement sonné (PC: sudden BAM! snapshot interruption).'\\n🍁 Quebec memory: 'Pendant qu'il neigeait (IMP), on a déneigé la voiture (PC) et on est allés au chalet (PC)!'"
     }
   ]
 });

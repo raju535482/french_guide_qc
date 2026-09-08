@@ -148,6 +148,50 @@ window.sectionsData.push({
       "tip": "💡 Memory trick: DR & MRS VANDERTRAMP lists all être verbs. Also, ALL reflexive verbs use être."
     },
     {
+      "rule": "Common Switch Verbs: ÊTRE vs AVOIR (Subject Moving vs Direct Object)",
+      "english": "Six common verbs switch between être and avoir in the passé composé. Use être if the subject is the one moving (intransitive). Use avoir if the subject is moving something else (transitive, with a direct object / COD).",
+      "table": {
+        "headers": [
+          "Verb",
+          "With ÊTRE (Subject moves)",
+          "With AVOIR (Moves something else)"
+        ],
+        "rows": [
+          [
+            "passer",
+            "Je suis passé. — I stopped by / passed by.",
+            "J'ai passé un examen. — I took an exam."
+          ],
+          [
+            "monter",
+            "Elle est montée. — She went up / got in.",
+            "Elle a monté les valises. — She carried the suitcases up."
+          ],
+          [
+            "descendre",
+            "Nous sommes descendus. — We went down.",
+            "Nous avons descendu les escaliers. — We went down the stairs."
+          ],
+          [
+            "sortir",
+            "Ils sont sortis. — They went out / left.",
+            "Ils ont sorti le chien. — They took the dog out."
+          ],
+          [
+            "rentrer",
+            "Tu es rentré. — You came home.",
+            "Tu as rentré les chaises. — You brought the chairs inside."
+          ],
+          [
+            "retourner",
+            "Il est retourné en France. — He went back to France.",
+            "Il a retourné la crêpe. — He flipped the crepe."
+          ]
+        ]
+      },
+      "tip": "💡 Key Rule: Use ÊTRE if the subject is moving (agrees with subject). Use AVOIR if the subject is moving a direct object (something else)! Notice: The verb 'être' itself always uses avoir: 'j'ai été' (never 'je suis été')."
+    },
+    {
       "rule": "Negation in Passé Composé",
       "english": "Place ne…pas around the auxiliary verb (avoir/être), NOT around the past participle.",
       "examples": [

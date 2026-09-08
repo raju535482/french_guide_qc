@@ -294,16 +294,65 @@ const sections = window.sectionsData || [];
     }
     window.formatFrenchDisplay = formatFrenchDisplay;
 
+    const _COMMON_ENGLISH_WORDS = new Set([
+      'the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'i', 'it', 'for', 'not', 'on', 'with', 'he', 'as', 'you', 'do',
+      'at', 'this', 'but', 'his', 'by', 'from', 'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all',
+      'would', 'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which', 'go', 'me', 'when', 'make',
+      'can', 'like', 'time', 'no', 'just', 'him', 'know', 'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could',
+      'them', 'see', 'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think', 'also', 'back', 'after',
+      'use', 'two', 'how', 'our', 'work', 'first', 'well', 'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give',
+      'day', 'most', 'us', 'was', 'were', 'is', 'are', 'been', 'being', 'did', 'does', 'doing', 'done', 'has', 'had', 'having',
+      'happened', 'occurring', 'occurred', 'continuous', 'habitual', 'completed', 'interrupted', 'sequence', 'feeling',
+      'action', 'type', 'core', 'meaning', 'scene', 'setting', 'background', 'diagnostic', 'question', 'selection', 'marker',
+      'usually', 'often', 'always', 'sometimes', 'never', 'state', 'condition', 'event', 'sudden', 'result', 'cause',
+      'rising', 'intonation', 'step', 'routine', 'exception', 'rule', 'note', 'english', 'french', 'pronunciation'
+    ]);
+
     function makeSpeakerHtml(text, extraClass = 'tbl-speak-btn') {
       if (!text) return '';
       // Clean HTML tags
       let clean = String(text).replace(/<\/?[^>]+(>|$)/g, '').trim();
-      // Completely remove all parenthesized and bracketed annotations (e.g. "(Variation)", "(f.)", "(m.)", "(pl.)")
+
+      // If text has definition format like 'Je savais = I knew (had knowledge all along)', take the French side
+      if (clean.includes(' = ')) {
+        clean = clean.split(' = ')[0].trim();
+      }
+      // If text has format like 'Je suis passé. — I stopped by / passed by.' or 'j\'ai vu — I saw', take the French side
+      if (clean.includes(' — ')) {
+        clean = clean.split(' — ')[0].trim();
+      } else if (clean.includes(' - ') && !/^[a-zA-ZÀ-ÿ]+-[a-zA-ZÀ-ÿ]+$/.test(clean)) {
+        // e.g. "j'ai eu - I had"
+        clean = clean.split(' - ')[0].trim();
+      }
+
+      // Completely remove all parenthesized and bracketed annotations (e.g. "(Variation)", "(It was cold)", "(f.)")
       const spoken = clean.replace(/\s*\([^)]*\)/g, '').replace(/\s*\[[^\]]*\]/g, '').trim();
       if (!spoken || spoken === '—' || spoken === '-' || spoken === '∅' || spoken.length < 1) return '';
-      // Exclude English instructions / descriptions that shouldn't have speech buttons
-      if (/^(before\s+vowel|after\s+a\s+negative|add\s+-s|most\s+nouns|when\s+the|used\s+for|starts\s+with|plural|masculine|feminine|singular|regular|irregular)/i.test(spoken)) return '';
-      if (/\b(vowel|consonant|ending|becomes|means|refers|replace|infinitive|dropped|change)\b/i.test(spoken)) return '';
+
+      // Pure numbers, times, percentages, or punctuation (e.g. "12", "14:30", "1:00")
+      if (/^[\d\s:.,+\-%/()=➔→*#…]+$/.test(spoken)) return '';
+      // Formulas or operator combinations like "+ de"
+      if (/^[+/*=]/.test(spoken)) return '';
+
+      // Must contain at least one alphabetic character
+      if (!/[a-zA-ZÀ-ÿ]/.test(spoken)) return '';
+
+      // Exclude English instructions, grammatical meta descriptions, English pronouns or English question patterns
+      if (/^(before\s+vowel|after\s+a\s+negative|add\s+-s|most\s+nouns|when\s+the|used\s+for|starts\s+with|plural|masculine|feminine|singular|regular|irregular|step\s+\d+|is\s+the|what\s+happened|what\s+changed|rising\s+intonation|continuous|habitual|state\s+\/|exception\s+marker|core\s+question|single\s+event|diagnostic|interruption|result|was\s+doing|did\s+\/)/i.test(spoken)) return '';
+      if (/\b(vowel|consonant|ending|becomes|means|refers|replace|infinitive|dropped|change|meaning|usage|register|question|selection|setting|background|occurred|happened)\b/i.test(spoken)) return '';
+
+      // English words density filter
+      const words = spoken.toLowerCase().replace(/[^a-z\s]/g, ' ').split(/\s+/).filter(w => w.length > 0);
+      if (words.length === 0) return '';
+      if (/^(what|how|why|when|where|which|who|is|are|was|were|did|do|does|it|this|that|these|those|step\s+\d+)\b/i.test(spoken)) return '';
+
+      let engCount = 0;
+      for (const w of words) {
+        if (_COMMON_ENGLISH_WORDS.has(w)) engCount++;
+      }
+      if (words.length <= 2 && engCount === words.length) return '';
+      if (engCount >= 2 && (engCount / words.length >= 0.25)) return '';
+
       // Escape for single-quoted onclick
       const escaped = spoken.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
       return `<button class="${extraClass}" onclick="speakFrench('${escaped}', this); event.stopPropagation();" title="Listen in French" aria-label="Listen to French pronunciation"><span class="ms ms-sm">volume_up</span></button>`;
@@ -375,6 +424,7 @@ const sections = window.sectionsData || [];
       
       select.addEventListener('change', (e) => {
         currentLang = e.target.value;
+        window.currentLang = currentLang;
         document.documentElement.setAttribute('lang', currentLang);
         if (currentLang === 'fa') {
           document.documentElement.setAttribute('dir', 'rtl');
@@ -918,10 +968,11 @@ const sections = window.sectionsData || [];
       sections.forEach((s, i) => {
         const btn = document.createElement('button');
         btn.className = 'nav-btn' + (i === current ? ' active' : '');
+        const secTitle = (typeof tSectionTitle === 'function' && tSectionTitle(s.id)) || s.title;
         if (s.icon) {
-          btn.innerHTML = '<span class="ms ms-sm" style="margin-right:0.25rem;vertical-align:middle;opacity:0.7">' + s.icon + '</span>' + s.title;
+          btn.innerHTML = '<span class="ms ms-sm" style="margin-right:0.25rem;vertical-align:middle;opacity:0.7">' + s.icon + '</span>' + secTitle;
         } else {
-          btn.textContent = s.title;
+          btn.textContent = secTitle;
         }
         btn.id = 'nav-btn-' + i;
         btn.onclick = () => go(i);
@@ -983,12 +1034,20 @@ const sections = window.sectionsData || [];
         const langName = addNative ? (nativeLangName[currentLang] || currentLang.toUpperCase()) : '';
 
         // Determine which columns are NOT French (English, Native translation, Rule, Meaning, Gender/Number categories, etc.)
-        const nonFrHeaderRegex = /^(gender[\s/]*number|english|rule|meaning|sound|pronunciation|usage|hint|notes?|règle|signification|number|nombre|chiffre|owner|method|register|feature|what\s+happened|what\s+changed|infinitive\s+ends|remove\s+to\s+get|nuance)$/i;
+        const nonFrHeaderRegex = /^(gender[\s/]*number|english.*|rule.*|meaning.*|sound|pronunciation|usage.*|hint|notes?|règle|signification|number|nombre|chiffre|owner|method|register|feature|what\s+happened|what\s+changed|infinitive\s+ends.*|remove\s+to\s+get.*|nuance|time|step|formula|connector|exception\s+marker|diagnostic\s+question|tense\s+selection|tense\s+signaled|marker|literal|ending\s+sound|type|group|full\s+english\s+translation)$/i;
 
         let headers = [...b.table.headers];
         if (addNative) headers.splice(engColIdx + 1, 0, langName);
 
-        const ths = headers.map(h => `<th>${h}</th>`).join('');
+        const ths = headers.map(h => {
+          const cleanH = h.toLowerCase().trim();
+          const db = window.__FRENCH_VERBS_DB__;
+          const isVerbInDb = db && (cleanH in db || ('se ' + cleanH) in db);
+          if (isVerbInDb) {
+            return `<th><span class="verb-lookup-trigger" onclick="openVerbModal('${cleanH}')" title="Click to see all conjugations for ${h}">${h} <span class="ms ms-sm" style="font-size:0.75rem;vertical-align:middle;">open_in_new</span></span></th>`;
+          }
+          return `<th>${h}</th>`;
+        }).join('');
         const trs = b.table.rows.map(row => {
           let cells = [...row];
           if (addNative) {
@@ -1449,7 +1508,9 @@ const sections = window.sectionsData || [];
           </div>
         `),
 
-        'passe_compose_2': () => widgetShell('w-sorter', t('quizLabel_sorter'), `
+        'passe_compose_2': () => quizShell('pc-switch', t('quizLabel_pc_switch') || 'Tricky Switch Verbs: Être or Avoir?'),
+
+        'passe_compose_3': () => widgetShell('w-sorter', t('quizLabel_sorter'), `
           <div class="sorter-source" id="sorter-source"></div>
           <div class="sorter-wrap">
             <div class="sorter-bin avoir-bin" id="bin-avoir"
@@ -1835,7 +1896,8 @@ const sections = window.sectionsData || [];
       splitEl.innerHTML =
         '<span class="ve-split-label">Verb</span>' +
         '<span class="ve-stem">' + lookupVerb + '</span>' +
-        '<span class="ve-arrow">→</span><span class="ve-split-label" style="margin-left:0;color:var(--text-secondary)">' + (conj && conj.isReflexive ? 'reflexive verb' : 'infinitive') + '</span>';
+        '<span class="ve-arrow">→</span><span class="ve-split-label" style="margin-left:0;color:var(--text-secondary)">' + (conj && conj.isReflexive ? 'reflexive verb' : 'infinitive') + '</span>' +
+        `<button class="vmodal-chip" style="margin-left:auto;padding:2px 10px;font-size:0.75rem;background:var(--surface-3);" onclick="openVerbModal('${lookupVerb}')" title="See all tenses for ${lookupVerb}"><span class="ms ms-sm" style="color:var(--yellow);margin-right:4px;">auto_stories</span>All Tenses →</button>`;
 
       if (tableEl) tableEl.style.display = 'block';
       if (!tbodyEl || !conj) return;
@@ -2595,6 +2657,132 @@ const sections = window.sectionsData || [];
         };
         window['w-sorter_reset'] = sorterInit;
         sorterInit();
+
+        // Tricky Switch Verbs Quiz (Être vs Avoir)
+        makeQuiz({
+          idPrefix: 'pc-switch',
+          pool: [
+            {
+              q: "Elle ___ les valises en haut.",
+              ans: "a monté",
+              wrong: ["est montée"],
+              hint: "les valises = direct object (COD)",
+              verb: "a monté les valises",
+              why: "'les valises' is a direct object (COD). When moving something else, use AVOIR!",
+              rule: "Use AVOIR when the verb has a direct object (moving something else)."
+            },
+            {
+              q: "Elle ___ dans la voiture.",
+              ans: "est montée",
+              wrong: ["a monté"],
+              hint: "subject moves herself (no direct object)",
+              verb: "est montée",
+              why: "The subject herself moved (got in / went up). When the subject moves, use ÊTRE with agreement!",
+              rule: "Use ÊTRE when the subject is the one moving (intransitive)."
+            },
+            {
+              q: "Ils ___ le chien ce matin.",
+              ans: "ont sorti",
+              wrong: ["sont sortis"],
+              hint: "le chien = direct object (COD)",
+              verb: "ont sorti le chien",
+              why: "'le chien' is a direct object. They took the dog out (moved something else), so use AVOIR!",
+              rule: "Use AVOIR when moving an object/person (transitive)."
+            },
+            {
+              q: "Ils ___ avec des amis hier soir.",
+              ans: "sont sortis",
+              wrong: ["ont sorti"],
+              hint: "subject moved / went out",
+              verb: "sont sortis",
+              why: "They went out themselves. The subject is moving, so use ÊTRE!",
+              rule: "Use ÊTRE when the subject is moving."
+            },
+            {
+              q: "J'___ un examen de français.",
+              ans: "ai passé",
+              wrong: ["suis passé"],
+              hint: "un examen = direct object (took an exam)",
+              verb: "ai passé un examen",
+              why: "'un examen' is a direct object (to take an exam / spend time). Use AVOIR!",
+              rule: "Passer + direct object (exam, time, days) uses AVOIR."
+            },
+            {
+              q: "Je ___ chez toi vers 18h.",
+              ans: "suis passé",
+              wrong: ["ai passé"],
+              hint: "I stopped by (subject moves)",
+              verb: "suis passé",
+              why: "I stopped by / came by. The subject is moving physically, so use ÊTRE!",
+              rule: "Passer (to stop by / pass by physically) uses ÊTRE."
+            },
+            {
+              q: "Nous ___ les escaliers à pied.",
+              ans: "avons descendu",
+              wrong: ["sommes descendus"],
+              hint: "les escaliers = direct object (COD)",
+              verb: "avons descendu les escaliers",
+              why: "'les escaliers' is a direct object. Descendre + COD uses AVOIR without subject agreement!",
+              rule: "Descendre + direct object takes AVOIR."
+            },
+            {
+              q: "Nous ___ au rez-de-chaussée.",
+              ans: "sommes descendus",
+              wrong: ["avons descendu"],
+              hint: "we went down (subject moves)",
+              verb: "sommes descendus",
+              why: "We went down ourselves. The subject moves, so use ÊTRE with plural agreement (-s)!",
+              rule: "Descendre (intransitive) uses ÊTRE."
+            },
+            {
+              q: "Tu ___ les chaises dans le salon.",
+              ans: "as rentré",
+              wrong: ["es rentré"],
+              hint: "les chaises = direct object (COD)",
+              verb: "as rentré les chaises",
+              why: "You brought the chairs inside (moving something else = COD). Use AVOIR!",
+              rule: "Rentrer + direct object takes AVOIR."
+            },
+            {
+              q: "Tu ___ tard hier soir.",
+              ans: "es rentré",
+              wrong: ["as rentré"],
+              hint: "you came home (subject moves)",
+              verb: "es rentré",
+              why: "You came home yourself. The subject is moving, so use ÊTRE!",
+              rule: "Rentrer (to return / come home) uses ÊTRE."
+            },
+            {
+              q: "Il ___ la crêpe dans la poêle.",
+              ans: "a retourné",
+              wrong: ["est retourné"],
+              hint: "la crêpe = direct object (flipped it)",
+              verb: "a retourné la crêpe",
+              why: "He flipped the crepe (direct object). Moving / flipping something else takes AVOIR!",
+              rule: "Retourner + direct object takes AVOIR."
+            },
+            {
+              q: "Il ___ en France l'été dernier.",
+              ans: "est retourné",
+              wrong: ["a retourné"],
+              hint: "he went back (subject moves)",
+              verb: "est retourné",
+              why: "He went back to France himself. The subject is moving, so use ÊTRE!",
+              rule: "Retourner (to return / go back somewhere) uses ÊTRE."
+            }
+          ],
+          getQuestion: d => `<span style="font-family:'Azeret Mono',monospace">${d.q}</span>`,
+          getHint: d => d.hint,
+          getChoices: d => shuffle([d.ans, ...d.wrong]),
+          check: (d, c) => c === d.ans,
+          getCorrect: d => d.ans,
+          getSuccess: d => `✓ "${d.ans}" — ${d.hint}`,
+          getFailure: d => `Use "${d.ans}". ${d.hint}`,
+          getExplanation: (d, c) => ({
+            why: d.why,
+            rule: d.rule
+          })
+        });
       }
 
       // ── OBJECT PRONOUNS: COD replacement quiz ─────────────
@@ -2928,7 +3116,7 @@ const sections = window.sectionsData || [];
           splitEl.innerHTML =
             '<span class="ve-split-label">Stem</span>' +
             '<span class="ve-stem">' + (stem || '…') + '</span>' +
-            (hasSuffix ? '<span class="ve-arrow">+</span><span class="ve-removed ' + group + '">' + suffix + '</span><span class="ve-arrow">→</span><span class="ve-split-label" style="margin-left:0;color:var(--text-secondary)">removed</span>' : '<span class="ve-arrow" style="color:var(--red)">⚠ type the full infinitive ending in -' + suffix + '</span>');
+            (hasSuffix ? '<span class="ve-arrow">+</span><span class="ve-removed ' + group + '">' + suffix + '</span><span class="ve-arrow">→</span><span class="ve-split-label" style="margin-left:0;color:var(--text-secondary)">removed</span>' + `<button class="vmodal-chip" style="margin-left:auto;padding:2px 10px;font-size:0.75rem;background:var(--surface-3);" onclick="openVerbModal('${raw}')" title="See all tenses for ${raw}"><span class="ms ms-sm" style="color:var(--yellow);margin-right:4px;">auto_stories</span>All Tenses →</button>` : '<span class="ve-arrow" style="color:var(--red)">⚠ type the full infinitive ending in -' + suffix + '</span>');
 
           if (!hasSuffix || !stem) { if (tableEl) tableEl.style.display = 'none'; return; }
 
@@ -3645,7 +3833,10 @@ const sections = window.sectionsData || [];
               emojiEl.textContent = s.emoji;
             }
           }
-          if (titleEl) { titleEl.textContent = s.title; titleEl.style.color = s.color; }
+          if (titleEl) {
+            titleEl.textContent = (typeof tSectionTitle === 'function' && tSectionTitle(s.id)) || s.title;
+            titleEl.style.color = s.color;
+          }
           if (subtitleEl) subtitleEl.textContent = tSectionSubtitle(s.id) || s.subtitle;
           if (header) {
             header.style.borderColor = '';
@@ -3836,5 +4027,532 @@ const sections = window.sectionsData || [];
     }
 
     html += '</tbody></table></div>';
+    html += '<div style="margin-top:10px; display:flex; justify-content:flex-end;">' +
+      `<button class="vmodal-chip" style="background:var(--surface-3); font-size:0.8rem; padding:4px 12px;" onclick="openVerbModal('${rawVerb}')" title="Explore Subjunctive, Imperative, Conditionnel, Passé Récent & Passé Simple for ${rawVerb}"><span class="ms ms-sm" style="color:var(--yellow);margin-right:4px;">auto_stories</span>Open in Master Conjugator (All Moods & Tenses) →</button>` +
+      '</div>';
     if (out) out.innerHTML = html;
 };
+
+// ═════════════════════════════════════════════════════════════════════
+// UNIVERSAL VERB CONJUGATOR MODAL & INTER-PAGE INTEGRATION
+// Connects to window.__FRENCH_VERBS_DB__ (7,800+ verbs) via FrenchConjugator
+// ═════════════════════════════════════════════════════════════════════
+
+let _vmodalCurrentVerb = '';
+
+function openVerbModal(defaultVerb = '') {
+  const backdrop = document.getElementById('vmodal-backdrop');
+  const input = document.getElementById('vmodal-input');
+  if (!backdrop) return;
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  if (defaultVerb) {
+    if (input) input.value = defaultVerb;
+    doModalConjugate(defaultVerb);
+  } else if (input) {
+    input.focus();
+  }
+}
+window.openVerbModal = openVerbModal;
+
+function closeVerbModal(e) {
+  if (e && e.target && e.target.id !== 'vmodal-backdrop' && !e.target.closest('.vmodal-close-btn')) {
+    return;
+  }
+  const backdrop = document.getElementById('vmodal-backdrop');
+  if (backdrop) backdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
+window.closeVerbModal = closeVerbModal;
+
+window.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const backdrop = document.getElementById('vmodal-backdrop');
+    if (backdrop && backdrop.classList.contains('open')) {
+      closeVerbModal();
+    }
+  }
+});
+
+function clearModalInput() {
+  const input = document.getElementById('vmodal-input');
+  const clearBtn = document.getElementById('vmodal-clear-btn');
+  const sugBox = document.getElementById('vmodal-suggestions');
+  if (input) { input.value = ''; input.focus(); }
+  if (clearBtn) clearBtn.style.display = 'none';
+  if (sugBox) sugBox.style.display = 'none';
+}
+window.clearModalInput = clearModalInput;
+
+function handleModalSearchInput(val) {
+  const clearBtn = document.getElementById('vmodal-clear-btn');
+  const sugBox = document.getElementById('vmodal-suggestions');
+  if (clearBtn) clearBtn.style.display = val ? 'flex' : 'none';
+  if (!val || val.length < 2) {
+    if (sugBox) sugBox.style.display = 'none';
+    return;
+  }
+
+  const query = val.toLowerCase().trim().replace(/^(se |s')/, '');
+  const db = window.__FRENCH_VERBS_DB__;
+  if (!db || !sugBox) return;
+
+  const matches = [];
+  for (const v in db) {
+    if (v.startsWith(query)) {
+      matches.push(v);
+      if (matches.length >= 12) break;
+    }
+  }
+
+  if (matches.length > 0) {
+    sugBox.style.display = 'flex';
+    sugBox.innerHTML = matches.map(m => `<span class="vmodal-sug-item" onclick="quickConjugate('${m}')">${m}</span>`).join('');
+  } else {
+    sugBox.style.display = 'none';
+  }
+}
+window.handleModalSearchInput = handleModalSearchInput;
+
+function quickConjugate(verb) {
+  const input = document.getElementById('vmodal-input');
+  const sugBox = document.getElementById('vmodal-suggestions');
+  if (input) input.value = verb;
+  if (sugBox) sugBox.style.display = 'none';
+  doModalConjugate(verb);
+}
+window.quickConjugate = quickConjugate;
+
+function doModalConjugate(optVerb) {
+  const input = document.getElementById('vmodal-input');
+  const content = document.getElementById('vmodal-content');
+  const sugBox = document.getElementById('vmodal-suggestions');
+  if (sugBox) sugBox.style.display = 'none';
+
+  const raw = (optVerb || (input ? input.value : '')).trim().toLowerCase();
+  if (!raw || !content) return;
+
+  _vmodalCurrentVerb = raw;
+  const conj = typeof FrenchConjugator !== 'undefined' ? FrenchConjugator.conjugate(raw) : null;
+  if (!conj) {
+    content.innerHTML = `<div class="vmodal-empty-state"><p style="color:var(--tertiary);font-weight:600;">Could not conjugate '${raw}'. Please check spelling (e.g. 'manger', 'prendre', 'partir').</p></div>`;
+    return;
+  }
+
+  const pronouns = ['je', 'tu', 'il / elle', 'nous', 'vous', 'ils / elles'];
+  const subjPronouns = ["que je", "que tu", "qu'il / elle", "que nous", "que vous", "qu'ils / elles"];
+  const isVowel = typeof FrenchConjugator.isVowel === 'function' ? FrenchConjugator.isVowel : (s) => /^[aeiouhàéèêîôûëïü]/i.test(s);
+  const elideJe = (v) => isVowel(v) ? "j'" + v : "je " + v;
+
+  // Build overview info
+  const groupLabel = conj.baseVerb.endsWith('er') ? '1st Group (-er)' : (conj.baseVerb.endsWith('ir') ? '2nd Group (-ir)' : '3rd Group (-re / irregular)');
+  const spkInfinitive = makeSpeakerHtml(conj.infinitive, 'tbl-speak-btn');
+  const spkPP = conj.pastParticiple ? makeSpeakerHtml(conj.pastParticiple, 'tbl-speak-btn') : '';
+  const spkGer = conj.gerund ? makeSpeakerHtml(conj.gerund, 'tbl-speak-btn') : '';
+
+  let html = `
+    <div class="vmodal-overview">
+      <div>
+        <div class="vmodal-verb-hero">
+          <span class="vmodal-verb-name">${conj.infinitive}</span>
+          ${spkInfinitive}
+        </div>
+        <div class="vmodal-verb-meta" style="margin-top:6px">
+          <span class="vmodal-badge group">${groupLabel}</span>
+          <span class="vmodal-badge aux">Auxiliary: ${conj.auxiliary}</span>
+          ${conj.isReflexive ? '<span class="vmodal-badge reflex">Reflexive (pronominal)</span>' : ''}
+        </div>
+      </div>
+      <div style="display:flex;gap:1.5rem;font-size:0.82rem;">
+        <div>
+          <div style="color:var(--text-muted);font-size:0.72rem;text-transform:uppercase;font-weight:600;">Participe Passé</div>
+          <div style="display:flex;align-items:center;gap:4px;font-weight:600;color:var(--text-primary);margin-top:2px;">
+            ${spkPP}<span>${conj.pastParticiple || '—'}</span>
+          </div>
+        </div>
+        <div>
+          <div style="color:var(--text-muted);font-size:0.72rem;text-transform:uppercase;font-weight:600;">Gérondif</div>
+          <div style="display:flex;align-items:center;gap:4px;font-weight:600;color:var(--text-primary);margin-top:2px;">
+            ${spkGer}<span>${conj.gerund || '—'}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Grid of cards
+  html += `<div class="vmodal-tenses-grid">`;
+
+  function buildTenseCard(title, mood, forms, customProns) {
+    if (!forms || !forms.length) return '';
+    let rowsHtml = '';
+    for (let i = 0; i < 6; i++) {
+      const p = customProns ? customProns[i] : pronouns[i];
+      const f = forms[i] || '';
+      if (!f) continue;
+      let display = f;
+      if (!customProns) {
+        display = (i === 0 && !conj.isReflexive && !f.startsWith("m'") && !f.startsWith("me ")) ? elideJe(f) : `${p} ${f}`;
+      } else {
+        display = `${p} ${f}`;
+      }
+      const spk = makeSpeakerHtml(display, 'tbl-speak-btn');
+      rowsHtml += `
+        <div class="vmodal-row">
+          <span class="vmodal-row-pron">${p}</span>
+          <span class="vmodal-row-verb">${formatFrenchDisplay(f)} ${spk}</span>
+        </div>
+      `;
+    }
+    return `
+      <div class="vmodal-card">
+        <div class="vmodal-card-header">
+          <span class="vmodal-tense-title"><span class="ms ms-sm" style="color:var(--blue)">schedule</span>${title}</span>
+          <span class="vmodal-tense-mood">${mood}</span>
+        </div>
+        <div class="vmodal-card-body">${rowsHtml}</div>
+      </div>
+    `;
+  }
+
+  // 1. Présent
+  html += buildTenseCard('Présent', 'Indicatif', conj.pres);
+
+  // 2. Passé Composé
+  html += buildTenseCard('Passé Composé', 'Indicatif', conj.pc);
+
+  // 3. Imparfait
+  html += buildTenseCard('Imparfait', 'Indicatif', conj.imp);
+
+  // 4. Futur Simple
+  html += buildTenseCard('Futur Simple', 'Indicatif', conj.fut);
+
+  // 5. Futur Proche
+  html += buildTenseCard('Futur Proche', 'Indicatif', conj.fp);
+
+  // 6. Passé Récent
+  html += buildTenseCard('Passé Récent', 'Indicatif', conj.pr);
+
+  // 7. Conditionnel Présent
+  html += buildTenseCard('Conditionnel', 'Présent', conj.cond);
+
+  // 8. Subjonctif Présent
+  if (conj.subj && conj.subj.length === 6) {
+    html += buildTenseCard('Subjonctif', 'Présent', conj.subj, subjPronouns);
+  }
+
+  // 9. Impératif Présent (tu, nous, vous)
+  if (conj.impv && conj.impv.length === 3) {
+    const impvProns = ['(tu)', '(nous)', '(vous)'];
+    let impvRows = '';
+    for (let j = 0; j < 3; j++) {
+      const vf = conj.impv[j];
+      const spk = makeSpeakerHtml(vf, 'tbl-speak-btn');
+      impvRows += `
+        <div class="vmodal-row">
+          <span class="vmodal-row-pron">${impvProns[j]}</span>
+          <span class="vmodal-row-verb">${formatFrenchDisplay(vf)} ${spk}</span>
+        </div>
+      `;
+    }
+    html += `
+      <div class="vmodal-card">
+        <div class="vmodal-card-header">
+          <span class="vmodal-tense-title"><span class="ms ms-sm" style="color:var(--yellow)">campaign</span>Impératif</span>
+          <span class="vmodal-tense-mood">Présent</span>
+        </div>
+        <div class="vmodal-card-body">${impvRows}</div>
+      </div>
+    `;
+  }
+
+  // 10. Passé Simple (if in db)
+  if (conj.ps && conj.ps.length === 6) {
+    html += buildTenseCard('Passé Simple', 'Littéraire', conj.ps);
+  }
+
+  html += `</div>`; // end grid
+  content.innerHTML = html;
+}
+window.doModalConjugate = doModalConjugate;
+
+// ═══════════════════════════════════════════════════════════════
+//  🚀 NEXT-LEVEL ANIMATION SYSTEM — Premium Upgrade
+//  Scroll-reveal blocks, confetti, ripple clicks, animated scores,
+//  streak tracker, sound-wave TTS, directional page transitions,
+//  and enhanced quiz feedback.
+// ═══════════════════════════════════════════════════════════════
+
+// ── 1. Block Scroll-Reveal (IntersectionObserver) ────────────────
+(function initBlockReveal() {
+  if (typeof IntersectionObserver === 'undefined') {
+    // Fallback: make all blocks visible immediately
+    document.querySelectorAll('.block').forEach(b => b.classList.add('block-visible'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    let delay = 0;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.setProperty('--block-delay', delay + 'ms');
+        entry.target.classList.add('block-visible');
+        io.unobserve(entry.target);
+        delay += 55; // Stagger cascade
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+
+  function observeBlocks() {
+    document.querySelectorAll('.block:not(.block-visible)').forEach(b => io.observe(b));
+  }
+
+  // Observe after each render (content-area mutation)
+  const renderObs = new MutationObserver(() => {
+    setTimeout(observeBlocks, 40);
+  });
+  const ca = document.getElementById('content-area');
+  if (ca) renderObs.observe(ca, { childList: true });
+
+  // Also on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observeBlocks);
+  } else {
+    setTimeout(observeBlocks, 80);
+  }
+})();
+
+// ── 2. Ripple Effect on Quiz Pill Buttons ────────────────────────
+document.addEventListener('click', function(e) {
+  const pill = e.target.closest('.w-pill');
+  if (!pill) return;
+
+  // Inject ripple element
+  const rect = pill.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const ripple = document.createElement('span');
+  ripple.className = 'ripple';
+  ripple.style.cssText = `
+    left: ${x}px;
+    top: ${y}px;
+    width: ${Math.max(rect.width, rect.height) * 2}px;
+    height: ${Math.max(rect.width, rect.height) * 2}px;
+    margin-left: -${Math.max(rect.width, rect.height)}px;
+    margin-top: -${Math.max(rect.width, rect.height)}px;
+  `;
+  pill.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+}, { passive: true });
+
+// ── 3. Confetti Burst on Correct Answer ──────────────────────────
+const CONFETTI_COLORS = [
+  '#4F7EF8', '#3ECF8E', '#F5A623', '#E05252',
+  '#a78bfa', '#38BDF8', '#FF6584', '#FFE600'
+];
+
+function burstConfetti(x, y) {
+  const container = document.createElement('div');
+  container.className = 'confetti-burst';
+  document.body.appendChild(container);
+
+  const count = 10;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-particle';
+    const angle = (i / count) * 360;
+    const dist = 50 + Math.random() * 60;
+    const tx = Math.cos(angle * Math.PI / 180) * dist;
+    const ty = Math.sin(angle * Math.PI / 180) * dist - 30;
+    const color = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+    p.style.cssText = `
+      left: ${x}px;
+      top: ${y}px;
+      background: ${color};
+      --tx: ${tx}px;
+      --ty: ${ty}px;
+      animation-delay: ${Math.random() * 0.08}s;
+      transform: rotate(${Math.random() * 360}deg);
+    `;
+    container.appendChild(p);
+  }
+
+  setTimeout(() => container.remove(), 900);
+}
+window.burstConfetti = burstConfetti;
+
+// ── 4. Sound Wave Rings on TTS Speaking ──────────────────────────
+function addSoundWaves(btn) {
+  // Remove existing
+  btn.querySelectorAll('.sound-wave-ring').forEach(r => r.remove());
+  // Add 3 rings
+  for (let i = 0; i < 3; i++) {
+    const ring = document.createElement('div');
+    ring.className = 'sound-wave-ring';
+    btn.appendChild(ring);
+  }
+}
+function removeSoundWaves(btn) {
+  btn.querySelectorAll('.sound-wave-ring').forEach(r => r.remove());
+}
+
+// Patch speakFrench to add/remove sound waves
+const _origSpeakFrench = window.speakFrench;
+window.speakFrench = function(text, btnElement) {
+  if (btnElement) addSoundWaves(btnElement);
+  _origSpeakFrench(text, btnElement);
+  // Also remove waves when done (onend is set inside speakFrench so we hook into class removal)
+  if (btnElement) {
+    const observer = new MutationObserver((muts) => {
+      muts.forEach(m => {
+        if (!btnElement.classList.contains('is-speaking')) {
+          removeSoundWaves(btnElement);
+          observer.disconnect();
+        }
+      });
+    });
+    observer.observe(btnElement, { attributes: true, attributeFilter: ['class'] });
+    // Safety cleanup after 15s
+    setTimeout(() => { removeSoundWaves(btnElement); observer.disconnect(); }, 15000);
+  }
+};
+
+// ── 5. Animated Number Counter ───────────────────────────────────
+function animateNumber(el, fromVal, toVal, duration) {
+  if (!el) return;
+  duration = duration || 400;
+  const start = performance.now();
+  function step(now) {
+    const progress = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+    const current = Math.round(fromVal + (toVal - fromVal) * eased);
+    el.textContent = current;
+    el.classList.add('quiz-score-animated');
+    el.addEventListener('animationend', () => el.classList.remove('quiz-score-animated'), { once: true });
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+window.animateNumber = animateNumber;
+
+// ── 6. Quiz Streak Tracker ───────────────────────────────────────
+const _quizStreaks = {};
+
+function updateStreak(quizId, isCorrect) {
+  if (!_quizStreaks[quizId]) _quizStreaks[quizId] = 0;
+  if (isCorrect) {
+    _quizStreaks[quizId]++;
+  } else {
+    _quizStreaks[quizId] = 0;
+  }
+  return _quizStreaks[quizId];
+}
+
+function renderStreakBadge(container, streak) {
+  let badge = container.querySelector('.streak-indicator');
+  if (streak < 2) {
+    if (badge) badge.remove();
+    return;
+  }
+  if (!badge) {
+    badge = document.createElement('span');
+    badge.className = 'streak-indicator';
+    container.appendChild(badge);
+  }
+  badge.classList.remove('streak-burst');
+  void badge.offsetWidth; // Reflow to restart animation
+  badge.classList.add('streak-burst');
+  badge.innerHTML = `<span class="streak-flame">🔥</span>${streak} streak`;
+}
+window.updateStreak = updateStreak;
+window.renderStreakBadge = renderStreakBadge;
+
+// ── 7. Directional Page Transitions ──────────────────────────────
+let _lastSection = 0;
+const _origNavigate = window.navigate || function() {};
+
+// Hook into navigation to determine direction
+function hookDirectionalTransition() {
+  const area = document.getElementById('content-area');
+  if (!area) return;
+
+  // Watch for section changes via current variable (set in go())
+  const origGo = window.go;
+  window.go = function(idx) {
+    const dir = idx > _lastSection ? 'right' : 'left';
+    _lastSection = idx;
+
+    // Apply directional class after content swaps
+    const obs = new MutationObserver(() => {
+      obs.disconnect();
+      area.classList.remove('page-enter-right', 'page-enter-left');
+      void area.offsetWidth;
+      area.classList.add(dir === 'right' ? 'page-enter-right' : 'page-enter-left');
+      area.addEventListener('animationend', () => {
+        area.classList.remove('page-enter-right', 'page-enter-left');
+      }, { once: true });
+    });
+    obs.observe(area, { childList: true });
+
+    if (origGo) origGo(idx);
+  };
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', hookDirectionalTransition);
+} else {
+  setTimeout(hookDirectionalTransition, 200);
+}
+
+// ── 8. Confetti Hook for Correct Quiz Answers ────────────────────
+// Listen for when a .w-pill gets the 'correct' class added and burst confetti
+document.addEventListener('click', function(e) {
+  // We hook after the fact using a brief delay (let quiz logic run first)
+  const pill = e.target.closest('.w-pill');
+  if (!pill) return;
+
+  setTimeout(() => {
+    if (pill.classList.contains('correct')) {
+      const rect = pill.getBoundingClientRect();
+      burstConfetti(
+        rect.left + rect.width / 2,
+        rect.top + rect.height / 2
+      );
+    }
+  }, 80);
+}, { passive: true });
+
+// ── 9. Keyboard Navigation (Arrow keys) ──────────────────────────
+document.addEventListener('keydown', function(e) {
+  // Ignore if typing in an input/textarea
+  const tag = document.activeElement && document.activeElement.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  if (e.key === 'ArrowRight' && !e.altKey && !e.ctrlKey && !e.metaKey) {
+    const btn = document.getElementById('btn-next');
+    if (btn && !btn.disabled) btn.click();
+  } else if (e.key === 'ArrowLeft' && !e.altKey && !e.ctrlKey && !e.metaKey) {
+    const btn = document.getElementById('btn-prev');
+    if (btn && !btn.disabled) btn.click();
+  }
+});
+
+// ── 10. Hover Glow on Section Header (section color reactive) ────
+function applyHeaderGlow() {
+  const header = document.getElementById('section-header');
+  if (!header) return;
+  const color = getComputedStyle(document.documentElement)
+    .getPropertyValue('--section-color').trim() || '#4F7EF8';
+  header.style.boxShadow = `0 0 32px 0 ${color}22, 0 2px 1rem rgba(0,0,0,0.12)`;
+  header.style.borderColor = `${color}45`;
+}
+
+// Re-apply after each render by watching body class changes via MutationObserver on content-area
+(function() {
+  const ca = document.getElementById('content-area');
+  if (!ca) { setTimeout(applyHeaderGlow, 500); return; }
+  const obs = new MutationObserver(() => setTimeout(applyHeaderGlow, 60));
+  obs.observe(ca, { childList: true });
+  setTimeout(applyHeaderGlow, 200);
+})();
+

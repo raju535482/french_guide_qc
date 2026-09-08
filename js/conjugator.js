@@ -348,11 +348,28 @@
     }
 
     let pres = [], pc = [], imp = [], fut = [], cond = [], fp = [], pr = [];
+    let subj = [], impfSubj = [], impv = [], ps = [];
     let pp = '', auxType = (isReflex || vandertramp.has(verb)) ? 'être' : 'avoir';
     let ger = '';
 
-    // Check direct irregular
-    if (irregularVerbs[verb]) {
+    // 0. CHECK MASTER DATABASE (window.__FRENCH_VERBS_DB__ or root.__FRENCH_VERBS_DB__)
+    const db = (typeof window !== 'undefined' && window.__FRENCH_VERBS_DB__) ||
+               (typeof global !== 'undefined' && global.__FRENCH_VERBS_DB__) ||
+               (typeof root !== 'undefined' && root.__FRENCH_VERBS_DB__) || null;
+    const dbEntry = db ? db[verb] : null;
+
+    if (dbEntry && dbEntry.P && dbEntry.P.length === 6) {
+      pres = [...dbEntry.P];
+      if (dbEntry.I && dbEntry.I.length === 6) imp = [...dbEntry.I];
+      if (dbEntry.F && dbEntry.F.length === 6) fut = [...dbEntry.F];
+      if (dbEntry.C && dbEntry.C.length === 6) cond = [...dbEntry.C];
+      if (dbEntry.S && dbEntry.S.length === 6) subj = [...dbEntry.S];
+      if (dbEntry.T && dbEntry.T.length === 6) impfSubj = [...dbEntry.T];
+      if (dbEntry.J && dbEntry.J.length === 6) ps = [...dbEntry.J];
+      if (dbEntry.Y && dbEntry.Y.length >= 5) impv = [dbEntry.Y[1], dbEntry.Y[3], dbEntry.Y[4]];
+      if (dbEntry.K && dbEntry.K.length > 0) pp = dbEntry.K[0];
+      if (dbEntry.G && dbEntry.G.length > 0) ger = 'en ' + dbEntry.G[0];
+    } else if (irregularVerbs[verb]) {
       const ir = irregularVerbs[verb];
       pres = [...ir.pres];
       imp = [...ir.imp];
@@ -547,6 +564,14 @@
       ger = `en se ${ger.replace(/^en\s+/, '')}`;
     }
 
+    // Ensure subj / impv have fallback if database wasn't used or lacked them
+    if (!subj.length && pres.length === 6) {
+      subj = [pres[0], pres[1], pres[2], (imp[3] || pres[3]), (imp[4] || pres[4]), pres[5]];
+    }
+    if (!impv.length && pres.length === 6) {
+      impv = [pres[1].replace(/s$/, ''), pres[3], pres[4]];
+    }
+
     return {
       infinitive: raw,
       baseVerb: verb,
@@ -559,6 +584,10 @@
       imp,
       fut,
       cond,
+      subj,
+      impfSubj,
+      impv,
+      ps,
       fp,
       pr
     };
