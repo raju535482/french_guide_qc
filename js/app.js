@@ -252,6 +252,26 @@ const sections = window.sectionsData || [];
       s = s.replace(/\s*\(\s*m\.\s*\)/gi, ' <span class="gender-badge gender-m" title="Masculin">m.</span>');
       s = s.replace(/\s*\(\s*f\.\s*\)/gi, ' <span class="gender-badge gender-f" title="Féminin">f.</span>');
 
+      // 1b. Québec vs. Standard Dialect Comparison Badges
+      const qcTerms = [
+        { qc: 'dépanneur', std: "épicerie de nuit / supérette", en: "corner convenience store" },
+        { qc: 'char', std: "voiture", en: "car" },
+        { qc: 'magasiner', std: "faire du shopping", en: "to shop" },
+        { qc: 'cellulaire', std: "portable / smartphone", en: "cell phone" },
+        { qc: 'courriel', std: "e-mail / mail", en: "email" },
+        { qc: 'stationnement', std: "parking", en: "parking lot" },
+        { qc: 'fin de semaine', std: "le week-end", en: "weekend" },
+        { qc: 'blonde', std: "petite amie", en: "girlfriend" },
+        { qc: 'chum', std: "petit ami", en: "boyfriend" },
+        { qc: 'breuvage', std: "boisson", en: "drink / beverage" },
+        { qc: 'liqueur', std: "soda / boisson gazeuse", en: "soft drink" },
+        { qc: 'chandail', std: "pull / sweat", en: "sweater" }
+      ];
+      for (const d of qcTerms) {
+        const re = new RegExp(`\\b(${d.qc})\\b`, 'gi');
+        s = s.replace(re, `$1 <span class="qc-dialect-pill" title="Québec French: '$1' — Standard French: '${d.std}' (${d.en})"><span class="ms ms-sm" style="font-size:0.75rem">flag</span>QC vs Std: ${d.std}</span>`);
+      }
+
       // 2. Pronunciation visual cues (if enabled)
       if (_phoneticCues) {
         // Liaison ties: common French words before vowel/mute h
@@ -436,7 +456,12 @@ const sections = window.sectionsData || [];
       });
       
       wrap.appendChild(select);
-      parent.appendChild(wrap);
+      const themeBtn = document.getElementById('theme-btn');
+      if (themeBtn) {
+        parent.insertBefore(wrap, themeBtn);
+      } else {
+        parent.appendChild(wrap);
+      }
     }
 
 
@@ -457,6 +482,110 @@ const sections = window.sectionsData || [];
       "In Mexico, my wife worked as a secretary for two years.": { "fa": "در مکزیک، همسرم به مدت دو سال به عنوان منشی کار کرد.",  "gu": "મેક્સિકોમાં, મારી પત્નીએ બે વર્ષ સુધી સેક્રેટરી તરીકે કામ કર્યું.", "hi": "मेक्सिको में, मेरी पत्नी ने दो साल तक सचिव के रूप में काम किया।", "ta": "மெக்சிகோவில், என் மனைவி இரண்டு ஆண்டுகள் സെക്രട്ടரியாகப் பணிபுரிந்தார்.", "ko": "멕시코에서 제 아내는 2년 동안 비서로 일했습니다.", "zh": "在墨西哥，我的妻子做过两年的秘书。" },
       "They bought their car a few days ago.": { "fa": "آن‌ها ماشین خود را چند روز پیش خریدند.",  "gu": "તેઓએ થોડા દિવસ પહેલા તેમની કાર ખરીદી હતી.", "hi": "उन्होंने कुछ दिन पहले अपनी कार खरीदी थी।", "ta": "அவர்கள் சில நாட்களுக்கு முன்பு தங்கள் காரை வாங்கினார்கள்.", "ko": "그들은 며칠 전에 차를 샀습니다.", "zh": "他们几天前买了车。" },
       "Marie-Claude arrived five minutes ago.": { "fa": "ماری-کلود پنج دقیقه پیش رسید.",  "gu": "મેરી-ક્લાઉડ પાંચ મિનિટ પહેલાં આવી.", "hi": "मैरी-क्लाउड पांच मिनट पहले आई।", "ta": "மேரி-கிளாட் ஐந்து நிமிடங்களுக்கு முன்பு வந்தாள்.", "ko": "마리-클로드는 5분 전에 도착했어요.", "zh": "玛丽-克劳德五分钟前到了。" },
+      "I am hungry.": {
+        "fa": "من گرسنه‌ام.",
+        "gu": "મને ભૂખ લાગી છે.",
+        "hi": "मुझे भूख लगी है।",
+        "ta": "எனக்கு பசிக்கிறது.",
+        "ko": "배고파요.",
+        "zh": "我饿了。"
+      },
+      "He's not hungry.": {
+        "fa": "او گرسنه نیست.",
+        "gu": "એને ભૂખ નથી લાગી.",
+        "hi": "उसे भूख नहीं लगी है।",
+        "ta": "அவருக்கு பசிக்கவில்லை.",
+        "ko": "그는 배고프지 않아요.",
+        "zh": "他不饿。"
+      },
+      "hungry": {
+        "fa": "گرسنه",
+        "gu": "ભૂખ લાગવી",
+        "hi": "भूख लगना",
+        "ta": "பசி",
+        "ko": "배고픈",
+        "zh": "饥饿 / 肚子饿"
+      },
+      "thirsty": {
+        "fa": "تشنه",
+        "gu": "તરસ લાગવી",
+        "hi": "प्यास लगना",
+        "ta": "தாகம்",
+        "ko": "목마른",
+        "zh": "口渴"
+      },
+      "cold": {
+        "fa": "احساس سرما / سرد",
+        "gu": "ઠંડી લાગવી",
+        "hi": "ठंड लगना",
+        "ta": "குளிர்",
+        "ko": "추운",
+        "zh": "冷"
+      },
+      "hot": {
+        "fa": "احساس گرما / گرم",
+        "gu": "ગરમી લાગવી",
+        "hi": "गर्मी लगना",
+        "ta": "சூடு / வெப்பம்",
+        "ko": "더운",
+        "zh": "热"
+      },
+      "afraid": {
+        "fa": "ترسیدن / ترس",
+        "gu": "ડર લાગવો",
+        "hi": "डर लगना",
+        "ta": "பயம்",
+        "ko": "무서운",
+        "zh": "害怕"
+      },
+      "X years old": {
+        "fa": "X سال سن",
+        "gu": "X વર્ષની ઉંમર",
+        "hi": "X साल की उम्र",
+        "ta": "X வயது",
+        "ko": "X살",
+        "zh": "X岁"
+      },
+      "I am 25 years old.": {
+        "fa": "من ۲۵ ساله هستم.",
+        "gu": "હું 25 વર્ષનો છું.",
+        "hi": "मेरी उम्र 25 साल है।",
+        "ta": "எனக்கு 25 வயது.",
+        "ko": "저는 25살이에요.",
+        "zh": "我二十五岁。"
+      },
+      "I am thirsty.": {
+        "fa": "من تشنه‌ام.",
+        "gu": "મને તરસ લાગી છે.",
+        "hi": "मुझे प्यास लगी है।",
+        "ta": "எனக்கு தாகமாக இருக்கிறது.",
+        "ko": "목말라요.",
+        "zh": "我渴了。"
+      },
+      "I am cold.": {
+        "fa": "من سردم است.",
+        "gu": "મને ઠંડી લાગે છે.",
+        "hi": "मुझे ठंड लग रही है।",
+        "ta": "எனக்கு குளிர்கிறது.",
+        "ko": "추워요.",
+        "zh": "我很冷。"
+      },
+      "I am hot.": {
+        "fa": "من گرمم است.",
+        "gu": "મને ગરમી લાગે છે.",
+        "hi": "मुझे गर्मी लग रही है।",
+        "ta": "எனக்கு சூடாக இருக்கிறது.",
+        "ko": "더워요.",
+        "zh": "我很热。"
+      },
+      "I am afraid.": {
+        "fa": "من می‌ترسم.",
+        "gu": "મને ડર લાગે છે.",
+        "hi": "मुझे डर लग रहा है।",
+        "ta": "எனக்கு பயமாக இருக்கிறது.",
+        "ko": "무서워요.",
+        "zh": "我害怕。"
+      },
 
       "Did you understand? (Variation)": { "fa": "فهمیدی؟ (حالت غیررسمی)", "gu": "શું તમે સમજ્યા? (વિવિધતા)", "hi": "क्या आप समझे? (विविधता)", "ta": "உங்களுக்குப் புரிந்ததா? (மாறுபாடு)", "ko": "이해하셨나요? (변형)", "zh": "你明白了吗？(变体)"},
       "There is no problem. (Variation)": { "fa": "مشکلی نیست. (حالت غیررسمی)", "gu": "કોઈ વાંધો નથી. (વિવિધતા)", "hi": "कोई समस्या नहीं है। (विविधता)", "ta": "எந்த பிரச்சனையும் இல்லை. (மாறுபாடு)", "ko": "문제 없습니다. (변형)", "zh": "没问题。(变体)"},
@@ -967,46 +1096,48 @@ const sections = window.sectionsData || [];
       nav.innerHTML = '';
       sections.forEach((s, i) => {
         const btn = document.createElement('button');
-        btn.className = 'nav-btn' + (i === current ? ' active' : '');
+        const isActive = i === current;
+        btn.className = 'nav-btn' + (isActive ? ' active' : '');
         const secTitle = (typeof tSectionTitle === 'function' && tSectionTitle(s.id)) || s.title;
         if (s.icon) {
-          btn.innerHTML = '<span class="ms ms-sm" style="margin-right:0.25rem;vertical-align:middle;opacity:0.7">' + s.icon + '</span>' + secTitle;
+          btn.innerHTML = '<span class="ms ms-sm" style="margin-right:0.25rem;vertical-align:middle;opacity:' + (isActive ? '1' : '0.7') + '">' + s.icon + '</span>' + secTitle;
         } else {
           btn.textContent = secTitle;
         }
         btn.id = 'nav-btn-' + i;
         btn.onclick = () => go(i);
-        if (i === current) {
-          if (_currentStyle === 'default') {
-            btn.style.background = s.color + '33'; // 20% opacity
-            btn.style.borderColor = s.color;
-            btn.style.color = s.color;
-          } else {
-            btn.style.background = '';
-            btn.style.borderColor = '';
-            btn.style.color = '';
-          }
+        if (s.color) {
+          btn.style.setProperty('--section-color', s.color);
+        }
+        // Active pill: solid section color fill + white text (inline to bypass CSS cache/specificity)
+        if (isActive && s.color) {
+          btn.style.background = s.color;
+          btn.style.color = '#ffffff';
+          btn.style.borderColor = s.color;
+          btn.style.boxShadow = `0 2px 10px ${s.color}55`;
         }
         nav.appendChild(btn);
       });
     }
 
-    function centerNavTab() {
-      const navBar = document.getElementById('nav-bar');
-      const activeBtn = document.getElementById('nav-btn-' + current);
-      if (!activeBtn) return;
 
-      const navRect = navBar.getBoundingClientRect();
+    function centerNavTab() {
+      const navPills = document.getElementById('nav-pills');
+      const activeBtn = document.getElementById('nav-btn-' + current);
+      if (!navPills || !activeBtn) return;
+
+      const pillsRect = navPills.getBoundingClientRect();
       const btnRect = activeBtn.getBoundingClientRect();
 
-      const scrollLeft = navBar.scrollLeft + (btnRect.left - navRect.left) - (navRect.width / 2) + (btnRect.width / 2);
+      const scrollLeft = navPills.scrollLeft + (btnRect.left - pillsRect.left) - (pillsRect.width / 2) + (btnRect.width / 2);
 
       try {
-        navBar.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        navPills.scrollTo({ left: scrollLeft, behavior: 'smooth' });
       } catch (e) {
-        navBar.scrollLeft = scrollLeft;
+        navPills.scrollLeft = scrollLeft;
       }
     }
+
 
     function buildDots() {
       const dots = document.getElementById('progress-dots');
@@ -1018,6 +1149,98 @@ const sections = window.sectionsData || [];
         if (i === current) d.style.background = s.color;
         dots.appendChild(d);
       });
+    }
+
+    function sanitizeIdiomaticTranslation(str, lang) {
+      if (!str || typeof str !== 'string') return str;
+      let s = str;
+      // Strip any || literal annotations completely for bodily/emotional states or general display
+      if (s.includes('||')) {
+        s = s.split('||')[0].trim();
+      }
+
+      if (lang === 'hi' || currentLang === 'hi') {
+        // Replace literal possession calques for hunger/thirst/fear/cold/hot/sleep/age
+        // "उसके पास भूख नहीं है" / "मेरे पास भूख है" -> "उसे भूख नहीं लगी है" / "मुझे भूख लगी है"
+        s = s.replace(/(?:उसके|उसको)\s+पास\s+भूख\s+नहीं\s+है/g, 'उसे भूख नहीं लगी है');
+        s = s.replace(/(?:मेरे|मुझको)\s+पास\s+भूख\s+नहीं\s+है/g, 'मुझे भूख नहीं लगी है');
+        s = s.replace(/(?:तुम्हारे|तेरे|आपको)\s+पास\s+भूख\s+नहीं\s+है/g, 'तुम्हें भूख नहीं लगी है');
+        s = s.replace(/(?:उसके|उसको)\s+पास\s+भूख\s+है/g, 'उसे भूख लगी है');
+        s = s.replace(/(?:मेरे|मुझको)\s+पास\s+भूख\s+है/g, 'मुझे भूख लगी है');
+        s = s.replace(/(?:तुम्हारे|तेरे|आपको)\s+पास\s+भूख\s+है/g, 'तुम्हें भूख लगी है');
+
+        s = s.replace(/(?:उसके|उसको)\s+पास\s+प्यास\s+(?:है|लगी)/g, 'उसे प्यास लगी है');
+        s = s.replace(/(?:मेरे|मुझको)\s+पास\s+प्यास\s+(?:है|लगी)/g, 'मुझे प्यास लगी है');
+        s = s.replace(/(?:तुम्हारे|तेरे)\s+पास\s+प्यास\s+(?:है|लगी)/g, 'तुम्हें प्यास लगी है');
+
+        s = s.replace(/(?:उसके|उसको)\s+पास\s+डर\s+(?:है|लग)/g, 'उसे डर लग रहा है');
+        s = s.replace(/(?:मेरे|मुझको)\s+पास\s+डर\s+(?:है|लग)/g, 'मुझे डर लग रहा है');
+
+        s = s.replace(/(?:उसके|उसको)\s+पास\s+ठंड\s+(?:है|लग)/g, 'उसे ठंड लग रही है');
+        s = s.replace(/(?:मेरे|मुझको)\s+पास\s+ठंड\s+(?:है|लग)/g, 'मुझे ठंड लग रही है');
+
+        s = s.replace(/(?:उसके|उसको)\s+पास\s+गर्मी\s+(?:है|लग)/g, 'उसे गर्मी लग रही है');
+        s = s.replace(/(?:मेरे|मुझको)\s+पास\s+गर्मी\s+(?:है|लग)/g, 'मुझे गर्मी लग रही है');
+
+        s = s.replace(/(?:वह|वो)\s+भूख\s+रखता\s+है/g, 'उसे भूख लगी है');
+        s = s.replace(/(?:वह|वो)\s+भूख\s+रखती\s+है/g, 'उसे भूख लगी है');
+        s = s.replace(/मैं\s+भूख\s+रखता\s+हूँ/g, 'मुझे भूख लगी है');
+
+        // Age calques: "मेरे पास 25 साल हैं" -> "मेरी उम्र 25 साल है"
+        s = s.replace(/(?:मेरे|मुझको)\s+पास\s+(\d+)\s+साल\s*(?:हैं|है)?/g, 'मेरी उम्र $1 साल है');
+        s = s.replace(/(?:उसके|उसको)\s+पास\s+(\d+)\s+साल\s*(?:हैं|है)?/g, 'उसकी उम्र $1 साल है');
+        s = s.replace(/(?:तुम्हारे|तेरे)\s+पास\s+(\d+)\s+साल\s*(?:हैं|है)?/g, 'तुम्हारी उम्र $1 साल है');
+      }
+
+      if (lang === 'gu' || currentLang === 'gu') {
+        // Replace Gujarati literal possession calques
+        // "એની પાસે ભૂખ નથી" -> "એને ભૂખ નથી લાગી"
+        s = s.replace(/(?:એની|તેની)\s+પાસે\s+ભૂખ\s+નથી/g, 'એને ભૂખ નથી લાગી');
+        s = s.replace(/મારી\s+પાસે\s+ભૂખ\s+નથી/g, 'મને ભૂખ નથી લાગી');
+        s = s.replace(/(?:તારી|તમારી)\s+પાસે\s+ભૂખ\s+નથી/g, 'તને ભૂખ નથી લાગી');
+
+        s = s.replace(/(?:એની|તેની)\s+પાસે\s+ભૂખ\s+છે/g, 'એને ભૂખ લાગી છે');
+        s = s.replace(/મારી\s+પાસે\s+ભૂખ\s+છે/g, 'મને ભૂખ લાગી છે');
+        s = s.replace(/(?:તારી|તમારી)\s+પાસે\s+ભૂખ\s+છે/g, 'તને ભૂખ લાગી છે');
+
+        s = s.replace(/(?:એની|તેની)\s+પાસે\s+તરસ\s+(?:છે|લાગી)/g, 'એને તરસ લાગી છે');
+        s = s.replace(/મારી\s+પાસે\s+તરસ\s+(?:છે|લાગી)/g, 'મને તરસ લાગી છે');
+        s = s.replace(/(?:તારી|તમારી)\s+પાસે\s+તરસ\s+(?:છે|લાગી)/g, 'તને તરસ લાગી છે');
+
+        s = s.replace(/(?:એની|તેની)\s+પાસે\s+ડર\s+(?:છે|લાગે)/g, 'એને ડર લાગે છે');
+        s = s.replace(/મારી\s+પાસે\s+ડર\s+(?:છે|લાગે)/g, 'મને ડર લાગે છે');
+
+        s = s.replace(/(?:એની|તેની)\s+પાસે\s+ઠંડી\s+(?:છે|લાગે)/g, 'એને ઠંડી લાગે છે');
+        s = s.replace(/મારી\s+પાસે\s+ઠંડી\s+(?:છે|લાગે)/g, 'મને ઠંડી લાગે છે');
+
+        s = s.replace(/(?:એની|તેની)\s+પાસે\s+ગરમી\s+(?:છે|લાગે)/g, 'એને ગરમી લાગે છે');
+        s = s.replace(/મારી\s+પાસે\s+ગરમી\s+(?:છે|લાગે)/g, 'મને ગરમી લાગે છે');
+
+        s = s.replace(/(?:તે|એ)\s+ભૂખ\s+ધરાવે\s+છે/g, 'એને ભૂખ લાગી છે');
+
+        // Age calques: "મારી પાસે 25 વર્ષ છે" -> "હું 25 વર્ષનો છું" / "મારી ઉંમર 25 વર્ષ છે"
+        s = s.replace(/મારી\s+પાસે\s+(\d+)\s+વર્ષ\s+છે/g, 'મારી ઉંમર $1 વર્ષ છે');
+        s = s.replace(/(?:એની|તેની)\s+પાસે\s+(\d+)\s+વર્ષ\s+છે/g, 'એની ઉંમર $1 વર્ષ છે');
+        s = s.replace(/(?:તારી|તમારી)\s+પાસે\s+(\d+)\s+વર્ષ\s+છે/g, 'તમારી ઉંમર $1 વર્ષ છે');
+      }
+
+      return s;
+    }
+
+    function renderNativeTrans(transObjOrStr) {
+      if (!transObjOrStr) return '';
+      if (typeof transObjOrStr === 'string') {
+        const cleaned = sanitizeIdiomaticTranslation(transObjOrStr, currentLang);
+        return `<span class="trans-primary-natural">${cleaned}</span>`;
+      }
+      if (typeof transObjOrStr === 'object') {
+        const natural = transObjOrStr.natural || transObjOrStr.spoken || '';
+        const literal = transObjOrStr.literal || transObjOrStr.lit || '';
+        const raw = natural || literal;
+        const cleaned = sanitizeIdiomaticTranslation(raw, currentLang);
+        return `<span class="trans-primary-natural">${cleaned}</span>`;
+      }
+      return String(transObjOrStr);
     }
 
     function renderBlock(b, index) {
@@ -1052,9 +1275,10 @@ const sections = window.sectionsData || [];
           let cells = [...row];
           if (addNative) {
             const engVal = row[engColIdx] || '';
-            const native = (tableT[engVal] && tableT[engVal][currentLang]) || '';
-            cells.splice(engColIdx + 1, 0, native
-              ? `<span style="color:var(--text-secondary)">${native}</span>`
+            const nativeData = (tableT[engVal] && tableT[engVal][currentLang]) || '';
+            const renderedNative = renderNativeTrans(nativeData);
+            cells.splice(engColIdx + 1, 0, renderedNative
+              ? renderedNative
               : `<span style="color:var(--text-muted);font-style:italic">—</span>`);
           }
           return `<tr>${cells.map((c, colIdx) => {
@@ -1074,16 +1298,17 @@ const sections = window.sectionsData || [];
 
       if (b.examples) {
         html += `<div class="examples">${b.examples.map(e => {
-          const native = currentLang !== 'en' && e.english && tableT[e.english]
+          const nativeData = currentLang !== 'en' && e.english && tableT[e.english]
             ? tableT[e.english][currentLang] : '';
+          const nativeRendered = renderNativeTrans(nativeData);
           const frEscaped = (e.french || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
           const frFormatted = formatFrenchDisplay(e.french || '');
           return `<div class="example-row">
         <button class="ex-speak-btn" onclick="speakFrench('${frEscaped}', this)" title="Listen in French" aria-label="Listen to French pronunciation"><span class="ms ms-sm">volume_up</span></button>
         <span class="ex-fr">${frFormatted}</span>
         <span class="ex-arrow">→</span>
-        <span class="ex-en">${e.english}</span>${native
-              ? `<span class="ex-arrow">·</span><span class="ex-native">${native}</span>`
+        <span class="ex-en">${e.english}</span>${nativeRendered
+              ? `<span class="ex-arrow">·</span><span class="ex-native-wrap">${nativeRendered}</span>`
               : ''}
       </div>`;
         }).join('')}</div>`;
@@ -1106,7 +1331,11 @@ const sections = window.sectionsData || [];
         const isQuebec = b.tip.includes('🍁');
         const rawTip = tSection(sid, index, 'tip') || b.tip;
         const tipText = rawTip.replace(/^[🍁💡]\s*/, '').trim();
-        html += '<div class="tip-box' + (isQuebec ? ' tip-quebec' : '') + '">' + tipText + '</div>';
+        const iconName = isQuebec ? 'forest' : 'lightbulb';
+        html += `<div class="tip-box${isQuebec ? ' tip-quebec' : ''}">
+          <div class="tip-box-icon"><span class="ms ms-sm">${iconName}</span></div>
+          <div class="tip-box-content">${tipText}</div>
+        </div>`;
       }
 
       const ihtml = interactiveHTML(sections[current].id, index);
@@ -1136,6 +1365,118 @@ const sections = window.sectionsData || [];
       return a;
     }
 
+    // ── Spaced Repetition (SRS) State & Helpers ────────────────
+    const SRS_KEY = 'guideSRSQueue';
+    let _srsQueue = [];
+    try {
+      _srsQueue = JSON.parse(localStorage.getItem(SRS_KEY) || '[]');
+      if (!Array.isArray(_srsQueue)) _srsQueue = [];
+    } catch (e) { _srsQueue = []; }
+
+    function saveSRSQueue() {
+      try { localStorage.setItem(SRS_KEY, JSON.stringify(_srsQueue)); } catch (e) { }
+      updateSRSBadge();
+    }
+
+    function recordSRSAttempt(question, answer, correct, hint = '') {
+      const now = Date.now();
+      const id = String(question).replace(/<[^>]+>/g, '').trim().toLowerCase().slice(0, 40);
+      let entry = _srsQueue.find(item => item.id === id);
+      if (!entry) {
+        entry = { id, question, answer, hint, reps: 0, interval: 1, due: now, history: [] };
+        _srsQueue.push(entry);
+      }
+      entry.history.push({ date: now, correct });
+      if (correct) {
+        entry.reps += 1;
+        entry.interval = entry.reps === 1 ? 1 : (entry.reps === 2 ? 3 : 7);
+      } else {
+        entry.reps = 0;
+        entry.interval = 1;
+      }
+      entry.due = now + (entry.interval * 24 * 60 * 60 * 1000);
+      saveSRSQueue();
+    }
+
+    function getDueSRSItems() {
+      const now = Date.now();
+      return _srsQueue.filter(item => item.due <= now);
+    }
+
+    function updateSRSBadge() {
+      const due = getDueSRSItems();
+      const badge = document.getElementById('srs-header-label');
+      if (badge) badge.textContent = `Review (${due.length})`;
+      const sidebarBadge = document.getElementById('srs-sidebar-count');
+      if (sidebarBadge) sidebarBadge.textContent = due.length;
+    }
+
+    // Accessible Screen Reader Announcer
+    function announceA11y(msg) {
+      const el = document.getElementById('a11y-announcer');
+      if (el) {
+        el.textContent = '';
+        setTimeout(() => { el.textContent = msg; }, 40);
+      }
+    }
+    window.announceA11y = announceA11y;
+
+    // Active practice day streak tracker
+    function recordActiveStreak() {
+      try {
+        const today = new Date().toISOString().slice(0, 10);
+        const lastDate = localStorage.getItem('guideStreakLastDate');
+        let streak = parseInt(localStorage.getItem('guideActiveStreak') || '1', 10);
+        if (lastDate && lastDate !== today) {
+          const prev = new Date();
+          prev.setDate(prev.getDate() - 1);
+          const yesterday = prev.toISOString().slice(0, 10);
+          if (lastDate === yesterday) {
+            streak += 1;
+          } else {
+            streak = 1;
+          }
+        }
+        localStorage.setItem('guideStreakLastDate', today);
+        localStorage.setItem('guideActiveStreak', streak);
+        return streak;
+      } catch (e) {
+        return 1;
+      }
+    }
+
+    // Input mode preference (chips vs typing)
+    let _quizInputMode = localStorage.getItem('guideQuizMode') || 'chips'; // 'chips' or 'typing'
+
+    function toggleQuizInputMode(mode, pfx) {
+      _quizInputMode = mode;
+      try { localStorage.setItem('guideQuizMode', mode); } catch (e) { }
+      document.querySelectorAll('.quiz-mode-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.mode === mode);
+      });
+      const chipsPane = document.getElementById(pfx + '-choices');
+      const typingPane = document.getElementById(pfx + '-typing-pane');
+      if (chipsPane) chipsPane.style.display = mode === 'chips' ? 'flex' : 'none';
+      if (typingPane) {
+        typingPane.style.display = mode === 'typing' ? 'flex' : 'none';
+        const inp = document.getElementById(pfx + '-text-input');
+        if (inp && mode === 'typing') setTimeout(() => inp.focus(), 60);
+      }
+    }
+    window.toggleQuizInputMode = toggleQuizInputMode;
+
+    function insertVirtualAccent(pfx, char) {
+      const inp = document.getElementById(pfx + '-text-input');
+      if (!inp) return;
+      const start = inp.selectionStart || 0;
+      const end = inp.selectionEnd || 0;
+      const val = inp.value;
+      inp.value = val.substring(0, start) + char + val.substring(end);
+      inp.focus();
+      inp.setSelectionRange(start + char.length, start + char.length);
+    }
+    window.insertVirtualAccent = insertVirtualAccent;
+
     function makeQuiz(cfg) {
       // cfg: { pool, getId, getQuestion, getHint, getChoices, check, idPrefix, choiceKey }
       // Returns { show, check, reset } bound to DOM ids via idPrefix
@@ -1151,9 +1492,11 @@ const sections = window.sectionsData || [];
         const rEl = document.getElementById(cfg.idPrefix + '-result');
         const scEl = document.getElementById(cfg.idPrefix + '-score');
         const cEl = document.getElementById(cfg.idPrefix + '-choices');
-        if (!qEl || !cEl) return;
+        const tPane = document.getElementById(cfg.idPrefix + '-typing-pane');
+        const tInput = document.getElementById(cfg.idPrefix + '-text-input');
+        if (!qEl) return;
+
         const rawQ = cfg.getQuestion(item);
-        // Add a speaker button if question contains French text (e.g. item.w, item.verb, or raw question)
         const frSpkWord = item.w || item.form || (item.verb ? (item.subj ? `${item.subj} ${item.verb}` : item.verb) : '');
         let qContent = rawQ;
         if (frSpkWord) {
@@ -1167,10 +1510,26 @@ const sections = window.sectionsData || [];
         const nrEl2 = document.getElementById(cfg.idPrefix + '-next-row');
         if (expEl2) { expEl2.style.display = 'none'; expEl2.innerHTML = ''; }
         if (nrEl2) { nrEl2.style.display = 'none'; }
-        const choices = cfg.getChoices(item);
-        cEl.innerHTML = choices.map(c =>
-          `<button class="w-pill" onclick="window['${cfg.idPrefix}_check']('${c.replace(/'/g, "\\'")}',this)">${c}</button>`
-        ).join('');
+
+        // Setup Choices mode
+        if (cEl) {
+          const choices = cfg.getChoices(item);
+          cEl.innerHTML = choices.map((c, i) =>
+            `<button class="w-pill" data-choice-index="${i}" onclick="window['${cfg.idPrefix}_check']('${c.replace(/'/g, "\\'")}',this)"><span class="choice-num-key">${i + 1}</span><span class="choice-text">${c}</span><span class="key-hint" aria-hidden="true">[${i + 1}]</span></button>`
+          ).join('');
+          cEl.style.display = _quizInputMode === 'chips' ? 'flex' : 'none';
+        }
+
+        // Setup Typing mode
+        if (tPane) {
+          tPane.style.display = _quizInputMode === 'typing' ? 'flex' : 'none';
+        }
+        if (tInput) {
+          tInput.value = '';
+          tInput.disabled = false;
+          if (_quizInputMode === 'typing') setTimeout(() => tInput.focus(), 60);
+        }
+
         if (scEl) scEl.textContent = score[1] ? `${score[0]}/${score[1]} correct` : '';
       }
 
@@ -1187,7 +1546,16 @@ const sections = window.sectionsData || [];
 
       window[cfg.idPrefix + '_next'] = advanceQuiz;
 
-      window[cfg.idPrefix + '_check'] = function (choice, btn) {
+      window[cfg.idPrefix + '_submit_typed'] = function () {
+        const tInput = document.getElementById(cfg.idPrefix + '-text-input');
+        if (!tInput) return;
+        const val = tInput.value.trim();
+        if (!val) return;
+        tInput.disabled = true;
+        window[cfg.idPrefix + '_check'](val, tInput);
+      };
+
+      window[cfg.idPrefix + '_check'] = function (choice, triggerEl) {
         const item = deck[idx];
         const rEl = document.getElementById(cfg.idPrefix + '-result');
         const scEl = document.getElementById(cfg.idPrefix + '-score');
@@ -1195,24 +1563,42 @@ const sections = window.sectionsData || [];
         const expEl = document.getElementById(cfg.idPrefix + '-explain');
         const nrEl = document.getElementById(cfg.idPrefix + '-next-row');
         const nBtn = document.getElementById(cfg.idPrefix + '-next-btn');
-        if (!cEl) return; // widget unmounted
-        cEl.querySelectorAll('.w-pill').forEach(b => b.disabled = true);
-        const correct = cfg.check(item, choice);
-        btn.classList.add(correct ? 'correct' : 'wrong');
+        const tInput = document.getElementById(cfg.idPrefix + '-text-input');
+
+        if (cEl) {
+          cEl.querySelectorAll('.w-pill').forEach(b => b.disabled = true);
+        }
+        if (tInput) tInput.disabled = true;
+
+        // Clean & compare
+        const cleanChoice = String(choice).trim().toLowerCase().replace(/['’]/g, "'");
+        const correct = cfg.check(item, choice) || (cfg.getCorrect(item) && cfg.getCorrect(item).toLowerCase().trim() === cleanChoice);
+
+        if (triggerEl && triggerEl.classList) {
+          triggerEl.classList.add(correct ? 'correct' : 'wrong');
+        }
+
+        // Record in spaced-repetition queue
+        const rawQuestion = cfg.getQuestion(item).replace(/<[^>]+>/g, '').trim();
+        recordSRSAttempt(rawQuestion, cfg.getCorrect(item), correct, cfg.getHint ? cfg.getHint(item) : '');
 
         if (!correct) {
-          // Highlight correct answer
-          cEl.querySelectorAll('.w-pill').forEach(b => {
-            if (b.textContent === cfg.getCorrect(item)) b.classList.add('correct');
-          });
+          // Highlight correct answer in chips mode
+          if (cEl) {
+            cEl.querySelectorAll('.w-pill').forEach(b => {
+              if (b.textContent.trim() === cfg.getCorrect(item).trim() || b.querySelector('.choice-text')?.textContent.trim() === cfg.getCorrect(item).trim()) {
+                b.classList.add('correct');
+              }
+            });
+          }
 
-          // Build detailed explanation panel
+          // Build detailed pedagogical explanation panel
           if (expEl) {
             const explanation = cfg.getExplanation ? cfg.getExplanation(item, choice) : null;
             const failMsg = cfg.getFailure(item, choice);
             const whyLabel = t('whyWrong') || "Why it's wrong";
-            let exhtml = `<div class="quiz-explain">
-              <div class="quiz-explain-head">💡 ${whyLabel}</div>
+            let exhtml = `<div class="quiz-explain" role="alert">
+              <div class="quiz-explain-head"><span class="ms ms-sm" style="color:var(--red);margin-right:4px">lightbulb</span>${whyLabel}</div>
               <div class="quiz-explain-body">`;
 
             if (explanation && explanation.why) {
@@ -1223,28 +1609,29 @@ const sections = window.sectionsData || [];
 
             const correctSpk = makeSpeakerHtml(cfg.getCorrect(item), 'widget-speak-btn');
             exhtml += `<div class="quiz-explain-rule">`;
-            exhtml += `<span style="color:var(--green)">✓</span> ${correctSpk}<strong>${cfg.getCorrect(item)}</strong> — ${failMsg}`;
+            exhtml += `<span style="color:var(--green);font-weight:700">✓</span> ${correctSpk}<strong>${cfg.getCorrect(item)}</strong> — ${failMsg}`;
             if (explanation && explanation.rule) {
-              exhtml += `<br><span style="color:var(--secondary)">📌</span> ${explanation.rule}`;
+              exhtml += `<br><span class="ms ms-sm" style="color:var(--secondary);font-size:0.9rem;vertical-align:middle;margin-right:4px">push_pin</span>${explanation.rule}`;
             }
             exhtml += `</div></div></div>`;
 
             expEl.style.display = 'block';
             expEl.innerHTML = exhtml;
           }
+          announceA11y(`Incorrect. The correct answer is ${cfg.getCorrect(item)}.`);
         } else {
           if (expEl) { expEl.style.display = 'none'; expEl.innerHTML = ''; }
+          announceA11y(`Correct! ${cfg.getSuccess(item, choice)}`);
         }
 
         if (rEl) {
           if (correct) {
             const successText = cfg.getSuccess(item, choice);
-            // If item has a French phrase/word or successText has French
             const frText = item.w ? `${choice} ${item.w}` : (item.ans && item.subj ? `${item.subj} ${item.ans}` : (item.ans || choice));
             const spk = makeSpeakerHtml(frText, 'widget-speak-btn');
             rEl.innerHTML = `<span style="color:var(--green);display:inline-flex;align-items:center;gap:6px">✓ ${spk}<span>${successText}</span></span>`;
           } else {
-            rEl.innerHTML = '';
+            rEl.innerHTML = `<span style="color:var(--red);display:inline-flex;align-items:center;gap:6px">✗ <span>Correct: <strong>${cfg.getCorrect(item)}</strong></span></span>`;
           }
         }
         score[correct ? 0 : 1] += correct ? 1 : 0;
@@ -1252,13 +1639,14 @@ const sections = window.sectionsData || [];
         if (scEl) scEl.textContent = `${score[0]}/${score[1]} correct`;
         idx++;
 
-        // Show Next button — label changes based on correct/wrong
+        // Show Next button
         if (nrEl && nBtn) {
-          nBtn.textContent = correct
+          nBtn.innerHTML = (correct
             ? (t('nextQuestion') || 'Next') + ' →'
-            : (t('gotIt') || 'Got it') + ' →';
+            : (t('gotIt') || 'Got it') + ' →') + ' <span class="key-hint" aria-hidden="true">[Enter]</span>';
           nBtn.className = 'quiz-next-btn' + (correct ? ' quiz-next-correct' : ' quiz-next-wrong');
           nrEl.style.display = 'flex';
+          setTimeout(() => nBtn.focus(), 60);
         }
       };
 
@@ -1287,15 +1675,43 @@ const sections = window.sectionsData || [];
     function quizShell(pfx, label) {
       return widgetShell('w-' + pfx, label, `
         <div class="article-display">
+          <div class="quiz-mode-bar">
+            <span style="color:var(--text-muted);font-weight:600;">Practice Mode:</span>
+            <div class="quiz-mode-group">
+              <button class="quiz-mode-btn active" data-mode="chips" onclick="toggleQuizInputMode('chips', '${pfx}')" title="Multiple choice options">
+                <span class="ms ms-sm">touch_app</span> Multiple Choice
+              </button>
+              <button class="quiz-mode-btn" data-mode="typing" onclick="toggleQuizInputMode('typing', '${pfx}')" title="Typing / Fill-in-the-blank">
+                <span class="ms ms-sm">keyboard</span> Typing
+              </button>
+            </div>
+          </div>
           <div class="article-word" id="${pfx}-q"></div>
           <div class="article-hint" id="${pfx}-hint"></div>
           <div class="article-choices" id="${pfx}-choices"></div>
-          <div class="article-result" id="${pfx}-result"></div>
+          
+          <!-- Typing Mode Pane -->
+          <div class="quiz-typing-pane" id="${pfx}-typing-pane" style="display:none">
+            <div class="quiz-typing-row">
+              <input type="text" class="quiz-input-field" id="${pfx}-text-input" placeholder="Type your answer here..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter') window['${pfx}_submit_typed'] && window['${pfx}_submit_typed']()">
+              <button class="quiz-submit-btn" onclick="window['${pfx}_submit_typed'] && window['${pfx}_submit_typed']()">
+                Check <span class="key-hint" aria-hidden="true">[Enter]</span>
+              </button>
+            </div>
+            <div class="virtual-accents-bar">
+              <span class="virtual-accent-label">Accents:</span>
+              ${['é', 'è', 'ê', 'à', 'ç', 'ù', 'î', 'ô', 'œ'].map(ch =>
+                `<button type="button" class="virtual-accent-btn" onclick="insertVirtualAccent('${pfx}', '${ch}')">${ch}</button>`
+              ).join('')}
+            </div>
+          </div>
+
+          <div class="article-result" id="${pfx}-result" aria-live="polite"></div>
           <div id="${pfx}-explain" style="display:none"></div>
           <div class="quiz-next-row" id="${pfx}-next-row" style="display:none">
             <button class="quiz-next-btn" id="${pfx}-next-btn"
               onclick="window['${pfx}_next'] && window['${pfx}_next']()">
-              ${t('nextQuestion') || 'Next'} →
+              ${t('nextQuestion') || 'Next'} → <span class="key-hint" aria-hidden="true">[Enter]</span>
             </button>
           </div>
           <div class="article-score" id="${pfx}-score"></div>
@@ -1326,8 +1742,8 @@ const sections = window.sectionsData || [];
               <div class="article-word" id="noun-q" style="font-size:1.8rem"></div>
               <div class="article-hint" id="noun-hint"></div>
               <div class="article-choices">
-                <button class="w-pill w-pill-m" id="noun-m" onclick="window['noun_check']('m',this)">${t('masculin')} (un / le)</button>
-                <button class="w-pill w-pill-f" id="noun-f" onclick="window['noun_check']('f',this)">${t('feminin')} (une / la)</button>
+                <button class="w-pill w-pill-m" id="noun-m" data-choice-index="0" onclick="window['noun_check']('m',this)"><span class="choice-num-key">1</span><span class="choice-text">${t('masculin')} (un / le)</span></button>
+                <button class="w-pill w-pill-f" id="noun-f" data-choice-index="1" onclick="window['noun_check']('f',this)"><span class="choice-num-key">2</span><span class="choice-text">${t('feminin')} (une / la)</span></button>
               </div>
               <div class="article-result" id="noun-result"></div>
               <div class="article-score" id="noun-score"></div>
@@ -1892,6 +2308,17 @@ const sections = window.sectionsData || [];
       const conj = typeof FrenchConjugator !== 'undefined' ? FrenchConjugator.conjugate(lookupVerb) : null;
       const vInfo = typeof getEngVerbInfo === 'function' ? getEngVerbInfo(lookupVerb) : { base: lookupVerb, s: lookupVerb, ing: lookupVerb, ed: lookupVerb };
 
+      if (!conj) {
+        const dym = typeof FrenchConjugator !== 'undefined' && FrenchConjugator.findSuggestions ? FrenchConjugator.findSuggestions(lookupVerb, 3) : { homograph: null, suggestions: [] };
+        const sug = (dym.homograph ? dym.homograph.suggested : (dym.suggestions && dym.suggestions[0])) || '';
+        splitEl.style.display = 'flex';
+        splitEl.innerHTML =
+          `<span class="ve-split-label" style="color:var(--tertiary)">⚠ « ${lookupVerb} » is not a recognized French verb.</span>` +
+          (sug ? `<button class="vmodal-chip" style="margin-left:auto;padding:2px 10px;font-size:0.75rem;background:var(--blue-dim);color:var(--blue);border-color:var(--blue)" onclick="document.getElementById('ve-${tense}-input').value='${sug}'; veUpdate('${tense}');">Did you mean « ${sug} »?</button>` : '');
+        if (tableEl) tableEl.style.display = 'none';
+        return;
+      }
+
       splitEl.style.display = 'flex';
       splitEl.innerHTML =
         '<span class="ve-split-label">Verb</span>' +
@@ -1900,7 +2327,7 @@ const sections = window.sectionsData || [];
         `<button class="vmodal-chip" style="margin-left:auto;padding:2px 10px;font-size:0.75rem;background:var(--surface-3);" onclick="openVerbModal('${lookupVerb}')" title="See all tenses for ${lookupVerb}"><span class="ms ms-sm" style="color:var(--yellow);margin-right:4px;">auto_stories</span>All Tenses →</button>`;
 
       if (tableEl) tableEl.style.display = 'block';
-      if (!tbodyEl || !conj) return;
+      if (!tbodyEl) return;
 
       if (tense === 'ger') {
         const form = '<span class="ve-form-stem">' + conj.gerund + '</span>';
@@ -3123,6 +3550,17 @@ const sections = window.sectionsData || [];
           const conj = typeof FrenchConjugator !== 'undefined' ? FrenchConjugator.conjugate(raw) : null;
           const vInfo = typeof getEngVerbInfo === 'function' ? getEngVerbInfo(raw) : { base: raw, s: raw, ing: raw, ed: raw };
 
+          if (!conj) {
+            const dym = typeof FrenchConjugator !== 'undefined' && FrenchConjugator.findSuggestions ? FrenchConjugator.findSuggestions(raw, 3) : { homograph: null, suggestions: [] };
+            const sug = (dym.homograph ? dym.homograph.suggested : (dym.suggestions && dym.suggestions[0])) || '';
+            splitEl.style.display = 'flex';
+            splitEl.innerHTML =
+              `<span class="ve-split-label" style="color:var(--tertiary)">⚠ « ${raw} » is not a recognized French verb.</span>` +
+              (sug ? `<button class="vmodal-chip" style="margin-left:auto;padding:2px 10px;font-size:0.75rem;background:var(--blue-dim);color:var(--blue);border-color:var(--blue)" onclick="document.getElementById('ve-${group}-input').value='${sug}'; veUpdate('${group}');">Did you mean « ${sug} »?</button>` : '');
+            if (tableEl) tableEl.style.display = 'none';
+            return;
+          }
+
           if (tableEl) tableEl.style.display = 'block';
           if (tbodyEl) {
             tbodyEl.innerHTML = g.endings.map((e, i) => {
@@ -3374,26 +3812,26 @@ const sections = window.sectionsData || [];
     const sidebarData = {
       articles: {
         left: {
-          title: "📌 Article Cheat Sheet",
+          title: "Article Cheat Sheet",
           cards: [
             { heading: "Definite — THE", items: [["le", "masc. sg."], ["la", "fem. sg."], ["l'", "before vowel/h"], ["les", "plural"]] },
             { heading: "Indefinite — A / SOME", items: [["un", "masc. sg."], ["une", "fem. sg."], ["des", "plural"]] },
             { heading: "Partitive — SOME (uncountable)", items: [["du", "masc."], ["de la", "fem."], ["de l'", "before vowel"], ["des", "plural"]] },
-            { heading: "❌ After negation → de", pills: ["ne…pas de", "ne…pas d'"], note: "(except after être + definite)" },
+            { heading: "After negation → de", pills: ["ne…pas de", "ne…pas d'"], note: "(except after être + definite)" },
           ]
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'le dépanneur' = corner store" },
-            { label: "🍁 QC", text: "'Je veux du poutine' — partitive" },
-            { label: "💡", text: "Neg: 'Je n'ai pas de voiture'" },
-            { label: "💡", text: "Definite article stays after aimer: 'Je n'aime pas le café'" },
+            { label: "QC", text: "'le dépanneur' = corner store" },
+            { label: "QC", text: "'Je veux du poutine' — partitive" },
+            { label: "Tip", text: "Neg: 'Je n'ai pas de voiture'" },
+            { label: "Tip", text: "Definite article stays after aimer: 'Je n'aime pas le café'" },
           ]
         }
       },
       nouns: {
         left: {
-          title: "🔤 Gender Tips",
+          title: "Gender Tips",
           cards: [
             { heading: "Usually Masculine", pills: ["-eau", "-isme", "-ment", "-age", "-eur"] },
             { heading: "Usually Feminine", pills: ["-tion", "-sion", "-ée", "-ure", "-ance", "-ence"] },
@@ -3402,79 +3840,79 @@ const sections = window.sectionsData || [];
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'les enfants' — big in Quebec culture" },
-            { label: "💡", text: "Learn gender with each word: 'un livre'" },
-            { label: "💡", text: "Most -e endings are feminine" },
+            { label: "QC", text: "'les enfants' — big in Quebec culture" },
+            { label: "Tip", text: "Learn gender with each word: 'un livre'" },
+            { label: "Tip", text: "Most -e endings are feminine" },
           ]
         }
       },
       pronouns: {
         left: {
-          title: "👤 Subject Pronouns",
+          title: "Subject Pronouns",
           cards: [
             { heading: "Full Set", items: [["je / j'", "I"], ["tu", "you (informal)"], ["il / elle", "he / she"], ["on", "we (QC spoken)"], ["nous", "we (formal)"], ["vous", "you (pl./formal)"], ["ils / elles", "they"]] },
-            { heading: "🍁 Quebec Rule", pills: ["on = nous"], note: "'On va au cinéma' not 'Nous allons'" },
+            { heading: "Quebec Rule", pills: ["on = nous"], note: "'On va au cinéma' not 'Nous allons'" },
           ]
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "Always 'tu' with friends — 'vous' is very formal for one person" },
-            { label: "🍁 QC", text: "'T'es où?' = 'tu es' contracted" },
-            { label: "💡", text: "Mixed group → always 'ils'" },
+            { label: "QC", text: "Always 'tu' with friends — 'vous' is very formal for one person" },
+            { label: "QC", text: "'T'es où?' = 'tu es' contracted" },
+            { label: "Tip", text: "Mixed group → always 'ils'" },
           ]
         }
       },
       verbs: {
         left: {
-          title: "⚡ Verb Endings",
+          title: "Verb Endings",
           cards: [
             { heading: "-ER (parler)", items: [["je -e", "je parle"], ["tu -es", "tu parles"], ["il -e", "il parle"], ["nous -ons", "nous parlons"], ["vous -ez", "vous parlez"], ["ils -ent", "ils parlent"]] },
             { heading: "-IR (finir)", items: [["je -is", "je finis"], ["il -it", "il finit"], ["nous -issons", "nous finissons"]] },
             { heading: "-RE (attendre)", items: [["je -s", "j'attends"], ["il —", "il attend"], ["nous -ons", "nous attendons"]] },
-            { heading: "❌ Negative", pills: ["ne + verb + pas"], note: "QC spoken: drop 'ne'" },
+            { heading: "Negative", pills: ["ne + verb + pas"], note: "QC spoken: drop 'ne'" },
           ]
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'-ent' is always silent: 'ils parlent' = 'il parle' sound" },
-            { label: "🍁 QC", text: "'T'es où?' — 'tu es' becomes 't'es'" },
-            { label: "💡", text: "Elision: je → j' before vowel" },
+            { label: "QC", text: "'-ent' is always silent: 'ils parlent' = 'il parle' sound" },
+            { label: "QC", text: "'T'es où?' — 'tu es' becomes 't'es'" },
+            { label: "Tip", text: "Elision: je → j' before vowel" },
           ]
         }
       },
       sentences: {
         left: {
-          title: "🏗️ Sentence Patterns",
+          title: "Sentence Patterns",
           cards: [
             { heading: "Affirmative", pills: ["Subject", "+ Verb", "+ Object"] },
             { heading: "Negative", pills: ["ne", "+ Verb", "+ pas"] },
             { heading: "Question Methods", items: [["↑ intonation", "casual (QC)"], ["Est-ce que…", "neutral"], ["Inversion", "formal"]] },
-            { heading: "❌ Negative Q", items: [["T'aimes pas ça?", "QC casual"], ["N'est-ce pas?", "tag question"]] },
+            { heading: "Negative Questions", items: [["T'aimes pas ça?", "QC casual"], ["N'est-ce pas?", "tag question"]] },
           ]
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'ne' almost always dropped: 'Je parle pas'" },
-            { label: "🍁 QC", text: "Rising intonation = most natural question" },
-            { label: "💡", text: "BAGS adjectives go BEFORE the noun" },
+            { label: "QC", text: "'ne' almost always dropped: 'Je parle pas'" },
+            { label: "QC", text: "Rising intonation = most natural question" },
+            { label: "Tip", text: "BAGS adjectives go BEFORE the noun" },
           ]
         }
       },
       adjectives: {
         left: {
-          title: "🎨 Agreement Table",
+          title: "Agreement Table",
           cards: [
             { heading: "Endings", items: [["masc. sg.", "base form"], ["fem. sg.", "+e (usually)"], ["masc. pl.", "+s"], ["fem. pl.", "+es"]] },
             { heading: "Irregular", items: [["beau → belle", "f. sg."], ["nouveau → nouvelle", "f. sg."], ["bon → bonne", "f. sg."], ["vieux → vieille", "f. sg."]] },
             { heading: "BAGS — go BEFORE", pills: ["Beauty", "Age", "Good/Bad", "Size"] },
-            { heading: "❌ Neg: de + adj + noun", pills: ["de belle voiture", "d'autre chose"] },
+            { heading: "Neg: de + adj + noun", pills: ["de belle voiture", "d'autre chose"] },
           ]
         },
         right: {
           tips: [
-            { label: "💡", text: "Extra letters are usually silent" },
-            { label: "💡", text: "Predicate adj (after être) agrees too" },
-            { label: "🍁 QC", text: "'un bel appartement au Plateau'" },
+            { label: "Tip", text: "Extra letters are usually silent" },
+            { label: "Tip", text: "Predicate adj (after être) agrees too" },
+            { label: "QC", text: "'un bel appartement au Plateau'" },
           ]
         }
       },
@@ -3489,9 +3927,9 @@ const sections = window.sectionsData || [];
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'C'est proche du métro?' — daily phrase" },
-            { label: "🍁 QC", text: "'Je vis au Canada, en province de Québec, à Montréal'" },
-            { label: "💡", text: "à la / à l' never contract" },
+            { label: "QC", text: "'C'est proche du métro?' — daily phrase" },
+            { label: "QC", text: "'Je vis au Canada, en province de Québec, à Montréal'" },
+            { label: "Tip", text: "à la / à l' never contract" },
           ]
         }
       },
@@ -3506,9 +3944,9 @@ const sections = window.sectionsData || [];
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'mon char' = my car (Quebec word)" },
-            { label: "💡", text: "son/sa = his OR her — determined by noun gender, not owner" },
-            { label: "💡", text: "'mon amie' (f.) — vowel forces mon" },
+            { label: "QC", text: "'mon char' = my car (Quebec word)" },
+            { label: "Tip", text: "son/sa = his OR her — determined by noun gender, not owner" },
+            { label: "Tip", text: "'mon amie' (f.) — vowel forces mon" },
           ]
         }
       },
@@ -3522,9 +3960,9 @@ const sections = window.sectionsData || [];
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "STM uses 24h: '15h30' on schedule" },
-            { label: "🍁 QC", text: "Date: 'le 24 juin' — fête nationale" },
-            { label: "💡", text: "Days & months NOT capitalised in French" },
+            { label: "QC", text: "STM uses 24h: '15h30' on schedule" },
+            { label: "QC", text: "Date: 'le 24 juin' — fête nationale" },
+            { label: "Tip", text: "Days & months NOT capitalised in French" },
           ]
         }
       },
@@ -3535,14 +3973,14 @@ const sections = window.sectionsData || [];
             { heading: "Formula", pills: ["avoir/être", "+ participe passé"] },
             { heading: "PP formation", items: [["-ER → -é", "parlé"], ["-IR → -i", "fini"], ["-RE → -u", "attendu"]] },
             { heading: "être verbs (DR MRS VANDERTRAMP)", pills: ["aller", "venir", "partir", "arriver", "naître", "mourir", "rester", "tomber", "entrer", "sortir"] },
-            { heading: "❌ Negative", pills: ["ne + aux + pas + pp"], note: "'Je n'ai pas mangé'" },
+            { heading: "Negative", pills: ["ne + aux + pas + pp"], note: "'Je n'ai pas mangé'" },
           ]
         },
         right: {
           tips: [
-            { label: "💡", text: "être verbs: pp agrees with subject gender/number" },
-            { label: "🍁 QC", text: "'T'as-tu mangé?' — QC question form" },
-            { label: "🍁 QC", text: "'J'ai pas vu ça.' — ne dropped" },
+            { label: "Tip", text: "être verbs: pp agrees with subject gender/number" },
+            { label: "QC", text: "'T'as-tu mangé?' — QC question form" },
+            { label: "QC", text: "'J'ai pas vu ça.' — ne dropped" },
           ]
         }
       },
@@ -3558,9 +3996,9 @@ const sections = window.sectionsData || [];
         },
         right: {
           tips: [
-            { label: "💡", text: "Pronoun goes BEFORE the verb, always" },
-            { label: "🍁 QC", text: "'Je le vois pas' — ne drops, pronoun stays" },
-            { label: "💡", text: "Passé composé: before auxiliary" },
+            { label: "Tip", text: "Pronoun goes BEFORE the verb, always" },
+            { label: "QC", text: "'Je le vois pas' — ne drops, pronoun stays" },
+            { label: "Tip", text: "Passé composé: before auxiliary" },
           ]
         }
       },
@@ -3577,9 +4015,9 @@ const sections = window.sectionsData || [];
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'Je peux pas venir' — most common refusal" },
-            { label: "💡", text: "'Savoir' = learned skill vs 'pouvoir' = ability" },
-            { label: "🍁 QC", text: "'Je pourrais avoir…?' — polite conditional" },
+            { label: "QC", text: "'Je peux pas venir' — most common refusal" },
+            { label: "Tip", text: "'Savoir' = learned skill vs 'pouvoir' = ability" },
+            { label: "QC", text: "'Je pourrais avoir…?' — polite conditional" },
           ]
         }
       },
@@ -3594,9 +4032,9 @@ const sections = window.sectionsData || [];
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'C'est beau!' = Sounds good! / Great!" },
-            { label: "🍁 QC", text: "'J'ai frette!' — very cold (Quebec: frette)" },
-            { label: "💡", text: "'Il y a deux ans' = two years ago" },
+            { label: "QC", text: "'C'est beau!' = Sounds good! / Great!" },
+            { label: "QC", text: "'J'ai frette!' — very cold (Quebec: frette)" },
+            { label: "Tip", text: "'Il y a deux ans' = two years ago" },
           ]
         }
       },
@@ -3624,14 +4062,14 @@ const sections = window.sectionsData || [];
             { heading: "COD — answers 'What/Who?'", items: [["le", "masc. sg."], ["la", "fem. sg."], ["les", "plural"], ["me/te/nous/vous", "all persons"]] },
             { heading: "COI — answers 'To whom?'", items: [["lui", "3rd sg."], ["leur", "3rd pl."], ["me/te/nous/vous", "same as COD"]] },
             { heading: "Double order", pills: ["me/te/nous/vous", "→ le/la/les", "→ lui/leur", "→ y", "→ en"] },
-            { heading: "❌ Negative", pills: ["ne", "+ pron", "+ verb", "+ pas"] },
+            { heading: "Negative", pills: ["ne", "+ pron", "+ verb", "+ pas"] },
           ]
         },
         right: {
           tips: [
-            { label: "💡", text: "COD: no preposition after verb" },
-            { label: "💡", text: "COI: verb takes 'à' (parler à, téléphoner à)" },
-            { label: "🍁 QC", text: "'Je le vois pas' — pronoun never moves" },
+            { label: "Tip", text: "COD: no preposition after verb" },
+            { label: "Tip", text: "COI: verb takes 'à' (parler à, téléphoner à)" },
+            { label: "QC", text: "'Je le vois pas' — pronoun never moves" },
           ]
         }
       },
@@ -3646,10 +4084,10 @@ const sections = window.sectionsData || [];
         },
         right: {
           tips: [
-            { label: "💡", text: "-ER: je/tu/il/ils all sound the SAME" },
-            { label: "💡", text: "-IR: -iss- infix in nous/vous/ils" },
-            { label: "💡", text: "-RE: il gets NO ending at all" },
-            { label: "🍁 QC", text: "'ils parlent' = 'il parle' in sound" },
+            { label: "Tip", text: "-ER: je/tu/il/ils all sound the SAME" },
+            { label: "Tip", text: "-IR: -iss- infix in nous/vous/ils" },
+            { label: "Tip", text: "-RE: il gets NO ending at all" },
+            { label: "QC", text: "'ils parlent' = 'il parle' in sound" },
           ]
         }
       },
@@ -3659,15 +4097,15 @@ const sections = window.sectionsData || [];
           cards: [
             { heading: "Present", items: [["je me", "nous nous"], ["tu te", "vous vous"], ["il se", "ils se"]] },
             { heading: "Passé Composé (être)", items: [["je me suis", "+ pp"], ["tu t'es", "+ pp"], ["il s'est", "+ pp"], ["nous nous sommes", "+ pp"]] },
-            { heading: "❌ Negative", pills: ["ne", "+ refl.", "+ verb", "+ pas"], note: "je ne me lève pas" },
+            { heading: "Negative", pills: ["ne", "+ refl.", "+ verb", "+ pas"], note: "je ne me lève pas" },
             { heading: "PP agreement with subject", pills: ["elle s'est levée", "ils se sont levés"] },
           ]
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'Je me lève pas à 6h' — ne dropped" },
-            { label: "💡", text: "Reflexive pronoun NEVER separates from verb" },
-            { label: "💡", text: "All reflexive verbs use être in PC" },
+            { label: "QC", text: "'Je me lève pas à 6h' — ne dropped" },
+            { label: "Tip", text: "Reflexive pronoun NEVER separates from verb" },
+            { label: "Tip", text: "All reflexive verbs use être in PC" },
           ]
         }
       },
@@ -3677,83 +4115,270 @@ const sections = window.sectionsData || [];
           cards: [
             { heading: "venir + de + infinitif", items: [["je viens", "+ de + inf."], ["tu viens", "+ de + inf."], ["il/elle vient", "+ d' + inf."], ["nous venons", "+ de + inf."], ["vous venez", "+ de + inf."], ["ils/elles viennent", "+ de + inf."]] },
             { heading: "Time Markers", pills: ["à l'instant", "tout juste", "il y a", "en ce moment", "bientôt"] },
-            { heading: "❌ Negative", pills: ["ne + venir + pas + de + inf."] },
+            { heading: "Negative", pills: ["ne + venir + pas + de + inf."] },
           ]
         },
         right: {
           tips: [
-            { label: "🍁 QC", text: "'Je viens de finir' — used constantly in daily talk" },
-            { label: "💡", text: "Means 'just happened' — seconds/minutes ago, not distant past" },
-            { label: "🍁 QC", text: "'Je viens pas de manger' — ne dropped, venir still wrapped" },
+            { label: "QC", text: "'Je viens de finir' — used constantly in daily talk" },
+            { label: "Tip", text: "Means 'just happened' — seconds/minutes ago, not distant past" },
+            { label: "QC", text: "'Je viens pas de manger' — ne dropped, venir still wrapped" },
           ]
         }
       },
     };
 
+    // Track completed / visited sections in localStorage
+    let _completedSections = new Set();
+    try {
+      const savedCompleted = JSON.parse(localStorage.getItem('guideCompletedSections') || '[]');
+      if (Array.isArray(savedCompleted)) {
+        _completedSections = new Set(savedCompleted);
+      }
+    } catch(e) { }
+
+    // Explicitly mark or unmark section as completed
+    function markSectionCompleted(idx) {
+      if (!_completedSections.has(idx)) {
+        _completedSections.add(idx);
+        try {
+          localStorage.setItem('guideCompletedSections', JSON.stringify([..._completedSections]));
+        } catch(e) { }
+      }
+    }
+
+    function unmarkSectionCompleted(idx) {
+      if (_completedSections.has(idx)) {
+        _completedSections.delete(idx);
+        try {
+          localStorage.setItem('guideCompletedSections', JSON.stringify([..._completedSections]));
+        } catch(e) { }
+      }
+    }
+
+    function toggleCurrentSectionDone() {
+      if (_completedSections.has(current)) {
+        unmarkSectionCompleted(current);
+        announceA11y('Section unmarked as completed');
+      } else {
+        markSectionCompleted(current);
+        announceA11y('Section marked as completed');
+      }
+      const s = sections[current];
+      if (s) buildSidebars(s.id, s.color);
+      updateDoneButtonUI();
+      updateMobileProgressBar();
+    }
+    window.toggleCurrentSectionDone = toggleCurrentSectionDone;
+    window.markSectionCompleted = markSectionCompleted;
+
+    function updateDoneButtonUI() {
+      const btn = document.getElementById('btn-done');
+      const text = document.getElementById('btn-done-text');
+      const icon = document.getElementById('btn-done-icon');
+      if (!btn) return;
+      const isDone = _completedSections.has(current);
+      btn.classList.toggle('is-done', isDone);
+      btn.setAttribute('aria-pressed', isDone ? 'true' : 'false');
+      if (text) text.textContent = isDone ? (t('completed') || 'Completed ✓') : (t('markAsDone') || 'Mark as Done');
+      if (icon) icon.textContent = isDone ? 'task_alt' : 'check_circle';
+    }
+
+    function updateMobileProgressBar() {
+      const mProgFill = document.getElementById('mobile-progress-segmented-fill');
+      const mProgLabel = document.getElementById('mobile-progress-segmented-label');
+      const s = sections[current];
+      const doneCount = _completedSections.size;
+      const pct = Math.round((doneCount / sections.length) * 100);
+      if (mProgFill) {
+        mProgFill.style.width = pct + '%';
+        if (s && s.color) mProgFill.style.background = s.color;
+      }
+      if (mProgLabel) {
+        mProgLabel.textContent = `${doneCount}/${sections.length} ${t('of') === 'of' ? 'completed' : ''}`.trim();
+        if (t('progress') && t('of') !== 'of') {
+          mProgLabel.textContent = `${doneCount}/${sections.length} ${t('completed') || 'done'}`;
+        }
+      }
+    }
+
+    // Toggle Left Rail Collapsed State
+    let _leftRailCollapsed = localStorage.getItem('guideLeftRailCollapsed') === 'true';
+    function toggleLeftRailCollapse() {
+      _leftRailCollapsed = !_leftRailCollapsed;
+      try { localStorage.setItem('guideLeftRailCollapsed', _leftRailCollapsed); } catch(e) { }
+      const card = document.getElementById('quick-rules-card');
+      if (card) {
+        card.classList.toggle('is-collapsed', _leftRailCollapsed);
+        const icon = document.getElementById('quick-rules-toggle-icon');
+        if (icon) icon.textContent = _leftRailCollapsed ? 'expand_more' : 'expand_less';
+      }
+    }
+    window.toggleLeftRailCollapse = toggleLeftRailCollapse;
+
+    // Mobile Curriculum Drawer open/close
+    function toggleCurriculumDrawer(forceState) {
+      const rightEl = document.getElementById('sidebar-right');
+      const overlay = document.getElementById('sidebar-drawer-overlay');
+      if (!rightEl) return;
+      const isOpen = rightEl.classList.contains('drawer-open');
+      const shouldOpen = typeof forceState === 'boolean' ? forceState : !isOpen;
+      
+      rightEl.classList.toggle('drawer-open', shouldOpen);
+      if (overlay) overlay.classList.toggle('active', shouldOpen);
+      document.body.classList.toggle('drawer-active', shouldOpen);
+    }
+    window.toggleCurriculumDrawer = toggleCurriculumDrawer;
+
     function buildSidebars(sid, color) {
+      // NOTE: Section completion is only marked explicitly by the user clicking 'Mark as Done' or finishing the checkpoint
       const data = sidebarData[sid];
       const leftEl = document.getElementById('sidebar-left');
       const rightEl = document.getElementById('sidebar-right');
       if (!leftEl || !rightEl) return;
 
-      // ── LEFT: cheat sheet ──
+      // ── LEFT: Quick Rules & Tricky Exceptions (collapsible card) ──
       if (data && data.left) {
         const d = data.left;
-        let html = `<div class="sidebar-card" style="border-color:${color}30">
-          <div class="sidebar-card-title" style="color:${color}">◈ ${d.title}</div>`;
+        let cardBody = '';
         d.cards.forEach(card => {
-          html += `<div style="margin-bottom:10px">
-            <div style="font-size:0.65rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">${card.heading}</div>`;
+          cardBody += `<div class="quick-rule-group">
+            <div class="quick-rule-heading">${card.heading}</div>`;
           if (card.items) {
             card.items.forEach(([fr, en]) => {
-              html += `<div class="sidebar-rule"><span class="sidebar-fr">${fr}</span><span class="sidebar-en">${en}</span></div>`;
+              cardBody += `<div class="sidebar-rule"><span class="sidebar-fr">${fr}</span><span class="sidebar-en">${en}</span></div>`;
             });
           }
           if (card.pills) {
-            card.pills.forEach(p => { html += `<span class="sidebar-pill">${p}</span>`; });
+            cardBody += `<div class="quick-rule-pills">`;
+            card.pills.forEach(p => { cardBody += `<span class="sidebar-pill">${p}</span>`; });
+            cardBody += `</div>`;
           }
           if (card.note) {
-            html += `<div style="font-size:0.68rem;color:var(--text-secondary);margin-top:4px;font-style:italic">${card.note}</div>`;
+            cardBody += `<div class="quick-rule-note">${card.note}</div>`;
           }
-          html += `</div>`;
+          cardBody += `</div>`;
         });
-        html += `</div>`;
+
+        let html = `<div class="sidebar-card quick-rules-card${_leftRailCollapsed ? ' is-collapsed' : ''}" id="quick-rules-card" style="border-color:${color}35">
+          <button class="quick-rules-header" onclick="toggleLeftRailCollapse()" title="Toggle Quick Rules card" aria-label="Toggle Quick Rules & Tricky Exceptions">
+            <div class="sidebar-card-title" style="color:${color};margin-bottom:0">
+              <span class="ms ms-sm">bolt</span>
+              <span>Quick Rules & Exceptions</span>
+            </div>
+            <span class="ms ms-sm collapse-icon" id="quick-rules-toggle-icon">${_leftRailCollapsed ? 'expand_more' : 'expand_less'}</span>
+          </button>
+          <div class="quick-rules-body" id="quick-rules-body">
+            ${cardBody}
+          </div>
+        </div>`;
         leftEl.innerHTML = html;
       } else {
         leftEl.innerHTML = '';
       }
 
-      // ── RIGHT: section list + tips ──
+      // ── RIGHT: Section list + Progress Card + Tips ──
       let rhtml = '';
 
-      // Progress card
+      // Progress card with completion ring, streak & review queue
       const total = sections.length;
-      const pct = Math.round((current + 1) / total * 100);
-      rhtml += `<div class="sidebar-card">
-        <div class="sidebar-card-title">◈ ${t('progress')}</div>
-        <div style="font-size:0.72rem;color:var(--text-secondary);margin-bottom:4px">${current + 1} ${t('of')} ${total} ${t('sections')}</div>
-        <div class="progress-track"><div class="progress-fill" style="width:${pct}%;background:${color}"></div></div>
+      const completedCount = Math.min(total, _completedSections.size);
+      const pct = Math.round((completedCount / total) * 100);
+      const streakDays = recordActiveStreak();
+      const dueSRS = getDueSRSItems();
+
+      // SVG Ring calculations (radius 22 -> circumference ~ 138.2)
+      const radius = 22;
+      const circumference = 2 * Math.PI * radius;
+      const offset = circumference - (pct / 100) * circumference;
+
+      rhtml += `<div class="sidebar-card curriculum-progress-card">
+        <div class="drawer-header-row">
+          <div class="sidebar-card-title">
+            <span class="ms ms-sm">donut_large</span>
+            <span>${t('progress')}</span>
+          </div>
+          <button class="drawer-close-btn" onclick="toggleCurriculumDrawer(false)" aria-label="Close curriculum drawer" title="Close drawer">
+            <span class="ms ms-sm">close</span>
+          </button>
+        </div>
+
+        <div class="progress-ring-card">
+          <div class="ring-wrap" title="${pct}% Completed">
+            <svg class="ring-svg" viewBox="0 0 58 58">
+              <circle class="ring-bg" cx="29" cy="29" r="${radius}" />
+              <circle class="ring-bar" cx="29" cy="29" r="${radius}" style="stroke:${color};stroke-dasharray:${circumference};stroke-dashoffset:${offset};" />
+            </svg>
+            <div class="ring-text">${pct}%</div>
+          </div>
+          <div>
+            <div class="progress-count-text"><strong>${completedCount}</strong> ${t('of')} ${total} modules completed</div>
+            <div class="streak-box">
+              <span class="ms ms-sm ms-fill streak-flame">local_fire_department</span>
+              <span><strong>${streakDays} Day</strong> Practice Streak</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-stats-row" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.75rem;color:var(--text-secondary);">Spaced Review:</span>
+          <button class="vmodal-chip" style="padding:2px 8px;font-size:0.75rem;" onclick="openSRSModal()" title="Open review queue">
+            <span class="ms ms-sm" style="color:var(--green)">replay</span>
+            <span><strong id="srs-sidebar-count">${dueSRS.length}</strong> items due</span>
+          </button>
+        </div>
       </div>`;
 
-      // Section navigator
-      rhtml += `<div class="sidebar-card">
-        <div class="sidebar-card-title">◈ ${t('allSections')}</div>
+      // Section navigator (Curriculum Drawer)
+      rhtml += `<div class="sidebar-card curriculum-list-card">
+        <div class="sidebar-card-title">
+          <span class="ms ms-sm">menu_book</span>
+          <span>${t('allSections')}</span>
+        </div>
         <ul class="section-list">`;
       sections.forEach((s, i) => {
-        rhtml += `<li class="${i === current ? 'active' : ''}" onclick="go(${i})" style="${i === current ? `color:${color};background:${color}18` : ''}">
-          ${s.icon ? '<span class="ms ms-sm s-emoji" style="color:' + (i === current ? color : '') + '">' + s.icon + '</span>' : '<span class="s-emoji">' + s.emoji + '</span>'}${s.title}
+        const isCurrent = i === current;
+        const isDone = _completedSections.has(i);
+        let statusBadge = '';
+        if (isDone && isCurrent) {
+          statusBadge = `<span class="sec-status-badge status-done" title="Completed"><span class="ms ms-sm" style="font-size:0.8rem">check</span></span>`;
+        } else if (isCurrent) {
+          statusBadge = `<span class="sec-status-badge status-active" style="background:${color};color:#fff;border:1.5px solid ${color};border-radius:9999px;box-shadow:0 2px 8px ${color}55;">Active</span>`;
+        } else if (isDone) {
+          statusBadge = `<span class="sec-status-badge status-done" title="Completed"><span class="ms ms-sm" style="font-size:0.8rem">check</span></span>`;
+        } else {
+          statusBadge = `<span class="sec-status-badge status-upcoming">${i + 1}</span>`;
+        }
+
+
+        const secTitle = (typeof tSectionTitle === 'function' && tSectionTitle(s.id)) || s.title;
+
+        rhtml += `<li class="${isCurrent ? 'active' : ''}${isDone ? ' completed' : ''}" onclick="go(${i}); if(window.innerWidth<=1160) toggleCurriculumDrawer(false);" style="${isCurrent ? `background:${color}22;color:${color};border-color:${color}99;border-left:3px solid ${color};--section-color:${color};` : ''}">
+          <div class="sec-item-main">
+            <span class="ms ms-sm s-emoji" style="color:${isCurrent ? color : 'var(--text-muted)'}">${s.icon || 'bookmark'}</span>
+            <span class="sec-item-title" style="${isCurrent ? `color:${color};font-weight:600;` : ''}">${secTitle}</span>
+          </div>
+          ${statusBadge}
         </li>`;
+
+
       });
       rhtml += `</ul></div>`;
 
       // Tips card
       if (data && data.right && data.right.tips.length) {
         rhtml += `<div class="sidebar-card" style="border-color:${color}30">
-          <div class="sidebar-card-title" style="color:${color}">◈ ${t('quickTips')}</div>`;
+          <div class="sidebar-card-title" style="color:${color}">
+            <span class="ms ms-sm">tips_and_updates</span>
+            <span>${t('quickTips')}</span>
+          </div>`;
         data.right.tips.forEach(t => {
-          const cls = t.label.includes('🍁') ? 'qc' : t.label.includes('❌') ? 'neg' : 'green';
-          rhtml += `<div style="margin-bottom:8px;font-size:0.75rem;line-height:1.4;display:flex;gap:6px;align-items:flex-start">
-            <span class="sidebar-pill ${cls}" style="flex-shrink:0;margin-top:1px">${t.label}</span>
+          const isQc = t.label.includes('QC') || t.label.includes('🍁');
+          const isNeg = t.label.includes('Neg') || t.label.includes('❌');
+          const cls = isQc ? 'qc' : isNeg ? 'neg' : 'green';
+          const cleanLabel = t.label.replace(/^[🍁❌💡]\s*/, '').trim();
+          rhtml += `<div style="margin-bottom:8px;font-size:0.75rem;line-height:1.45;display:flex;gap:6px;align-items:flex-start">
+            <span class="sidebar-pill ${cls}" style="flex-shrink:0;margin-top:1px">${cleanLabel}</span>
             <span style="color:var(--text-secondary)">${t.text}</span>
           </div>`;
         });
@@ -3779,9 +4404,22 @@ const sections = window.sectionsData || [];
 
         // Update nav, dots, sidebars immediately — they don't cause layout jank
         buildNav();
+        centerNavTab();
         buildDots();
         buildSidebars(s.id, s.color);
-        setTimeout(centerNavTab, 50);
+        // Update mobile header course title & progress bar
+        const mTitle = document.getElementById('mobile-course-title');
+        if (mTitle) {
+          const sTitle = (typeof tSectionTitle === 'function' && tSectionTitle(s.id)) || s.title;
+          mTitle.textContent = `${sTitle} (A1–A2)`;
+        }
+        const mBackBtn = document.getElementById('mobile-back-btn');
+        if (mBackBtn) {
+          mBackBtn.disabled = current === 0;
+          mBackBtn.style.opacity = current === 0 ? '0.35' : '1';
+        }
+        updateMobileProgressBar();
+        updateDoneButtonUI();
 
         // Update prev/next buttons
         const prev = document.getElementById('btn-prev');
@@ -3819,19 +4457,16 @@ const sections = window.sectionsData || [];
 
         setTimeout(() => {
           // ── Phase 2: swap content while invisible ──
-          area.innerHTML = s.content.map((b, i) => renderBlock(b, i)).join('');
+          area.innerHTML = s.content.map((b, i) => renderBlock(b, i)).join('') + renderModuleCheckpoint(s);
           initWidgets(s.id);
+          initModuleCheckpoint(s);
 
           // Update header text & styles
           const emojiEl = document.getElementById('sec-emoji');
           const titleEl = document.getElementById('sec-title');
           const subtitleEl = document.getElementById('sec-subtitle');
           if (emojiEl) {
-            if (s.icon) {
-              emojiEl.innerHTML = '<span class="ms" style="color:' + s.color + '">' + s.icon + '</span>';
-            } else {
-              emojiEl.textContent = s.emoji;
-            }
+            emojiEl.innerHTML = '<span class="ms" style="color:' + s.color + '">' + (s.icon || 'bookmark') + '</span>';
           }
           if (titleEl) {
             titleEl.textContent = (typeof tSectionTitle === 'function' && tSectionTitle(s.id)) || s.title;
@@ -3867,8 +4502,9 @@ const sections = window.sectionsData || [];
         if (area && s2) {
           area.style.opacity = '1';
           area.style.transform = 'none';
-          area.innerHTML = s2.content.map((b, i) => renderBlock(b, i)).join('');
+          area.innerHTML = s2.content.map((b, i) => renderBlock(b, i)).join('') + renderModuleCheckpoint(s2);
           initWidgets(s2.id);
+          initModuleCheckpoint(s2);
         }
       }
     }
@@ -3913,7 +4549,13 @@ const sections = window.sectionsData || [];
       buildFontControls();
       buildLangSwitcher();
       updateAppSubtitle();
+      updateSRSBadge();
       render();
+
+      // Register Service Worker for offline transit practice
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      }
     }
 
     if (document.readyState === 'loading') {
@@ -3941,7 +4583,18 @@ const sections = window.sectionsData || [];
 
     const conj = typeof FrenchConjugator !== 'undefined' ? FrenchConjugator.conjugate(rawVerb) : null;
     if (!conj) {
-        if (out) out.innerHTML = "<p style='color:var(--tertiary); font-weight: bold;'>Sorry, conjugation could not be generated for this input.</p>";
+        const dym = typeof FrenchConjugator !== 'undefined' && FrenchConjugator.findSuggestions ? FrenchConjugator.findSuggestions(rawVerb, 3) : { homograph: null, suggestions: [] };
+        const sug = (dym.homograph ? dym.homograph.suggested : (dym.suggestions && dym.suggestions[0])) || '';
+        const note = dym.homograph ? `<div style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px;">${dym.homograph.note}</div>` : '';
+        if (out) {
+          out.innerHTML = `
+            <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;text-align:center;">
+              <p style="color:var(--tertiary);font-weight:600;margin-bottom:6px;">« ${rawVerb} » is not a recognized French verb.</p>
+              ${note}
+              ${sug ? `<button class="vmodal-dym-btn-primary" style="margin-top:0.75rem;" onclick="document.getElementById('vb-input').value='${sug}'; runVerbBuilder();">Conjugate « ${sug} » instead</button>` : ''}
+            </div>
+          `;
+        }
         return;
     }
 
@@ -4045,7 +4698,6 @@ function openVerbModal(defaultVerb = '') {
   const input = document.getElementById('vmodal-input');
   if (!backdrop) return;
   backdrop.classList.add('open');
-  document.body.style.overflow = 'hidden';
 
   if (defaultVerb) {
     if (input) input.value = defaultVerb;
@@ -4062,15 +4714,359 @@ function closeVerbModal(e) {
   }
   const backdrop = document.getElementById('vmodal-backdrop');
   if (backdrop) backdrop.classList.remove('open');
-  document.body.style.overflow = '';
 }
 window.closeVerbModal = closeVerbModal;
 
+// ── Spaced Repetition (SRS) Drawer Engine ──────────────────────
+let _srsCurrentIdx = 0;
+let _srsCurrentItems = [];
+
+function openSRSModal() {
+  const backdrop = document.getElementById('srs-backdrop');
+  const pane = document.getElementById('srs-active-pane');
+  if (!backdrop || !pane) return;
+
+  _srsCurrentItems = getDueSRSItems();
+  _srsCurrentIdx = 0;
+  backdrop.classList.add('open');
+  renderSRSPane();
+}
+window.openSRSModal = openSRSModal;
+
+function closeSRSModal(e) {
+  if (e && e.target && e.target.id !== 'srs-backdrop' && !e.target.closest('.vmodal-close-btn')) {
+    return;
+  }
+  const backdrop = document.getElementById('srs-backdrop');
+  if (backdrop) backdrop.classList.remove('open');
+  updateSRSBadge();
+}
+window.closeSRSModal = closeSRSModal;
+
+function renderSRSPane() {
+  const pane = document.getElementById('srs-active-pane');
+  const sub = document.getElementById('srs-subtitle');
+  if (!pane) return;
+
+  if (!_srsCurrentItems.length) {
+    if (sub) sub.textContent = 'All caught up!';
+    pane.innerHTML = `
+      <div class="vmodal-empty-state">
+        <span class="ms ms-lg" style="color:var(--green);margin-bottom:8px">task_alt</span>
+        <h4 style="color:var(--text-primary);margin-bottom:6px">No Reviews Due Right Now</h4>
+        <p style="color:var(--text-secondary);font-size:0.85rem">Every grammar exercise you complete is automatically scheduled here using 1, 3, and 7-day spaced repetition intervals.</p>
+        <button class="quiz-next-btn quiz-next-correct" style="margin-top:1rem" onclick="closeSRSModal()">Back to Lessons</button>
+      </div>`;
+    return;
+  }
+
+  if (_srsCurrentIdx >= _srsCurrentItems.length) {
+    if (sub) sub.textContent = 'Review completed!';
+    pane.innerHTML = `
+      <div class="vmodal-empty-state">
+        <span class="ms ms-lg" style="color:var(--green);margin-bottom:8px">verified</span>
+        <h4 style="color:var(--text-primary);margin-bottom:6px">Review Session Complete!</h4>
+        <p style="color:var(--text-secondary);font-size:0.85rem">Great job! You reviewed ${_srsCurrentItems.length} grammar items. Your memory intervals have been updated.</p>
+        <button class="quiz-next-btn quiz-next-correct" style="margin-top:1rem" onclick="closeSRSModal()">Continue Learning</button>
+      </div>`;
+    updateSRSBadge();
+    return;
+  }
+
+  const item = _srsCurrentItems[_srsCurrentIdx];
+  if (sub) sub.textContent = `Card ${_srsCurrentIdx + 1} of ${_srsCurrentItems.length}`;
+
+  const spk = makeSpeakerHtml(item.answer, 'widget-speak-btn');
+  pane.innerHTML = `
+    <div class="srs-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.65rem;">
+        <span class="srs-due-badge">Due for Review</span>
+        <span style="font-size:0.75rem;color:var(--text-muted);">${item.interval}d interval</span>
+      </div>
+      <div class="srs-q-text">${item.question}</div>
+      ${item.hint ? `<div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.75rem">Hint: ${item.hint}</div>` : ''}
+
+      <div id="srs-reveal-area">
+        <button class="w-pill" style="width:100%;justify-content:center;padding:0.6rem;" onclick="revealSRSAnswer()">
+          Show Answer <span class="key-hint" aria-hidden="true">[Space]</span>
+        </button>
+      </div>
+
+      <div id="srs-answer-area" style="display:none">
+        <div style="background:var(--surface-3);border-radius:var(--r-xs);padding:0.75rem;margin:0.75rem 0;display:flex;align-items:center;gap:8px;">
+          ${spk}
+          <span style="font-size:1.15rem;font-weight:700;color:var(--text-primary)">${item.answer}</span>
+        </div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:0.5rem">How well did you recall this?</div>
+        <div class="srs-btn-row">
+          <button class="srs-btn srs-btn-again" onclick="rateSRSItem(false)">
+            Again (1d) <span class="key-hint" aria-hidden="true">[1]</span>
+          </button>
+          <button class="srs-btn srs-btn-good" onclick="rateSRSItem(true)">
+            Good (${item.reps === 0 ? '1d' : (item.reps === 1 ? '3d' : '7d')}) <span class="key-hint" aria-hidden="true">[2]</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+window.renderSRSPane = renderSRSPane;
+
+function revealSRSAnswer() {
+  const rev = document.getElementById('srs-reveal-area');
+  const ans = document.getElementById('srs-answer-area');
+  if (rev) rev.style.display = 'none';
+  if (ans) ans.style.display = 'block';
+}
+window.revealSRSAnswer = revealSRSAnswer;
+
+function rateSRSItem(good) {
+  const item = _srsCurrentItems[_srsCurrentIdx];
+  if (item) {
+    recordSRSAttempt(item.question, item.answer, good, item.hint);
+  }
+  _srsCurrentIdx++;
+  renderSRSPane();
+}
+window.rateSRSItem = rateSRSItem;
+
+// ── End-of-Module Checkpoints (5-Question Verification) ──────────
+const _checkpointState = {};
+
+function getSectionCheckpointQuestions(s) {
+  const questions = [];
+  if (!s || !s.content) return questions;
+
+  // Extract examples and tables from section content
+  s.content.forEach(b => {
+    if (b.examples && Array.isArray(b.examples)) {
+      b.examples.forEach(ex => {
+        if (ex.french && ex.english && ex.french.length > 5) {
+          questions.push({
+            prompt: `Translate / Complete: "${ex.english}"`,
+            answer: ex.french,
+            explanation: `French equivalent: "${ex.french}".`
+          });
+        }
+      });
+    }
+    if (b.table && b.table.rows && Array.isArray(b.table.rows)) {
+      b.table.rows.forEach(r => {
+        if (r.length >= 2 && r[0] && r[1]) {
+          questions.push({
+            prompt: `Grammar match for: "${r[0]}"`,
+            answer: r[1],
+            explanation: `Standard pairing: ${r[0]} ➔ ${r[1]}`
+          });
+        }
+      });
+    }
+  });
+
+  // Fallback questions if none extracted
+  if (questions.length < 5) {
+    const secTitle = s.title || 'Grammar';
+    while (questions.length < 5) {
+      const idx = questions.length + 1;
+      questions.push({
+        prompt: `Core rule #${idx} for ${secTitle}`,
+        answer: 'Correct application',
+        options: ['Correct application', 'Incorrect gender', 'Wrong tense', 'Missing agreement'],
+        explanation: `Applies fundamental ${secTitle} rules practiced in this lesson.`
+      });
+    }
+  }
+
+  // Shuffle and pick 5
+  const shuffled = [...questions].sort(() => Math.random() - 0.5).slice(0, 5);
+  
+  // Ensure options for each question
+  const allAnswers = questions.map(q => q.answer);
+  shuffled.forEach(q => {
+    if (!q.options) {
+      const dist = allAnswers.filter(a => a !== q.answer).sort(() => Math.random() - 0.5).slice(0, 3);
+      while (dist.length < 3) {
+        dist.push('Autre forme');
+      }
+      q.options = [q.answer, ...dist].sort(() => Math.random() - 0.5);
+    }
+  });
+
+  return shuffled;
+}
+
+function renderModuleCheckpoint(s) {
+  if (!s) return '';
+  const sid = s.id;
+  const isCompleted = _completedSections && _completedSections.has(current);
+  return `
+    <section class="module-checkpoint-card" id="checkpoint-card-${sid}" aria-label="End of Module Checkpoint">
+      <div class="checkpoint-header">
+        <div class="checkpoint-title-wrap">
+          <span class="ms" style="color:var(--blue)">quiz</span>
+          <h3 style="margin:0;font-size:1.1rem;color:var(--text-primary)">Module Checkpoint</h3>
+          <span class="checkpoint-badge">5 Questions</span>
+        </div>
+        <div style="font-size:0.8rem;color:var(--text-secondary)" id="cp-progress-text-${sid}">Question 1 / 5</div>
+      </div>
+      <div class="checkpoint-progress-bar">
+        <div class="checkpoint-progress-fill" id="cp-progress-fill-${sid}" style="width:20%"></div>
+      </div>
+      <div id="checkpoint-body-${sid}">
+        <!-- Dynamic checkpoint question renders here -->
+      </div>
+    </section>
+  `;
+}
+window.renderModuleCheckpoint = renderModuleCheckpoint;
+
+function initModuleCheckpoint(s) {
+  if (!s) return;
+  const sid = s.id;
+  _checkpointState[sid] = {
+    questions: getSectionCheckpointQuestions(s),
+    currentIdx: 0,
+    score: 0,
+    answered: false
+  };
+  renderCheckpointQuestion(sid);
+}
+window.initModuleCheckpoint = initModuleCheckpoint;
+
+function renderCheckpointQuestion(sid) {
+  const st = _checkpointState[sid];
+  const body = document.getElementById(`checkpoint-body-${sid}`);
+  const progText = document.getElementById(`cp-progress-text-${sid}`);
+  const progFill = document.getElementById(`cp-progress-fill-${sid}`);
+  if (!st || !body) return;
+
+  if (st.currentIdx >= st.questions.length) {
+    // Checkpoint completed!
+    markSectionCompleted(current);
+    const pct = Math.round((st.score / st.questions.length) * 100);
+    const passed = pct >= 60;
+    if (progText) progText.textContent = 'Completed!';
+    if (progFill) progFill.style.width = '100%';
+
+    body.innerHTML = `
+      <div class="checkpoint-summary-card">
+        <span class="ms ms-lg" style="color:${passed ? 'var(--green)' : 'var(--red)'};font-size:3rem;margin-bottom:12px">
+          ${passed ? 'military_tech' : 'replay'}
+        </span>
+        <h3 style="color:var(--text-primary);margin-bottom:8px">
+          ${passed ? 'Module Mastered!' : 'Keep Practicing!'}
+        </h3>
+        <p style="color:var(--text-secondary);font-size:0.95rem;max-width:420px;margin:0 auto 1.25rem auto">
+          You scored <strong>${st.score} / ${st.questions.length} (${pct}%)</strong> on this module checkpoint.
+          ${passed ? 'This section has been added to your completed achievements!' : 'Review the rules and try again to master this concept.'}
+        </p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="w-pill" onclick="initModuleCheckpoint(sections[current])">
+            <span class="ms ms-sm">refresh</span> Try Again
+          </button>
+          ${current < sections.length - 1 ? `
+            <button class="quiz-next-btn quiz-next-correct" onclick="navigate(1)">
+              Next Module →
+            </button>
+          ` : ''}
+        </div>
+      </div>
+    `;
+    announceA11y(`Module Checkpoint completed! You scored ${st.score} out of ${st.questions.length}.`);
+    return;
+  }
+
+  const q = st.questions[st.currentIdx];
+  st.answered = false;
+
+  if (progText) progText.textContent = `Question ${st.currentIdx + 1} / ${st.questions.length}`;
+  if (progFill) progFill.style.width = `${((st.currentIdx + 1) / st.questions.length) * 100}%`;
+
+  const spk = makeSpeakerHtml(q.answer, 'widget-speak-btn');
+  body.innerHTML = `
+    <div class="checkpoint-q-text">${q.prompt}</div>
+    <div class="checkpoint-options-grid">
+      ${q.options.map((opt, i) => `
+        <button class="checkpoint-opt-btn" id="cp-opt-${sid}-${i}" onclick="submitCheckpointAnswer('${sid}', ${i})">
+          <span>${opt}</span>
+          <span class="key-hint" aria-hidden="true">[${i + 1}]</span>
+        </button>
+      `).join('')}
+    </div>
+    <div id="cp-feedback-${sid}" style="display:none"></div>
+  `;
+}
+window.renderCheckpointQuestion = renderCheckpointQuestion;
+
+function submitCheckpointAnswer(sid, chosenIdx) {
+  const st = _checkpointState[sid];
+  if (!st || st.answered) return;
+  st.answered = true;
+
+  const q = st.questions[st.currentIdx];
+  const chosenOpt = q.options[chosenIdx];
+  const isCorrect = chosenOpt === q.answer;
+
+  const chosenBtn = document.getElementById(`cp-opt-${sid}-${chosenIdx}`);
+  const feedbackEl = document.getElementById(`cp-feedback-${sid}`);
+
+  // Disable all option buttons
+  q.options.forEach((_, i) => {
+    const b = document.getElementById(`cp-opt-${sid}-${i}`);
+    if (b) {
+      b.disabled = true;
+      if (q.options[i] === q.answer) b.classList.add('correct');
+    }
+  });
+
+  if (isCorrect) {
+    st.score++;
+    if (chosenBtn) chosenBtn.classList.add('correct');
+    recordSRSAttempt(q.prompt, q.answer, true, q.explanation);
+    announceA11y(`Correct! ${q.explanation}`);
+  } else {
+    if (chosenBtn) chosenBtn.classList.add('wrong');
+    recordSRSAttempt(q.prompt, q.answer, false, q.explanation);
+    announceA11y(`Incorrect. Correct answer is ${q.answer}. ${q.explanation}`);
+  }
+
+  if (feedbackEl) {
+    feedbackEl.className = `checkpoint-feedback ${isCorrect ? 'success' : 'error'}`;
+    const spk = makeSpeakerHtml(q.answer, 'widget-speak-btn');
+    feedbackEl.innerHTML = `
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="ms ms-sm">${isCorrect ? 'check_circle' : 'cancel'}</span>
+        <span>${isCorrect ? 'Correct!' : 'Correction:'} <strong>${q.answer}</strong> — ${q.explanation}</span>
+        ${spk}
+      </div>
+      <button class="quiz-next-btn quiz-next-correct" id="cp-next-${sid}" onclick="nextCheckpointQuestion('${sid}')">
+        Next → <span class="key-hint" aria-hidden="true">[Enter]</span>
+      </button>
+    `;
+    feedbackEl.style.display = 'flex';
+    const nextBtn = document.getElementById(`cp-next-${sid}`);
+    if (nextBtn) setTimeout(() => nextBtn.focus(), 80);
+  }
+}
+window.submitCheckpointAnswer = submitCheckpointAnswer;
+
+function nextCheckpointQuestion(sid) {
+  const st = _checkpointState[sid];
+  if (!st) return;
+  st.currentIdx++;
+  renderCheckpointQuestion(sid);
+}
+window.nextCheckpointQuestion = nextCheckpointQuestion;
+
 window.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
-    const backdrop = document.getElementById('vmodal-backdrop');
-    if (backdrop && backdrop.classList.contains('open')) {
+    const vBackdrop = document.getElementById('vmodal-backdrop');
+    if (vBackdrop && vBackdrop.classList.contains('open')) {
       closeVerbModal();
+    }
+    const sBackdrop = document.getElementById('srs-backdrop');
+    if (sBackdrop && sBackdrop.classList.contains('open')) {
+      closeSRSModal();
     }
   }
 });
@@ -4106,6 +5102,14 @@ function handleModalSearchInput(val) {
     }
   }
 
+  // If no prefix matches, check for homograph or fuzzy suggestions
+  if (matches.length === 0 && typeof FrenchConjugator !== 'undefined' && FrenchConjugator.findSuggestions) {
+    const dym = FrenchConjugator.findSuggestions(query, 6);
+    if (dym.suggestions && dym.suggestions.length > 0) {
+      matches.push(...dym.suggestions);
+    }
+  }
+
   if (matches.length > 0) {
     sugBox.style.display = 'flex';
     sugBox.innerHTML = matches.map(m => `<span class="vmodal-sug-item" onclick="quickConjugate('${m}')">${m}</span>`).join('');
@@ -4136,7 +5140,71 @@ function doModalConjugate(optVerb) {
   _vmodalCurrentVerb = raw;
   const conj = typeof FrenchConjugator !== 'undefined' ? FrenchConjugator.conjugate(raw) : null;
   if (!conj) {
-    content.innerHTML = `<div class="vmodal-empty-state"><p style="color:var(--tertiary);font-weight:600;">Could not conjugate '${raw}'. Please check spelling (e.g. 'manger', 'prendre', 'partir').</p></div>`;
+    // Verb was not found or failed strict validation -> compute suggestions
+    const lookup = typeof FrenchConjugator !== 'undefined' && FrenchConjugator.findSuggestions
+      ? FrenchConjugator.findSuggestions(raw, 5)
+      : { homograph: null, suggestions: [] };
+
+    let errorHtml = '';
+    if (lookup.homograph) {
+      const h = lookup.homograph;
+      const altChips = (lookup.suggestions || [])
+        .map(v => `<button class="vmodal-dym-chip" onclick="quickConjugate('${v}')">${v}</button>`)
+        .join('');
+
+      errorHtml = `
+        <div class="vmodal-dym-card">
+          <div class="vmodal-dym-head">
+            <span class="ms">help_outline</span>
+            <span>Did you mean « <strong style="color:var(--blue)">${h.suggested}</strong> »?</span>
+          </div>
+          <div class="vmodal-dym-note">${h.note}</div>
+          <div>
+            <button class="vmodal-dym-btn-primary" onclick="quickConjugate('${h.suggested}')">
+              <span class="ms ms-sm">check</span> Conjugate « ${h.suggested} »
+            </button>
+          </div>
+          ${lookup.suggestions.length > 1 ? `
+            <div style="margin-top:1.2rem;font-size:0.8rem;color:var(--text-muted)">Other related verbs:</div>
+            <div class="vmodal-dym-chips">${altChips}</div>
+          ` : ''}
+        </div>
+      `;
+    } else if (lookup.suggestions && lookup.suggestions.length > 0) {
+      const topMatch = lookup.suggestions[0];
+      const chips = lookup.suggestions
+        .map(v => `<button class="vmodal-dym-chip" onclick="quickConjugate('${v}')">${v}</button>`)
+        .join('');
+
+      errorHtml = `
+        <div class="vmodal-dym-card">
+          <div class="vmodal-dym-head">
+            <span class="ms">search_off</span>
+            <span>« ${raw} » is not a recognized French verb</span>
+          </div>
+          <div class="vmodal-dym-prompt">Did you mean:</div>
+          <div style="margin-bottom:0.9rem">
+            <button class="vmodal-dym-btn-primary" onclick="quickConjugate('${topMatch}')">
+              <span class="ms ms-sm">auto_fix_high</span> Conjugate « ${topMatch} »
+            </button>
+          </div>
+          <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.6rem">Similar French verbs:</div>
+          <div class="vmodal-dym-chips">${chips}</div>
+        </div>
+      `;
+    } else {
+      errorHtml = `
+        <div class="vmodal-empty-state">
+          <span class="ms ms-lg" style="color:var(--tertiary);margin-bottom:8px">search_off</span>
+          <h4 style="color:var(--text-primary);margin-bottom:6px">Verb Not Found</h4>
+          <p style="color:var(--text-secondary);font-size:0.88rem;max-width:400px;margin:0 auto">
+            Could not find « <strong>${raw}</strong> » in the French verb database. Please check your spelling (e.g. <em>manger, finir, attendre, mettre</em>).
+          </p>
+        </div>
+      `;
+    }
+
+    content.innerHTML = errorHtml;
     return;
   }
 
@@ -4523,17 +5591,95 @@ document.addEventListener('click', function(e) {
   }, 80);
 }, { passive: true });
 
-// ── 9. Keyboard Navigation (Arrow keys) ──────────────────────────
+// ── 9. Keyboard Navigation (Shortcuts & a11y) ─────
 document.addEventListener('keydown', function(e) {
   // Ignore if typing in an input/textarea
   const tag = document.activeElement && document.activeElement.tagName;
-  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
-  if (e.key === 'ArrowRight' && !e.altKey && !e.ctrlKey && !e.metaKey) {
+  const isInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+
+  // Space shortcut: Audio replay without scrolling or SRS reveal
+  if (e.key === ' ' || e.code === 'Space') {
+    if (isInput) return; // Allow normal space typing in text inputs
+    e.preventDefault();
+
+    // If SRS drawer is open, space triggers reveal
+    const srsBackdrop = document.getElementById('srs-backdrop');
+    if (srsBackdrop && srsBackdrop.classList.contains('open')) {
+      const revArea = document.getElementById('srs-reveal-area');
+      if (revArea && revArea.style.display !== 'none') {
+        revealSRSAnswer();
+        return;
+      }
+    }
+
+    // Otherwise play current visible section / quiz audio
+    const activeSpeakBtn = document.querySelector('.quiz-shell:hover .widget-speak-btn, .w-contract:hover .widget-speak-btn, .article-result .widget-speak-btn, .checkpoint-feedback:not([style*="display: none"]) .widget-speak-btn, .widget-speak-btn');
+    if (activeSpeakBtn) {
+      activeSpeakBtn.click();
+    }
+    return;
+  }
+
+  if (isInput) return;
+
+  // Arrow & J/K or [/] navigation for lessons
+  if ((e.key === 'ArrowRight' || e.key === ']' || e.key.toLowerCase() === 'k') && !e.altKey && !e.ctrlKey && !e.metaKey) {
     const btn = document.getElementById('btn-next');
     if (btn && !btn.disabled) btn.click();
-  } else if (e.key === 'ArrowLeft' && !e.altKey && !e.ctrlKey && !e.metaKey) {
+    return;
+  } else if ((e.key === 'ArrowLeft' || e.key === '[' || e.key.toLowerCase() === 'j') && !e.altKey && !e.ctrlKey && !e.metaKey) {
     const btn = document.getElementById('btn-prev');
     if (btn && !btn.disabled) btn.click();
+    return;
+  }
+
+  // Enter key: advance quiz or checkpoint
+  if (e.key === 'Enter') {
+    // 1. Check if an active checkpoint next button is visible
+    const cpNext = document.querySelector('.checkpoint-feedback button.quiz-next-btn:not([style*="display: none"])');
+    if (cpNext) {
+      e.preventDefault();
+      cpNext.click();
+      return;
+    }
+    // 2. Check if a quiz next button is visible
+    const quizNext = document.querySelector('.quiz-next-row:not([style*="display: none"]) button.quiz-next-btn');
+    if (quizNext) {
+      e.preventDefault();
+      quizNext.click();
+      return;
+    }
+  }
+
+  // Number keys 1, 2, 3, 4 for quiz / checkpoint / SRS choices
+  if (['1', '2', '3', '4'].includes(e.key) && !e.altKey && !e.ctrlKey && !e.metaKey) {
+    const choiceIdx = parseInt(e.key, 10) - 1;
+
+    // Check SRS buttons first if open
+    const srsBackdrop = document.getElementById('srs-backdrop');
+    if (srsBackdrop && srsBackdrop.classList.contains('open')) {
+      const srsAns = document.getElementById('srs-answer-area');
+      if (srsAns && srsAns.style.display !== 'none') {
+        if (e.key === '1') { rateSRSItem(false); return; }
+        if (e.key === '2') { rateSRSItem(true); return; }
+      }
+    }
+
+    // Check module checkpoint buttons if visible
+    const cpBtns = document.querySelectorAll('.checkpoint-options-grid .checkpoint-opt-btn:not(:disabled)');
+    if (cpBtns && cpBtns.length && cpBtns[choiceIdx]) {
+      e.preventDefault();
+      cpBtns[choiceIdx].click();
+      return;
+    }
+
+    // Check quiz pill choices in the active card
+    const choiceBtns = document.querySelectorAll('.article-choices .w-pill:not(:disabled)');
+    if (choiceBtns && choiceBtns[choiceIdx]) {
+      e.preventDefault();
+      choiceBtns[choiceIdx].click();
+      choiceBtns[choiceIdx].focus();
+    }
   }
 });
 

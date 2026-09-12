@@ -333,7 +333,149 @@
     }
   }
 
-  function conjugate(infinitive) {
+  // Fast string accent stripper for normalization
+  function stripAccents(str) {
+    if (!str) return '';
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  // Fast Levenshtein distance with early exit threshold
+  function levenshtein(a, b, maxDist) {
+    if (maxDist === undefined) maxDist = 2;
+    const la = a.length, lb = b.length;
+    if (Math.abs(la - lb) > maxDist) return 99;
+    if (la === 0) return lb;
+    if (lb === 0) return la;
+
+    let prev = new Array(lb + 1);
+    for (let j = 0; j <= lb; j++) prev[j] = j;
+
+    for (let i = 0; i < la; i++) {
+      let curr = new Array(lb + 1);
+      curr[0] = i + 1;
+      let minInRow = curr[0];
+      const ca = a[i];
+
+      for (let j = 0; j < lb; j++) {
+        const cost = (ca === b[j]) ? 0 : 1;
+        const val = Math.min(prev[j + 1] + 1, curr[j] + 1, prev[j] + cost);
+        curr[j + 1] = val;
+        if (val < minInRow) minInRow = val;
+      }
+      if (minInRow > maxDist) return 99;
+      prev = curr;
+    }
+    return prev[lb];
+  }
+
+  // Curated homograph/noun confusion mappings
+  const HOMOGRAPHS = {
+    'maitre': { suggested: 'mettre', note: '« maître » is a noun (master/teacher), while « mettre » means to put/set', alt: ['maîtriser', 'naître'] },
+    'maître': { suggested: 'mettre', note: '« maître » is a noun (master/teacher), while « mettre » means to put/set', alt: ['maîtriser', 'naître'] },
+    'livre': { suggested: 'livrer', note: '« livre » is a noun (book/pound) or present form of « livrer » (to deliver)', alt: ['lire'] },
+    'porte': { suggested: 'porter', note: '« porte » is a noun (door) or present form of « porter » (to carry/wear)', alt: [] },
+    'cours': { suggested: 'courir', note: '« cours » is a noun (course/lesson) or present form of « courir » (to run)', alt: [] },
+    'travail': { suggested: 'travailler', note: '« travail » is a noun (work), verb infinitive is « travailler »', alt: [] },
+    'amour': { suggested: 'aimer', note: '« amour » is a noun (love), verb infinitive is « aimer »', alt: [] },
+    'voyage': { suggested: 'voyager', note: '« voyage » is a noun (trip), verb infinitive is « voyager »', alt: [] },
+    'aide': { suggested: 'aider', note: '« aide » is a noun (help) or form of « aider » (to help)', alt: [] },
+    'choix': { suggested: 'choisir', note: '« choix » is a noun (choice), verb infinitive is « choisir »', alt: [] },
+    'vie': { suggested: 'vivre', note: '« vie » is a noun (life), verb infinitive is « vivre »', alt: [] },
+    'mort': { suggested: 'mourir', note: '« mort » is a noun/adjective, verb infinitive is « mourir »', alt: [] }
+  };
+
+  function getDB() {
+    return (typeof window !== 'undefined' && window.__FRENCH_VERBS_DB__) ||
+           (typeof global !== 'undefined' && global.__FRENCH_VERBS_DB__) ||
+           (typeof root !== 'undefined' && root.__FRENCH_VERBS_DB__) || null;
+  }
+
+  // Strict check if a lemma is a valid known French verb
+  function isValidVerb(infinitive) {
+    if (!infinitive) return false;
+    let v = infinitive.trim().toLowerCase().replace(/^(se |s')/, '');
+    const db = getDB();
+
+    if (db && db[v]) return true;
+    if (irregularVerbs[v]) return true;
+
+    if (db) {
+      const normV = stripAccents(v);
+      for (const key in db) {
+        if (stripAccents(key) === normV) return true;
+      }
+    }
+
+    for (const d of derivatives) {
+      if (v === d.pfx + d.base) return true;
+    }
+    return false;
+  }
+
+  // Suggest closest French verbs using Homographs + Levenshtein distance
+  function findSuggestions(rawWord, limit) {
+    if (limit === undefined) limit = 4;
+    const raw = (rawWord || '').trim().toLowerCase().replace(/^(se |s')/, '');
+    if (!raw) return { homograph: null, suggestions: [] };
+
+    // 1. Check curated homograph list
+    if (HOMOGRAPHS[raw]) {
+      const h = HOMOGRAPHS[raw];
+      const list = [h.suggested].concat(h.alt || []);
+      const seen = {};
+      const unique = [];
+      for (let i = 0; i < list.length; i++) {
+        const s = list[i];
+        if (!seen[s]) { seen[s] = true; unique.push(s); }
+      }
+      return {
+        homograph: h,
+        suggestions: unique
+      };
+    }
+
+    // 2. Scan DB or irregularVerbs with Levenshtein (edit distance <= 2)
+    const db = getDB();
+    const suggestions = [];
+    const normRaw = stripAccents(raw);
+
+    if (db) {
+      for (const v in db) {
+        if (v.length < 2 || v.startsWith('uw')) continue;
+        const normV = stripAccents(v);
+        const dist = levenshtein(normRaw, normV, 2);
+        if (dist <= 2) {
+          suggestions.push({
+            verb: v,
+            dist: dist,
+            lenDiff: Math.abs(v.length - raw.length)
+          });
+        }
+      }
+    } else {
+      for (const v in irregularVerbs) {
+        const normV = stripAccents(v);
+        const dist = levenshtein(normRaw, normV, 2);
+        if (dist <= 2) {
+          suggestions.push({
+            verb: v,
+            dist: dist,
+            lenDiff: Math.abs(v.length - raw.length)
+          });
+        }
+      }
+    }
+
+    suggestions.sort((a, b) => a.dist - b.dist || a.lenDiff - b.lenDiff);
+
+    return {
+      homograph: null,
+      suggestions: suggestions.slice(0, limit).map(s => s.verb)
+    };
+  }
+
+  function conjugate(infinitive, options) {
+    if (options === undefined) options = {};
     const raw = (infinitive || '').trim().toLowerCase();
     if (!raw) return null;
 
@@ -347,16 +489,34 @@
       verb = raw.slice(2).trim();
     }
 
+    const db = getDB();
+    let dbEntry = db ? db[verb] : null;
+
+    // Accent-insensitive fallback lookup in DB (e.g. naitre -> naître)
+    if (!dbEntry && db) {
+      const normV = stripAccents(verb);
+      for (const key in db) {
+        if (stripAccents(key) === normV) {
+          verb = key;
+          dbEntry = db[key];
+          break;
+        }
+      }
+    }
+
+    // STRICT VALIDATION: If verb is not in DB and not in known irregulars/derivatives,
+    // and strict mode is active (default), prevent hallucinated rule-based conjugation!
+    const isStrict = options.strict !== false;
+    const isKnown = Boolean(dbEntry || irregularVerbs[verb] || derivatives.some(d => verb === d.pfx + d.base));
+
+    if (isStrict && !isKnown) {
+      return null;
+    }
+
     let pres = [], pc = [], imp = [], fut = [], cond = [], fp = [], pr = [];
     let subj = [], impfSubj = [], impv = [], ps = [];
     let pp = '', auxType = (isReflex || vandertramp.has(verb)) ? 'être' : 'avoir';
     let ger = '';
-
-    // 0. CHECK MASTER DATABASE (window.__FRENCH_VERBS_DB__ or root.__FRENCH_VERBS_DB__)
-    const db = (typeof window !== 'undefined' && window.__FRENCH_VERBS_DB__) ||
-               (typeof global !== 'undefined' && global.__FRENCH_VERBS_DB__) ||
-               (typeof root !== 'undefined' && root.__FRENCH_VERBS_DB__) || null;
-    const dbEntry = db ? db[verb] : null;
 
     if (dbEntry && dbEntry.P && dbEntry.P.length === 6) {
       pres = [...dbEntry.P];
@@ -595,6 +755,9 @@
 
   return {
     conjugate,
+    isValidVerb,
+    findSuggestions,
+    stripAccents,
     irregularVerbs,
     vandertramp,
     isVowel,
