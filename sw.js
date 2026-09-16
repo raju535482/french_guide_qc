@@ -1,5 +1,5 @@
 // French Grammar Guide — Service Worker for offline PWA transit practice
-const CACHE_NAME = 'french-grammar-guide-v22';
+const CACHE_NAME = 'french-grammar-guide-v23';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

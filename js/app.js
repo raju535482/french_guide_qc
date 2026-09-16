@@ -85,11 +85,46 @@ const sections = window.sectionsData || [];
       initFrenchVoice();
     }
 
-    function toggleAudioSpeed() {
-      _audioSpeed = _audioSpeed === 0.9 ? 0.7 : 0.9;
-      try { localStorage.setItem('guideAudioSpeed', _audioSpeed); } catch (e) { }
+    const AUDIO_SPEED_PRESETS = [0.5, 0.7, 0.85, 1.0, 1.2, 1.5];
+
+    function setAudioSpeed(val) {
+      let num = parseFloat(val);
+      if (isNaN(num) || num <= 0) num = 0.85;
+      // Clamp between 0.25 and 2.0 (SpeechSynthesis limits)
+      num = Math.min(2.0, Math.max(0.25, num));
+      _audioSpeed = num;
+      try { localStorage.setItem('guideAudioSpeed', String(_audioSpeed)); } catch (e) { }
+      applyAudioSpeedUI();
+    }
+    window.setAudioSpeed = setAudioSpeed;
+
+    function applyAudioSpeedUI() {
+      const sel = document.getElementById('audio-speed-select');
+      if (sel) {
+        // Find closest preset option or select directly
+        const strVal = String(_audioSpeed);
+        let matched = false;
+        for (let i = 0; i < sel.options.length; i++) {
+          if (parseFloat(sel.options[i].value) === _audioSpeed) {
+            sel.selectedIndex = i;
+            matched = true;
+            break;
+          }
+        }
+        if (!matched && sel.options.length > 0) {
+          sel.value = String(_audioSpeed);
+        }
+      }
       const lbl = document.getElementById('audio-speed-label');
       if (lbl) lbl.textContent = _audioSpeed.toFixed(1) + 'x';
+    }
+    window.applyAudioSpeedUI = applyAudioSpeedUI;
+
+    function toggleAudioSpeed() {
+      // Cycle through presets [0.5, 0.7, 0.85, 1.0, 1.2, 1.5]
+      const curIdx = AUDIO_SPEED_PRESETS.findIndex(p => Math.abs(p - _audioSpeed) < 0.05);
+      const nextIdx = (curIdx + 1) % AUDIO_SPEED_PRESETS.length;
+      setAudioSpeed(AUDIO_SPEED_PRESETS[nextIdx]);
     }
 
     function normalizeFrenchSpeech(text) {
@@ -4590,6 +4625,7 @@ const sections = window.sectionsData || [];
       applyFontSize();
       applyThemeIcon();
       applyStyleThemeUI();
+      applyAudioSpeedUI();
       updatePhoneticToggleUI();
       updateHeaderHeight();
       window.addEventListener('resize', updateHeaderHeight);

@@ -50,10 +50,19 @@
             <option value="maximalism">Maximalism</option>
           </select>
         </div>
-        <button class="audio-speed-btn" id="audio-speed-btn" onclick="toggleAudioSpeed()" title="French Audio Speed (Normal: 0.9x / Slow: 0.7x)" aria-label="Toggle French audio speed">
-          <span class="ms ms-sm">volume_up</span>
-          <span class="speed-label" id="audio-speed-label">0.9x</span>
-        </button>
+        <div class="audio-speed-wrap" id="audio-speed-wrap">
+          <label for="audio-speed-select" class="audio-speed-label-icon" title="French Audio Speed">
+            <span class="ms ms-sm">volume_up</span>
+          </label>
+          <select class="audio-speed-select" id="audio-speed-select" onchange="setAudioSpeed(this.value)" title="French Speech Playback Speed" aria-label="French audio speed">
+            <option value="0.5">0.5x (Slowest)</option>
+            <option value="0.7">0.7x (Slow)</option>
+            <option value="0.85">0.85x (Learner)</option>
+            <option value="1.0">1.0x (Normal)</option>
+            <option value="1.2">1.2x (Fast)</option>
+            <option value="1.5">1.5x (Fastest)</option>
+          </select>
+        </div>
         <button class="audio-speed-btn" id="phonetic-toggle-btn" onclick="togglePhoneticsCues()" title="Toggle Pronunciation Visual Cues (Silent letters & Liaisons)" aria-label="Toggle pronunciation cues">
           <span class="ms ms-sm">record_voice_over</span>
           <span class="speed-label" id="phonetic-toggle-label">Cues: On</span>
