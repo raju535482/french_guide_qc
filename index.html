@@ -66,6 +66,10 @@
           <span class="ms ms-sm" style="color:var(--green);">replay</span>
           <span class="speed-label" id="srs-header-label">Review (0)</span>
         </button>
+        <button class="audio-speed-btn whats-new-btn" id="whats-new-btn" onclick="openWhatsNewModal()" title="What's New in this version" aria-label="View What's New">
+          <span class="ms ms-sm" style="color:#F59E0B;">auto_awesome</span>
+          <span class="speed-label">What's New</span>
+        </button>
         <!-- Language selector will be appended here by buildLangSwitcher() -->
         <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle dark/light theme"
           aria-label="Toggle dark/light mode">
@@ -201,6 +205,70 @@
     </div>
   </div>
 
+  <!-- WHAT'S NEW ANNOUNCEMENT MODAL -->
+  <div class="vmodal-backdrop" id="wn-backdrop" onclick="closeWhatsNewModal(event)">
+    <div class="wn-modal-dialog" id="wn-dialog" role="dialog" aria-modal="true" aria-labelledby="wn-modal-title" onclick="event.stopPropagation()">
+      <div class="wn-modal-header">
+        <div class="wn-modal-title-group">
+          <span class="ms ms-fill" style="color:#F59E0B;font-size:1.5rem">auto_awesome</span>
+          <div>
+            <h3 class="wn-modal-title" id="wn-modal-title">What's New in French Grammar Guide</h3>
+            <p class="wn-modal-subtitle">Recent curriculum additions & platform improvements</p>
+          </div>
+        </div>
+        <button class="vmodal-close-btn" onclick="closeWhatsNewModal()" aria-label="Close What's New popup" title="Close (Esc)">
+          <span class="ms">close</span>
+        </button>
+      </div>
+
+      <div class="wn-modal-body">
+        <div class="wn-modal-highlight">
+          <div class="wn-modal-badge"><span class="ms ms-sm">star</span> NEW SECTION ADDED</div>
+          <h4 style="margin:0.25rem 0;font-size:1.15rem;color:var(--text-primary)">Section 28: 76 Personality Adjectives</h4>
+          <p style="margin:0;font-size:0.88rem;color:var(--text-secondary);line-height:1.45">Conversational Quebec & France descriptors with real-life informal definitions, spoken examples, native audio pronunciations, and full translations in 7 languages (EN, FA, GU, HI, TA, KO, ZH).</p>
+        </div>
+
+        <div class="wn-modal-list">
+          <div class="wn-modal-row">
+            <span class="ms ms-sm" style="color:#8B5CF6">format_list_bulleted</span>
+            <div>
+              <strong>Streamlined List Display</strong>
+              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)">Personality adjectives rendered as a clean, vertical reading list with search and A–Z filters.</p>
+            </div>
+          </div>
+          <div class="wn-modal-row">
+            <span class="ms ms-sm" style="color:#F59E0B">palette</span>
+            <div>
+              <strong>Neo-Brutalist Default Visual Theme</strong>
+              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)">High-contrast tactile borders, offset hard drop shadows, and expressive retro-modern typography.</p>
+            </div>
+          </div>
+          <div class="wn-modal-row">
+            <span class="ms ms-sm" style="color:#EC4899">movie_filter</span>
+            <div>
+              <strong>Passé Composé vs Imparfait Guide</strong>
+              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)">The "Movie Camera vs Photo Snapshot" golden rule with interactive sentence builder.</p>
+            </div>
+          </div>
+          <div class="wn-modal-row">
+            <span class="ms ms-sm" style="color:#EAB308">account_balance</span>
+            <div>
+              <strong>Histoire de Montréal Timeline</strong>
+              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)">Pointe-à-Callière interactive historical journey from 6000 BCE to modern Quebec.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wn-modal-footer">
+        <button class="wn-btn-secondary" onclick="closeWhatsNewModal()">Got it</button>
+        <button class="wn-btn-primary" onclick="viewWhatsNewSection()">
+          View Full Updates Page <span class="ms ms-sm">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/sections/00_articles.js"></script>
   <script src="js/sections/01_nouns.js"></script>
   <script src="js/sections/02_pronouns.js"></script>
@@ -230,6 +298,7 @@
   <script src="js/sections/26_histoire_montreal.js"></script>
   <script src="js/sections/27_pc_vs_imparfait.js"></script>
   <script src="js/sections/28_personality_adjectives.js"></script>
+  <script src="js/sections/29_whats_new.js"></script>
   <script src="data/verbs_db.js"></script>
   <script src="js/conjugator.js"></script>
   <script src="js/translations.js"></script>

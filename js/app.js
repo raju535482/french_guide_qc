@@ -4151,6 +4151,23 @@ const sections = window.sectionsData || [];
           ]
         }
       },
+      whats_new: {
+        left: {
+          title: "Version Highlights",
+          cards: [
+            { heading: "Section 28", items: [["Vocab", "76 Personality Adjectives"], ["Languages", "7 Conversational Translations"], ["Audio", "Native French Audio & Spoken Examples"]] },
+            { heading: "Style & Themes", pills: ["Neo-Brutalist Default", "Tactile Shadows", "High Contrast"] },
+            { heading: "Interactive Hubs", items: [["7,800+ Verbs", "Instant Verb Conjugator"], ["SRS Review", "Spaced Repetition Queue"]] }
+          ]
+        },
+        right: {
+          tips: [
+            { label: "Tip", text: "Click any card's button to jump straight to the new section or interactive tool" },
+            { label: "New", text: "Neo-Brutalist is now the default visual theme" },
+            { label: "Tip", text: "You can reopen the What's New popup anytime from the top bar" }
+          ]
+        }
+      }
     };
 
     // Track completed / visited sections in localStorage
@@ -4582,11 +4599,52 @@ const sections = window.sectionsData || [];
       updateSRSBadge();
       render();
 
+      // What's New popup trigger on page load
+      setTimeout(() => {
+        const dismissedVer = localStorage.getItem('guideWhatsNewDismissed');
+        // If not dismissed for current version (v20), show popup on page load
+        if (dismissedVer !== 'v20') {
+          openWhatsNewModal(false);
+        }
+      }, 750);
+
       // Register Service Worker for offline transit practice
       if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
         navigator.serviceWorker.register('./sw.js').catch(() => {});
       }
     }
+
+    function openWhatsNewModal(userTriggered = true) {
+      const backdrop = document.getElementById('wn-backdrop');
+      if (!backdrop) return;
+      backdrop.classList.add('open');
+      document.body.classList.add('modal-open');
+    }
+    window.openWhatsNewModal = openWhatsNewModal;
+
+    function closeWhatsNewModal() {
+      const backdrop = document.getElementById('wn-backdrop');
+      if (backdrop) {
+        backdrop.classList.remove('open');
+      }
+      document.body.classList.remove('modal-open');
+      try {
+        localStorage.setItem('guideWhatsNewDismissed', 'v20');
+      } catch (e) { }
+    }
+    window.closeWhatsNewModal = closeWhatsNewModal;
+
+    function viewWhatsNewSection() {
+      closeWhatsNewModal();
+      const idx = sections.findIndex(s => s.id === 'whats_new');
+      if (idx >= 0) {
+        go(idx);
+        if (window.innerWidth <= 1160 && typeof toggleCurriculumDrawer === 'function') {
+          toggleCurriculumDrawer(false);
+        }
+      }
+    }
+    window.viewWhatsNewSection = viewWhatsNewSection;
 
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
@@ -4926,7 +4984,7 @@ function getSectionCheckpointQuestions(s) {
 }
 
 function renderModuleCheckpoint(s) {
-  if (!s) return '';
+  if (!s || s.noCheckpoint || s.id === 'whats_new') return '';
   const sid = s.id;
   const isCompleted = _completedSections && _completedSections.has(current);
   return `
@@ -4951,7 +5009,7 @@ function renderModuleCheckpoint(s) {
 window.renderModuleCheckpoint = renderModuleCheckpoint;
 
 function initModuleCheckpoint(s) {
-  if (!s) return;
+  if (!s || s.noCheckpoint || s.id === 'whats_new') return;
   const sid = s.id;
   _checkpointState[sid] = {
     questions: getSectionCheckpointQuestions(s),
