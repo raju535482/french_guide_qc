@@ -1,0 +1,2966 @@
+[
+  {
+    "id": "accueillant",
+    "french_term": "Accueillant",
+    "informal_french_definition": "Quelqu'un de super sympa qui te met tout de suite à l'aise quand tu arrives chez lui ou dans un groupe.",
+    "translations": {
+      "en": {
+        "meaning": "Welcoming / Warm",
+        "informal_explanation": "Someone who makes you feel right at home the second you walk in."
+      },
+      "fa": {
+        "meaning": "مهمان‌نواز / خونگرم",
+        "informal_explanation": "کسی که خیلی گرم تحویلت می‌گیره و باهاش احساس راحتی می‌کنی."
+      },
+      "gu": {
+        "meaning": "આવકારદાયક / માયાળુ",
+        "informal_explanation": "જે માણસ બધાને પ્રેમથી આવકારે અને તરત પોતાના જેવો બનાવી લે."
+      },
+      "hi": {
+        "meaning": "मिलनसार / स्वागत करने वाला",
+        "informal_explanation": "जो सबसे खुले दिल से मिले और आपको तुरंत कम्फर्टेबल फील कराए।"
+      },
+      "ta": {
+        "meaning": "அன்புடன் வரவேற்கும் குணம்",
+        "informal_explanation": "யார் வந்தாலும் முகம் சுளிக்காம பாசமா வரவேற்று கவனிக்கும் நபர்."
+      },
+      "ko": {
+        "meaning": "반갑게 맞아주는 / 따뜻한",
+        "informal_explanation": "누가 오든 편하게 다독여주고 반갑게 맞아주는 사람."
+      },
+      "zh": {
+        "meaning": "热情好客的 / 亲切的",
+        "informal_explanation": "特别热情、能让人立马放松下来、很有亲和力的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Elle est hyper accueillante, elle t'offre direct un café !",
+      "en": "She's super welcoming, she offers you a coffee right away!"
+    }
+  },
+  {
+    "id": "adorable",
+    "french_term": "Adorable",
+    "informal_french_definition": "Une personne trop mignonne et gentille avec qui c'est impossible de s'énerver.",
+    "translations": {
+      "en": {
+        "meaning": "Adorable / Sweet",
+        "informal_explanation": "Someone genuinely sweet that you just can't help but love."
+      },
+      "fa": {
+        "meaning": "دوست‌داشتنی / تو دل برو",
+        "informal_explanation": "کسی که انقدر ماه و مهربونه که نمیشه دوسش نداشت."
+      },
+      "gu": {
+        "meaning": "વહાલું / મીઠડું",
+        "informal_explanation": "એવો પ્રેમાળ માણસ જેના પર ગુસ્સો કરવો જ અશક્ય હોય."
+      },
+      "hi": {
+        "meaning": "प्यारा / मासूम",
+        "informal_explanation": "इतना स्वीट और प्यारा इंसान जिससे कोई कभी नाराज़ ही नहीं हो सकता।"
+      },
+      "ta": {
+        "meaning": "அன்பான / செல்லமான",
+        "informal_explanation": "பார்த்தாலே புடிச்சி போற அளவுக்கு ரொம்ப ஸ்வீட்டான கேரக்டர்."
+      },
+      "ko": {
+        "meaning": "사랑스러운 / 귀여운",
+        "informal_explanation": "성격이 너무 착하고 사랑스러워서 절대로 미워할 수 없는 사람."
+      },
+      "zh": {
+        "meaning": "讨人喜欢的 / 超甜的",
+        "informal_explanation": "特别讨喜、心地又好，让人根本生不起气来的小天使。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Son petit frère est adorable, il dit merci pour tout.",
+      "en": "His little brother is adorable, he says thank you for everything."
+    }
+  },
+  {
+    "id": "adroit",
+    "french_term": "Adroit",
+    "informal_french_definition": "Un gars ou une fille hyper doué de ses mains ou qui sait toujours bien se sortir d'une galère.",
+    "translations": {
+      "en": {
+        "meaning": "Skilled / Handy / Deft",
+        "informal_explanation": "Someone super nimble with their hands or quick on their feet."
+      },
+      "fa": {
+        "meaning": "دست‌به‌آچار / زرنگ و زبردست",
+        "informal_explanation": "کسی که دستش به کار میره یا خیلی تر و فرز کارها رو راه میندازه."
+      },
+      "gu": {
+        "meaning": "હોશિયાર / કુશળ",
+        "informal_explanation": "હાથના કામમાં એકદમ પાવરધો અને ચપળ માણસ."
+      },
+      "hi": {
+        "meaning": "हुनरमंद / कुशल",
+        "informal_explanation": "जिसके हाथ में गजब की कला हो और काम बड़ी फुर्ती से निपटा ले।"
+      },
+      "ta": {
+        "meaning": "கைதேர்ந்தவர் / சாமர்த்தியசாலி",
+        "informal_explanation": "எந்த வேலையா இருந்தாலும் கச்சிதமா செஞ்சு முடிக்கிற கெட்டிக்காரர்."
+      },
+      "ko": {
+        "meaning": "손재주 있는 / 능숙한",
+        "informal_explanation": "손재주가 남다르거나 일처리가 엄청 약삭빠르고 빈틈없는 사람."
+      },
+      "zh": {
+        "meaning": "手巧的 / 麻利的",
+        "informal_explanation": "手特别巧，或者处理棘手事情特别麻利的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "T'inquiète, Lucas est super adroit, il va réparer ça en deux secondes.",
+      "en": "Don't worry, Lucas is super handy, he'll fix that in two seconds."
+    }
+  },
+  {
+    "id": "affectueux",
+    "french_term": "Affectueux",
+    "informal_french_definition": "Quelqu'un qui adore faire des câlins et montrer ouvertement qu'il t'aime.",
+    "translations": {
+      "en": {
+        "meaning": "Affectionate / Loving",
+        "informal_explanation": "Big on hugs, cuddles, and freely showing warmth."
+      },
+      "fa": {
+        "meaning": "با‌محبت / اهل بغل و بوسه",
+        "informal_explanation": "کسی که همش محبتشو کلامی و با بغل کردن نشون میده."
+      },
+      "gu": {
+        "meaning": "વ્હાલસોયો / પ્રેમાળ",
+        "informal_explanation": "પોતાનો પ્રેમ અને વહાલ વ્યક્ત કરવામાં જરાય સંકોચ ન રાખતો માણસ."
+      },
+      "hi": {
+        "meaning": "स्नेही / प्यार जताने वाला",
+        "informal_explanation": "जो गले लगाने और प्यार जताने में कभी पीछे न हटे।"
+      },
+      "ta": {
+        "meaning": "பாசமுள்ள / அன்பைப் பொழியும்",
+        "informal_explanation": "எப்பவும் பாசத்தை வாரி இறைச்சு அரவணைக்கிற அருமையான குணம்."
+      },
+      "ko": {
+        "meaning": "다정한 / 애정 표현을 잘하는",
+        "informal_explanation": "스킨십도 스스럼없고 애정 표현을 아끼지 않는 따뜻한 사람."
+      },
+      "zh": {
+        "meaning": "深情的 / 粘人的 / 爱表达感情的",
+        "informal_explanation": "特别喜欢抱抱、随口把爱挂嘴边、暖洋洋的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Leur chien est tellement affectueux qu'il saute sur tout le monde pour des câlins.",
+      "en": "Their dog is so affectionate he jumps on everyone for cuddles."
+    }
+  },
+  {
+    "id": "agressif",
+    "french_term": "Agressif",
+    "informal_french_definition": "Quelqu'un qui monte sur ses grands chevaux pour un rien et cherche direct la bagarre.",
+    "translations": {
+      "en": {
+        "meaning": "Aggressive / Feisty",
+        "informal_explanation": "Always picking fights or snapping at people over small stuff."
+      },
+      "fa": {
+        "meaning": "پرخاشگر / دعوایی",
+        "informal_explanation": "کسی که سریع جوش میاره و سر هر قضیه کوچیکی دعوا راه میندازه."
+      },
+      "gu": {
+        "meaning": "ઝઘડાળુ / ઉગ્ર",
+        "informal_explanation": "નાની વાતમાં પિત્તો ગુમાવીને લડવા તૈયાર થઈ જતો માણસ."
+      },
+      "hi": {
+        "meaning": "आक्रामक / लड़ाकू",
+        "informal_explanation": "जो बात-बात पर भिड़ने आ जाए और हमेशा गुस्से में भड़कता रहे।"
+      },
+      "ta": {
+        "meaning": "கோபக்காரர் / சண்டைக்கு வருகிறவர்",
+        "informal_explanation": "சின்ன விஷயத்துக்கு கூட உடனே சீறிக்கிட்டு சண்டைக்கு வர்ற ஆளு."
+      },
+      "ko": {
+        "meaning": "공격적인 / 걸핏하면 덤비는",
+        "informal_explanation": "별것도 아닌 일에 욱해서 시비 걸거나 날카롭게 구는 사람."
+      },
+      "zh": {
+        "meaning": "有攻击性的 / 冲动的 / 好斗的",
+        "informal_explanation": "动不动就炸毛、总想跟人吵架干仗的那种人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Calme-toi, pas besoin d'être agressif pour une simple remarque !",
+      "en": "Chill out, no need to get aggressive over a simple remark!"
+    }
+  },
+  {
+    "id": "aimable",
+    "french_term": "Aimable",
+    "informal_french_definition": "Une personne toujours polie, souriante et agréable avec tout le monde.",
+    "translations": {
+      "en": {
+        "meaning": "Pleasant / Courteous / Friendly",
+        "informal_explanation": "Super polite, smiles easily, and genuinely nice to chat with."
+      },
+      "fa": {
+        "meaning": "خوش‌برخورد / مهربان",
+        "informal_explanation": "کسی که با همه با روی باز و نهایت احترام و لبخند رفتار میکنه."
+      },
+      "gu": {
+        "meaning": "મિલનસાર / ભલું",
+        "informal_explanation": "બધા સાથે નમ્રતાપૂર્વક અને હસતા મોઢે વાત કરનારો માણસ."
+      },
+      "hi": {
+        "meaning": "विनम्र / हंसमुख",
+        "informal_explanation": "जो हमेशा मुस्कुराकर सबसे तमीज और प्यार से बात करे।"
+      },
+      "ta": {
+        "meaning": "இனிமையான / பண்பான",
+        "informal_explanation": "எப்பவும் சிரிச்ச முகத்தோட மரியாதையா பழகும் நல்ல உள்ளம்."
+      },
+      "ko": {
+        "meaning": "상냥한 / 친절한",
+        "informal_explanation": "언제나 웃는 낯으로 예의 바르고 기분 좋게 대해주는 사람."
+      },
+      "zh": {
+        "meaning": "和蔼的 / 亲切随和的",
+        "informal_explanation": "笑脸迎人、特别有礼貌、相处起来非常舒服的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Le nouveau voisin est super aimable, il dit toujours bonjour avec le sourire.",
+      "en": "The new neighbor is super pleasant, he always says hi with a smile."
+    }
+  },
+  {
+    "id": "altruiste",
+    "french_term": "Altruiste",
+    "informal_french_definition": "Le genre de pote qui pense toujours aux autres avant de penser à sa propre pomme.",
+    "translations": {
+      "en": {
+        "meaning": "Selfless / Altruistic",
+        "informal_explanation": "The type who puts everyone else first without wanting anything in return."
+      },
+      "fa": {
+        "meaning": "فداکار / دلسوز دیگران",
+        "informal_explanation": "کسی که همیشه هوای بقیه رو قبل از خودش داره بدون هیچ چشمداشتی."
+      },
+      "gu": {
+        "meaning": "નિઃસ્વાર્થ / પરોપકારી",
+        "informal_explanation": "પોતાના પહેલાં હંમેશા બીજાનું ભલું વિચારનારો માણસ."
+      },
+      "hi": {
+        "meaning": "निःस्वार्थी / परोपकारी",
+        "informal_explanation": "जो अपने बारे में सोचने से पहले हमेशा दूसरों का भला सोचे।"
+      },
+      "ta": {
+        "meaning": "சுயநலமற்ற / பிறர் நலம் விரும்பி",
+        "informal_explanation": "தன் சுயலாபத்தை பாக்காம அடுத்தவங்களுக்கு மனசார உதவும் மனிதர்."
+      },
+      "ko": {
+        "meaning": "이타적인 / 남을 먼저 생각하는",
+        "informal_explanation": "자기 밥그릇 챙기기보다 남을 먼저 위하고 돕는 착한 사람."
+      },
+      "zh": {
+        "meaning": "无私的 / 舍己为人的",
+        "informal_explanation": "凡事先替别人着想、不图回报的老好人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Sarah est tellement altruiste qu'elle a passé tout son week-end à aider à la soupe populaire.",
+      "en": "Sarah is so selfless that she spent her entire weekend helping at the soup kitchen."
+    }
+  },
+  {
+    "id": "ambigu",
+    "french_term": "Ambigu",
+    "informal_french_definition": "Quelqu'un de pas très clair, tu sais jamais sur quel pied danser avec lui.",
+    "translations": {
+      "en": {
+        "meaning": "Ambiguous / Shifty / Hard to read",
+        "informal_explanation": "A person whose vibe or intentions you can never quite pin down."
+      },
+      "fa": {
+        "meaning": "مرموز / دوپهلو",
+        "informal_explanation": "کسی که رفتارش معلوم نیست و هیچ‌وقت نمیدونی فازش چیه."
+      },
+      "gu": {
+        "meaning": "ગૂંચવણભર્યો / રહસ્યમય",
+        "informal_explanation": "જેના મનમાં શું ચાલે છે એ કોઈ દિવસ કળી ન શકાય."
+      },
+      "hi": {
+        "meaning": "अस्पष्ट / पेचीदा",
+        "informal_explanation": "जिसकी बात या इरादे समझ से बाहर हों और पल्ले न पड़े कि वो चाहता क्या है।"
+      },
+      "ta": {
+        "meaning": "புரியாத புதிரான குணம்",
+        "informal_explanation": "அவர் என்ன நெனைக்கிறார்னு யாராலயும் கணிக்கவே முடியாத ஆளு."
+      },
+      "ko": {
+        "meaning": "모호한 / 속을 알 수 없는",
+        "informal_explanation": "말이나 행동이 애매해서 도대체 무슨 생각인지 알 수 없는 사람."
+      },
+      "zh": {
+        "meaning": "模棱两可的 / 让人捉摸不透的",
+        "informal_explanation": "说话办事含含糊糊、让人完全摸不透他到底啥意思的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Arrête d'être ambigu, dis franchement si tu viens à la fête ou pas !",
+      "en": "Stop being ambiguous, just tell us straight if you're coming to the party or not!"
+    }
+  },
+  {
+    "id": "ambitieux",
+    "french_term": "Ambitieux",
+    "informal_french_definition": "Un bosseur qui vise toujours le sommet et ne lâche rien tant qu'il a pas réussi.",
+    "translations": {
+      "en": {
+        "meaning": "Ambitious / Driven",
+        "informal_explanation": "Super hungry for success and aiming high in whatever they tackle."
+      },
+      "fa": {
+        "meaning": "بلندپرواز / پُرانگیزه",
+        "informal_explanation": "کسی که رویاهای بزرگ داره و تا به اوج نرسه آروم نمی‌گیره."
+      },
+      "gu": {
+        "meaning": "મહત્ત્વાકાંક્ષી / ઊંચા સપનાવાળો",
+        "informal_explanation": "જેને હંમેશા આગળ વધવું છે અને ટોચ પર પહોંચવું છે."
+      },
+      "hi": {
+        "meaning": "महत्वाकांक्षी / ऊंचे इरादों वाला",
+        "informal_explanation": "जिसके सपने बहुत बड़े हों और जो कामयाबी हासिल करने के लिए दिन-रात एक कर दे।"
+      },
+      "ta": {
+        "meaning": "லட்சிய தாகம் கொண்டவர்",
+        "informal_explanation": "எப்படியாவது பெருசா சாதிக்கணும்னு வெறியோட உழைக்கும் மனிதர்."
+      },
+      "ko": {
+        "meaning": "야망 있는 / 목표가 뚜렷한",
+        "informal_explanation": "꿈이 크고 성공하겠다는 욕심과 열정이 뿜어져 나오는 사람."
+      },
+      "zh": {
+        "meaning": "有野心的 / 事业心极强的",
+        "informal_explanation": "目标非常高远、干劲十足、不达目的誓不罢休的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il est super ambitieux, il veut monter sa propre boîte avant ses 25 ans.",
+      "en": "He's super ambitious, he wants to launch his own startup before turning 25."
+    }
+  },
+  {
+    "id": "amical",
+    "french_term": "Amical",
+    "informal_french_definition": "Quelqu'un de chaleureux et facile d'accès avec qui tu deviens pote en deux minutes.",
+    "translations": {
+      "en": {
+        "meaning": "Friendly / Buddy-like",
+        "informal_explanation": "Warm and breezy, instantly acting like your best mate."
+      },
+      "fa": {
+        "meaning": "صمیمی / رفیق‌باز",
+        "informal_explanation": "خیلی خاکی و باصفا که سه سوته باهاش رفیق فابریک میشی."
+      },
+      "gu": {
+        "meaning": "સ્નેહી / ભાઈબંધ જેવો",
+        "informal_explanation": "જેની સાથે ઘડીકવારમાં જ પાકી દોસ્તી થઈ જાય."
+      },
+      "hi": {
+        "meaning": "दोस्ताना / याराना स्वभाव",
+        "informal_explanation": "जो देखते ही अपनापन दिखाए और मिनटों में पक्का यार बन जाए।"
+      },
+      "ta": {
+        "meaning": "நட்பான / தோழமையான",
+        "informal_explanation": "பார்த்த கொஞ்ச நேரத்துலயே காலம் பூரா பழகின ஃப்ரெண்ட் மாதிரி ஆகிடுவார்."
+      },
+      "ko": {
+        "meaning": "친근한 / 다정한",
+        "informal_explanation": "처음 봐도 원래 알던 친구처럼 편하게 다가오는 친화력 갑인 사람."
+      },
+      "zh": {
+        "meaning": "友善的 / 好相处的",
+        "informal_explanation": "自来熟、特别亲善，聊上两句就能打成一片的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "L'ambiance est hyper amicale dans cette équipe, tout le monde se tutoie.",
+      "en": "The vibe is super friendly on this team, everyone is on a first-name basis."
+    }
+  },
+  {
+    "id": "amusant",
+    "french_term": "Amusant",
+    "informal_french_definition": "Le boute-en-train qui te fait rigoler à longueur de journée avec ses vannes.",
+    "translations": {
+      "en": {
+        "meaning": "Fun / Entertaining",
+        "informal_explanation": "The life of the hangout who keeps everyone laughing non-stop."
+      },
+      "fa": {
+        "meaning": "بامزه / باحال",
+        "informal_explanation": "کسی که همیشه شوخیه و نمیتونی پیشش نخندی."
+      },
+      "gu": {
+        "meaning": "રમુજી / હસાવનારો",
+        "informal_explanation": "જેની વાતો સાંભળીને આખો દિવસ હસવું જ આવે."
+      },
+      "hi": {
+        "meaning": "मजेदार / हंसाने वाला",
+        "informal_explanation": "जो अपनी बातों और चुटकुलों से महफिल में रंग भर दे।"
+      },
+      "ta": {
+        "meaning": "ஜாலியான / சிரிக்க வைக்கிறவர்",
+        "informal_explanation": "வாய் திறந்தாலே காமெடி பண்ணி எல்லாரையும் சிரிக்க வைக்கிற ஆளு."
+      },
+      "ko": {
+        "meaning": "재미있는 / 유쾌한",
+        "informal_explanation": "같이 있으면 빵 터지는 입담으로 시간 가는 줄 모르게 만드는 사람."
+      },
+      "zh": {
+        "meaning": "风趣好玩的 / 逗趣的",
+        "informal_explanation": "浑身自带笑点、有他在绝对不会冷场的开心果。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Max est trop amusant, il a toujours une histoire délirante à raconter.",
+      "en": "Max is so fun, he always has some wild story to tell."
+    }
+  },
+  {
+    "id": "anxieux",
+    "french_term": "Anxieux",
+    "informal_french_definition": "Quelqu'un qui se fait des nœuds au cerveau pour tout et n'importe quoi.",
+    "translations": {
+      "en": {
+        "meaning": "Anxious / On edge",
+        "informal_explanation": "An overthinker who constantly worries about worst-case scenarios."
+      },
+      "fa": {
+        "meaning": "مضطرب / نگران و دل‌شوره‌ای",
+        "informal_explanation": "کسی که واسه هرچیز بیخودی به خودش استرس میده و فکر و خیال میکنه."
+      },
+      "gu": {
+        "meaning": "ચિંતાતુર / ગભરાયેલો",
+        "informal_explanation": "જે વગર કારણે વાતનું વતેસર કરીને મનમાં ટેન્શન જ લીધા કરે."
+      },
+      "hi": {
+        "meaning": "चिंतित / घबराया हुआ",
+        "informal_explanation": "जो छोटी-छोटी बातों पर बहुत ज्यादा सोचने लगे और फालतू का तनाव पाले।"
+      },
+      "ta": {
+        "meaning": "பதற்றமான / எந்நேரமும் கவலைப்படுகிறவர்",
+        "informal_explanation": "எதுக்கு எடுத்தாலும் தேவையில்லாம ஓவரா யோசிச்சு பயப்படுற நபர்."
+      },
+      "ko": {
+        "meaning": "불안해하는 / 걱정 많은",
+        "informal_explanation": "별일도 아닌데 혼자 사서 걱정하고 전전긍긍하는 사람."
+      },
+      "zh": {
+        "meaning": "焦虑的 / 心神不宁的",
+        "informal_explanation": "特别爱胡思乱想、屁大点事就急得团团转的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Dès qu'il a un examen, il devient anxieux et ne dort plus de la nuit.",
+      "en": "Whenever he has an exam, he gets anxious and can't sleep all night."
+    }
+  },
+  {
+    "id": "apaisant",
+    "french_term": "Apaisant",
+    "informal_french_definition": "Une personne dont la seule présence suffit à faire redescendre la pression.",
+    "translations": {
+      "en": {
+        "meaning": "Soothing / Calming",
+        "informal_explanation": "Someone whose chill vibe just melts away your daily stress."
+      },
+      "fa": {
+        "meaning": "آرامش‌بخش / تسکین‌دهنده",
+        "informal_explanation": "کسی که کنارش باشی اعصابت آروم میشه و غصه‌هات یادت میره."
+      },
+      "gu": {
+        "meaning": "શાંતિ આપનાર / દિલાસો આપનાર",
+        "informal_explanation": "જેની સાથે બેસતાં જ મનનો બધો ભાર હળવો થઈ જાય."
+      },
+      "hi": {
+        "meaning": "सुकून देने वाला / शांत स्वभाव",
+        "informal_explanation": "जिसके साथ बैठकर मन को एकदम शांति मिले और सारा तनाव गायब हो जाए।"
+      },
+      "ta": {
+        "meaning": "அமைதி தரும் / மனசுக்கு இதமான",
+        "informal_explanation": "பக்கத்துல உட்கார்ந்து பேசினாலே மனசுக்கு பெரிய நிம்மதி தர்ற நபர்."
+      },
+      "ko": {
+        "meaning": "마음을 편안하게 해주는 / 힐링되는",
+        "informal_explanation": "옆에만 있어도 복잡했던 마음이 차분하게 가라앉는 사람."
+      },
+      "zh": {
+        "meaning": "治愈系的 / 令人安心的",
+        "informal_explanation": "待在他身边整个人都放松下来、超级治愈的存在。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Sa voix est tellement apaisante que je pourrais l'écouter pendant des heures.",
+      "en": "Her voice is so soothing I could listen to her for hours."
+    }
+  },
+  {
+    "id": "applique",
+    "french_term": "Appliqué",
+    "informal_french_definition": "Le genre d'élève ou collègue modèle qui s'applique à fond pour rendre un boulot impec.",
+    "translations": {
+      "en": {
+        "meaning": "Diligent / Painstaking",
+        "informal_explanation": "Super focused, putting real care into doing things clean and neat."
+      },
+      "fa": {
+        "meaning": "سخت‌کوش و دقیق / اهل کار تمیز",
+        "informal_explanation": "کسی که با حوصله تمام وقت میذاره تا کارش بی‌عیب و نقص باشه."
+      },
+      "gu": {
+        "meaning": "ધ્યાનપૂર્વક કામ કરનાર / ખંતીલું",
+        "informal_explanation": "જે કોઈ પણ કામ એકાગ્રતા અને ચોકસાઈથી પૂરું કરે."
+      },
+      "hi": {
+        "meaning": "परिश्रमी / लगनशील",
+        "informal_explanation": "जो पूरा ध्यान लगाकर और संजीदगी से एकदम साफ-सुथरा काम करे।"
+      },
+      "ta": {
+        "meaning": "கவனமுடன் உழைக்கும் / ஈடுபாடுள்ள",
+        "informal_explanation": "எந்த வேலையா இருந்தாலும் முழு கவனத்தோடு பர்ஃபெக்ட்டா செய்வார்."
+      },
+      "ko": {
+        "meaning": "성실한 / 꼼꼼하게 열중하는",
+        "informal_explanation": "맡은 일에 딴생각 안 하고 정성을 다해 꼼꼼히 해내는 사람."
+      },
+      "zh": {
+        "meaning": "认真用心的 / 扎实的",
+        "informal_explanation": "做事格外用心、一丝不苟把活干得漂漂亮亮的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Regarde ses notes, c'est super bien écrit parce qu'elle est hyper appliquée.",
+      "en": "Check out her notes, they look gorgeous because she's super diligent."
+    }
+  },
+  {
+    "id": "arrogant",
+    "french_term": "Arrogant",
+    "informal_french_definition": "Un type qui se prend pour le nombril du monde et prend les autres de haut.",
+    "translations": {
+      "en": {
+        "meaning": "Arrogant / Cocky",
+        "informal_explanation": "Acting like they're God's gift to earth while looking down on everyone."
+      },
+      "fa": {
+        "meaning": "مغرور و ازخودراضی / متکبر",
+        "informal_explanation": "کسی که خودشو بالاتر از همه می‌بینه و به بقیه از بالا نگاه میکنه."
+      },
+      "gu": {
+        "meaning": "અભિમાની / ઘમંડી",
+        "informal_explanation": "જે પોતાની જાતને જ સર્વશ્રેષ્ઠ માને અને બીજાને કચરો ગણે."
+      },
+      "hi": {
+        "meaning": "घमंडी / मगरूर",
+        "informal_explanation": "जो खुद को तीस मार खां समझे और दूसरों को नीची नजर से देखे।"
+      },
+      "ta": {
+        "meaning": "திமிர் பிடித்தவர் / கர்வமுள்ள",
+        "informal_explanation": "தான் தான் பெருசுனு நெனச்சு எல்லாரையும் கேவலமா பாக்குற ஆளு."
+      },
+      "ko": {
+        "meaning": "오만한 / 거만한",
+        "informal_explanation": "자기가 제일 잘난 줄 알고 남들을 은근히 깔아뭉개는 꼴불견."
+      },
+      "zh": {
+        "meaning": "傲慢自大的 / 鼻孔朝天的",
+        "informal_explanation": "觉得自己高人一等、拿鼻孔看人、非常狂妄的家伙。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il a gagné une seule fois et il est déjà devenu insupportablement arrogant.",
+      "en": "He won just once and he already turned insufferably arrogant."
+    }
+  },
+  {
+    "id": "attentif",
+    "french_term": "Attentif",
+    "informal_french_definition": "Quelqu'un qui ne loupe pas une miette de ce que tu racontes et écoute vraiment.",
+    "translations": {
+      "en": {
+        "meaning": "Attentive / Mindful",
+        "informal_explanation": "Glued to what you're saying and actually taking it in."
+      },
+      "fa": {
+        "meaning": "دقیق / حواس‌جمع",
+        "informal_explanation": "کسی که شش دانگ حواسش به حرفاته و مو به مو بهت گوش میده."
+      },
+      "gu": {
+        "meaning": "ધ્યાન આપનારો / સાવધ",
+        "informal_explanation": "જે વાત કરતી વખતે તમારું બોલેલું એક-એક શબ્દ ધ્યાનથી સાંભળે."
+      },
+      "hi": {
+        "meaning": "सचेत / ध्यान देने वाला",
+        "informal_explanation": "जो पूरी तवज्जो देकर सुने और आपकी एक-एक बात याद रखे।"
+      },
+      "ta": {
+        "meaning": "கவனமுள்ள / உன்னிப்பாக கவனிக்கும்",
+        "informal_explanation": "சொல்றதை காது கொடுத்து முழு கவனத்தோட கேக்குற நல்ல குணம்."
+      },
+      "ko": {
+        "meaning": "주의 깊은 / 귀 기울이는",
+        "informal_explanation": "상대방 말에 딴청 안 피우고 온전히 집중해서 들어주는 사람."
+      },
+      "zh": {
+        "meaning": "专注的 / 留心倾听的",
+        "informal_explanation": "听人说话特别认真、一点儿细节都不漏掉的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "En réunion, il est toujours ultra attentif pour ne rien rater d'important.",
+      "en": "In meetings, he is always super attentive so he doesn't miss anything important."
+    }
+  },
+  {
+    "id": "attentionne",
+    "french_term": "Attentionné",
+    "informal_french_definition": "Quelqu'un plein de petites attentions qui se souvient de tes goûts et te gâte.",
+    "translations": {
+      "en": {
+        "meaning": "Thoughtful / Caring",
+        "informal_explanation": "Always surprising you with thoughtful little gestures."
+      },
+      "fa": {
+        "meaning": "باملاحظه / حواس‌پرت‌نشو به نیازهای دیگران",
+        "informal_explanation": "کسی که به سلیقه و راحتیت اهمیت میده و مدام هواتو داره."
+      },
+      "gu": {
+        "meaning": "કાળજી રાખનાર / ચિંતક",
+        "informal_explanation": "જે તમારી નાની નાની ખુશીઓનું પૂરેપૂરું ધ્યાન રાખે."
+      },
+      "hi": {
+        "meaning": "ख्याल रखने वाला / परवाह करने वाला",
+        "informal_explanation": "जो छोटी-छोटी बातों का ध्यान रखे और आपकी पसंद-नापसंद की कद्र करे।"
+      },
+      "ta": {
+        "meaning": "அக்கறை உள்ளவர் / பாசத்தை காட்டும்",
+        "informal_explanation": "நம்ம தேவைகளை பார்த்து பார்த்து அன்போடு செய்து கொடுக்கும் உள்ளம்."
+      },
+      "ko": {
+        "meaning": "자상한 / 세심하게 챙겨주는",
+        "informal_explanation": "작은 취향까지 기억해뒀다가 감동을 안겨주는 다정다감한 사람."
+      },
+      "zh": {
+        "meaning": "体贴入微的 / 贴心的",
+        "informal_explanation": "特别懂照顾人、总能注意到细节并默默为你付出的暖男/暖女。"
+      }
+    },
+    "example_sentence": {
+      "fr": "C'est un copain tellement attentionné : il m'a ramené mon dessert préféré sans que je demande.",
+      "en": "He's such a thoughtful boyfriend: he brought back my favorite dessert without me even asking."
+    }
+  },
+  {
+    "id": "audacieux",
+    "french_term": "Audacieux",
+    "informal_french_definition": "Quelqu'un qui ose des trucs dingues et n'a pas froid aux yeux.",
+    "translations": {
+      "en": {
+        "meaning": "Daring / Bold",
+        "informal_explanation": "Has guts, loves wild moves, and isn't scared to take big risks."
+      },
+      "fa": {
+        "meaning": "جسور / نترس",
+        "informal_explanation": "کسی که دل و جگر داره و دست به کارهای ریسکی و بزرگ می‌زنه."
+      },
+      "gu": {
+        "meaning": "સાહસી / હિંમતવાન",
+        "informal_explanation": "જે કોઈ મોટો નિર્ણય લેતાં કે જોખમ ઉઠાવતાં જરાય ખચકાતો નથી."
+      },
+      "hi": {
+        "meaning": "साहसी / बेबाक",
+        "informal_explanation": "जिसमें रिस्क लेने का जिगरा हो और जो कभी नए कदम उठाने से न डरे।"
+      },
+      "ta": {
+        "meaning": "துணிச்சலான / தைரியசாலி",
+        "informal_explanation": "எந்த ரிஸ்க்கையும் எடுக்கத் தயங்காத தில்லான ஆளு."
+      },
+      "ko": {
+        "meaning": "대담한 / 배짱 있는",
+        "informal_explanation": "남들이 무서워서 망설일 때 배짱 있게 확 저지르는 사람."
+      },
+      "zh": {
+        "meaning": "大胆的 / 敢作敢当的",
+        "informal_explanation": "有魄力、敢冒险、什么场面都敢勇往直前的勇士。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Lancer ce projet en pleine crise, c'était vraiment un pari audacieux !",
+      "en": "Launching this project in the middle of a crisis was truly a bold move!"
+    }
+  },
+  {
+    "id": "autonome",
+    "french_term": "Autonome",
+    "informal_french_definition": "Quelqu'un qui se gère tout seul comme un grand et n'attend personne pour avancer.",
+    "translations": {
+      "en": {
+        "meaning": "Independent / Self-reliant",
+        "informal_explanation": "Runs their own show without needing anyone to hold their hand."
+      },
+      "fa": {
+        "meaning": "مستقل / خودکفا",
+        "informal_explanation": "کسی که گلیم خودشو از آب بیرون میکشه و وابسته به کسی نیست."
+      },
+      "gu": {
+        "meaning": "સ્વતંત્ર / સ્વાવલંબી",
+        "informal_explanation": "જે પોતાના કામ માટે ક્યારેય કોઈના પર નિર્ભર ન રહે."
+      },
+      "hi": {
+        "meaning": "आत्मनिर्भर / स्वतंत्र",
+        "informal_explanation": "जो अपने दम पर सारे काम कर ले और किसी की मदद का मोहताज न हो।"
+      },
+      "ta": {
+        "meaning": "தனித்து இயங்கும் / தற்சார்புள்ள",
+        "informal_explanation": "யாரையும் எதிர்பார்க்காம தனக்குத்தானே காரியத்தை முடிச்சுக்கும் குணம்."
+      },
+      "ko": {
+        "meaning": "자립적인 / 혼자서도 잘하는",
+        "informal_explanation": "누가 옆에서 일일이 챙겨주지 않아도 알아서 척척 해내는 사람."
+      },
+      "zh": {
+        "meaning": "独立的 / 能独当一面的",
+        "informal_explanation": "自己的事情自己搞定、不需要任何人扶着走的独立派。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Elle vit seule depuis ses 18 ans, elle est super autonome.",
+      "en": "She's lived on her own since she was 18, she's super independent."
+    }
+  },
+  {
+    "id": "avare",
+    "french_term": "Avare",
+    "informal_french_definition": "Un gros radin qui garde ses sous au chaud et refuse de payer sa tournée.",
+    "translations": {
+      "en": {
+        "meaning": "Stingy / Cheapskate",
+        "informal_explanation": "A tightwad who would cry before parting with a single penny."
+      },
+      "fa": {
+        "meaning": "خسیس / ناخن‌خشک",
+        "informal_explanation": "کسی که پولش از زیر دستش رد نمیشه و حتی یک قران هم خرج نمیکنه."
+      },
+      "gu": {
+        "meaning": "કંજૂસ / લોભી",
+        "informal_explanation": "જે એક રૂપિયો ખર્ચતાં પણ જીવ આપી બેસે તેવો માણસ."
+      },
+      "hi": {
+        "meaning": "कंजूस / मक्खीचूस",
+        "informal_explanation": "जो अपनी जेब से एक धेला भी न निकाले और पैसे दबा कर बैठे।"
+      },
+      "ta": {
+        "meaning": "கஞ்சத்தனமான / கஞ்சப்பயல்",
+        "informal_explanation": "கையில காசு இருந்தாலும் ஒரு டீ கூட வாங்கித் தராத கஞ்ச ஆளு."
+      },
+      "ko": {
+        "meaning": "인색한 / 자린고비",
+        "informal_explanation": "돈 쓸 줄 모르고 십원 한 장 쓰는 것도 벌벌 떠는 짠돌이."
+      },
+      "zh": {
+        "meaning": "小气的 / 铁公鸡 / 抠门的",
+        "informal_explanation": "一毛不拔、恨不得把每一分钱都攥在手心里的小气鬼。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il gagne bien sa vie mais il est trop avare pour laisser un pourboire.",
+      "en": "He makes great money but he's too stingy to leave a tip."
+    }
+  },
+  {
+    "id": "bavard",
+    "french_term": "Bavard",
+    "informal_french_definition": "Une vraie pie qui adore papoter et qui ne s'arrête jamais de parler.",
+    "translations": {
+      "en": {
+        "meaning": "Chatty / Talkative",
+        "informal_explanation": "Can talk an ear off and never runs out of things to say."
+      },
+      "fa": {
+        "meaning": "پرچانه / پرحرف",
+        "informal_explanation": "کسی که فکش یک بند کار میکنه و امون به کسی نمیده."
+      },
+      "gu": {
+        "meaning": "વાતોડિયું / લવારો કરનાર",
+        "informal_explanation": "જેનું મોં ક્યારેય બંધ જ ન થાય અને વાતોનો પટારો ખોલીને બેસે."
+      },
+      "hi": {
+        "meaning": "बातूनी / बक-बक करने वाला",
+        "informal_explanation": "जिसकी जुबान कभी न रुके और जो दिन भर नॉन-स्टॉप गपशप करता रहे।"
+      },
+      "ta": {
+        "meaning": "வாயாடி / அதிகமா பேசுறவர்",
+        "informal_explanation": "வாய் ஓயாம பேசிக்கிட்டே இருக்கிற கதையளக்கும் குணம்."
+      },
+      "ko": {
+        "meaning": "수다스러운 / 말이 많은",
+        "informal_explanation": "한번 입 열면 쉴 새 없이 조잘거리는 투머치토커."
+      },
+      "zh": {
+        "meaning": "健谈的 / 话痨的",
+        "informal_explanation": "嘴巴停不下来、特别能侃大山的话匣子。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Ne commence pas à parler avec lui, il est tellement bavard que t'es coincé pour une heure !",
+      "en": "Don't start chatting with him, he's so talkative you'll be trapped for an hour!"
+    }
+  },
+  {
+    "id": "belliqueux",
+    "french_term": "Belliqueux",
+    "informal_french_definition": "Un excité qui cherche toujours la merde et ne rêve que d'en découdre.",
+    "translations": {
+      "en": {
+        "meaning": "Belligerent / Pugnacious",
+        "informal_explanation": "Itching for a fistfight at the slightest trigger."
+      },
+      "fa": {
+        "meaning": "جنگ‌طلب / دعواطلب",
+        "informal_explanation": "کسی که انگار صبح با قصد دعوا و یقه گرفتن از خواب پا شده."
+      },
+      "gu": {
+        "meaning": "લડાઈખોર / તોફાની",
+        "informal_explanation": "જેને હંમેશા ઝઘડો અને મારામારી કરવામાં જ રસ પડે."
+      },
+      "hi": {
+        "meaning": "झगड़ालू / युद्धप्रिय",
+        "informal_explanation": "जिसके सिर पर हमेशा लड़ाई का भूत सवार रहे और लड़ने का बहाना ढूंढे।"
+      },
+      "ta": {
+        "meaning": "வம்படிக்கும்குணம் / சண்டைக்கோழி",
+        "informal_explanation": "எப்ப பார்த்தாலும் யாரையாவது வம்புக்கு இழுத்து அடிக்கப் போற ஆளு."
+      },
+      "ko": {
+        "meaning": "호전적인 / 싸움닭 같은",
+        "informal_explanation": "가만히 있지 못하고 툭하면 주먹부터 나가려고 하는 호전적인 성격."
+      },
+      "zh": {
+        "meaning": "好战的 / 寻衅滋事的",
+        "informal_explanation": "成天火药味十足、动不动就想动手干仗的刺儿头。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Après deux verres, il prend tout de suite un ton belliqueux avec les videurs.",
+      "en": "After two drinks, he immediately gets belligerent with the bouncers."
+    }
+  },
+  {
+    "id": "bete",
+    "french_term": "Bête",
+    "informal_french_definition": "Quelqu'un qui n'a pas inventé l'eau chaude et sort des bêtises plus grosses que lui.",
+    "translations": {
+      "en": {
+        "meaning": "Silly / Dumb / Clueless",
+        "informal_explanation": "Not the sharpest tool in the shed, constantly saying silly stuff."
+      },
+      "fa": {
+        "meaning": "خنگ / نادان",
+        "informal_explanation": "کسی که شیرین می‌زنه و حرف‌ها یا کارهای احمقانه ازش سر میزنه."
+      },
+      "gu": {
+        "meaning": "મૂર્ખ / ડફોળ",
+        "informal_explanation": "જેનામાં અક્કલનો છાંટો ન હોય અને મૂર્ખામીભરી વાતો કરે."
+      },
+      "hi": {
+        "meaning": "मूर्ख / बेवकूफ",
+        "informal_explanation": "जिसमें समझदारी की कमी हो और बेतुकी बचकानी हरकतें करे।"
+      },
+      "ta": {
+        "meaning": "முட்டாள்தனமான / மக்கு",
+        "informal_explanation": "கொஞ்சம்கூட விவரமில்லாம மொக்கையா நடந்துக்கிற ஆளு."
+      },
+      "ko": {
+        "meaning": "어리석은 / 멍청한",
+        "informal_explanation": "눈치도 없고 가끔 바보 같은 소리를 해서 답답하게 만드는 사람."
+      },
+      "zh": {
+        "meaning": "傻乎乎的 / 笨拙的",
+        "informal_explanation": "不太灵光、经常犯傻说蠢话的憨憨。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il n'est pas méchant, mais il pose parfois des questions tellement bêtes...",
+      "en": "He's not mean, but he asks such silly questions sometimes..."
+    }
+  },
+  {
+    "id": "bienveillant",
+    "french_term": "Bienveillant",
+    "informal_french_definition": "Une personne douce qui veut sincèrement ton bonheur et ne te juge jamais.",
+    "translations": {
+      "en": {
+        "meaning": "Benevolent / Kind-hearted",
+        "informal_explanation": "Zero judgment, just warm support and wanting the best for you."
+      },
+      "fa": {
+        "meaning": "خیرخواه / مهربان",
+        "informal_explanation": "کسی که از ته دل برات خوبی میخواد و هیچ کینه‌ای به دل راه نمیده."
+      },
+      "gu": {
+        "meaning": "શુભચિંતક / ભલું ઈચ્છનાર",
+        "informal_explanation": "જે કોઈનો દોષ જોયા વગર હંમેશા હિત જ વિચારે."
+      },
+      "hi": {
+        "meaning": "शुभचिंतक / नेकदिल",
+        "informal_explanation": "जो कभी किसी का बुरा न सोचे और हमेशा दिल से सबकी भलाई चाहे।"
+      },
+      "ta": {
+        "meaning": "நன்மை விரும்பும் / இரக்கமுள்ள",
+        "informal_explanation": "யாருக்கும் தப்பு நினைக்காம எல்லாரும் நல்லா இருக்கணும்னு நினைக்கும் நல்லவர்."
+      },
+      "ko": {
+        "meaning": "자애로운 / 선한 마음을 가진",
+        "informal_explanation": "남을 함부로 판단하지 않고 언제나 따스한 눈길로 응원해주는 사람."
+      },
+      "zh": {
+        "meaning": "仁厚的 / 善解人意的",
+        "informal_explanation": "毫无恶意、打心眼里盼着别人好、待人非常温柔宽厚。"
+      }
+    },
+    "example_sentence": {
+      "fr": "La prof a eu un regard bienveillant quand j'ai bafouillé pendant mon exposé.",
+      "en": "The teacher gave me a reassuring, kind look when I stumbled during my presentation."
+    }
+  },
+  {
+    "id": "borne",
+    "french_term": "Borné",
+    "informal_french_definition": "Une vraie tête de mule qui refuse d'écouter les autres même quand il a tort.",
+    "translations": {
+      "en": {
+        "meaning": "Narrow-minded / Pigheaded",
+        "informal_explanation": "Stubborn to a fault, completely unwilling to see any other viewpoint."
+      },
+      "fa": {
+        "meaning": "کوته‌فکر / لجباز و یک‌دنده",
+        "informal_explanation": "کسی که مرغش یه پا داره و حرف تو کله‌اش نمیره."
+      },
+      "gu": {
+        "meaning": "સંકુચિત મનનો / જિદ્દી",
+        "informal_explanation": "જે પોતાની જીદ આગળ કોઈની સાચી વાત પણ સાંભળવા તૈયાર ન હોય."
+      },
+      "hi": {
+        "meaning": "संकीर्ण सोच वाला / अड़ियल",
+        "informal_explanation": "जो अपनी जिद पर अड़ा रहे और सही बात भी सुनने को तैयार न हो।"
+      },
+      "ta": {
+        "meaning": "குறுகிய புத்தி / பிடிவாதக்காரர்",
+        "informal_explanation": "தப்புன்னு தெரிஞ்சாலும் தான் பிடிச்ச முயலுக்கு மூணே காலுன்னு சாதிக்கிற ஆளு."
+      },
+      "ko": {
+        "meaning": "꽉 막힌 / 옹고집의",
+        "informal_explanation": "자기 생각이 틀려도 절대 인정 안 하고 귀를 틀어막는 꼰대 스타일."
+      },
+      "zh": {
+        "meaning": "固步自封的 / 思想狭隘的",
+        "informal_explanation": "死脑筋、认死理，怎么讲道理都油盐不进的倔脾气。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Ça ne sert à rien de débattre avec lui, il est trop borné.",
+      "en": "There's no point debating with him, he's way too narrow-minded."
+    }
+  },
+  {
+    "id": "bourru",
+    "french_term": "Bourru",
+    "informal_french_definition": "Un type un peu grognon et rugueux au début, mais qui a souvent un cœur d'or au fond.",
+    "translations": {
+      "en": {
+        "meaning": "Gruff / Crusty",
+        "informal_explanation": "A prickly bear on the outside, but actually soft once you get past the shell."
+      },
+      "fa": {
+        "meaning": "اخمو و زمخت / ترش‌رو",
+        "informal_explanation": "کسی که ظاهرش تند و بی‌حوصله‌ست ولی ته دلش هیچی نیست."
+      },
+      "gu": {
+        "meaning": "રૂક્ષ / મોં-ચઢાવેલું",
+        "informal_explanation": "દેખાવમાં કડક અને તોછડો લાગે પણ અંદરથી સારો હોય."
+      },
+      "hi": {
+        "meaning": "रूखा / चिड़चिड़ा",
+        "informal_explanation": "जो ऊपर से बड़ा कड़क और खुरदुरा लगे लेकिन दिल का बुरा न हो।"
+      },
+      "ta": {
+        "meaning": "கரடுமுரடான / சிடுசிடுப்பான",
+        "informal_explanation": "வெளியே பார்க்க சிடுமூஞ்சியா தெரிஞ்சாலும் உள்ளுக்குள்ள பாசக்காரர்."
+      },
+      "ko": {
+        "meaning": "무뚝뚝한 / 퉁명스러운",
+        "informal_explanation": "겉으로는 틱틱대고 쌀쌀맞지만 알고 보면 속정 깊은 츤데레."
+      },
+      "zh": {
+        "meaning": "粗鲁生硬的 / 刀子嘴豆腐心的",
+        "informal_explanation": "脾气看似又冲又冷淡，其实混熟了心很软的怪老头类型。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Le grand-père a l'air un peu bourru, mais en vrai il adore ses petits-enfants.",
+      "en": "Grandpa looks a bit gruff, but deep down he adores his grandkids."
+    }
+  },
+  {
+    "id": "bout-en-train",
+    "french_term": "Bout-en-train",
+    "informal_french_definition": "La pile électrique de la soirée qui met l'ambiance et fait marrer tout le monde.",
+    "translations": {
+      "en": {
+        "meaning": "Life of the party",
+        "informal_explanation": "The energetic spark that gets everyone hyped up and smiling."
+      },
+      "fa": {
+        "meaning": "شور و حال مجلس / بمب خنده",
+        "informal_explanation": "کسی که هرجا بره مجلس رو گرم میکنه و همه رو به خنده میندازه."
+      },
+      "gu": {
+        "meaning": "મહેફિલની રોનક / આનંદી જીવ",
+        "informal_explanation": "જેના આવવાથી આખા વાતાવરણમાં હાસ્ય અને મજા છવાઈ જાય."
+      },
+      "hi": {
+        "meaning": "महफ़िल की जान / जिंदादिल",
+        "informal_explanation": "जिसके आते ही सन्नाटा भाग जाए और सब हंस-हंस कर लोटपोट हो जाएं।"
+      },
+      "ta": {
+        "meaning": "கூட்டத்தைக் கலக்கும் உற்சாக மனிதர்",
+        "informal_explanation": "எங்க போனாலும் அந்த இடத்தையே கலகலப்பா மாத்திடுற கில்லி."
+      },
+      "ko": {
+        "meaning": "분위기 메이커 / 흥부자",
+        "informal_explanation": "모임에 나타나기만 하면 분위기를 빵빵 띄우는 핵인싸."
+      },
+      "zh": {
+        "meaning": "气氛担当 / 聚会的开心果",
+        "informal_explanation": "有他在场子就热、总能带动全场气氛的活跃分子。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Sans Julien, la fête aurait été morte : c'est un vrai bout-en-train !",
+      "en": "Without Julien, the party would have been dead: he's the real life of the party!"
+    }
+  },
+  {
+    "id": "brave",
+    "french_term": "Brave",
+    "informal_french_definition": "Quelqu'un de vaillant qui n'hésite pas à monter au créneau, ou une bonne pâte sans histoire.",
+    "translations": {
+      "en": {
+        "meaning": "Brave / Good-hearted",
+        "informal_explanation": "Courageous when duty calls, or simply a good, honest soul."
+      },
+      "fa": {
+        "meaning": "شجاع / آدم پاک و ساده‌دل",
+        "informal_explanation": "کسی که هم دلیر و نترسه و هم آدم بی‌آزار و صاف و ساده‌ایه."
+      },
+      "gu": {
+        "meaning": "બહાદુર / ભલો માણસ",
+        "informal_explanation": "હિંમતવાળો અને સાથે સાથે એકદમ સીધોસાદો સજ્જન."
+      },
+      "hi": {
+        "meaning": "बहादुर / सीधा-सादा भला इंसान",
+        "informal_explanation": "जो दिलेर भी हो और जिसका दिल एकदम साफ और नेक हो।"
+      },
+      "ta": {
+        "meaning": "வீரமுள்ள / நல்ல மனசுக்காரர்",
+        "informal_explanation": "தைரியசாலியான அதேசமயம் யாரையும் ஏமாத்தத் தெரியாத நல்ல மனுஷன்."
+      },
+      "ko": {
+        "meaning": "용감한 / 우직하고 착한",
+        "informal_explanation": "어려운 일에 솔선수범하거나 순박하고 심성 고운 사람."
+      },
+      "zh": {
+        "meaning": "勇敢的 / 忠厚实在的",
+        "informal_explanation": "面对困难敢冲上去，也指特别忠厚实在的好人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "C'est un brave gars, il s'est interposé pour défendre son pote sans hésiter.",
+      "en": "He's a brave guy, he stepped in to defend his friend without hesitation."
+    }
+  },
+  {
+    "id": "brillant",
+    "french_term": "Brillant",
+    "informal_french_definition": "Un petit génie qui comprend tout à la vitesse de l'éclair et brille en société.",
+    "translations": {
+      "en": {
+        "meaning": "Brilliant / Sparky",
+        "informal_explanation": "Whip-smart with a mind that sparks with great ideas."
+      },
+      "fa": {
+        "meaning": "درخشان / نابغه",
+        "informal_explanation": "کسی که مخش عالی کار میکنه و توی هر جمعی می‌درخشه."
+      },
+      "gu": {
+        "meaning": "તેજસ્વી / પ્રતિભાશાળી",
+        "informal_explanation": "જેની બુદ્ધિ એકદમ તેજ હોય અને ચપટીમાં બધું સમજી જાય."
+      },
+      "hi": {
+        "meaning": "तेज दिमाग / प्रतिभाशाली",
+        "informal_explanation": "जिसकी अक्ल बिजली की तरह तेज चले और सब उसे देखते ही दंग रह जाएं।"
+      },
+      "ta": {
+        "meaning": "மின்னும் திறமைசாலி / புத்திசாலி",
+        "informal_explanation": "எதையும் சட்டுனு புரிஞ்சுக்கிட்டு கலக்குற அபார புத்திசாலி."
+      },
+      "ko": {
+        "meaning": "명석한 / 번뜩이는",
+        "informal_explanation": "머리 회전이 엄청 빠르고 남다른 총명함이 돋보이는 수재."
+      },
+      "zh": {
+        "meaning": "聪颖绝顶的 / 才华横溢的",
+        "informal_explanation": "脑子转得飞快、非常有才气、走到哪儿都闪闪发光。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Elle a trouvé la solution au problème en deux minutes, elle est vraiment brillante.",
+      "en": "She solved the problem in two minutes, she is truly brilliant."
+    }
+  },
+  {
+    "id": "brutal",
+    "french_term": "Brutal",
+    "informal_french_definition": "Quelqu'un de violent dans ses gestes ou dans ses paroles qui ne prend aucune pincette.",
+    "translations": {
+      "en": {
+        "meaning": "Brutal / Harsh",
+        "informal_explanation": "Rough and blunt, hitting you hard without any tact."
+      },
+      "fa": {
+        "meaning": "خشن / بی‌رحم و زمخت",
+        "informal_explanation": "کسی که رفتار یا کلامش بی‌ملاحظه و مثل پتک کوبنده‌ست."
+      },
+      "gu": {
+        "meaning": "નિર્દય / અતિ કઠોર",
+        "informal_explanation": "જેના બોલવામાં કે વર્તનમાં જરાય દયા કે નજાકત ન હોય."
+      },
+      "hi": {
+        "meaning": "बेरहम / क्रूर",
+        "informal_explanation": "जो बात कहने या करने में बहुत कठोर हो और बिना सोचे वार करे।"
+      },
+      "ta": {
+        "meaning": "கொடூரமான / இரக்கமற்ற",
+        "informal_explanation": "பேசும்போதும் பழகும்போதும் ரொம்ப முரட்டுத்தனமா நடந்துக்கிறவர்."
+      },
+      "ko": {
+        "meaning": "거친 / 가차 없는",
+        "informal_explanation": "말이나 행동에 배려가 전혀 없고 인정사정없이 몰아붙이는 사람."
+      },
+      "zh": {
+        "meaning": "粗暴残忍的 / 毫不留情的",
+        "informal_explanation": "说话办事非常野蛮冲动、一点面子和余地都不给留。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Sa façon de lui annoncer la mauvaise nouvelle a été d'une franchise presque brutale.",
+      "en": "The way he broke the bad news to her was almost brutally blunt."
+    }
+  },
+  {
+    "id": "bute",
+    "french_term": "Buté",
+    "informal_french_definition": "Un têtu de première qui campe sur ses positions et refuse d'en démordre.",
+    "translations": {
+      "en": {
+        "meaning": "Stubborn / Bull-headed",
+        "informal_explanation": "Locked into their view, refusing to budge an inch."
+      },
+      "fa": {
+        "meaning": "لجوج / سرسخت",
+        "informal_explanation": "کسی که قفل کرده رو موضعش و هرچی بگی اثر نداره."
+      },
+      "gu": {
+        "meaning": "અક્કડ / જિદ્દી",
+        "informal_explanation": "જે પોતાની હઠ જરાય છોડવા તૈયાર ન થાય."
+      },
+      "hi": {
+        "meaning": "हठी / अड़ियल टट्टू",
+        "informal_explanation": "जो अपनी बात पर अड़ जाए और चाहे कुछ भी हो जाए, पीछे न हटे।"
+      },
+      "ta": {
+        "meaning": "முரட்டு பிடிவாதம் பிடித்தவர்",
+        "informal_explanation": "யாரு என்ன சொன்னாலும் தான் நினைச்சதை விடாத பிடிவாதக்காரர்."
+      },
+      "ko": {
+        "meaning": "완고한 / 고집불통의",
+        "informal_explanation": "벽창호처럼 자기가 옳다고 우기며 한 발짝도 물러서지 않는 사람."
+      },
+      "zh": {
+        "meaning": "执拗的 / 轴的 / 死心眼的",
+        "informal_explanation": "脾气比驴还倔、钻进牛角尖十头牛都拉不回来。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il est tellement buté qu'il préfère se perdre plutôt que de demander son chemin.",
+      "en": "He's so bull-headed he'd rather get lost than ask for directions."
+    }
+  },
+  {
+    "id": "calme",
+    "french_term": "Calme",
+    "informal_french_definition": "Une force tranquille qui garde son sang-froid même au milieu du chaos.",
+    "translations": {
+      "en": {
+        "meaning": "Calm / Chill",
+        "informal_explanation": "Keeps a cool head no matter how wild things get."
+      },
+      "fa": {
+        "meaning": "آرام / خونسرد",
+        "informal_explanation": "کسی که دنیا رو آب ببره اون رو خواب می‌بره و اعصابش فولادیه."
+      },
+      "gu": {
+        "meaning": "શાંત / ધીરજવાળો",
+        "informal_explanation": "ગમે તેવી મુશ્કેલીમાં પણ મગજ શાંત રાખનારો માણસ."
+      },
+      "hi": {
+        "meaning": "शांत / गंभीर",
+        "informal_explanation": "जो कैसी भी आफत आए, अपना आपा न खोए और एकदम कूल रहे।"
+      },
+      "ta": {
+        "meaning": "அமைதியான / பதற்றமில்லாத",
+        "informal_explanation": "எவ்வளவு பெரிய பிரச்சினை வந்தாலும் கூலா சமாளிக்கிற அமைதியான ஆளு."
+      },
+      "ko": {
+        "meaning": "차분한 / 침착한",
+        "informal_explanation": "주변이 난리통이어도 흔들리지 않고 평정심을 유지하는 사람."
+      },
+      "zh": {
+        "meaning": "沉着冷静的 / 淡定的",
+        "informal_explanation": "泰山崩于前而色不变、情绪非常稳定佛系的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Pendant la panne générale, elle est restée super calme et a tout géré.",
+      "en": "During the total blackout, she stayed super chill and handled everything."
+    }
+  },
+  {
+    "id": "capricieux",
+    "french_term": "Capricieux",
+    "informal_french_definition": "Quelqu'un qui change d'avis toutes les deux secondes et pique une crise pour des broutilles.",
+    "translations": {
+      "en": {
+        "meaning": "Fickle / Whimsical / Bratty",
+        "informal_explanation": "Moody and prone to childish tantrums whenever they don't get their way."
+      },
+      "fa": {
+        "meaning": "بهانه‌گیر / دمدمی‌مزاج",
+        "informal_explanation": "کسی که هر دقیقه یه ساز می‌زنه و سر هر چیز بچگانه‌ای قهر میکنه."
+      },
+      "gu": {
+        "meaning": "તરંગી / નખરાં કરનાર",
+        "informal_explanation": "જેની મરજી ક્ષણે ક્ષણે બદલાય અને મનમાની કરવાની આદત હોય."
+      },
+      "hi": {
+        "meaning": "मनमौजी / नखरेबाज",
+        "informal_explanation": "जिसका मूड हर पल बदले और अपनी बात मनवाने के लिए बच्चों जैसी जिद्द करे।"
+      },
+      "ta": {
+        "meaning": "சிணுங்குகிற / மனம் மாறுகிற",
+        "informal_explanation": "நினைச்சது நடக்காட்டி உடனே அடம் பிடிச்சு அலப்பறை பண்ற குணம்."
+      },
+      "ko": {
+        "meaning": "변덕스러운 / 투정 부리는",
+        "informal_explanation": "기분이 시도 때도 없이 바뀌고 제멋대로 굴지 못하면 떼쓰는 사람."
+      },
+      "zh": {
+        "meaning": "任性的 / 阴晴不定的",
+        "informal_explanation": "小孩子脾气、说风就是雨，不如意就耍性子闹别扭。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Elle est un peu capricieuse : si elle n'a pas exactement ce qu'elle veut, elle boude.",
+      "en": "She's a bit bratty: if she doesn't get exactly what she wants, she pouts."
+    }
+  },
+  {
+    "id": "caracteriel",
+    "french_term": "Caractériel",
+    "informal_french_definition": "Quelqu'un avec qui il faut marcher sur des œufs tellement son humeur est instable et explosive.",
+    "translations": {
+      "en": {
+        "meaning": "Temperamental / Volatile",
+        "informal_explanation": "You're walking on eggshells because they blow their top out of nowhere."
+      },
+      "fa": {
+        "meaning": "تندمزاج / دمدمی و غیرقابل پیش‌بینی",
+        "informal_explanation": "کسی که اعصاب درست و حسابی نداره و باید با احتیاط باهاش حرف بزنی."
+      },
+      "gu": {
+        "meaning": "વિકૃત સ્વભાવનો / ગુસ્સાવાળો",
+        "informal_explanation": "જેનો મૂડ ક્યારે બગડી જશે એની કોઈને ખબર ન પડે."
+      },
+      "hi": {
+        "meaning": "तुनकमिज़ाज / बदमिजाज",
+        "informal_explanation": "जिसके सामने डर-डर के रहना पड़े कि न जाने कब किस बात पर फट पड़े।"
+      },
+      "ta": {
+        "meaning": "முன்கோபி / கணிக்க முடியாத குணம்",
+        "informal_explanation": "எப்போ வெடிப்பார்னே தெரியாம பயந்துகிட்டே பழக வேண்டிய ஆளு."
+      },
+      "ko": {
+        "meaning": "성격이 괴팍한 / 다혈질의",
+        "informal_explanation": "성질이 지랄맞아서 언제 화를 낼지 몰라 조마조마하게 만드는 사람."
+      },
+      "zh": {
+        "meaning": "性情乖戾的 / 喜怒无常的",
+        "informal_explanation": "脾气暴躁又古怪，跟他在一块儿就像踩地雷一样提心吊胆。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Fais gaffe au chef ce matin, il est super caractériel en ce moment.",
+      "en": "Watch out for the boss this morning, he's super temperamental these days."
+    }
+  },
+  {
+    "id": "cerebral",
+    "french_term": "Cérébral",
+    "informal_french_definition": "Quelqu'un qui intellectualise tout et vit beaucoup plus dans sa tête que dans ses émotions.",
+    "translations": {
+      "en": {
+        "meaning": "Cerebral / Brainy",
+        "informal_explanation": "Lives purely in their head, over-analyzing everything through logic."
+      },
+      "fa": {
+        "meaning": "فکری / اهل تحلیل عقلی",
+        "informal_explanation": "کسی که همه‌چیز رو با دو دو تا چهارتا و منطق خشک می‌سنجه تا با احساسات."
+      },
+      "gu": {
+        "meaning": "બૌદ્ધિક / વિચારશીલ",
+        "informal_explanation": "જે લાગણીઓ કરતાં બુદ્ધિ અને તર્કને વધારે મહત્વ આપે."
+      },
+      "hi": {
+        "meaning": "बौद्धिक / सोच-विचार में डूबा रहने वाला",
+        "informal_explanation": "जो हर बात में दिमाग दौड़ाए और भावनाओं से ज्यादा लॉजिक पर चले।"
+      },
+      "ta": {
+        "meaning": "அறிவுப்பூர்வமான / யோசித்து செயல்படும்",
+        "informal_explanation": "உணர்ச்சிகளை விட எதையும் மூளையை வச்சு அலசி ஆராயும் குணம்."
+      },
+      "ko": {
+        "meaning": "지적인 / 이성 중심적인",
+        "informal_explanation": "감정보다는 머리로 모든 상황을 분석하고 따지는 논리파."
+      },
+      "zh": {
+        "meaning": "理性的 / 善意思辨的",
+        "informal_explanation": "万事过脑子、凡事都用理性逻辑拆解的书呆子思维。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il est très cérébral, il a du mal à laisser parler ses émotions.",
+      "en": "He's very cerebral, he struggles to let his raw feelings show."
+    }
+  },
+  {
+    "id": "chaleureux",
+    "french_term": "Chaleureux",
+    "informal_french_definition": "Une personne pleine de vie et de chaleur humaine qui te donne le sourire instantanément.",
+    "translations": {
+      "en": {
+        "meaning": "Warm / Hearty",
+        "informal_explanation": "Radiates positive energy and gives off big friendly hugs."
+      },
+      "fa": {
+        "meaning": "گرم / صمیمی و پرمهر",
+        "informal_explanation": "کسی که پر از انرژی مثبته و دیدنش حس گرمی و صمیمیت میده."
+      },
+      "gu": {
+        "meaning": "હૂંફાળું / પ્રેમાળ",
+        "informal_explanation": "જેની નિકટતામાં જ આત્મીયતા અને ખુશીનો અનુભવ થાય."
+      },
+      "hi": {
+        "meaning": "उत्साही / दिलकश स्वभाव",
+        "informal_explanation": "जिससे मिलकर दिल खुश हो जाए और अपनेपन का गहरा एहसास हो।"
+      },
+      "ta": {
+        "meaning": "அன்பு நிறைந்த / பாசமான",
+        "informal_explanation": "பழகும் போதே மனசுக்கு இதமா பாசத்தை வெளிப்படுத்தும் மனிதர்."
+      },
+      "ko": {
+        "meaning": "따뜻한 / 훈훈한",
+        "informal_explanation": "사람 냄새 폴폴 풍기며 주변을 온기로 가득 채워주는 사람."
+      },
+      "zh": {
+        "meaning": "热情的 / 暖人心的",
+        "informal_explanation": "特别温暖真挚，像小太阳一样照得身边人心里热乎乎的。"
+      }
+    },
+    "example_sentence": {
+      "fr": "On a reçu un accueil tellement chaleureux qu'on ne voulait plus partir.",
+      "en": "We got such a warm welcome that we didn't even want to leave."
+    }
+  },
+  {
+    "id": "charismatique",
+    "french_term": "Charismatique",
+    "informal_french_definition": "Quelqu'un qui en jette dès qu'il entre dans une pièce et captive tout le monde sans forcer.",
+    "translations": {
+      "en": {
+        "meaning": "Charismatic / Magnetic",
+        "informal_explanation": "Commands the room effortlessly with natural charm and presence."
+      },
+      "fa": {
+        "meaning": "کاریزماتیک / گیرا و جذاب",
+        "informal_explanation": "کسی که تا میاد تو اتاق، همه نگاه‌ها ناخودآگاه جذبش میشه."
+      },
+      "gu": {
+        "meaning": "પ્રભાવશાળી / આકર્ષક",
+        "informal_explanation": "જેનું વ્યક્તિત્વ જોતાં જ લોકો આપોઆપ એના તરફ ખેંચાઈ આવે."
+      },
+      "hi": {
+        "meaning": "आकर्षक / करिश्माई",
+        "informal_explanation": "जिसका रुतबा और जलवा ऐसा हो कि हर कोई उसकी तरफ खिंचा चला आए।"
+      },
+      "ta": {
+        "meaning": "கவர்ச்சிகரமான ஆளுமை கொண்டவர்",
+        "informal_explanation": "வந்தாலே ஒரு மாஸ் காட்டக்கூடிய எல்லாரையும் வசீகரிக்கும் குணம்."
+      },
+      "ko": {
+        "meaning": "카리스마 있는 / 매력적인",
+        "informal_explanation": "등장만으로도 시선을 싹 사로잡는 독보적인 아우라를 지닌 사람."
+      },
+      "zh": {
+        "meaning": "有人格魅力的 / 气场强大的",
+        "informal_explanation": "自带聚光灯属性，一出场就气场全开、让人心悦诚服。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il a ce truc en plus, ce côté charismatique qui donne envie de le suivre.",
+      "en": "He's got that extra spark, that charismatic aura that makes you want to follow him."
+    }
+  },
+  {
+    "id": "colereux",
+    "french_term": "Coléreux",
+    "informal_french_definition": "Une soupe au lait qui prend la mouche pour un rien et pète les plombs facilement.",
+    "translations": {
+      "en": {
+        "meaning": "Quick-tempered / Hot-headed",
+        "informal_explanation": "Has a short fuse and goes from 0 to 100 in a split second."
+      },
+      "fa": {
+        "meaning": "تندخو / زودخشم",
+        "informal_explanation": "کسی که زود از کوره در میره و با یه حرف کوچیک عصبانی میشه."
+      },
+      "gu": {
+        "meaning": "ગુસ્સાવાળું / રાગી",
+        "informal_explanation": "જેનો પિત્તો જરાકમાં જાય અને તરત લાલચોળ થઈ જાય."
+      },
+      "hi": {
+        "meaning": "गुस्सैल / गरम दिमाग",
+        "informal_explanation": "जिसकी नाक पर हमेशा गुस्सा धरा रहे और बात-बात पर भड़क जाए।"
+      },
+      "ta": {
+        "meaning": "முன்கோபக்காரர் / எரிந்து விழுபவர்",
+        "informal_explanation": "தொட்டதுக்கெல்லாம் கோபப்பட்டு வெடிச்சி சிதறும் குணம்."
+      },
+      "ko": {
+        "meaning": "화를 잘 내는 / 욱하는",
+        "informal_explanation": "다혈질이라 걸핏하면 버럭 소리 지르고 분통을 터뜨리는 사람."
+      },
+      "zh": {
+        "meaning": "暴脾气的 / 易怒的",
+        "informal_explanation": "一点就着的火药桶，脾气上来谁也拦不住。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Évite de le contredire aujourd'hui, il est particulièrement coléreux.",
+      "en": "Avoid contradicting him today, he's especially quick-tempered."
+    }
+  },
+  {
+    "id": "combatif",
+    "french_term": "Combatif",
+    "informal_french_definition": "Un battant qui ne baisse jamais les bras et se bat jusqu'au bout pour ce qu'il veut.",
+    "translations": {
+      "en": {
+        "meaning": "Feisty / Resilient / Fighter",
+        "informal_explanation": "Never throws in the towel, fighting tooth and nail till the end."
+      },
+      "fa": {
+        "meaning": "مبارز / اهل جنگیدن و تسلیم‌نشدن",
+        "informal_explanation": "کسی که تا آخرین نفس می‌جنگه و هیچ‌وقت جا نمی‌زنه."
+      },
+      "gu": {
+        "meaning": "લડાયક / જુસ્સાદાર",
+        "informal_explanation": "ગમે તેવી મુસીબત સામે પણ હાર ન માનનારો મક્કમ માણસ."
+      },
+      "hi": {
+        "meaning": "जुझारू / लड़ाकू इरादों वाला",
+        "informal_explanation": "जो कभी हार न माने और अंत तक पूरी ताकत से मुकाबला करे।"
+      },
+      "ta": {
+        "meaning": "போராடும் குணம் கொண்டவர்",
+        "informal_explanation": "என்ன கஷ்டம் வந்தாலும் கடைசி வரைக்கும் போராடி ஜெயிக்கிற ஆளு."
+      },
+      "ko": {
+        "meaning": "투지 넘치는 / 굴하지 않는",
+        "informal_explanation": "어떤 역경에도 쉽게 포기하지 않고 끝까지 부딪쳐 보는 파이터."
+      },
+      "zh": {
+        "meaning": "有拼劲的 / 永不言败的",
+        "informal_explanation": "骨子里有股狠劲、越挫越勇、从不轻言放弃的实干派。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Même menée au score, l'équipe est restée combative jusqu'à la dernière seconde.",
+      "en": "Even trailing in points, the team stayed feisty right until the final second."
+    }
+  },
+  {
+    "id": "comique",
+    "french_term": "Comique",
+    "informal_french_definition": "Un clown né qui trouve toujours le moyen de sortir une connerie pour détendre l'atmosphère.",
+    "translations": {
+      "en": {
+        "meaning": "Hilarious / Clownish",
+        "informal_explanation": "Natural goofball who can turn anything into a laugh."
+      },
+      "fa": {
+        "meaning": "طنز / مسخره و خنده‌دار",
+        "informal_explanation": "کسی که حرکات و حرفاش خنده‌داره و همه رو روده بر میکنه."
+      },
+      "gu": {
+        "meaning": "હાસ્યસ્પદ / જોકર જેવો",
+        "informal_explanation": "જેની હરકતો અને બોલચાલ જ લોકોને હસાવનારી હોય."
+      },
+      "hi": {
+        "meaning": "हास्यप्रिय / मसखरा",
+        "informal_explanation": "जो अपनी उल्टी-सीधी मजेदार हरकतों से सबको लोटपोट कर दे।"
+      },
+      "ta": {
+        "meaning": "நகைச்சுவையான / கோமாளித்தனம்",
+        "informal_explanation": "தன்னோட சேட்டையால எல்லாரையும் வயிறு குலுங்க சிரிக்க வைக்கிறவர்."
+      },
+      "ko": {
+        "meaning": "우스꽝스러운 / 익살맞은",
+        "informal_explanation": "행동 하나하나가 개그 그 자체라 보기만 해도 웃음이 터지는 사람."
+      },
+      "zh": {
+        "meaning": "滑稽搞笑的 / 喜剧人",
+        "informal_explanation": "天生的逗比，一举一动都有戏剧效果、让人捧腹大笑。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Ce mec est comique malgré lui avec ses mimiques improbables !",
+      "en": "This guy is hilarious without even trying with those crazy facial expressions!"
+    }
+  },
+  {
+    "id": "communicatif",
+    "french_term": "Communicatif",
+    "informal_french_definition": "Quelqu'un de très ouvert qui partage facilement sa joie et transmet son énergie.",
+    "translations": {
+      "en": {
+        "meaning": "Infectious / Communicative",
+        "informal_explanation": "Super open and carries a vibe that naturally rubs off on everyone."
+      },
+      "fa": {
+        "meaning": "خوش‌ارتباط / سرایت‌دهنده حس خوب",
+        "informal_explanation": "کسی که انرژیش مسریه و خیلی راحت ارتباط میگیره."
+      },
+      "gu": {
+        "meaning": "ખુલ્લા દિલનું / પ્રભાવ પાથરનાર",
+        "informal_explanation": "જેનો આનંદ અને ઉત્સાહ બીજામાં પણ તરત ફેલાઈ જાય."
+      },
+      "hi": {
+        "meaning": "संवादप्रिय / सकारात्मक असर डालने वाला",
+        "informal_explanation": "जो दिल खोलकर बात करे और अपनी हंसी-खुशी से सबको रंग दे।"
+      },
+      "ta": {
+        "meaning": "கலந்து பழகும் / தொற்றுக்கூடிய உற்சாகம்",
+        "informal_explanation": "தன்னோட பாசிட்டிவ் எனர்ஜியை சுத்தி இருக்கிறவங்களுக்கும் பரப்புற ஆளு."
+      },
+      "ko": {
+        "meaning": "스스럼없는 / 긍정 에너지를 전파하는",
+        "informal_explanation": "남들과 소통을 잘하고 유쾌한 기운을 주변에 팍팍 퍼뜨리는 사람."
+      },
+      "zh": {
+        "meaning": "开朗有感染力的 / 善于交流的",
+        "informal_explanation": "开朗直爽，快乐和活力总能传染给周围每一个人的社交达人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Elle a un rire tellement communicatif que toute la pièce s'est mise à glousser.",
+      "en": "She has such an infectious laugh that the whole room started giggling."
+    }
+  },
+  {
+    "id": "competiteur",
+    "french_term": "Compétiteur",
+    "informal_french_definition": "Quelqu'un qui a la rage de vaincre et transforme n'importe quelle partie de cartes en guerre.",
+    "translations": {
+      "en": {
+        "meaning": "Competitive / Play-to-win",
+        "informal_explanation": "Hates losing and turns even casual board games into bloodsport."
+      },
+      "fa": {
+        "meaning": "اهل رقابت / برتری‌طلب",
+        "informal_explanation": "کسی که باختن تو کتش نمیره و سر هر بازی ساده‌ای میخواد برنده بشه."
+      },
+      "gu": {
+        "meaning": "સ્પર્ધાત્મક / હરીફાઈખોર",
+        "informal_explanation": "જેને કોઈ પણ ભોગે જીતવું જ હોય અને હાર સહન ન થાય."
+      },
+      "hi": {
+        "meaning": "प्रतिस्पर्धी / जीतने की धुन वाला",
+        "informal_explanation": "जिसे हारना बिल्कुल बर्दाश्त न हो और हर खेल को जिंदगी-मौत बना दे।"
+      },
+      "ta": {
+        "meaning": "போட்டி மனப்பான்மை கொண்டவர்",
+        "informal_explanation": "சாதாரண விளையாட்டா இருந்தா கூட தோத்துடக் கூடாதுன்னு ஜெயிக்க துடிப்பவர்."
+      },
+      "ko": {
+        "meaning": "승부욕 강한 / 경쟁적인",
+        "informal_explanation": "지는 건 죽기보다 싫어해서 단순한 게임도 목숨 걸고 하는 사람."
+      },
+      "zh": {
+        "meaning": "胜负欲强的 / 好胜的",
+        "informal_explanation": "赢面心切，连玩个大富翁都要拼死争第一的铁血玩家。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Ne joue pas au Monopoly avec lui, c'est un trop gros compétiteur, ça finit toujours mal !",
+      "en": "Don't play Monopoly with him, he's way too competitive, it always ends badly!"
+    }
+  },
+  {
+    "id": "comprehensif",
+    "french_term": "Compréhensif",
+    "informal_french_definition": "Un pote en or qui te comprend sans te blâmer quand tu fais une connerie.",
+    "translations": {
+      "en": {
+        "meaning": "Understanding / Empathetic",
+        "informal_explanation": "Listens without judgment and cuts you slack when life gets messy."
+      },
+      "fa": {
+        "meaning": "با‌درک / فهیم",
+        "informal_explanation": "کسی که شرایطت رو درک میکنه و وقتی سوتی میدی سرزنشیت نمیکنه."
+      },
+      "gu": {
+        "meaning": "સમજુ / સંવેદનશીલ",
+        "informal_explanation": "જે તમારી પરિસ્થિતિ અને ભૂલોને સમજીને માફ કરી દે."
+      },
+      "hi": {
+        "meaning": "समझदार / हमदर्द",
+        "informal_explanation": "जो आपकी मजबूरी समझे और गलती होने पर ताने मारने के बजाय ढाढ़स बंधाए।"
+      },
+      "ta": {
+        "meaning": "புரிந்துணர்வு கொண்டவர்",
+        "informal_explanation": "நம்ம நிலையை புரிஞ்சுக்கிட்டு தப்பு நடந்தாலும் குறை சொல்லாத நல்லவர்."
+      },
+      "ko": {
+        "meaning": "이해심 많은 / 너그러운",
+        "informal_explanation": "남의 실수나 사정을 따뜻하게 헤아려주고 감싸주는 사람."
+      },
+      "zh": {
+        "meaning": "通情达理的 / 体谅人的",
+        "informal_explanation": "设身处地为你着想、犯了错也绝不苛责责怪你的知心人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Mon patron a été super compréhensif quand j'ai expliqué mon retard.",
+      "en": "My boss was super understanding when I explained why I was late."
+    }
+  },
+  {
+    "id": "confiant",
+    "french_term": "Confiant",
+    "informal_french_definition": "Quelqu'un qui a confiance en lui ou qui accorde sa confiance sans arrière-pensée.",
+    "translations": {
+      "en": {
+        "meaning": "Confident / Trusting",
+        "informal_explanation": "Comfortable in their own skin, or naturally quick to place trust in others."
+      },
+      "fa": {
+        "meaning": "با‌اعتماد‌به‌نفس / مطمئن",
+        "informal_explanation": "کسی که به خودش و توانایی‌هاش باور داره و شک به دلش راه نمیده."
+      },
+      "gu": {
+        "meaning": "આત્મવિશ્વાસુ / ભરોસાપાત્ર",
+        "informal_explanation": "પોતાના પર પૂરો વિશ્વાસ રાખનારો અને નિશ્ચિંત રહેનારો માણસ."
+      },
+      "hi": {
+        "meaning": "आत्मविश्वासी / निश्चिंत",
+        "informal_explanation": "जिसे अपनी काबिलियत पर पूरा भरोसा हो और जो बिना हिचके आगे बढ़े।"
+      },
+      "ta": {
+        "meaning": "நம்பிக்கையுள்ள / தன்னம்பிக்கை மிக்க",
+        "informal_explanation": "தன் மேல அசைக்க முடியாத நம்பிக்கையும் தைரியமும் கொண்டவர்."
+      },
+      "ko": {
+        "meaning": "자신감 있는 / 신뢰하는",
+        "informal_explanation": "자기 능력을 확실히 믿고 당당하게 행동하는 자신감 넘치는 사람."
+      },
+      "zh": {
+        "meaning": "自信从容的 / 信赖他人的",
+        "informal_explanation": "对自己充满底气、走路带风，或者对他人坦诚信任的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il est arrivé à l'entretien hyper confiant, et il a décroché le job direct.",
+      "en": "He walked into the interview super confident and landed the job straight away."
+    }
+  },
+  {
+    "id": "consciencieux",
+    "french_term": "Consciencieux",
+    "informal_french_definition": "Quelqu'un d'ultra sérieux qui peaufine son travail dans les moindres détails.",
+    "translations": {
+      "en": {
+        "meaning": "Conscientious / Thorough",
+        "informal_explanation": "Takes real pride in doing honest, top-notch, detail-perfect work."
+      },
+      "fa": {
+        "meaning": "با‌وجدان / وظیفه‌شناس",
+        "informal_explanation": "کسی که واسه کارش کم نمیذاره و تک تک جزییات رو با وجدان چک میکنه."
+      },
+      "gu": {
+        "meaning": "નિષ્ઠાવાન / ફરજપરસ્ત",
+        "informal_explanation": "જે પોતાની જવાબદારી પૂરી ઈમાનદારી અને બારીકાઈથી સંભાળે."
+      },
+      "hi": {
+        "meaning": "कर्तव्यनिष्ठ / ईमानदार",
+        "informal_explanation": "जो अपने काम को पूरी ईमानदारी और बारीकी से बिना किसी ढिलाई के निभाए।"
+      },
+      "ta": {
+        "meaning": "பொறுப்புள்ள / கடமையுணர்வுள்ள",
+        "informal_explanation": "வேலையில துளிகூட தவறு வராதபடி மனசாட்சியோட பண்ற நபர்."
+      },
+      "ko": {
+        "meaning": "양심적인 / 매사에 철저한",
+        "informal_explanation": "맡은 일에 책임감을 갖고 양심껏 완벽하게 끝내는 사람."
+      },
+      "zh": {
+        "meaning": "勤谨尽责的 / 一丝不苟的",
+        "informal_explanation": "做事非常有职业道德和敬畏心、扣死每一个细节的靠谱达人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Tu peux lui confier le dossier les yeux fermés, elle est super consciencieuse.",
+      "en": "You can hand her the file with your eyes closed, she is super conscientious."
+    }
+  },
+  {
+    "id": "cooperatif",
+    "french_term": "Coopératif",
+    "informal_french_definition": "Quelqu'un de facile à vivre qui bosse bien en groupe et fait tout pour aider.",
+    "translations": {
+      "en": {
+        "meaning": "Cooperative / Team player",
+        "informal_explanation": "Leaves ego at the door and rows the boat together without drama."
+      },
+      "fa": {
+        "meaning": "اهل همکاری / همراه",
+        "informal_explanation": "کسی که کار تیمی بلده و ساز مخالف نمی‌زنه و همیشه کمک‌حاله."
+      },
+      "gu": {
+        "meaning": "સહકાર આપનાર / મળતાવડું",
+        "informal_explanation": "ટીમમાં બધા સાથે મળીને પ્રેમથી કામ કરવામાં માનનારો માણસ."
+      },
+      "hi": {
+        "meaning": "सहयोगी / मिलजुलकर काम करने वाला",
+        "informal_explanation": "जो टीम में बिना किसी नखरे के सबके साथ कंधे से कंधा मिलाकर चले।"
+      },
+      "ta": {
+        "meaning": "ஒத்துழைப்பு தரும் / அணியோடு இயங்கும்",
+        "informal_explanation": "எல்லாரோடையும் சேர்ந்து ஒற்றுமையா சுமுகமா வேலை பாக்குற நல்ல குணம்."
+      },
+      "ko": {
+        "meaning": "협조적인 / 팀워크가 좋은",
+        "informal_explanation": "혼자 튀려 하지 않고 모임이나 팀 안에서 발맞춰 잘 도와주는 사람."
+      },
+      "zh": {
+        "meaning": "乐于协作的 / 有团队精神的",
+        "informal_explanation": "不搞个人英雄主义、愿意跟大伙儿齐心协力往前推事情的队友。"
+      }
+    },
+    "example_sentence": {
+      "fr": "C'est un plaisir de travailler avec lui, il est hyper coopératif.",
+      "en": "It's a genuine pleasure to work with him, he's a total team player."
+    }
+  },
+  {
+    "id": "courageux",
+    "french_term": "Courageux",
+    "informal_french_definition": "Quelqu'un qui affronte la galère sans broncher et en a dans le ventre.",
+    "translations": {
+      "en": {
+        "meaning": "Gutsy / Courageous",
+        "informal_explanation": "Pushes through tough storms without backing down."
+      },
+      "fa": {
+        "meaning": "شجاع / باجربزه",
+        "informal_explanation": "کسی که توی سختی‌ها جا خالی نمیده و با مشکلات سرشاخ میشه."
+      },
+      "gu": {
+        "meaning": "હિંમતવાન / સાહસિક",
+        "informal_explanation": "મુશ્કેલ સમયમાં પણ હિંમત હાર્યા વગર લડતો રહેતો માણસ."
+      },
+      "hi": {
+        "meaning": "हिम्मती / दिलेर",
+        "informal_explanation": "जो मुश्किलों का डटकर सामना करे और मुसीबत में पीछे न हटे।"
+      },
+      "ta": {
+        "meaning": "தைரியமான / நெஞ்சுரமுள்ள",
+        "informal_explanation": "எத்தனை துன்பம் வந்தாலும் துணிஞ்சு நின்னு சமாளிக்கும் தைரியசாலி."
+      },
+      "ko": {
+        "meaning": "용기 있는 / 씩씩한",
+        "informal_explanation": "힘들고 두려운 상황에서도 굴하지 않고 꿋꿋하게 맞서는 사람."
+      },
+      "zh": {
+        "meaning": "英勇的 / 有骨气的",
+        "informal_explanation": "面对硬仗硬骨头敢打敢拼、绝不当缩头乌龟的硬汉。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il a été hyper courageux de dire ses quatre vérités au patron.",
+      "en": "He was super gutsy to tell the boss straight up how things really were."
+    }
+  },
+  {
+    "id": "courtois",
+    "french_term": "Courtois",
+    "informal_french_definition": "Un modèle d'élégance et de politesse qui sait toujours bien se tenir.",
+    "translations": {
+      "en": {
+        "meaning": "Courteous / Chivalrous",
+        "informal_explanation": "Old-school gentlemanly polite with flawless manners."
+      },
+      "fa": {
+        "meaning": "باادب / مبادی آداب",
+        "informal_explanation": "کسی که ادب از سر و روش می‌باره و همیشه رفتارش شیک و بااحترامه."
+      },
+      "gu": {
+        "meaning": "નમ્ર / શિષ્ટાચારી",
+        "informal_explanation": "જેનું વર્તન હંમેશા આદરણીય અને મર્યાદાપૂર્ણ હોય."
+      },
+      "hi": {
+        "meaning": "शिष्ट / संस्कारी",
+        "informal_explanation": "जिसका उठना-बैठना और बात करना बहुत तमीजदार और शालीन हो।"
+      },
+      "ta": {
+        "meaning": "பண்புள்ள / நாகரிகமான",
+        "informal_explanation": "எப்போதும் மிக மரியாதையோடும் நளினத்தோடும் நடந்து கொள்ளும் மனிதர்."
+      },
+      "ko": {
+        "meaning": "예의 바른 / 정중한",
+        "informal_explanation": "몸에 배어 있는 매너와 정중함으로 누구에게나 깍듯한 사람."
+      },
+      "zh": {
+        "meaning": "彬彬有礼的 / 谦谦君子般的",
+        "informal_explanation": "举止优雅得体、待人接物极其客气尊重的绅士范儿。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il est toujours tellement courtois : il tient la porte à tout le monde.",
+      "en": "He's always so courteous: he holds the door open for everyone."
+    }
+  },
+  {
+    "id": "creatif",
+    "french_term": "Créatif",
+    "informal_french_definition": "Un cerveau bouillonnant qui a toujours des idées originales et stylées.",
+    "translations": {
+      "en": {
+        "meaning": "Creative / Inventive",
+        "informal_explanation": "Constantly buzzing with wild, original, and innovative ideas."
+      },
+      "fa": {
+        "meaning": "خلاق / پر از ایده‌های نو",
+        "informal_explanation": "کسی که ذهنش مخزن ایده‌های تک و متفاوته و هنر از سر و روش می‌باره."
+      },
+      "gu": {
+        "meaning": "સર્જનાત્મક / કલ્પનાશીલ",
+        "informal_explanation": "જેના મગજમાં હંમેશા કંઈક નવું અને અનોખું બનાવવાની ધૂન હોય."
+      },
+      "hi": {
+        "meaning": "रचनात्मक / क्रिएटिव",
+        "informal_explanation": "जिसका दिमाग लीक से हटकर नए और अनोखे आइडियाज निकाले।"
+      },
+      "ta": {
+        "meaning": "படைப்பாற்றல் மிக்க / புதுமை விரும்பி",
+        "informal_explanation": "எப்பவும் வித்தியாசமா புதுசு புதுசா யோசிச்சு கலக்கும் படைப்பாளி."
+      },
+      "ko": {
+        "meaning": "창의적인 / 아이디어가 넘치는",
+        "informal_explanation": "틀에 박히지 않고 신선하고 기발한 발상을 쏟아내는 사람."
+      },
+      "zh": {
+        "meaning": "有创造力的 / 脑洞大开的",
+        "informal_explanation": "点子贼多、总能搞出让人眼前一亮的新鲜玩意的创意狂人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Pour le cadeau d'anniv, laisse faire Léa, elle est super créative.",
+      "en": "For the birthday gift, let Léa handle it, she's super creative."
+    }
+  },
+  {
+    "id": "credule",
+    "french_term": "Crédule",
+    "informal_french_definition": "Quelqu'un d'un peu naïf qui gobe tous les bobards qu'on lui raconte.",
+    "translations": {
+      "en": {
+        "meaning": "Gullible / Naive",
+        "informal_explanation": "Swallows whatever tall tale you feed them hook, line, and sinker."
+      },
+      "fa": {
+        "meaning": "ساده‌لوح / زودباور",
+        "informal_explanation": "کسی که هر دروغ شاخداری رو سریع باور میکنه و گول می‌خوره."
+      },
+      "gu": {
+        "meaning": "ભોળું / વહેલું માની લેનાર",
+        "informal_explanation": "જે કોઈની પણ વાતોમાં સહેલાઈથી આવી જાય અને છેતરાઈ જાય."
+      },
+      "hi": {
+        "meaning": "सीधा-सादा / आसानी से बहकावे में आने वाला",
+        "informal_explanation": "जो किसी की भी उल्टी-सीधी बात पर तुरंत आंख मूंदकर यकीन कर ले।"
+      },
+      "ta": {
+        "meaning": "எளிதில் ஏமாறுபவர் / அப்பாவியான",
+        "informal_explanation": "யார் என்ன புளுகு சொன்னாலும் நம்பி ஏமாந்து போகும் சுபாவம்."
+      },
+      "ko": {
+        "meaning": "귀가 얇은 / 순진해서 잘 속는",
+        "informal_explanation": "누가 말도 안 되는 농담을 해도 곧이곧대로 다 믿어버리는 사람."
+      },
+      "zh": {
+        "meaning": "轻信盲信的 / 傻白甜的",
+        "informal_explanation": "耳根子极软、别人随口一忽悠就深信不疑的单纯老实人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Tu es vraiment trop crédule pour avoir cru à cette blague !",
+      "en": "You're really way too gullible to have fallen for that prank!"
+    }
+  },
+  {
+    "id": "critique",
+    "french_term": "Critique",
+    "informal_french_definition": "Quelqu'un qui a l'esprit affûté pour décortiquer les choses, ou qui râle sur tout.",
+    "translations": {
+      "en": {
+        "meaning": "Critical / Fault-finding",
+        "informal_explanation": "Has a sharp eye that questions everything, or just constantly nitpicks."
+      },
+      "fa": {
+        "meaning": "انتقادگر / نکته‌سنج یا ایرادگیر",
+        "informal_explanation": "کسی که مو رو از ماست می‌کشه بیرون یا دائم به همه‌چیز گیر میده."
+      },
+      "gu": {
+        "meaning": "દોષદર્શી / ટીકાખોર",
+        "informal_explanation": "જે દરેક વાતમાં ખામી કાઢવાની અથવા ઊંડાણપૂર્વક તપાસવાની ટેવ ધરાવે."
+      },
+      "hi": {
+        "meaning": "आलोचक / मीन-मेख निकालने वाला",
+        "informal_explanation": "जो हर चीज़ की तह तक जाकर नुक्स निकाले या बाल की खाल निकाले।"
+      },
+      "ta": {
+        "meaning": "குறை காணும் குணம் / விமரிசிப்பவர்",
+        "informal_explanation": "எல்லா விஷயத்துலயும் ஓட்டையை கண்டுபிடிச்சு விமர்சனம் பண்ற சுபாவம்."
+      },
+      "ko": {
+        "meaning": "비판적인 / 트집 잡기 좋아하는",
+        "informal_explanation": "매사를 비판적으로 뜯어보거나 사사건건 지적질하기 좋아하는 사람."
+      },
+      "zh": {
+        "meaning": "挑剔的 / 具批判眼光的",
+        "informal_explanation": "凡事都要刨根问底，或者特别爱吹毛求疵挑毛病的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il a toujours un regard très critique sur les films qu'on regarde.",
+      "en": "He always takes a very critical look at the movies we watch."
+    }
+  },
+  {
+    "id": "cruel",
+    "french_term": "Cruel",
+    "informal_french_definition": "Quelqu'un de méchant qui prend un malin plaisir à faire souffrir son monde.",
+    "translations": {
+      "en": {
+        "meaning": "Cruel / Ruthless",
+        "informal_explanation": "Genuinely nasty and gets a kick out of seeing others hurt."
+      },
+      "fa": {
+        "meaning": "ظالم / سنگدل",
+        "informal_explanation": "کسی که دلش مثل سنگه و از آزار دادن بقیه لذت میبره."
+      },
+      "gu": {
+        "meaning": "ક્રૂર / ઘાતકી",
+        "informal_explanation": "જેને બીજાને હેરાન કરવામાં કે દુઃખ પહોંચાડવામાં જ મજા આવે."
+      },
+      "hi": {
+        "meaning": "क्रूर / बेरहम",
+        "informal_explanation": "जिसके दिल में दया न हो और जो दूसरों को तड़पाने में मजा ले।"
+      },
+      "ta": {
+        "meaning": "ஈவுஇரக்கமற்ற / கொடுமையான",
+        "informal_explanation": "அடுத்தவங்களை கஷ்டப்படுத்தி வேடிக்கை பாக்குற கல்நெஞ்சக்காரர்."
+      },
+      "ko": {
+        "meaning": "잔인한 / 무자비한",
+        "informal_explanation": "남의 고통을 보고도 눈 하나 깜짝 안 하거나 오히려 즐기는 악랄한 사람."
+      },
+      "zh": {
+        "meaning": "残酷冷血的 / 狠心的",
+        "informal_explanation": "心狠手辣、甚至拿别人的痛苦当乐子看的冷血恶棍。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Abandonner son chat avant de partir en vacances, c'est vraiment cruel.",
+      "en": "Abandoning your cat before going on vacation is just plain cruel."
+    }
+  },
+  {
+    "id": "culotte",
+    "french_term": "Culotté",
+    "informal_french_definition": "Quelqu'un qui a un culot monstre et ose faire des trucs hallucinants sans rougir.",
+    "translations": {
+      "en": {
+        "meaning": "Cheeky / Ballsy / Audacious",
+        "informal_explanation": "Has crazy nerve and pulls off shocking stunts with a poker face."
+      },
+      "fa": {
+        "meaning": "پررو / پردل‌وجرأت و پررو",
+        "informal_explanation": "کسی که سنگ پای قزوین جلوش کم میاره و وقاحت تمام کاری رو میکنه."
+      },
+      "gu": {
+        "meaning": "બેહયા / ભારે હિંમતવાળો",
+        "informal_explanation": "જે જરાય શરમ વગર સાવ ઉદ્ધત અને ચોંકાવનારું પગલું ભરી લે."
+      },
+      "hi": {
+        "meaning": "बेधड़क / ढीठ / गजब का दुस्साहसी",
+        "informal_explanation": "जिसमें गजब की बेशर्मी या हिम्मत हो और जो बिना झिझके कुछ भी कर जाए।"
+      },
+      "ta": {
+        "meaning": "அசட்டு துணிச்சல் / வெட்கமில்லாத தைரியம்",
+        "informal_explanation": "கொஞ்சம்கூட கூச்சமே இல்லாம அசாத்தியமா காரியத்தை சாதிக்கிற ஆளு."
+      },
+      "ko": {
+        "meaning": "넉살 좋은 / 뻔뻔할 정도로 대담한",
+        "informal_explanation": "얼굴에 철판을 깔았나 싶을 만큼 뻔뻔하고 당돌하게 지르는 사람."
+      },
+      "zh": {
+        "meaning": "脸皮厚的 / 胆大包天的 / 厚颜无耻的",
+        "informal_explanation": "贼胆包天、脸皮巨厚，连大言不惭的事情都敢直接干出来。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Demander une augmentation après deux semaines de stage, c'est quand même super culotté !",
+      "en": "Asking for a raise after two weeks of internship is seriously cheeky!"
+    }
+  },
+  {
+    "id": "cultive",
+    "french_term": "Cultivé",
+    "informal_french_definition": "Un puits de science qui a lu des tonnes de bouquins et s'intéresse à tout.",
+    "translations": {
+      "en": {
+        "meaning": "Cultured / Well-read",
+        "informal_explanation": "A walking encyclopedia who knows a bit of everything and loves learning."
+      },
+      "fa": {
+        "meaning": "با‌فرهنگ / اهل مطالعه و کتاب‌خوان",
+        "informal_explanation": "کسی که سواد و اطلاعات عمومیش فوق‌العاده‌ست و کلی کتاب خونده."
+      },
+      "gu": {
+        "meaning": "જ્ઞાની / સંસ્કારી અને સુશિક્ષિત",
+        "informal_explanation": "જે ઘણું વાંચેલું-ગણેલું હોય અને દરેક વિષયનું જ્ઞાન ધરાવતો હોય."
+      },
+      "hi": {
+        "meaning": "पढ़ा-लिखा / ज्ञानी",
+        "informal_explanation": "जिसकी जानकारी बहुत गहरी हो, जिसने दुनिया भर की किताबें पढ़ रखी हों।"
+      },
+      "ta": {
+        "meaning": "நூலறிவு மிக்க / பண்பட்ட அறிவாளி",
+        "informal_explanation": "ஏராளமான புத்தகங்களை படிச்சு உலக ஞானம் நெறைய வச்சிருக்க நபர்."
+      },
+      "ko": {
+        "meaning": "교양 있는 / 박학다식한",
+        "informal_explanation": "책도 많이 읽고 다방면으로 상식이 풍부해서 배울 점이 많은 사람."
+      },
+      "zh": {
+        "meaning": "有学识涵养的 / 饱读诗书的",
+        "informal_explanation": "腹有诗书气自华，文化底蕴深厚、啥都能聊上几句的才子。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Discuter avec elle est fascinant, elle est tellement cultivée.",
+      "en": "Chatting with her is fascinating, she is so well-read."
+    }
+  },
+  {
+    "id": "cupide",
+    "french_term": "Cupide",
+    "informal_french_definition": "Un obsédé de la thune qui ne pense qu'à empiler les billets et s'enrichir.",
+    "translations": {
+      "en": {
+        "meaning": "Greedy / Money-hungry",
+        "informal_explanation": "Obsessed with stacking cash and will step on toes for a buck."
+      },
+      "fa": {
+        "meaning": "پول‌پرست / حریص و طماع",
+        "informal_explanation": "کسی که چشمش فقط دنبال پوله و حاضره سر اسکناس هر کاری بکنه."
+      },
+      "gu": {
+        "meaning": "લોભી / પૈસાનો ભૂખ્યો",
+        "informal_explanation": "જેને ફક્ત ને ફક્ત ધન-દોલત જમા કરવાની જ લાલચ હોય."
+      },
+      "hi": {
+        "meaning": "लालची / धन का भूखा",
+        "informal_explanation": "जिसकी नजर हमेशा दूसरों की दौलत और नोटों की गड्डियों पर टिकी रहे।"
+      },
+      "ta": {
+        "meaning": "பேராசை பிடித்த / பணப் பித்தன்",
+        "informal_explanation": "பணத்துக்காக எந்த எல்லைக்கும் போக தயாரா இருக்கிற பேராசைக்காரர்."
+      },
+      "ko": {
+        "meaning": "탐욕스러운 / 돈에 눈이 먼",
+        "informal_explanation": "오직 돈 버는 데만 눈이 돌아가서 수단과 방법을 안 가리는 사람."
+      },
+      "zh": {
+        "meaning": "贪婪贪财的 / 钻进钱眼里的",
+        "informal_explanation": "眼里只有钱、唯利是图，为了发财什么都干得出来的财迷。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Prêt à arnaquer ses propres amis pour du fric, quel mec cupide !",
+      "en": "Ready to scam his own friends for cash, what a money-hungry guy!"
+    }
+  },
+  {
+    "id": "cynique",
+    "french_term": "Cynique",
+    "informal_french_definition": "Quelqu'un de désabusé qui se moque ouvertement des bons sentiments et de la morale.",
+    "translations": {
+      "en": {
+        "meaning": "Cynical / Jaded",
+        "informal_explanation": "Rolls eyes at pure motives and thinks everyone has a dirty hidden angle."
+      },
+      "fa": {
+        "meaning": "بدبین و طعنه‌زن / بی‌اعتقاد به خوب‌ها",
+        "informal_explanation": "کسی که به نیت خوب هیشکی باور نداره و همه‌چیز رو به ریشخند می‌گیره."
+      },
+      "gu": {
+        "meaning": "દોષદર્શી / કટાક્ષ કરનાર",
+        "informal_explanation": "જે માણસાઈ અને નિઃસ્વાર્થ પ્રેમમાં વિશ્વાસ ન રાખતો હોય."
+      },
+      "hi": {
+        "meaning": "निंदक / व्यंग्यपूर्ण सोच वाला",
+        "informal_explanation": "जो किसी की अच्छाई पर भरोसा न करे और हर बात का उपहास उड़ाए।"
+      },
+      "ta": {
+        "meaning": "எதையும் கேலி செய்யும் நபர்",
+        "informal_explanation": "உலகத்துல நல்லதே இல்லன்னு நெனச்சு எல்லாரையும் ஏளனமா பாக்குற ஆளு."
+      },
+      "ko": {
+        "meaning": "냉소적인 / 비꼬는",
+        "informal_explanation": "사람의 선의를 못 믿고 삐딱한 시선으로 빈정거리는 사람."
+      },
+      "zh": {
+        "meaning": "愤世嫉俗的 / 玩世不恭的",
+        "informal_explanation": "不信人间有真善美，总用冷嘲热讽的眼光看待一切的毒舌派。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il a lâché une remarque super cynique sur le bénévolat.",
+      "en": "He dropped a super cynical remark about volunteering."
+    }
+  },
+  {
+    "id": "debrouillard",
+    "french_term": "Débrouillard",
+    "informal_french_definition": "Un champion de la combine qui trouve toujours une solution même avec trois bouts de ficelle.",
+    "translations": {
+      "en": {
+        "meaning": "Resourceful / Street-smart",
+        "informal_explanation": "Can MacGyver their way out of any jam with practically nothing."
+      },
+      "fa": {
+        "meaning": "کاربلد / زبل و همه‌فن‌حریف",
+        "informal_explanation": "کسی که از هیچی راه‌حل درمیاره و هیچ مشکلی زمینش نمی‌زنه."
+      },
+      "gu": {
+        "meaning": "કોઠાસૂઝવાળું / જુગાડુ",
+        "informal_explanation": "ગમે તેવી અટપટી પરિસ્થિતિમાંથી પણ રસ્તો શોધી કાઢે એવો ચતુર માણસ."
+      },
+      "hi": {
+        "meaning": "जुगाड़ू / होशियार",
+        "informal_explanation": "जो किसी भी झमेले से निकलने के लिए कमाल का जुगाड़ भिड़ा ले।"
+      },
+      "ta": {
+        "meaning": "சாமர்த்தியசாலி / எப்படியும் பிழைத்துக் கொள்பவர்",
+        "informal_explanation": "எந்த முட்டுச்சந்துல மாட்டினாலும் சுலபமா வழி கண்டுபிடிச்சிடுவாரு."
+      },
+      "ko": {
+        "meaning": "생활력 강한 / 요령 있는",
+        "informal_explanation": "아무리 막막한 상황에 처해도 기어코 해결책을 찾아내는 맥가이버."
+      },
+      "zh": {
+        "meaning": "精明能干的 / 点子多能应变的",
+        "informal_explanation": "极其机灵、生存能力爆表，哪怕徒手抓瞎也能给你搞定问题。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Perdu en pleine forêt sans réseau, c'est grâce à son côté débrouillard qu'on est rentrés.",
+      "en": "Lost in the woods with no phone signal, it was thanks to his resourcefulness that we got back."
+    }
+  },
+  {
+    "id": "dependant",
+    "french_term": "Dépendant",
+    "informal_french_definition": "Quelqu'un qui ne peut rien faire sans les autres et s'accroche comme une sangsue.",
+    "translations": {
+      "en": {
+        "meaning": "Dependent / Clingy",
+        "informal_explanation": "Can't take a single step without leaning hard on somebody else."
+      },
+      "fa": {
+        "meaning": "وابسته / نیازمند به دیگران",
+        "informal_explanation": "کسی که تنهایی از پس هیچ کاری برنمیاد و چسبیده به این و اون."
+      },
+      "gu": {
+        "meaning": "પરાધીન / બીજા પર નિર્ભર",
+        "informal_explanation": "જેને નાની નાની બાબતો માટે પણ બીજાના સહારાની જરૂર પડે."
+      },
+      "hi": {
+        "meaning": "दूसरों पर निर्भर / चिपको स्वभाव",
+        "informal_explanation": "जो अपने दम पर कुछ न कर सके और हमेशा दूसरों का सहारा ढूंढे।"
+      },
+      "ta": {
+        "meaning": "அடுத்தவரைச் சார்ந்திருக்கும் குணம்",
+        "informal_explanation": "தனியா எதையும் செய்ய தைரியமில்லாம எப்பவும் அடுத்தவங்களை ஒட்டியே வாழும் நபர்."
+      },
+      "ko": {
+        "meaning": "의존적인 / 매달리는",
+        "informal_explanation": "혼자서는 밥도 못 고를 만큼 남에게 의지하고 집착하는 사람."
+      },
+      "zh": {
+        "meaning": "依附性强的 / 粘人脆弱的",
+        "informal_explanation": "生活毫无自理独立性、离开了别人就完全转不动的攀附型人格。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il est tellement dépendant de ses parents qu'il ne sait même pas faire cuire des pâtes.",
+      "en": "He's so dependent on his parents he doesn't even know how to boil pasta."
+    }
+  },
+  {
+    "id": "depressif",
+    "french_term": "Dépressif",
+    "informal_french_definition": "Quelqu'un qui broie du noir en permanence et voit le monde à travers un filtre gris.",
+    "translations": {
+      "en": {
+        "meaning": "Gloomy / Melancholic",
+        "informal_explanation": "Constantly feeling down in the dumps and dragging a cloud along."
+      },
+      "fa": {
+        "meaning": "افسرده / غم‌زده و دلمرده",
+        "informal_explanation": "کسی که همیشه ساز غم میزنه و رمقی برای زندگی و خوشی نداره."
+      },
+      "gu": {
+        "meaning": "હતાશ / ઉદાસીન",
+        "informal_explanation": "જેનું મન હંમેશા ઉદાસ રહેતું હોય અને જીવવાનો ઉત્સાહ ગુમાવી ચૂક્યો હોય."
+      },
+      "hi": {
+        "meaning": "निराश / उदास रहने वाला",
+        "informal_explanation": "जिस पर हमेशा मायूसी छाई रहे और जो हर चीज़ में अंधेरा ही देखे।"
+      },
+      "ta": {
+        "meaning": "மனச்சோர்வடைந்த / உற்சாகமில்லாத",
+        "informal_explanation": "எப்பவும் முகத்தை தொங்கப்போட்டுக்கிட்டு சோகத்திலயே மூழ்கியிருக்கிற ஆளு."
+      },
+      "ko": {
+        "meaning": "우울한 / 기운 없는",
+        "informal_explanation": "매사에 의욕이 없고 마음속에 짙은 먹구름을 안고 사는 사람."
+      },
+      "zh": {
+        "meaning": "消沉阴郁的 / 抑郁寡欢的",
+        "informal_explanation": "整天无精打采、满脑子消极负能量、看世界灰蒙蒙的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Avec ce temps pluvieux, il a toujours une mine un peu dépressive.",
+      "en": "With this rainy weather, he always has a slightly gloomy look."
+    }
+  },
+  {
+    "id": "deraisonnable",
+    "french_term": "Déraisonnable",
+    "informal_french_definition": "Quelqu'un qui perd la boule et fait des conneries sans penser aux retombées.",
+    "translations": {
+      "en": {
+        "meaning": "Unreasonable / Reckless",
+        "informal_explanation": "Acts on crazy impulses without a drop of sensible restraint."
+      },
+      "fa": {
+        "meaning": "غیرمنطقی / بی‌ملاحظه و کله‌خراب",
+        "informal_explanation": "کسی که عقل و منطق سرش نمیشه و کارهای زیاده‌روانه و غلط میکنه."
+      },
+      "gu": {
+        "meaning": "ગેરવાજબી / અવિવેકી",
+        "informal_explanation": "જે પરિણામનો વિચાર કર્યા વગર બેફામ અને અવિચારી વર્તન કરે."
+      },
+      "hi": {
+        "meaning": "असंगत / नासमझ",
+        "informal_explanation": "जो बिना अक्ल इस्तेमाल किए अनाप-शनाप हरकतें या फिजूल जिद करे।"
+      },
+      "ta": {
+        "meaning": "அறிவுக்குப் பொருந்தாத / அநியாயமான",
+        "informal_explanation": "கொஞ்சமும் நியாயமில்லாம யோசிக்காம தாறுமாறா செயல்படுற ஆளு."
+      },
+      "ko": {
+        "meaning": "비이성적인 / 분별없는",
+        "informal_explanation": "상식 밖의 억지를 부리거나 뒷감당 못 할 짓을 저지르는 사람."
+      },
+      "zh": {
+        "meaning": "不知分寸的 / 不讲道理的",
+        "informal_explanation": "做事不计后果、脑子发热就胡作非为的任性主儿。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Dépenser tout son salaire dès le premier jour, c'est totalement déraisonnable !",
+      "en": "Blowing your entire paycheck on day one is totally reckless!"
+    }
+  },
+  {
+    "id": "desordonne",
+    "french_term": "Désordonné",
+    "informal_french_definition": "Un bordélique fini qui laisse traîner ses affaires partout et vit dans un capharnaüm.",
+    "translations": {
+      "en": {
+        "meaning": "Messy / Disorganized",
+        "informal_explanation": "Leaves clutter in their wake and couldn't find their shoes if they tried."
+      },
+      "fa": {
+        "meaning": "نامرتب / شلخته و بی‌نظم",
+        "informal_explanation": "کسی که همه‌چیزش پخش‌وپلاست و اتاقش همیشه مثل بازار شامه."
+      },
+      "gu": {
+        "meaning": "અસ્તવ્યસ્ત / અણઘડ",
+        "informal_explanation": "જેનો સામાન હંમેશા રઝળતો હોય અને વ્યવસ્થા નામની ચીજ ન હોય."
+      },
+      "hi": {
+        "meaning": "अव्यवस्थित / बिखरा-बिखरा रहने वाला",
+        "informal_explanation": "जिसका कमरा हमेशा कबाड़खाना बना रहे और चीज़ें इधर-उधर बिखरी हों।"
+      },
+      "ta": {
+        "meaning": "ஒழுங்கற்ற / கண்டபடி போட்டு வைக்கும்",
+        "informal_explanation": "பொருட்களை ஒழுங்கா வைக்காம வீடு பூரா கண்டமேனிக்கு பரப்பி வைக்கும் ஆளு."
+      },
+      "ko": {
+        "meaning": "어지러운 / 난잡한 / 정리 못하는",
+        "informal_explanation": "물건을 썼으면 제자리에 둘 줄 모르고 온 방을 난장판으로 만드는 사람."
+      },
+      "zh": {
+        "meaning": "邋遢混乱的 / 没条理的",
+        "informal_explanation": "东西到处乱丢、房间像狗窝一样乱七八糟的乱室佳人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il est tellement désordonné qu'il passe 20 minutes chaque matin à chercher ses clés.",
+      "en": "He's so messy that he spends 20 minutes every morning hunting for his keys."
+    }
+  },
+  {
+    "id": "detendu",
+    "french_term": "Détendu",
+    "informal_french_definition": "Un gars cool qui ne se prend pas la tête et prend la vie du bon côté.",
+    "translations": {
+      "en": {
+        "meaning": "Laid-back / Relaxed",
+        "informal_explanation": "Easy-going and refusing to let life's small dramas stress them out."
+      },
+      "fa": {
+        "meaning": "ریلکس / بی‌خیال و آسوده‌خاطر",
+        "informal_explanation": "کسی که خیلی خونسرده، حرص نمیخوره و همه چیزو راحت می‌گیره."
+      },
+      "gu": {
+        "meaning": "તણાવમુક્ત / બિન્દાસ",
+        "informal_explanation": "જે કોઈ વાતની ચિંતા કર્યા વગર મોજમાં જ જીવે."
+      },
+      "hi": {
+        "meaning": "बेफिक्र / सुकून में रहने वाला",
+        "informal_explanation": "जो टेंशन से कोसों दूर रहे और मौज-मस्ती के मूड में लाइफ जिए।"
+      },
+      "ta": {
+        "meaning": "ரிலாக்ஸான / கூலான மனிதர்",
+        "informal_explanation": "எதையும் தலையில போட்டு குழப்பிக்காம ஜாலியா இருக்கிற மனப்பான்மை."
+      },
+      "ko": {
+        "meaning": "느긋한 / 여유로운",
+        "informal_explanation": "안달복달하지 않고 매사를 편안한 마음으로 즐기는 릴랙스한 사람."
+      },
+      "zh": {
+        "meaning": "从容松弛的 / 随性的",
+        "informal_explanation": "松弛感拉满、不争不抢、日子过得优哉游哉的乐天派。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Depuis qu'il est en vacances, il a l'air tellement détendu !",
+      "en": "Since he went on vacation, he looks so totally relaxed!"
+    }
+  },
+  {
+    "id": "detestable",
+    "french_term": "Détestable",
+    "informal_french_definition": "Quelqu'un d'odieux et détestable qu'on a juste envie de fuir à grandes enjambées.",
+    "translations": {
+      "en": {
+        "meaning": "Obnoxious / Hateful",
+        "informal_explanation": "Deeply obnoxious; the kind of person everyone secretly avoids."
+      },
+      "fa": {
+        "meaning": "نفرت‌انگیز / نچسب و آزاردهنده",
+        "informal_explanation": "کسی که انقدر بدرفتاره که همه دلشون میخواد از صد فرسخیش رد نشن."
+      },
+      "gu": {
+        "meaning": "ધિક્કારપાત્ર / અણગમતું",
+        "informal_explanation": "જેના ખરાબ વર્તનથી બધા એનાથી દૂર ભાગવાનો પ્રયત્ન કરે."
+      },
+      "hi": {
+        "meaning": "घिनौना / नापसंद करने योग्य",
+        "informal_explanation": "जिसकी हरकतें इतनी घटिया हों कि कोई उसके पास भी न फटकना चाहे।"
+      },
+      "ta": {
+        "meaning": "வெறுக்கத்தக்க / அருவருப்பான",
+        "informal_explanation": "பார்த்தாலே எரியிற அளவுக்கு எல்லாரும் ஒதுக்குற கேவலமான குணம்."
+      },
+      "ko": {
+        "meaning": "정떨어지는 / 밉살스러운",
+        "informal_explanation": "하는 짓마다 꼴 보기 싫어서 저절로 피하게 되는 얄미운 사람."
+      },
+      "zh": {
+        "meaning": "令人生厌的 / 极度讨人嫌的",
+        "informal_explanation": "为人恶劣做作、大家避之唯恐不及的人嫌狗碎型选手。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il a été d'une humeur détestable pendant tout le dîner, une vraie plaie !",
+      "en": "He was in an obnoxious mood throughout the entire dinner, a total drag!"
+    }
+  },
+  {
+    "id": "devoue",
+    "french_term": "Dévoué",
+    "informal_french_definition": "Un pote fidèle qui se plie en quatre pour ses proches sans jamais compter.",
+    "translations": {
+      "en": {
+        "meaning": "Devoted / Dedicated",
+        "informal_explanation": "Bends over backwards to help the people they love, no questions asked."
+      },
+      "fa": {
+        "meaning": "فداکار / پای‌کار و جان‌برکف",
+        "informal_explanation": "کسی که از جون و دل مایه میذاره تا کار عزیزانش راه بیفته."
+      },
+      "gu": {
+        "meaning": "સમર્પિત / વફાદાર",
+        "informal_explanation": "જે પોતાના લોકો માટે કોઈપણ હદ સુધી જઈને મદદ કરવા તત્પર રહે."
+      },
+      "hi": {
+        "meaning": "समर्पित / जान छिड़कने वाला",
+        "informal_explanation": "जो अपनों की खातिर जी-जान लगा दे और हर वक्त मदद के लिए तैयार रहे।"
+      },
+      "ta": {
+        "meaning": "அர்ப்பணிப்புள்ள / பாசமுள்ள மனிதர்",
+        "informal_explanation": "மத்தவங்களுக்காக தன்னை முழுசா அர்ப்பணிச்சு ஓடி ஓடி உழைக்கும் உள்ளம்."
+      },
+      "ko": {
+        "meaning": "헌신적인 / 몸 바쳐 돕는",
+        "informal_explanation": "소중한 사람들을 위해서라면 발 벗고 나서서 지극정성을 다하는 사람."
+      },
+      "zh": {
+        "meaning": "尽心奉献的 / 全心全意的",
+        "informal_explanation": "任劳任怨、为身边的人赴汤蹈火在所不惜的忠厚奉献者。"
+      }
+    },
+    "example_sentence": {
+      "fr": "C'est un père incroyablement dévoué, il fait passer ses gosses avant tout.",
+      "en": "He's an incredibly devoted father, he puts his kids before everything else."
+    }
+  },
+  {
+    "id": "diabolique",
+    "french_term": "Diabolique",
+    "informal_french_definition": "Un petit démon malicieux qui manigance des coups tordus avec un grand sourire.",
+    "translations": {
+      "en": {
+        "meaning": "Diabolical / Devilish",
+        "informal_explanation": "Plots evil little schemes with a wicked, mischievous grin."
+      },
+      "fa": {
+        "meaning": "شیطانی / خبیث و زیرک",
+        "informal_explanation": "کسی که نقشه‌های شیطنت‌آمیز و بدجنسانه میکشه و کیف میکنه."
+      },
+      "gu": {
+        "meaning": "દુષ્ટ / શેતાની બુદ્ધિવાળું",
+        "informal_explanation": "જેના ભેજામાં હંમેશા બીજાને પછાડવાના કાવતરાં જ ઘડાતાં હોય."
+      },
+      "hi": {
+        "meaning": "शैतानी / धूर्त",
+        "informal_explanation": "जिसके दिमाग में हमेशा खुराफाती और शातिराना चालें चलती रहें।"
+      },
+      "ta": {
+        "meaning": "வில்லத்தனமான / சாத்தானிய குணம்",
+        "informal_explanation": "மத்தவங்களுக்கு குழிபறிக்க அக்குவேறு ஆணிவேறா திட்டம் போடும் வில்லன்."
+      },
+      "ko": {
+        "meaning": "악마 같은 / 사악하고 교활한",
+        "informal_explanation": "사악한 미소를 지으며 남 골탕 먹일 계략을 꾸미는 교활한 사람."
+      },
+      "zh": {
+        "meaning": "恶魔般的 / 狡黠使坏的",
+        "informal_explanation": "肚子里全是坏水、笑里藏刀琢磨阴招的机巧反派。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Elle a un plan diabolique pour piéger son frère le premier avril.",
+      "en": "She has a diabolical plan to prank her brother on April Fools' Day."
+    }
+  },
+  {
+    "id": "diplomate",
+    "french_term": "Diplomate",
+    "informal_french_definition": "Quelqu'un qui sait peser ses mots pour désamorcer les conflits sans froisser personne.",
+    "translations": {
+      "en": {
+        "meaning": "Diplomatic / Tactful",
+        "informal_explanation": "Knows how to tell you hard truths without hurting feelings."
+      },
+      "fa": {
+        "meaning": "دیپلمات / کاردان و سیاست‌مدار",
+        "informal_explanation": "کسی که بلده چطور با پنبه سر ببره و کلمات رو نرم و حساب‌شده بگه."
+      },
+      "gu": {
+        "meaning": "મુત્સદ્દી / વ્યવહારકુશળ",
+        "informal_explanation": "જે સંબંધો બગડ્યા વગર સાચી વાત પ્રેમથી સમજાવી દે."
+      },
+      "hi": {
+        "meaning": "कूटनीतिक / व्यावहारिक",
+        "informal_explanation": "जो ऐसी नपी-तुली बात कहे कि सांप भी मर जाए और लाठी भी न टूटे।"
+      },
+      "ta": {
+        "meaning": "சாமர்த்தியமான / நயமாகப் பேசும்",
+        "informal_explanation": "யாருடைய மனசும் புண்படாம பக்குவமா பேசி காரியத்தை முடிக்கும் நபர்."
+      },
+      "ko": {
+        "meaning": "수완 좋은 / 처세술이 뛰어난",
+        "informal_explanation": "말을 가려 할 줄 알아서 누구의 기분도 상하지 않게 갈등을 푸는 사람."
+      },
+      "zh": {
+        "meaning": "八面玲珑的 / 懂外交手腕的",
+        "informal_explanation": "说话滴水不漏、善于化干戈为玉帛的和事佬高手。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Heureusement qu'il a été diplomate, sinon la réunion partait en vrille.",
+      "en": "Luckily he was diplomatic, otherwise the meeting would have gone completely off the rails."
+    }
+  },
+  {
+    "id": "direct",
+    "french_term": "Direct",
+    "informal_french_definition": "Quelqu'un de franc du collier qui te balance la vérité sans fioritures.",
+    "translations": {
+      "en": {
+        "meaning": "Direct / Straight-shooter",
+        "informal_explanation": "Tells it like it is, no sugarcoating, straight to the point."
+      },
+      "fa": {
+        "meaning": "رک / صریح و بی‌تعارف",
+        "informal_explanation": "کسی که لقمه رو دور سرش نمی‌چرخونه و حقیقت رو تو روت میگه."
+      },
+      "gu": {
+        "meaning": "સ્પષ્ટવક્તા / સીધેસીધું કહેનાર",
+        "informal_explanation": "જે ગોળગોળ વાત કર્યા વગર મોં પર સીધું જ સંભળાવી દે."
+      },
+      "hi": {
+        "meaning": "मुंफट / सीधा बोलने वाला",
+        "informal_explanation": "जो बिना लाग-लपेट के सीधी और सच्ची बात मुंह पर कह दे।"
+      },
+      "ta": {
+        "meaning": "நேரடியாய் பேசும் / ஒளிவுமறைவற்ற",
+        "informal_explanation": "மழுப்பாம முகத்துக்கு நேரா உள்ளதை உள்ளபடி போட்டுடைக்கிற ஆளு."
+      },
+      "ko": {
+        "meaning": "직설적인 / 솔직한",
+        "informal_explanation": "빙빙 돌리지 않고 돌직구로 본론만 시원하게 꽂아버리는 사람."
+      },
+      "zh": {
+        "meaning": "心直口快的 / 直球派的",
+        "informal_explanation": "直肠子开门见山、从不拐弯抹角糊弄人的爽快人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "J'apprécie qu'il soit direct : avec lui, au moins, on sait à quoi s'en tenir.",
+      "en": "I appreciate that he's direct: with him, at least you know where you stand."
+    }
+  },
+  {
+    "id": "discipline",
+    "french_term": "Discipliné",
+    "informal_french_definition": "Une horloge suisse vivante qui suit ses routines et tient ses engagements au poil.",
+    "translations": {
+      "en": {
+        "meaning": "Disciplined / Self-controlled",
+        "informal_explanation": "Sticks to their daily habits like clockwork, zero slack."
+      },
+      "fa": {
+        "meaning": "منضبط / خودساخته و قانون‌مند",
+        "informal_explanation": "کسی که برنامه‌اش مو لای درزش نمیره و طبق اصول جلو میره."
+      },
+      "gu": {
+        "meaning": "શિસ્તબદ્ધ / નિયમિત",
+        "informal_explanation": "જે પોતાના નિયમો અને દિનચર્યાનું ચુસ્તપણે પાલન કરે."
+      },
+      "hi": {
+        "meaning": "अनुशासित / पाबंद",
+        "informal_explanation": "जो अपने उसूलों और रूटीन का पक्का हो और समय की कद्र करे।"
+      },
+      "ta": {
+        "meaning": "ஒழுக்கமுள்ள / கட்டுப்பாடுள்ள",
+        "informal_explanation": "சொன்ன நேரத்துக்கு பக்காவா திட்டமிட்டபடி வாழும் சுபாவம்."
+      },
+      "ko": {
+        "meaning": "규율 있는 / 절제력 있는",
+        "informal_explanation": "칼같이 일정을 지키고 스스로를 다스릴 줄 아는 모범생 스타일."
+      },
+      "zh": {
+        "meaning": "自律自制的 / 守纪律的",
+        "informal_explanation": "极其自律、做事井井有条、执行力宛如瑞士手表的严谨星人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il s'entraîne tous les matins à 6h, il est hyper discipliné.",
+      "en": "He works out every morning at 6 AM, he's super disciplined."
+    }
+  },
+  {
+    "id": "discret",
+    "french_term": "Discret",
+    "informal_french_definition": "Quelqu'un qui ne la ramène pas, sait garder un secret et ne se fait jamais remarquer.",
+    "translations": {
+      "en": {
+        "meaning": "Discreet / Low-key",
+        "informal_explanation": "Keeps secrets on lock and prefers flying below the radar."
+      },
+      "fa": {
+        "meaning": "تودار / دهان‌قرص و بی‌سروصدا",
+        "informal_explanation": "کسی که سرش تو لاک خودشه، جار نمی‌زنه و رازدار خوبیه."
+      },
+      "gu": {
+        "meaning": "શાંત / ખાનગી રાખનાર",
+        "informal_explanation": "જે દેખાડો ન કરે અને ગુપ્ત વાતો પોતાના પેટમાં સાચવી રાખે."
+      },
+      "hi": {
+        "meaning": "शांत / राज़दार",
+        "informal_explanation": "जो शो-ऑफ न करे, चुपचाप रहे और दूसरों की बातें अपने सीने में दबाकर रखे।"
+      },
+      "ta": {
+        "meaning": "ரகசியம் காக்கும் / அடக்கமான",
+        "informal_explanation": "தன் வேலையுண்டு தானுண்டுனு பந்தா பண்ணாம ரகசியத்தை காக்கும் நபர்."
+      },
+      "ko": {
+        "meaning": "과묵한 / 입이 무거운",
+        "informal_explanation": "남의 비밀을 절대 누설하지 않고 조용하게 자기 일만 하는 사람."
+      },
+      "zh": {
+        "meaning": "低调沉稳的 / 嘴严的",
+        "informal_explanation": "不爱显摆张扬、嘴巴非常紧、安安静静做实事的人。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Tu peux tout lui raconter : elle est hyper discrète et ne répète rien.",
+      "en": "You can tell her anything: she's super discreet and won't repeat a thing."
+    }
+  },
+  {
+    "id": "distrait",
+    "french_term": "Distrait",
+    "informal_french_definition": "Quelqu'un qui a la tête dans les nuages et oublie toujours où il a posé son portable.",
+    "translations": {
+      "en": {
+        "meaning": "Absent-minded / Space cadet",
+        "informal_explanation": "Walking with their head in the clouds, always losing keys or glasses."
+      },
+      "fa": {
+        "meaning": "حواس‌پرت / گیج و منگ",
+        "informal_explanation": "کسی که فکرش همش پرواز میکنه و مدام وسایلشو جا میذاره."
+      },
+      "gu": {
+        "meaning": "ભૂલકણું / અન્યમનસ્ક",
+        "informal_explanation": "જેનું ધ્યાન ક્યાંય બીજે જ હોય અને નાની નાની વસ્તુઓ ભૂલી જતો હોય."
+      },
+      "hi": {
+        "meaning": "भुलक्कड़ / खोया-खोया रहने वाला",
+        "informal_explanation": "जिसका दिमाग कहीं और ही उड़ रहा हो और हर सामान रखकर भूल जाए।"
+      },
+      "ta": {
+        "meaning": "கவனக்குறைவான / மறதி பிடித்த",
+        "informal_explanation": "எப்பவும் கனவுலகத்துல மிதந்துட்டு எதையாவது தொலைச்சிட்டு நிக்கிற ஆளு."
+      },
+      "ko": {
+        "meaning": "정신없는 / 멍때리는 / 칠칠맞은",
+        "informal_explanation": "딴생각에 푹 빠져서 물건을 잃어버리거나 덤벙거리는 사람."
+      },
+      "zh": {
+        "meaning": "心不在焉的 / 健忘迷糊的",
+        "informal_explanation": "整天神游天外、丢三落四、小糊涂蛋本蛋。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il est tellement distrait qu'il est sorti avec deux chaussettes dépareillées.",
+      "en": "He's so absent-minded that he walked out wearing mismatched socks."
+    }
+  },
+  {
+    "id": "doux",
+    "french_term": "Doux",
+    "informal_french_definition": "Une crème de personne, calme, câline et sans une once d'agressivité.",
+    "translations": {
+      "en": {
+        "meaning": "Gentle / Mild-tempered",
+        "informal_explanation": "Sweet-natured, soft-spoken, and wouldn't hurt a fly."
+      },
+      "fa": {
+        "meaning": "ملایم / مهربان و آرام",
+        "informal_explanation": "کسی که دل‌رحم و آرومه و سر سوزنی خشونت تو وجودش پیدا نمیشه."
+      },
+      "gu": {
+        "meaning": "કોમળ / સૌમ્ય",
+        "informal_explanation": "જેનો સ્વભાવ અતિશય મીઠો અને શાંત હોય."
+      },
+      "hi": {
+        "meaning": "सौम्य / कोमल स्वभाव वाला",
+        "informal_explanation": "जो बहुत मीठा बोले, कभी गुस्सा न करे और बेहद मासूम दिल हो।"
+      },
+      "ta": {
+        "meaning": "மென்மையான / சாதுவான",
+        "informal_explanation": "ஒரு எறும்புக்கு கூட தீங்கு நினைக்காத ரொம்ப சாதுவான நல்லவர்."
+      },
+      "ko": {
+        "meaning": "온화한 / 부드러운",
+        "informal_explanation": "성격이 모나지 않고 솜사탕처럼 부드럽고 온화한 사람."
+      },
+      "zh": {
+        "meaning": "温柔可人的 / 随和轻柔的",
+        "informal_explanation": "轻声细语、温润如水、连只蚂蚁都舍不得踩死的软妹子/暖男。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Elle a un caractère si doux qu'elle ne s'énerve littéralement jamais.",
+      "en": "Her temper is so gentle she literally never loses her cool."
+    }
+  },
+  {
+    "id": "dynamique",
+    "french_term": "Dynamique",
+    "informal_french_definition": "Quelqu'un qui a la pêche du matin au soir et bouge dans tous les sens.",
+    "translations": {
+      "en": {
+        "meaning": "Dynamic / Go-getter",
+        "informal_explanation": "A pure ball of energy who runs around getting stuff done."
+      },
+      "fa": {
+        "meaning": "پُرانرژی / فعال و پرتحرک",
+        "informal_explanation": "کسی که موتورش همیشه روشنه و از صبح تا شب با شور کار میکنه."
+      },
+      "gu": {
+        "meaning": "ઉત્સાહી / સ્ફૂર્તિવાળું",
+        "informal_explanation": "જે ક્યારેય થાકે નહીં અને દિવસભર દોડાદોડ કરતો રહે."
+      },
+      "hi": {
+        "meaning": "ऊर्जावान / फुर्तीला",
+        "informal_explanation": "जिसमें गजब का करंट हो और जो दिन भर पूरे जोश से काम में जुटा रहे।"
+      },
+      "ta": {
+        "meaning": "சுறுசுறுப்பான / உற்சாகம் பொங்கும்",
+        "informal_explanation": "எப்பவும் மின்னல் வேகத்துல சுறுசுறுப்பா இயங்கிக்கிட்டே இருக்கிற சுபாவம்."
+      },
+      "ko": {
+        "meaning": "활력 넘치는 / 진취적인",
+        "informal_explanation": "비타민처럼 에너지가 철철 넘쳐나서 부지런히 뛰어다니는 사람."
+      },
+      "zh": {
+        "meaning": "精力充沛的 / 充满活力的",
+        "informal_explanation": "充满干劲、像装了永动机一样整天脚底抹油跑得飞起。"
+      }
+    },
+    "example_sentence": {
+      "fr": "On a besoin de quelqu'un de dynamique pour animer ce stage !",
+      "en": "We need a dynamic person to run this workshop!"
+    }
+  },
+  {
+    "id": "mefiant",
+    "french_term": "Méfiant",
+    "informal_french_definition": "Quelqu'un qui flaire le piège partout et ne fait confiance à personne avant d'avoir des preuves en béton.",
+    "translations": {
+      "en": {
+        "meaning": "Suspicious / Wary",
+        "informal_explanation": "Doesn't trust easily, always waiting for the other shoe to drop."
+      },
+      "fa": {
+        "meaning": "شکاک / دیرباور و محتاط",
+        "informal_explanation": "کسی که چشمش از همه‌چیز می‌ترسه و به این راحتی‌ها به کسی اعتماد نمی‌کنه."
+      },
+      "gu": {
+        "meaning": "શંકાશીલ / સાવચેત",
+        "informal_explanation": "જે દરેક વાતમાં વહેમ રાખે અને જલદી કોઈનો ભરોસો ન કરે."
+      },
+      "hi": {
+        "meaning": "शक्की / चौकन्ना",
+        "informal_explanation": "जो हर किसी को शक की नजर से देखे और आसानी से भरोसा न करे।"
+      },
+      "ta": {
+        "meaning": "சந்தேக பேர்வழி / உஷாரான மனிதர்",
+        "informal_explanation": "யாரையும் சட்டுனு நம்பாம எல்லாத்துலயும் சதி இருக்கும்னு நினைக்கிற ஆளு."
+      },
+      "ko": {
+        "meaning": "의심 많은 / 경계하는",
+        "informal_explanation": "사람을 쉽게 믿지 않고 늘 무슨 꿍꿍이가 있나 의심하는 사람."
+      },
+      "zh": {
+        "meaning": "多疑警惕的 / 防备心重的",
+        "informal_explanation": "防备心特别重、生怕被坑、绝不轻易相信任何人的戒备狂。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Depuis qu'il s'est fait arnaquer, il est devenu super méfiant avec les inconnus.",
+      "en": "Ever since he got scammed, he's been super wary of strangers."
+    }
+  },
+  {
+    "id": "methodique",
+    "french_term": "Méthodique",
+    "informal_french_definition": "Quelqu'un d'ultra ordonné qui suit son plan étape par étape sans jamais improviser.",
+    "translations": {
+      "en": {
+        "meaning": "Methodical / Systematic",
+        "informal_explanation": "Does everything strictly step by step with zero shortcuts."
+      },
+      "fa": {
+        "meaning": "منظم و اصولی / اهل برنامه و اسلوب",
+        "informal_explanation": "کسی که هر کاری رو روی اصول و گام‌به‌گام با متد دقیق انجام میده."
+      },
+      "gu": {
+        "meaning": "પદ્ધતિસરનું / વ્યવસ્થિત",
+        "informal_explanation": "જે કોઈ પણ કામ યોજના બનાવીને ક્રમબદ્ધ રીતે જ પૂરું કરે."
+      },
+      "hi": {
+        "meaning": "व्यवस्थित / नियमबद्ध",
+        "informal_explanation": "जो हर काम कायदे-कानून और स्टेप-बाय-स्टेप प्लानिंग के साथ निपटाए।"
+      },
+      "ta": {
+        "meaning": "முறையான / திட்டமிட்டு செய்யும்",
+        "informal_explanation": "எடுத்தோம் கவிழ்த்தோம்னு இல்லாம படி படியா நேர்த்தியா செய்யும் நபர்."
+      },
+      "ko": {
+        "meaning": "체계적인 / 꼼꼼하게 순서를 밟는",
+        "informal_explanation": "계획표대로 착착 순서에 맞춰 오차 없이 일을 처리하는 사람."
+      },
+      "zh": {
+        "meaning": "有条不紊的 / 按部就班的",
+        "informal_explanation": "做事特别讲究章程规矩、一步一个脚印绝对不乱阵脚。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Elle range ses dossiers de manière tellement méthodique qu'elle retrouve tout en une seconde.",
+      "en": "She organizes her files so methodically that she finds anything in a split second."
+    }
+  },
+  {
+    "id": "modere",
+    "french_term": "Modéré",
+    "informal_french_definition": "Quelqu'un qui ne verse jamais dans les extrêmes et choisit toujours la voie du milieu.",
+    "translations": {
+      "en": {
+        "meaning": "Moderate / Balanced",
+        "informal_explanation": "Avoids wild extremes, keeping both feet firmly grounded."
+      },
+      "fa": {
+        "meaning": "میانه رو / معتدل",
+        "informal_explanation": "کسی که اهل افراط و تفریط نیست و همیشه حد وسط رو نگه می‌داره."
+      },
+      "gu": {
+        "meaning": "મધ્યમમાર્ગી / સંયમિત",
+        "informal_explanation": "જે કોઈ વાતમાં અતિરેક ન કરે અને સમતોલ વલણ જાળવી રાખે."
+      },
+      "hi": {
+        "meaning": "संतुलित / मध्यममार्गी",
+        "informal_explanation": "जो कभी अति न करे और हमेशा संतुलन और समझदारी से काम ले।"
+      },
+      "ta": {
+        "meaning": "நடுநிலையான / மிதமான குணம்",
+        "informal_explanation": "எந்த எல்லைக்கும் போகாம நிதானமா சமநிலையோடு முடிவெடுக்கும் ஆளு."
+      },
+      "ko": {
+        "meaning": "온건한 / 절도 있는",
+        "informal_explanation": "극단으로 치닫지 않고 매사에 균형 감각을 잃지 않는 사람."
+      },
+      "zh": {
+        "meaning": "适度的 / 中庸稳健的",
+        "informal_explanation": "不走极端、凡事讲究分寸火候、持中守正的老好性子。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Il a toujours des opinions très modérées, il n'aime pas les débats houleux.",
+      "en": "He always holds very moderate views, he doesn't enjoy heated arguments."
+    }
+  },
+  {
+    "id": "tolerant",
+    "french_term": "Tolérant",
+    "informal_french_definition": "Quelqu'un de très ouvert d'esprit qui accepte les différences des autres sans broncher.",
+    "translations": {
+      "en": {
+        "meaning": "Tolerant / Broad-minded",
+        "informal_explanation": "Open-minded and cool with people doing their own thing."
+      },
+      "fa": {
+        "meaning": "روادارا / باگذشت و پذیرای تفاوت‌ها",
+        "informal_explanation": "کسی که به عقاید و تفاوت‌های بقیه احترام میذاره و گیر نمیده."
+      },
+      "gu": {
+        "meaning": "સહનશીલ / ઉદાર મનનું",
+        "informal_explanation": "જે બીજાના વિચારો અને વિરોધાભાસને સહજતાથી સ્વીકારી લે."
+      },
+      "hi": {
+        "meaning": "सहनशील / खुले विचारों वाला",
+        "informal_explanation": "जो दूसरों के तौर-तरीकों और सोच का सम्मान करे और टोक-टोकी न करे।"
+      },
+      "ta": {
+        "meaning": "சகிப்புத்தன்மை கொண்டவர்",
+        "informal_explanation": "மத்தவங்களோட மாற்று கருத்துக்களை மதிச்சு ஏத்துக்கிற பரந்த மனசு."
+      },
+      "ko": {
+        "meaning": "관대한 / 포용력 있는",
+        "informal_explanation": "나와 다른 생각이나 행동도 쿨하게 인정하고 받아들이는 사람."
+      },
+      "zh": {
+        "meaning": "包容开明的 / 宽宏大量的",
+        "informal_explanation": "思想开放，求同存异，能包容接纳形形色色不同人与事的胸怀。"
+      }
+    },
+    "example_sentence": {
+      "fr": "Ses parents sont super tolérants, ils le laissent vivre sa vie comme il l'entend.",
+      "en": "His parents are super tolerant, they let him live his life however he sees fit."
+    }
+  }
+]

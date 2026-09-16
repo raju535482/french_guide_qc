@@ -3655,6 +3655,123 @@
       transform: translate(-1px, -1px);
     }
 
+    /* Neo-Brutalist Personality Adjectives Explorer */
+    [data-style="neo-brutalist"] .pa-controls {
+      background: var(--surface-1);
+      border: 2.5px solid var(--neo-border);
+      box-shadow: 4px 4px 0px var(--neo-border);
+      border-radius: var(--r-md);
+    }
+
+    [data-style="neo-brutalist"] .pa-search-input {
+      border: 2px solid var(--neo-border);
+      box-shadow: 2px 2px 0px var(--neo-border);
+      border-radius: var(--r-xs);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+    }
+
+    [data-style="neo-brutalist"] .pa-search-input:focus {
+      border-color: var(--neo-border);
+      box-shadow: 3.5px 3.5px 0px var(--neo-border);
+    }
+
+    [data-style="neo-brutalist"] .pa-chip {
+      border: 2px solid var(--neo-border);
+      box-shadow: 2.5px 2.5px 0px var(--neo-border);
+      border-radius: var(--r-xs);
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    [data-style="neo-brutalist"] .pa-chip:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3.5px 3.5px 0px var(--neo-border);
+      background: var(--yellow);
+      color: #121212;
+      border-color: var(--neo-border);
+    }
+
+    [data-style="neo-brutalist"] .pa-chip.active {
+      background: var(--blue);
+      color: #121212;
+      border-color: var(--neo-border);
+      box-shadow: 2.5px 2.5px 0px var(--neo-border);
+    }
+
+    [data-style="neo-brutalist"] .pa-stats {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    [data-style="neo-brutalist"] .pa-item {
+      background: var(--surface-1);
+      border: 2.5px solid var(--neo-border);
+      box-shadow: 4px 4px 0px var(--neo-border);
+      border-radius: var(--r-sm);
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-style="neo-brutalist"] .pa-item:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--neo-border);
+      border-color: var(--neo-border);
+    }
+
+    [data-style="neo-brutalist"] .pa-term {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    [data-style="neo-brutalist"] .pa-meaning-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    [data-style="neo-brutalist"] .pa-def-fr {
+      background: var(--purple-dim);
+      border: 2px solid var(--neo-border);
+      border-left: 5px solid var(--purple);
+      box-shadow: 2px 2px 0px var(--neo-border);
+      border-radius: var(--r-xs);
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    [data-style="neo-brutalist"] .pa-native-row {
+      background: var(--yellow-dim);
+      border: 2px solid var(--neo-border);
+      box-shadow: 2px 2px 0px var(--neo-border);
+      border-radius: var(--r-xs);
+      color: var(--text-primary);
+    }
+
+    [data-style="neo-brutalist"] .pa-example-row {
+      border-top: 2px dashed var(--neo-border);
+      padding-top: 0.45rem;
+    }
+
+    [data-style="neo-brutalist"] .pa-ex-fr {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    [data-style="neo-brutalist"] .pa-ex-en {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
     /* ═══════════════════════════════════════════════════════════════
        1. MINIMALIST THEME [data-style="minimalist"]
        Calm, spacious, whisper-thin borders, generous padding,

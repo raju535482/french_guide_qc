@@ -13,7 +13,7 @@ const sections = window.sectionsData || [];
       'y2k-retro',
       'maximalism'
     ];
-    let _currentStyle = 'default';
+    let _currentStyle = 'neo-brutalist';
 
     (function () {
       try {
@@ -22,7 +22,11 @@ const sections = window.sectionsData || [];
         else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) _currentTheme = 'light';
 
         const savedStyle = localStorage.getItem('guideStyle');
-        if (VALID_STYLES.includes(savedStyle)) _currentStyle = savedStyle;
+        if (VALID_STYLES.includes(savedStyle)) {
+          _currentStyle = savedStyle;
+        } else {
+          _currentStyle = 'neo-brutalist';
+        }
       } catch (e) { }
       document.documentElement.setAttribute('data-theme', _currentTheme);
       document.documentElement.setAttribute('data-style', _currentStyle);
@@ -2400,6 +2404,9 @@ const sections = window.sectionsData || [];
     };
 
     function initWidgets(sid) {
+      if (sid === 'personality_adjectives' && typeof window.initPersonalityWidget === 'function') {
+        window.initPersonalityWidget();
+      }
 
       // ── ARTICLES: definite ─────────────────────────────────
       if (sid === 'articles') {
@@ -4126,6 +4133,24 @@ const sections = window.sectionsData || [];
           ]
         }
       },
+      personality_adjectives: {
+        left: {
+          title: "Adjective Patterns",
+          cards: [
+            { heading: "Feminine Agreement", items: [["-e", "calme ➔ calme (no change)"], ["+ e", "accueillant ➔ accueillante"], ["-eux ➔ -euse", "affectueux ➔ affectueuse"], ["-if ➔ -ive", "créatif ➔ créative"], ["-é ➔ -ée", "appliqué ➔ appliquée"]] },
+            { heading: "Spoken Intensifiers", pills: ["super", "hyper", "trop", "vraiment", "grave"] },
+            { heading: "Quebec Descriptors", items: [["ben fin", "super nice / kind"], ["bonne pâte", "gentle good soul"], ["chum / blonde", "boyfriend / girlfriend"]] },
+          ]
+        },
+        right: {
+          tips: [
+            { label: "Tip", text: "Silent final letters sound out in the feminine (e.g. adroit / adroite, direct / directe)" },
+            { label: "QC", text: "'Y'est ben fin' = he is super sweet and generous" },
+            { label: "QC", text: "Drop 'ne' in informal talk: 'Il est pas méchant !'" },
+            { label: "Tip", text: "Click any speaker icon to hear the authentic French pronunciation" },
+          ]
+        }
+      },
     };
 
     // Track completed / visited sections in localStorage
@@ -4492,6 +4517,11 @@ const sections = window.sectionsData || [];
           requestAnimationFrame(() => {
             area.classList.remove('is-entering');
             _rendering = false;
+            // Re-verify widget rendering and block visibility once visible
+            initWidgets(s.id);
+            if (typeof window.refreshBlockVisibility === 'function') {
+              window.refreshBlockVisibility();
+            }
           });
         }, 220); // matches CSS transition duration
       } catch (err) {
@@ -5373,12 +5403,29 @@ window.doModalConjugate = doModalConjugate;
   }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 
   function observeBlocks() {
-    document.querySelectorAll('.block:not(.block-visible)').forEach(b => io.observe(b));
+    const unrevealed = document.querySelectorAll('.block:not(.block-visible)');
+    const vh = window.innerHeight || document.documentElement.clientHeight || 800;
+    unrevealed.forEach((b, idx) => {
+      const rect = b.getBoundingClientRect();
+      // If the block is already within or near the viewport, make it visible immediately
+      if (rect.top < vh + 100 && rect.bottom > -50) {
+        b.style.setProperty('--block-delay', (idx * 40) + 'ms');
+        b.classList.add('block-visible');
+      } else {
+        io.observe(b);
+      }
+    });
   }
+
+  window.refreshBlockVisibility = function() {
+    observeBlocks();
+  };
 
   // Observe after each render (content-area mutation)
   const renderObs = new MutationObserver(() => {
+    observeBlocks();
     setTimeout(observeBlocks, 40);
+    setTimeout(observeBlocks, 260);
   });
   const ca = document.getElementById('content-area');
   if (ca) renderObs.observe(ca, { childList: true });
@@ -5387,7 +5434,9 @@ window.doModalConjugate = doModalConjugate;
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', observeBlocks);
   } else {
+    observeBlocks();
     setTimeout(observeBlocks, 80);
+    setTimeout(observeBlocks, 260);
   }
 })();
 

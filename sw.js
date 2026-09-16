@@ -1,11 +1,12 @@
 // French Grammar Guide — Service Worker for offline PWA transit practice
-const CACHE_NAME = 'french-grammar-guide-v15';
+const CACHE_NAME = 'french-grammar-guide-v20';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
   './css/style.css',
   './data/verbs_db.js',
+  './data/personality_adjectives.json',
   './js/conjugator.js',
   './js/translations.js',
   './js/dem_translations.js',
@@ -37,7 +38,8 @@ const ASSETS_TO_CACHE = [
   './js/sections/24_conjugation_master.js',
   './js/sections/25_prepositions_temps.js',
   './js/sections/26_histoire_montreal.js',
-  './js/sections/27_pc_vs_imparfait.js'
+  './js/sections/27_pc_vs_imparfait.js',
+  './js/sections/28_personality_adjectives.js'
 ];
 
 self.addEventListener('install', event => {

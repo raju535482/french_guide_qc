@@ -2158,3 +2158,56 @@
       const el = document.getElementById('app-subtitle');
       if (el) el.textContent = t('appSubtitle');
     }
+
+    // Register section translations for Personality Adjectives
+    registerSectionTranslations('personality_adjectives', {
+      en: {
+        title: 'Personality Adjectives',
+        subtitle: '76 Traits de caractère — Natural & Conversational',
+        '0_english': 'Search, filter, and listen to all 76 French personality adjectives. Each word features an informal French definition, a real-life conversational example, and instant explanations in English, Persian, Gujarati, Hindi, Tamil, Korean, and Chinese.',
+        '1_english': 'Here is a reference summary of everyday personality adjectives with standard English and native translations.',
+        '2_english': "Remember that personality adjectives agree in gender and number with the person you describe. Adjectives ending in a silent -e (calme, autonome) don't change form in the feminine, while others add -e (affectueux ➔ affectueuse, direct ➔ directe)."
+      },
+      fa: {
+        title: 'صفات شخصیتی',
+        subtitle: '۷۶ صفت شخصیتی کاربردی — زبان خودمانی و محاوره‌ای',
+        '0_english': 'جستجو، فیلتر و گوش دادن به تلفظ تمام ۷۶ صفت شخصیتی فرانسوی همراه با معانی عامیانه، مثال‌های ملموس و معادل‌های فارسی.',
+        '1_english': 'جدول خلاصه پرکاربردترین صفات توصیف اخلاق و شخصیت در گفتگوهای روزمره.',
+        '2_english': 'یادآوری تطابق صفات با فاعل در جنسیت و شمار (مذکر و مؤنث، مفرد و جمع).'
+      },
+      gu: {
+        title: 'વ્યક્તિત્વના વિશેષણો',
+        subtitle: '૭૬ સ્વભાવ અને વ્યક્તિત્વના વિશેષણો — સરળ બોલચાલની શૈલીમાં',
+        '0_english': '૭૬ ફ્રેન્ચ વ્યક્તિત્વ વિશેષણો શોધો, સાંભળો અને ગુજરાતી સમજૂતી સાથે સરળતાથી શીખો.',
+        '1_english': 'રોજિંદી વાતચીતમાં વપરાતા મુખ્ય વ્યક્તિત્વ વિશેષણોનો ઝડપી સંદર્ભ.',
+        '2_english': 'યાદ રાખો કે વિશેષણ સ્ત્રીલિંગ અને પુલ્લિંગ મુજબ બદલાય છે.'
+      },
+      hi: {
+        title: 'व्यक्तित्व विशेषण',
+        subtitle: '76 स्वभाव और व्यक्तित्व के विशेषण — आसान बोलचाल की भाषा में',
+        '0_english': 'सभी 76 फ्रेंच व्यक्तित्व विशेषणों को खोजें, उच्चारण सुनें और सहज हिंदी व्याख्या के साथ सीखें।',
+        '1_english': 'दैनिक बातचीत में अक्सर काम आने वाले प्रमुख व्यक्तित्व विशेषणों की सूची।',
+        '2_english': 'याद रखें कि विशेषण का रूप कर्ता के लिंग (पुल्लिंग/स्त्रीलिंग) और वचन के अनुसार बदलता है।'
+      },
+      ta: {
+        title: 'குணநலன் பெயரடைகள்',
+        subtitle: '76 சுபாவம் மற்றும் குணநலன் பெயரடைகள் — இயல்பான உரையாடல் பாணியில்',
+        '0_english': '76 பிரெஞ்சு குணநலன் பெயரடைகளைத் தேடவும், உச்சரிப்பைக் கேட்கவும், தமிழ் விளக்கத்துடன் கற்கவும்.',
+        '1_english': 'அன்றாடப் பேச்சில் பயன்படும் முக்கிய குணநலன் பெயரடைகளின் விரைவு அட்டவணை.',
+        '2_english': 'பெயரடைகள் பால் மற்றும் எண்ணிற்கு ஏற்ப மாறுபடும் என்பதை நினைவில் கொள்க.'
+      },
+      ko: {
+        title: '성격 형용사',
+        subtitle: '76가지 성격 및 성향 형용사 — 자연스러운 구어체 설명',
+        '0_english': '76가지 프랑스어 성격 형용사를 검색하고 발음을 들으며 친근한 한국어 해설로 학습해 보세요.',
+        '1_english': '일상 대화에서 자주 쓰이는 핵심 성격 형용사 빠른 비교표.',
+        '2_english': '성격 형용사는 수식하는 인물의 성과 수에 일치시켜야 합니다.'
+      },
+      zh: {
+        title: '性格特征形容词',
+        subtitle: '76个地道日常性格特征词汇 — 轻松口语化释义',
+        '0_english': '互动查阅并跟读全部76个性格形容词，配有地道法语口语释义、生动例句及多语言对照。',
+        '1_english': '高频常用性格形容词速查表及双语对照。',
+        '2_english': '请注意性格形容词需根据主语的性与数配合（阴阳性与单复数）。'
+      }
+    });
