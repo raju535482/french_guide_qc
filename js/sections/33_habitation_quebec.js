@@ -10,7 +10,7 @@ window.sectionsData.push({
     {
       "rule": "1. Guide Visuel Interactif : Les Types de Logements au Québec et dans le Monde",
       "english": "Interactive illustrated visual guide to traditional Quebec dwellings, modern housing types, atypical alternative homes, and historic unique living spaces.",
-      "rawHtml": `
+      "customHtml": `
 <style>
 .habitation-visual-card {
   background: var(--surface-2);
@@ -197,7 +197,7 @@ window.sectionsData.push({
 
 .hab-selector-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
   gap: 0.45rem;
   max-height: 240px;
   overflow-y: auto;
@@ -207,7 +207,7 @@ window.sectionsData.push({
 .hab-chip-btn {
   background: var(--surface-1);
   border: 1px solid var(--border);
-  padding: 0.45rem 0.65rem;
+  padding: 0.45rem 0.6rem;
   border-radius: var(--r-xs);
   font-size: 0.8rem;
   font-weight: 700;
@@ -215,12 +215,27 @@ window.sectionsData.push({
   cursor: pointer;
   text-align: left;
   transition: all 0.15s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hab-chip-btn .ms {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.hab-chip-btn .hab-chip-label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .hab-chip-btn:hover {
@@ -646,10 +661,11 @@ window.sectionsData.push({
 
     container.innerHTML = Object.entries(catData.items).map(([key, item]) => {
       const isActive = key === currentItemKey;
+      const cleanName = item.name.split('/')[0].split('(')[0].trim();
       return `
-        <button class="hab-chip-btn ${isActive ? 'active' : ''}" onclick="window.selectHabItem('${key}')" id="hab-chip-${key}">
-          <span class="ms ms-sm" style="font-size:0.9rem">home</span>
-          <span>${item.name.split('(')[0].trim()}</span>
+        <button class="hab-chip-btn ${isActive ? 'active' : ''}" onclick="window.selectHabItem('${key}')" id="hab-chip-${key}" title="${item.name}">
+          <span class="ms ms-sm">home</span>
+          <span class="hab-chip-label">${cleanName}</span>
         </button>
       `;
     }).join('');

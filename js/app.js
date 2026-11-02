@@ -2395,6 +2395,7 @@ const sections = window.sectionsData || [];
       const ihtml = interactiveHTML(sections[current].id, index);
       if (ihtml) html += ihtml;
       if (b.customHtml) html += b.customHtml;
+      if (b.rawHtml) html += b.rawHtml;
 
       html += `</div>`;
       return html;

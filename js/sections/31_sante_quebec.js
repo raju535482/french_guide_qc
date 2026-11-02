@@ -570,7 +570,7 @@ window.sectionsData.push({
     {
       "rule": "5. Le rhume et la grippe : Sachez la différence (Guide comparatif)",
       "english": "Cold vs. Flu: Know the difference according to public health guidelines (gradual onset vs. sudden high fever and severe fatigue).",
-      "rawHtml": `
+      "customHtml": `
 <style>
 .cold-flu-wrapper {
   background: var(--surface-2);
