@@ -181,6 +181,46 @@ window.sectionsData.push({
     <div class="wn-feature-card">
       <div class="wn-card-head">
         <span class="wn-tag wn-tag-new">New Section</span>
+        <span style="font-size:0.75rem;color:var(--text-muted);">Section 31</span>
+      </div>
+      <div class="wn-card-title"><span class="ms ms-sm" style="color:#059669">medical_services</span> Santé et Système Médical</div>
+      <div class="wn-card-body">Navigating Quebec healthcare: RAMQ carte soleil, CLSC, Info-Santé 811, expressing pain and physical symptoms (avoir mal à...), doctor-patient consultation dialogues, and medical prescriptions with subjunctive necessity.</div>
+      <button class="wn-card-btn" onclick="go(sections.findIndex(s=>s.id==='sante_quebec'))">View Section <span class="ms ms-sm">arrow_forward</span></button>
+    </div>
+
+    <div class="wn-feature-card">
+      <div class="wn-card-head">
+        <span class="wn-tag wn-tag-new">New Section</span>
+        <span style="font-size:0.75rem;color:var(--text-muted);">Section 32</span>
+      </div>
+      <div class="wn-card-title"><span class="ms ms-sm" style="color:#8B5CF6">theater_comedy</span> Culture, Médias et Loisirs</div>
+      <div class="wn-card-body">Arts and entertainment: Montreal festivals, Quartier des spectacles, journalism, podcasts (balados), streaming media, critical reviews of films and books, and ticketing dialogues.</div>
+      <button class="wn-card-btn" onclick="go(sections.findIndex(s=>s.id==='culture_medias'))">View Section <span class="ms ms-sm">arrow_forward</span></button>
+    </div>
+
+    <div class="wn-feature-card">
+      <div class="wn-card-head">
+        <span class="wn-tag wn-tag-new">New Section</span>
+        <span style="font-size:0.75rem;color:var(--text-muted);">Section 33</span>
+      </div>
+      <div class="wn-card-title"><span class="ms ms-sm" style="color:#D97706">home_work</span> Habitation et Logement</div>
+      <div class="wn-card-body">Quebec apartment hunting: room counting notation (1 ½ to 5 ½), TAL standard lease regulations, tenant rights, the July 1st Moving Day tradition, appliances (électros), and landlord consultation dialogues.</div>
+      <button class="wn-card-btn" onclick="go(sections.findIndex(s=>s.id==='habitation_quebec'))">View Section <span class="ms ms-sm">arrow_forward</span></button>
+    </div>
+
+    <div class="wn-feature-card">
+      <div class="wn-card-head">
+        <span class="wn-tag wn-tag-new">New Section</span>
+        <span style="font-size:0.75rem;color:var(--text-muted);">Section 30</span>
+      </div>
+      <div class="wn-card-title"><span class="ms ms-sm" style="color:#6366F1">rule</span> Obligation & Necessity (Il faut que)</div>
+      <div class="wn-card-body">Master the French Subjunctive mood (Le Subjonctif Présent) after « Il faut que », golden stem rules, two-stem verbs (prendre, boire), essential irregulars (être, avoir, faire, pouvoir, savoir), and interactive Devoir-to-Subjunctive transformation practice.</div>
+      <button class="wn-card-btn" onclick="go(sections.findIndex(s=>s.id==='il_faut_que'))">View Section <span class="ms ms-sm">arrow_forward</span></button>
+    </div>
+
+    <div class="wn-feature-card">
+      <div class="wn-card-head">
+        <span class="wn-tag wn-tag-new">New Section</span>
         <span style="font-size:0.75rem;color:var(--text-muted);">Section 28</span>
       </div>
       <div class="wn-card-title"><span class="ms ms-sm" style="color:#8B5CF6">psychology</span> Personality Adjectives</div>

@@ -1,5 +1,5 @@
 // French Grammar Guide — Service Worker for offline PWA transit practice
-const CACHE_NAME = 'french-grammar-guide-v23';
+const CACHE_NAME = 'french-grammar-guide-v34';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -7,6 +7,9 @@ const ASSETS_TO_CACHE = [
   './css/style.css',
   './data/verbs_db.js',
   './data/personality_adjectives.json',
+  './js/grammar_patterns_diagrams.js',
+  './js/grammar_patterns_translations.js',
+  './js/past_tense_trainer.js',
   './js/conjugator.js',
   './js/translations.js',
   './js/dem_translations.js',
@@ -40,7 +43,17 @@ const ASSETS_TO_CACHE = [
   './js/sections/26_histoire_montreal.js',
   './js/sections/27_pc_vs_imparfait.js',
   './js/sections/28_personality_adjectives.js',
-  './js/sections/29_whats_new.js'
+  './js/sections/29_whats_new.js',
+  './js/sections/30_il_faut_que.js',
+  './js/sections/31_sante_quebec.js',
+  './js/sections/32_culture_medias.js',
+  './js/sections/33_habitation_quebec.js',
+  './js/habitation_images_data.js',
+  './assets/images/human_body_anatomy.png',
+  './assets/images/logements_quebec.jpg',
+  './assets/images/types_de_logements.jpg',
+  './assets/images/logements_atypiques.jpg',
+  './assets/images/logements_uniques.jpg'
 ];
 
 self.addEventListener('install', event => {

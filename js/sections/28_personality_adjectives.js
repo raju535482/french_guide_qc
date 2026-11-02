@@ -3133,7 +3133,7 @@ window.sectionsData.push({
 }
 .pa-ex-fr {
   color: var(--text-primary);
-  font-style: italic;
+  font-style: normal;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;

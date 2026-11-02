@@ -305,5 +305,11 @@ window.sectionsData.push({
  },
  "tip": "💡 Master Example Breakdown: 'Pendant que je cuisinais (IMP: long ongoing video camera background), le téléphone a soudainement sonné (PC: sudden BAM! snapshot interruption).'\\n🍁 Quebec memory: 'Pendant qu'il neigeait (IMP), on a déneigé la voiture (PC) et on est allés au chalet (PC)!'"
  }
+ ,
+ {
+ "rule": "8. Interactive Story Practice: Transform Present into Past",
+ "english": "Read authentic French stories in the present tense, click the target verbs, decide whether each action requires Passé Composé, Imparfait, or Plus-que-parfait, and conjugate with immediate pedagogical feedback.",
+ "customHtml": "<div id=\"past-tense-trainer-mount\"></div><script>setTimeout(function(){ if(window.PastTenseTrainer && typeof window.PastTenseTrainer.init === \"function\"){ window.PastTenseTrainer.init(); } }, 60);</script>"
+ }
  ]
 });

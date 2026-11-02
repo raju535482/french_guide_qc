@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Google+Sans:wght@400;500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Space+Grotesk:wght@500;600;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,900&family=JetBrains+Mono:wght@400;600;800&family=Quicksand:wght@500;600;700&family=VT323&family=Vazirmatn:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;700&family=Cabinet+Grotesk:wght@500;700;800&family=Clash+Display:wght@500;600;700&family=Comfortaa:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Figtree:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Geist:wght@400;500;600;700&family=General+Sans:wght@500;600;700&family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Lexend:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Mona+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700&family=Open+Sans:wght@400;600;700&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Red+Hat+Display:wght@400;500;700&family=Roboto:wght@400;500;700&family=Sniglet:wght@400;800&family=Source+Sans+3:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@500;700;800&family=Urbanist:wght@400;500;600;700&family=Varela+Round&family=Work+Sans:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 
 <body>
@@ -35,6 +35,43 @@
 
       <div class="header-controls">
         <!-- Font controls will be inserted here by buildFontControls() -->
+        <div class="font-family-select-wrap" id="font-family-select-wrap">
+          <label for="font-family-select" class="font-family-label" title="Reading Font">
+            <span class="ms ms-sm">text_fields</span>
+          </label>
+          <select class="font-family-select" id="font-family-select" onchange="changeFontFamily(this.value)" title="Choose Reading Font" aria-label="Reading font family">
+            <option value="Momo Trust Display">Momo Trust Display</option>
+            <option value="Inter">Inter</option>
+            <option value="Roboto">Roboto</option>
+            <option value="Geist">Geist</option>
+            <option value="DM Sans" selected>DM Sans</option>
+            <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+            <option value="Satoshi">Satoshi</option>
+            <option value="Mona Sans">Mona Sans</option>
+            <option value="Poppins">Poppins</option>
+            <option value="Comfortaa">Comfortaa</option>
+            <option value="Fredoka">Fredoka</option>
+            <option value="Sniglet">Sniglet</option>
+            <option value="Varela Round">Varela Round</option>
+            <option value="Space Grotesk">Space Grotesk</option>
+            <option value="Cabinet Grotesk">Cabinet Grotesk</option>
+            <option value="General Sans">General Sans</option>
+            <option value="Syne">Syne</option>
+            <option value="Clash Display">Clash Display</option>
+            <option value="Outfit">Outfit</option>
+            <option value="Urbanist">Urbanist</option>
+            <option value="Figtree">Figtree</option>
+            <option value="Manrope">Manrope</option>
+            <option value="Nunito">Nunito</option>
+            <option value="Quicksand">Quicksand</option>
+            <option value="Lato">Lato</option>
+            <option value="Open Sans">Open Sans</option>
+            <option value="Source Sans 3">Source Sans 3</option>
+            <option value="Public Sans">Public Sans</option>
+            <option value="Red Hat Display">Red Hat Display</option>
+            <option value="Lexend">Lexend</option>
+          </select>
+        </div>
         <div class="style-select-wrap">
           <label for="style-select" class="style-select-label" title="Visual Theme">
             <span class="ms ms-sm">palette</span>
@@ -63,22 +100,87 @@
             <option value="1.5">1.5x (Fastest)</option>
           </select>
         </div>
-        <button class="audio-speed-btn" id="phonetic-toggle-btn" onclick="togglePhoneticsCues()" title="Toggle Pronunciation Visual Cues (Silent letters & Liaisons)" aria-label="Toggle pronunciation cues">
-          <span class="ms ms-sm">record_voice_over</span>
-          <span class="speed-label" id="phonetic-toggle-label">Cues: On</span>
-        </button>
-        <button class="audio-speed-btn conj-lookup-btn" id="conj-lookup-btn" onclick="openVerbModal()" title="Instant French Verb Conjugator (7,800+ verbs, all tenses)" aria-label="Lookup any French verb conjugation">
-          <span class="ms ms-sm" style="color:var(--yellow);">auto_stories</span>
-          <span class="speed-label">Conjugator</span>
-        </button>
-        <button class="audio-speed-btn srs-review-btn" id="srs-header-btn" onclick="openSRSModal()" title="Spaced Repetition Review Queue" aria-label="Open SRS Review Queue">
-          <span class="ms ms-sm" style="color:var(--green);">replay</span>
-          <span class="speed-label" id="srs-header-label">Review (0)</span>
-        </button>
-        <button class="audio-speed-btn whats-new-btn" id="whats-new-btn" onclick="openWhatsNewModal()" title="What's New in this version" aria-label="View What's New">
-          <span class="ms ms-sm" style="color:#F59E0B;">auto_awesome</span>
-          <span class="speed-label">What's New</span>
-        </button>
+        <!-- Tools & Actions Dropdown Menu -->
+        <div class="header-menu-container" id="header-menu-container">
+          <button class="header-menu-btn" id="header-menu-btn" onclick="toggleHeaderMenu(event)" title="Tools, Practice & Resources" aria-label="Open tools menu" aria-haspopup="true" aria-expanded="false">
+            <span class="ms ms-sm">widgets</span>
+            <span class="header-menu-label" data-i18n="tools_btn">Tools</span>
+            <span class="header-menu-badge" id="header-menu-badge" style="display:none;">0</span>
+            <span class="ms ms-sm header-menu-caret">arrow_drop_down</span>
+          </button>
+          
+          <div class="header-menu-dropdown" id="header-menu-dropdown" role="menu" aria-label="Learning Tools and Actions">
+            <div class="header-menu-section-label" data-i18n="tools_sec_practice">Interactive Practice</div>
+            <button class="header-menu-item" onclick="openVerbModal(); toggleHeaderMenu(false);" role="menuitem">
+              <div class="header-menu-item-icon" style="background: rgba(245, 166, 35, 0.15); color: var(--yellow);">
+                <span class="ms ms-sm">auto_stories</span>
+              </div>
+              <div class="header-menu-item-info">
+                <span class="header-menu-item-title" data-i18n="tool_conjugator_title">Verb Conjugator</span>
+                <span class="header-menu-item-desc" data-i18n="tool_conjugator_desc">7,800+ verbs across all moods & tenses</span>
+              </div>
+            </button>
+
+            <button class="header-menu-item" onclick="openSRSModal(); toggleHeaderMenu(false);" role="menuitem">
+              <div class="header-menu-item-icon" style="background: rgba(62, 207, 142, 0.15); color: var(--green);">
+                <span class="ms ms-sm">replay</span>
+              </div>
+              <div class="header-menu-item-info">
+                <span class="header-menu-item-title" data-i18n="tool_srs_title">Spaced Repetition Review</span>
+                <span class="header-menu-item-desc" data-i18n="tool_srs_desc">Reinforce saved items & tricky rules</span>
+              </div>
+              <span class="header-menu-pill" id="srs-dropdown-badge">0 due</span>
+            </button>
+
+            <button class="header-menu-item" onclick="openPastTenseModal(); toggleHeaderMenu(false);" role="menuitem">
+              <div class="header-menu-item-icon" style="background: rgba(236, 72, 153, 0.15); color: #EC4899;">
+                <span class="ms ms-sm">movie_filter</span>
+              </div>
+              <div class="header-menu-item-info">
+                <span class="header-menu-item-title" data-i18n="tool_stories_title">Past Tense Story Trainer</span>
+                <span class="header-menu-item-desc" data-i18n="tool_stories_desc">Passé Composé vs. Imparfait interactive stories</span>
+              </div>
+            </button>
+
+            <div class="header-menu-divider"></div>
+            <div class="header-menu-section-label" data-i18n="tools_sec_reference">Quick Reference & Updates</div>
+
+            <button class="header-menu-item" onclick="openFormulasModal(); toggleHeaderMenu(false);" role="menuitem">
+              <div class="header-menu-item-icon" style="background: rgba(59, 130, 246, 0.15); color: #3B82F6;">
+                <span class="ms ms-sm">schema</span>
+              </div>
+              <div class="header-menu-item-info">
+                <span class="header-menu-item-title" data-i18n="tool_formulas_title">Grammar Formulas</span>
+                <span class="header-menu-item-desc" data-i18n="tool_formulas_desc">List formulas & visual decision trees</span>
+              </div>
+            </button>
+
+            <button class="header-menu-item" onclick="openWhatsNewModal(); toggleHeaderMenu(false);" role="menuitem">
+              <div class="header-menu-item-icon" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B;">
+                <span class="ms ms-sm">auto_awesome</span>
+              </div>
+              <div class="header-menu-item-info">
+                <span class="header-menu-item-title" data-i18n="tool_whats_new_title">What's New</span>
+                <span class="header-menu-item-desc" data-i18n="tool_whats_new_desc">Recent curriculum additions & updates</span>
+              </div>
+            </button>
+
+            <div class="header-menu-divider"></div>
+            <div class="header-menu-section-label" data-i18n="tools_sec_audio">Pronunciation & Audio</div>
+
+            <button class="header-menu-item" onclick="togglePhoneticsCues();" role="menuitem">
+              <div class="header-menu-item-icon" style="background: rgba(79, 126, 248, 0.15); color: var(--blue);">
+                <span class="ms ms-sm">record_voice_over</span>
+              </div>
+              <div class="header-menu-item-info">
+                <span class="header-menu-item-title" data-i18n="tool_cues_title">Pronunciation Cues</span>
+                <span class="header-menu-item-desc" data-i18n="tool_cues_desc">Visual silent letters & liaisons</span>
+              </div>
+              <span class="header-menu-pill" id="phonetic-dropdown-status">On</span>
+            </button>
+          </div>
+        </div>
+
         <!-- Language selector will be appended here by buildLangSwitcher() -->
         <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle dark/light theme"
           aria-label="Toggle dark/light mode">
@@ -86,14 +188,38 @@
         </button>
         <button class="mobile-drawer-btn" id="mobile-drawer-btn" onclick="toggleCurriculumDrawer()" title="Curriculum & Sections" aria-label="Toggle curriculum menu">
           <span class="ms ms-sm">menu_book</span>
-          <span class="drawer-btn-label">Curriculum</span>
+          <span class="drawer-btn-label" data-i18n="drawer_curriculum">Curriculum</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- TOP HORIZONTAL NAVIGATION BAR (All sections with active pill) -->
+  <!-- TOP HORIZONTAL NAVIGATION BAR (Level Filter Mode & Sections with active pill) -->
   <nav id="nav-bar" aria-label="Sections navigation">
+    <div class="level-mode-container" id="level-mode-container">
+      <div class="level-mode-segmented" role="tablist" aria-label="CEFR Proficiency Level Filter">
+        <button class="level-mode-btn active" id="level-mode-all" role="tab" aria-selected="true" onclick="setLevelFilter('all')" data-i18n="level_all">
+          <span class="ms ms-sm">layers</span>
+          <span>All Levels</span>
+          <span class="level-mode-count" id="level-count-all">30</span>
+        </button>
+        <button class="level-mode-btn" id="level-mode-a1" role="tab" aria-selected="false" onclick="setLevelFilter('a1')" data-i18n="level_a1">
+          <span class="level-badge-chip chip-a1">A1</span>
+          <span>Beginner</span>
+          <span class="level-mode-count" id="level-count-a1">9</span>
+        </button>
+        <button class="level-mode-btn" id="level-mode-a2" role="tab" aria-selected="false" onclick="setLevelFilter('a2')" data-i18n="level_a2">
+          <span class="level-badge-chip chip-a2">A2</span>
+          <span>Elementary</span>
+          <span class="level-mode-count" id="level-count-a2">10</span>
+        </button>
+        <button class="level-mode-btn" id="level-mode-b1" role="tab" aria-selected="false" onclick="setLevelFilter('b1')" data-i18n="level_b1">
+          <span class="level-badge-chip chip-b1">B1</span>
+          <span>Intermediate</span>
+          <span class="level-mode-count" id="level-count-b1">11</span>
+        </button>
+      </div>
+    </div>
     <div id="nav-pills"></div>
   </nav>
 
@@ -137,6 +263,36 @@
 
   </div>
 
+  <!-- FLOATING ACTION BUTTON (FAB) & SPEED DIAL -->
+  <div class="fab-container" id="fab-container">
+    <div class="fab-menu" id="fab-menu" role="menu" aria-label="Quick Actions Speed Dial">
+      <button class="fab-item" onclick="openVerbModal(); toggleFabMenu(false);" title="Conjugator (7,800+ verbs)" role="menuitem">
+        <span class="fab-item-label" data-i18n="fab_conjugator">Conjugator</span>
+        <span class="fab-item-icon" style="background:#F59E0B;color:#fff;"><span class="ms ms-sm">auto_stories</span></span>
+      </button>
+      <button class="fab-item" onclick="openSRSModal(); toggleFabMenu(false);" title="Spaced Repetition Review" role="menuitem">
+        <span class="fab-item-label"><span data-i18n="fab_review">Review Queue</span> <span id="fab-srs-badge">(0)</span></span>
+        <span class="fab-item-icon" style="background:#10B981;color:#fff;"><span class="ms ms-sm">replay</span></span>
+      </button>
+      <button class="fab-item" onclick="openPastTenseModal(); toggleFabMenu(false);" title="Story Practice" role="menuitem">
+        <span class="fab-item-label" data-i18n="fab_stories">Stories</span>
+        <span class="fab-item-icon" style="background:#EC4899;color:#fff;"><span class="ms ms-sm">movie_filter</span></span>
+      </button>
+      <button class="fab-item" onclick="openFormulasModal(); toggleFabMenu(false);" title="Grammar Formulas" role="menuitem">
+        <span class="fab-item-label" data-i18n="fab_formulas">Formulas</span>
+        <span class="fab-item-icon" style="background:#3B82F6;color:#fff;"><span class="ms ms-sm">schema</span></span>
+      </button>
+      <button class="fab-item" onclick="openWhatsNewModal(); toggleFabMenu(false);" title="What's New" role="menuitem">
+        <span class="fab-item-label" data-i18n="fab_whats_new">What's New</span>
+        <span class="fab-item-icon" style="background:#8B5CF6;color:#fff;"><span class="ms ms-sm">auto_awesome</span></span>
+      </button>
+    </div>
+    <button class="fab-main-btn" id="fab-main-btn" onclick="toggleFabMenu()" title="Quick Tools (Conjugator, Stories, Review, Formulas)" aria-label="Toggle quick actions tools" aria-expanded="false">
+      <span class="ms" id="fab-icon">bolt</span>
+      <span class="fab-badge" id="fab-badge" style="display:none;">0</span>
+    </button>
+  </div>
+
   <!-- SCREEN READER ANNOUNCER REGION (WCAG a11y) -->
   <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
@@ -147,8 +303,8 @@
         <div class="vmodal-title-wrap">
           <span class="ms ms-fill" style="color:var(--yellow);font-size:1.4rem">auto_stories</span>
           <div>
-            <h3 class="vmodal-title" id="vmodal-heading">French Verb Conjugator</h3>
-            <p class="vmodal-subtitle">7,800+ verbs across all moods & tenses</p>
+            <h3 class="vmodal-title" id="vmodal-heading" data-i18n="vmodal_heading">French Verb Conjugator</h3>
+            <p class="vmodal-subtitle" data-i18n="vmodal_sub">7,800+ verbs across all moods &amp; tenses</p>
           </div>
         </div>
         <button class="vmodal-close-btn" onclick="closeVerbModal()" aria-label="Close conjugator drawer" title="Close (Esc)">
@@ -164,7 +320,7 @@
             <span class="ms ms-sm">clear</span>
           </button>
         </div>
-        <button class="vmodal-submit-btn" onclick="doModalConjugate()">Go</button>
+        <button class="vmodal-submit-btn" onclick="doModalConjugate()" data-i18n="vmodal_btn_go">Go</button>
       </div>
 
       <div class="vmodal-suggestions" id="vmodal-suggestions"></div>
@@ -172,7 +328,7 @@
       <div class="vmodal-content" id="vmodal-content">
         <div class="vmodal-empty-state">
           <span class="ms ms-lg" style="color:var(--text-muted);margin-bottom:8px">manage_search</span>
-          <p>Quick lookup shortcuts:</p>
+          <p data-i18n="vmodal_quick_shortcuts">Quick lookup shortcuts:</p>
           <div class="vmodal-quick-chips">
             <button class="vmodal-chip" onclick="quickConjugate('être')">être</button>
             <button class="vmodal-chip" onclick="quickConjugate('avoir')">avoir</button>
@@ -199,8 +355,8 @@
         <div class="vmodal-title-wrap">
           <span class="ms ms-fill" style="color:var(--green);font-size:1.4rem">replay</span>
           <div>
-            <h3 class="vmodal-title" id="srs-heading">Spaced Repetition Review</h3>
-            <p class="vmodal-subtitle" id="srs-subtitle">Items scheduled for active retention</p>
+            <h3 class="vmodal-title" id="srs-heading" data-i18n="srs_heading">Spaced Repetition Review</h3>
+            <p class="vmodal-subtitle" id="srs-subtitle" data-i18n="srs_sub">Items scheduled for active retention</p>
           </div>
         </div>
         <button class="vmodal-close-btn" onclick="closeSRSModal()" aria-label="Close SRS drawer" title="Close (Esc)">
@@ -221,8 +377,8 @@
         <div class="wn-modal-title-group">
           <span class="ms ms-fill" style="color:#F59E0B;font-size:1.5rem">auto_awesome</span>
           <div>
-            <h3 class="wn-modal-title" id="wn-modal-title">What's New in French Grammar Guide</h3>
-            <p class="wn-modal-subtitle">Recent curriculum additions & platform improvements</p>
+            <h3 class="wn-modal-title" id="wn-modal-title" data-i18n="wn_modal_title">What's New in French Grammar Guide</h3>
+            <p class="wn-modal-subtitle" data-i18n="wn_modal_sub">Recent curriculum additions &amp; platform improvements</p>
           </div>
         </div>
         <button class="vmodal-close-btn" onclick="closeWhatsNewModal()" aria-label="Close What's New popup" title="Close (Esc)">
@@ -232,52 +388,110 @@
 
       <div class="wn-modal-body">
         <div class="wn-modal-highlight">
-          <div class="wn-modal-badge"><span class="ms ms-sm">star</span> NEW SECTION ADDED</div>
-          <h4 style="margin:0.25rem 0;font-size:1.15rem;color:var(--text-primary)">Section 28: 76 Personality Adjectives</h4>
-          <p style="margin:0;font-size:0.88rem;color:var(--text-secondary);line-height:1.45">Conversational Quebec & France descriptors with real-life informal definitions, spoken examples, native audio pronunciations, and full translations in 7 languages (EN, FA, GU, HI, TA, KO, ZH).</p>
+          <div class="wn-modal-badge"><span class="ms ms-sm">star</span> <span data-i18n="wn_new_badge">NEW SECTION ADDED</span></div>
+          <h4 style="margin:0.25rem 0;font-size:1.15rem;color:var(--text-primary)" data-i18n="wn_sec28_title">Section 28: 76 Personality Adjectives</h4>
+          <p style="margin:0;font-size:0.88rem;color:var(--text-secondary);line-height:1.45" data-i18n="wn_sec28_desc">Conversational Quebec &amp; France descriptors with real-life informal definitions, spoken examples, native audio pronunciations, and full translations in 7 languages (EN, FA, GU, HI, TA, KO, ZH).</p>
         </div>
 
         <div class="wn-modal-list">
           <div class="wn-modal-row">
             <span class="ms ms-sm" style="color:#8B5CF6">format_list_bulleted</span>
             <div>
-              <strong>Streamlined List Display</strong>
-              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)">Personality adjectives rendered as a clean, vertical reading list with search and A–Z filters.</p>
+              <strong data-i18n="wn_f1_title">Streamlined List Display</strong>
+              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)" data-i18n="wn_f1_desc">Personality adjectives rendered as a clean, vertical reading list with search and A–Z filters.</p>
             </div>
           </div>
           <div class="wn-modal-row">
             <span class="ms ms-sm" style="color:#F59E0B">palette</span>
             <div>
-              <strong>Neo-Brutalist Default Visual Theme</strong>
-              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)">High-contrast tactile borders, offset hard drop shadows, and expressive retro-modern typography.</p>
+              <strong data-i18n="wn_f2_title">Neo-Brutalist Default Visual Theme</strong>
+              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)" data-i18n="wn_f2_desc">High-contrast tactile borders, offset hard drop shadows, and expressive retro-modern typography.</p>
             </div>
           </div>
           <div class="wn-modal-row">
             <span class="ms ms-sm" style="color:#EC4899">movie_filter</span>
             <div>
-              <strong>Passé Composé vs Imparfait Guide</strong>
-              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)">The "Movie Camera vs Photo Snapshot" golden rule with interactive sentence builder.</p>
+              <strong data-i18n="wn_f3_title">Passé Composé vs Imparfait Guide</strong>
+              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)" data-i18n="wn_f3_desc">The "Movie Camera vs Photo Snapshot" golden rule with interactive sentence builder.</p>
             </div>
           </div>
           <div class="wn-modal-row">
             <span class="ms ms-sm" style="color:#EAB308">account_balance</span>
             <div>
-              <strong>Histoire de Montréal Timeline</strong>
-              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)">Pointe-à-Callière interactive historical journey from 6000 BCE to modern Quebec.</p>
+              <strong data-i18n="wn_f4_title">Histoire de Montréal Timeline</strong>
+              <p style="margin:0;font-size:0.82rem;color:var(--text-secondary)" data-i18n="wn_f4_desc">Pointe-à-Callière interactive historical journey from 6000 BCE to modern Quebec.</p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="wn-modal-footer">
-        <button class="wn-btn-secondary" onclick="closeWhatsNewModal()">Got it</button>
+        <button class="wn-btn-secondary" onclick="closeWhatsNewModal()" data-i18n="wn_btn_gotit">Got it</button>
         <button class="wn-btn-primary" onclick="viewWhatsNewSection()">
-          View Full Updates Page <span class="ms ms-sm">arrow_forward</span>
+          <span data-i18n="wn_btn_full">View Full Updates Page</span> <span class="ms ms-sm">arrow_forward</span>
         </button>
       </div>
     </div>
   </div>
 
+  <!-- GRAMMAR FORMULAS & PATTERNS CENTRAL MODAL -->
+  <div class="vmodal-backdrop" id="formulas-modal-backdrop" onclick="closeFormulasModal(event)">
+    <div class="vmodal-dialog" id="formulas-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="formulas-modal-heading" onclick="event.stopPropagation()">
+      <div class="vmodal-header">
+        <div class="vmodal-title-wrap">
+          <span class="ms ms-fill" style="color:#3B82F6;font-size:1.5rem">schema</span>
+          <div>
+            <h3 class="vmodal-title" id="formulas-modal-heading" data-i18n="fmodal_heading">Visual Rules, Formulas &amp; Decision Trees</h3>
+            <p class="vmodal-subtitle" data-i18n="fmodal_sub">Mathematical grammar formulas, word trigger badges &amp; reasoning paths</p>
+          </div>
+        </div>
+        <button class="vmodal-close-btn" onclick="closeFormulasModal()" aria-label="Close formulas modal" title="Close (Esc)">
+          <span class="ms">close</span>
+        </button>
+      </div>
+
+      <!-- Level filter tabs inside formulas modal -->
+      <div class="fmodal-level-tabs" id="fmodal-level-tabs">
+        <button class="fmodal-ltab active" onclick="setFormulasModalLevel('all')" id="fmodal-ltab-all">All Levels (30)</button>
+        <button class="fmodal-ltab" onclick="setFormulasModalLevel('a1')" id="fmodal-ltab-a1"><span class="level-badge-chip chip-a1">A1</span> Beginner (9)</button>
+        <button class="fmodal-ltab" onclick="setFormulasModalLevel('a2')" id="fmodal-ltab-a2"><span class="level-badge-chip chip-a2">A2</span> Elementary (10)</button>
+        <button class="fmodal-ltab" onclick="setFormulasModalLevel('b1')" id="fmodal-ltab-b1"><span class="level-badge-chip chip-b1">B1</span> Intermediate (11)</button>
+      </div>
+
+      <!-- Quick section navigator pills inside modal -->
+      <div class="fmodal-pills" id="formulas-modal-pills"></div>
+
+      <div class="vmodal-content" id="formulas-modal-body-content" style="padding:1rem 1.4rem 2rem;">
+        <!-- Dynamic content rendered by renderGrammarPatternsHub(sid) -->
+      </div>
+    </div>
+  </div>
+
+  <!-- PAST TENSE STORY TRAINER MODAL -->
+  <div class="vmodal-backdrop" id="ptt-modal-backdrop" onclick="PastTenseTrainer.closeTrainerModal(event)">
+    <div class="vmodal-dialog ptt-modal-dialog" id="ptt-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="ptt-modal-heading" onclick="event.stopPropagation()">
+      <div class="vmodal-header">
+        <div class="vmodal-title-wrap">
+          <span class="ms ms-fill" style="color:#EC4899;font-size:1.5rem">movie_filter</span>
+          <div>
+            <h3 class="vmodal-title" id="ptt-modal-heading" data-i18n="ptt_modal_heading">Passé Composé vs. Imparfait Story Trainer</h3>
+            <p class="vmodal-subtitle" data-i18n="ptt_modal_sub">Interactive French past-tense narration & pedagogical feedback</p>
+          </div>
+        </div>
+        <button class="vmodal-close-btn" onclick="PastTenseTrainer.closeTrainerModal()" aria-label="Close story trainer" title="Close (Esc)">
+          <span class="ms">close</span>
+        </button>
+      </div>
+
+      <div class="vmodal-content" style="padding:1.25rem 1.4rem 2rem;">
+        <div id="past-tense-modal-mount"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/grammar_patterns_diagrams.js"></script>
+  <script src="js/grammar_patterns_translations.js"></script>
+  <script src="js/past_tense_trainer.js"></script>
   <script src="js/sections/00_articles.js"></script>
   <script src="js/sections/01_nouns.js"></script>
   <script src="js/sections/02_pronouns.js"></script>
@@ -308,6 +522,11 @@
   <script src="js/sections/27_pc_vs_imparfait.js"></script>
   <script src="js/sections/28_personality_adjectives.js"></script>
   <script src="js/sections/29_whats_new.js"></script>
+  <script src="js/sections/30_il_faut_que.js"></script>
+  <script src="js/habitation_images_data.js"></script>
+  <script src="js/sections/31_sante_quebec.js"></script>
+  <script src="js/sections/32_culture_medias.js"></script>
+  <script src="js/sections/33_habitation_quebec.js"></script>
   <script src="data/verbs_db.js"></script>
   <script src="js/conjugator.js"></script>
   <script src="js/translations.js"></script>

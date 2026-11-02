@@ -141,8 +141,87 @@
           "quizLabel_cond": "وجه شرطی (Conditionnel) — فعل را صرف کنید",
           "quizLabel_pr": "گذشته تازه (Passé récent) — جمله را بسازید",
           "quizLabel_ger": "وجه وصفی حال (Gérondif) — شکل ژروندیف را بسازید",
-          "quizLabel_y": "ضمیر Y — جایگزین مکان کنید"
-}
+          "quizLabel_y": "ضمیر Y — جایگزین مکان کنید",
+
+          // Header Tools Dropdown & Actions
+          "tools_btn": "ابزارها",
+          "tools_sec_practice": "تمرین‌های تعاملی",
+          "tools_sec_reference": "منابع و به‌روزرسانی‌ها",
+          "tools_sec_audio": "تلفظ و شنیداری",
+          "tool_conjugator_title": "صرف‌کننده فعل",
+          "tool_conjugator_desc": "بیش از ۷۸۰۰ فعل در تمام زمان‌ها و وجه‌ها",
+          "tool_srs_title": "مرور با تکرار فاصله‌دار (SRS)",
+          "tool_srs_desc": "تثبیت نکات نشان‌شده و قواعد چالش‌برانگیز",
+          "tool_stories_title": "تمرین داستان‌های گذشته",
+          "tool_stories_desc": "تمرین تعاملی گذشته مرکب در برابر استمراری",
+          "tool_formulas_title": "فرمول‌ها و الگوهای گرامر",
+          "tool_formulas_desc": "فرمول‌های ساختاری و درخت تصمیم‌گیری تشخیصی",
+          "tool_whats_new_title": "تازه‌ها و به‌روزرسانی‌ها",
+          "tool_whats_new_desc": "بخش‌های جدید و قابلیت‌های پلتفرم",
+          "tool_cues_title": "راهنمای تلفظ صوتی",
+          "tool_cues_desc": "حروف صامت ناخوانا و پیوندها (Liaisons)",
+
+          // Floating Action Button (FAB) Speed Dial
+          "fab_conjugator": "صرف فعل",
+          "fab_review": "صف مرور",
+          "fab_stories": "داستان‌ها",
+          "fab_formulas": "فرمول‌ها",
+          "fab_whats_new": "تازه‌ها",
+
+          // Curriculum Drawer Button
+          "drawer_curriculum": "سرفصل‌ها",
+          // CEFR Level Filters
+          "level_all": "همه سطوح",
+          "level_a1": "مقدماتی (A1)",
+          "level_a2": "پایه (A2)",
+          "level_b1": "متوسط (B1)",
+
+          // Central Modals & Drawers
+          "fmodal_heading": "قواعد بصری، فرمول‌ها و درخت تصمیم‌گیری",
+          "fmodal_sub": "فرمول‌های تحلیلی، کلمات کلیدی محرک و مسیرهای استنتاج",
+          "ptt_modal_heading": "تمرین تعاملی گذشته: مرکب در برابر استمراری",
+          "ptt_modal_sub": "تبدیل داستان‌های زمان حال به گذشته همراه با استدلال آموزشی",
+          "vmodal_heading": "صرف‌کننده افعال فرانسوی",
+          "vmodal_sub": "بیش از ۷۸۰۰ فعل فرانسوی در تمامی زمان‌ها و وجه‌ها",
+          "vmodal_btn_go": "جستجو",
+          "vmodal_quick_shortcuts": "دسترسی سریع به افعال پرکاربرد:",
+          "srs_heading": "مرور با تکرار فاصله‌دار (SRS)",
+          "srs_sub": "نکات زمان‌بندی‌شده برای ماندگاری در حافظه بلندمدت",
+          "wn_modal_title": "تازه‌های راهنمای گرامر فرانسوی",
+          "wn_modal_sub": "جدیدترین بخش‌های آموزشی و امکانات پلتفرم",
+          "wn_new_badge": "بخش جدید اضافه شد",
+          "wn_sec28_title": "بخش ۲۸: ۷۶ صفت شخصیتی",
+          "wn_sec28_desc": "توصیف‌کننده‌های خودمانی کبک و فرانسه با تعاریف ساده، مثال‌های روزمره، تلفظ صوتی بومی و ترجمه به ۷ زبان.",
+          "wn_f1_title": "نمایش مرتب به صورت فهرست عمودی",
+          "wn_f1_desc": "صفات شخصیتی در یک فهرست منظم و روان با قابلیت جستجو و فیلتر الفبایی.",
+          "wn_f2_title": "قالب بصری نئو-بروتالیست",
+          "wn_f2_desc": "حاشیه‌های کنتراست بالا، سایه‌های برجسته ملموس و تایپوگرافی مدرن و رسا.",
+          "wn_f3_title": "راهنمای گذشته مرکب در برابر استمراری",
+          "wn_f3_desc": "قاعده طلایی صحنه فیلم (دوربین فیلم‌برداری در برابر عکس آنی) به همراه جمله‌ساز تعاملی.",
+          "wn_f4_title": "گاه‌شمار تاریخ مونترال",
+          "wn_f4_desc": "سفر تاریخی موزه پوانت-ا-کالیه از ۶۰۰۰ سال پیش از میلاد تا کبک امروزی.",
+          "wn_btn_gotit": "متوجه شدم",
+          "wn_btn_full": "مشاهده صفحه کامل به‌روزرسانی‌ها",
+
+          // Story Trainer (Passé Composé vs Imparfait)
+          "ptt_main_title": "گذشته مرکب در برابر استمراری • تمرین داستان",
+          "ptt_main_subtitle": "داستان‌های زمان حال را به گذشته اصیل تبدیل کنید و استدلال گرامری آن را بیاموزید",
+          "ptt_mode_study": "مطالعه",
+          "ptt_mode_test": "آزمون",
+          "ptt_btn_create": "ایجاد",
+          "ptt_stat_completed": "فعل تکمیل‌شده",
+          "ptt_stat_accuracy": "دقت تلاش اول:",
+          "ptt_stat_hint": "روی افعال مشخص‌شده کلیک کنید تا زمان مناسب را برگزیده و صرف کنید",
+          "ptt_pop_title": "صرف فعل:",
+          "ptt_pop_sub": "زمان داستان را تشخیص دهید و مطابقت اسم مفعول را رعایت کنید",
+          "ptt_pop_q1": "۱. کدام زمان گذشته باید استفاده شود؟",
+          "ptt_pop_pc_desc": "عمل دقیق و مشخص / رویداد لحظه‌ای",
+          "ptt_pop_imp_desc": "توصیف صحنه / عادت / حالت پیوسته",
+          "ptt_pop_pqp_desc": "کاری که قبل از کاری دیگر در گذشته رخ داده",
+          "ptt_pop_q2": "۲. شکل دقیق صرف‌شده را بنویسید:",
+          "ptt_pop_btn_validate": "تأیید",
+          "ptt_pop_accents": "حروف صدادار:"
+        }
       },
 
       en: {
@@ -256,6 +335,80 @@
           quizLabel_pr: 'Passé récent — build the sentence',
           quizLabel_ger: 'Gérondif — build the gerund',
           quizLabel_y: 'Pronom y — replace the location',
+
+          // Header Tools Dropdown & Actions
+          tools_btn: 'Tools',
+          tools_sec_practice: 'Interactive Practice',
+          tools_sec_reference: 'Quick Reference & Updates',
+          tools_sec_audio: 'Pronunciation & Audio',
+          tool_conjugator_title: 'Verb Conjugator',
+          tool_conjugator_desc: '7,800+ verbs across all moods & tenses',
+          tool_srs_title: 'Spaced Repetition Review',
+          tool_srs_desc: 'Reinforce saved items & tricky rules',
+          tool_stories_title: 'Past Tense Story Trainer',
+          tool_stories_desc: 'Passé Composé vs. Imparfait interactive stories',
+          tool_formulas_title: 'Grammar Formulas',
+          tool_formulas_desc: 'List formulas & visual decision trees',
+          tool_whats_new_title: "What's New",
+          tool_whats_new_desc: 'Recent curriculum additions & updates',
+          tool_cues_title: 'Pronunciation Cues',
+          tool_cues_desc: 'Visual silent letters & liaisons',
+
+          // Floating Action Button (FAB) Speed Dial
+          fab_conjugator: 'Conjugator',
+          fab_review: 'Review Queue',
+          fab_stories: 'Stories',
+          fab_formulas: 'Formulas',
+          fab_whats_new: "What's New",
+
+          // Curriculum Drawer Button
+          drawer_curriculum: 'Curriculum',
+
+          // Central Modals & Drawers
+          fmodal_heading: 'Visual Rules, Formulas & Decision Trees',
+          fmodal_sub: 'Mathematical grammar formulas, word trigger badges & reasoning paths',
+          ptt_modal_heading: 'Passé Composé vs. Imparfait Story Trainer',
+          ptt_modal_sub: 'Interactive French past-tense narration & pedagogical feedback',
+          vmodal_heading: 'French Verb Conjugator',
+          vmodal_sub: '7,800+ verbs across all moods & tenses',
+          vmodal_btn_go: 'Go',
+          vmodal_quick_shortcuts: 'Quick lookup shortcuts:',
+          srs_heading: 'Spaced Repetition Review',
+          srs_sub: 'Items scheduled for active retention',
+          wn_modal_title: 'What\'s New in French Grammar Guide',
+          wn_modal_sub: 'Recent curriculum additions & platform improvements',
+          wn_new_badge: 'NEW SECTION ADDED',
+          wn_sec28_title: 'Section 28: 76 Personality Adjectives',
+          wn_sec28_desc: 'Conversational Quebec & France descriptors with real-life informal definitions, spoken examples, native audio pronunciations, and full translations in 7 languages (EN, FA, GU, HI, TA, KO, ZH).',
+          wn_f1_title: 'Streamlined List Display',
+          wn_f1_desc: 'Personality adjectives rendered as a clean, vertical reading list with search and A–Z filters.',
+          wn_f2_title: 'Neo-Brutalist Default Visual Theme',
+          wn_f2_desc: 'High-contrast tactile borders, offset hard drop shadows, and expressive retro-modern typography.',
+          wn_f3_title: 'Passé Composé vs Imparfait Guide',
+          wn_f3_desc: 'The "Movie Camera vs Photo Snapshot" golden rule with interactive sentence builder.',
+          wn_f4_title: 'Histoire de Montréal Timeline',
+          wn_f4_desc: 'Pointe-à-Callière interactive historical journey from 6000 BCE to modern Quebec.',
+          wn_btn_gotit: 'Got it',
+          wn_btn_full: 'View Full Updates Page',
+
+          // Story Trainer (Passé Composé vs Imparfait)
+          ptt_main_title: 'Passé Composé vs. Imparfait • Story Trainer',
+          ptt_main_subtitle: 'Transform present-tense stories into authentic French past narration with pedagogical reasoning',
+          ptt_mode_study: 'Study',
+          ptt_mode_test: 'Test',
+          ptt_btn_create: 'Create',
+          ptt_stat_completed: 'verbs completed',
+          ptt_stat_accuracy: '1st try accuracy:',
+          ptt_stat_hint: 'Click highlighted verbs to select the tense and conjugate',
+          ptt_pop_title: 'Conjugate:',
+          ptt_pop_sub: 'Identify narrative tense and agree past participle',
+          ptt_pop_q1: '1. Which past tense should be used?',
+          ptt_pop_pc_desc: 'Punctual action / completed event',
+          ptt_pop_imp_desc: 'Backdrop / habit / ongoing state',
+          ptt_pop_pqp_desc: 'Prior action in the past (had done)',
+          ptt_pop_q2: '2. Write exact conjugated form:',
+          ptt_pop_btn_validate: 'Validate',
+          ptt_pop_accents: 'Accents:'
         },
       },
 
@@ -376,6 +529,85 @@
           quizLabel_pr: 'Passé Récent — હમણાં જ થયેલું કામ દર્શાવો',
           quizLabel_ger: 'Gérondif — -ant વાળું રૂપ બનાવો',
           quizLabel_y: 'સર્વનામ Y — જગ્યા બદલીને વાક્ય બનાવો',
+
+          // Header Tools Dropdown & Actions
+          tools_btn: 'ટૂલ્સ અને સાધનો',
+          tools_sec_practice: 'ઇન્ટરેક્ટિવ પ્રેક્ટિસ',
+          tools_sec_reference: 'ઝડપી સંદર્ભ અને અપડેટ્સ',
+          tools_sec_audio: 'ઉચ્ચારણ અને ઑડિયો',
+          tool_conjugator_title: 'ક્રિયાપદ કન્જુગેટર',
+          tool_conjugator_desc: 'બધા કાળમાં ૭,૮૦૦+ થી વધુ ફ્રેન્ચ ક્રિયાપદો',
+          tool_srs_title: 'પુનરાવર્તન રિવ્યુ (SRS)',
+          tool_srs_desc: 'સેવ કરેલા નિયમો અને મુશ્કેલ બાબતોનું રિવિઝન',
+          tool_stories_title: 'ભૂતકાળ વાર્તા ટ્રેનર',
+          tool_stories_desc: 'પાસે કોમ્પોઝે વિ. અપૂર્ણ ભૂતકાળ ઇન્ટરેક્ટિવ વાર્તાઓ',
+          tool_formulas_title: 'વ્યાકરણના સૂત્રો અને પેટર્ન',
+          tool_formulas_desc: 'યાદ રાખવાના સૂત્રો અને નિર્ણય ટ્રી',
+          tool_whats_new_title: 'નવી સુવિધાઓ અને અપડેટ્સ',
+          tool_whats_new_desc: 'નવા ઉમેરાયેલા પાઠ અને પ્લેટફોર્મ સુધારા',
+          tool_cues_title: 'ઉચ્ચારણ સંકેતો',
+          tool_cues_desc: 'મૂંગા અક્ષરો અને શબ્દોનું જોડાણ (Liaisons)',
+
+          // Floating Action Button (FAB) Speed Dial
+          fab_conjugator: 'કન્જુગેટર',
+          fab_review: 'રિવ્યુ કતાર',
+          fab_stories: 'વાર્તાઓ',
+          fab_formulas: 'સૂત્રો',
+          fab_whats_new: 'નવું શું છે',
+
+          // Curriculum Drawer Button
+          drawer_curriculum: 'અભ્યાસક્રમ',
+          // CEFR Level Filters
+          "level_all": "બધા સ્તરો",
+          "level_a1": "પ્રારંભિક (A1)",
+          "level_a2": "પ્રાથમિક (A2)",
+          "level_b1": "મધ્યવર્તી (B1)",
+
+          // Central Modals & Drawers
+          fmodal_heading: 'દ્રશ્ય નિયમો, સૂત્રો અને નિર્ણય ટ્રી',
+          fmodal_sub: 'વ્યાકરણના ગણિત જેવા સૂત્રો, સંકેત શબ્દો અને નિષ્કર્ષ પર પહોંચવાની રીત',
+          ptt_modal_heading: 'પાસે કોમ્પોઝે વિ. અપૂર્ણ ભૂતકાળ વાર્તા ટ્રેનર',
+          ptt_modal_sub: 'વાર્તાઓને ભૂતકાળમાં ફેરવો અને વ્યાકરણના નિયમો સમજો',
+          vmodal_heading: 'ફ્રેન્ચ ક્રિયાપદ કન્જુગેટર',
+          vmodal_sub: '૭,૮૦૦+ થી વધુ ક્રિયાપદો બધા કાળમાં',
+          vmodal_btn_go: 'શોધો',
+          vmodal_quick_shortcuts: 'વારંવાર વપરાતા ક્રિયાપદો:',
+          srs_heading: 'પુનરાવર્તન રિવ્યુ (SRS)',
+          srs_sub: 'લાંબા ગાળાની યાદશક્તિ માટે નિર્ધારિત બાબતો',
+          wn_modal_title: 'ફ્રેન્ચ વ્યાકરણ ગાઇડમાં નવું શું છે',
+          wn_modal_sub: 'તાજેતરના અભ્યાસક્રમ ઉમેરાઓ અને પ્લેટફોર્મ સુધારાઓ',
+          wn_new_badge: 'નવો વિભાગ ઉમેરાયો',
+          wn_sec28_title: 'વિભાગ ૨૮: ૭૬ વ્યક્તિત્વ વિશેષણો',
+          wn_sec28_desc: 'ક્વિબેક અને ફ્રાન્સની રોજિંદી બોલચાલના વર્ણનો, સરળ વ્યાખ્યાઓ, ઑડિયો ઉચ્ચારણ અને ૭ ભાષાઓમાં અનુવાદ.',
+          wn_f1_title: 'સરળ વર્ટિકલ લિસ્ટ ડિસ્પ્લે',
+          wn_f1_desc: 'શોધ અને A-Z ફિલ્ટર સાથે વ્યક્તિત્વ વિશેષણોની સરળ ઊભી યાદી.',
+          wn_f2_title: 'નિયો-બ્રુટાલિસ્ટ વિઝ્યુઅલ થીમ',
+          wn_f2_desc: 'હાઈ-કોન્ટ્રાસ્ટ બોર્ડર, આકર્ષક શેડો અને આધુનિક ટાઈપોગ્રાફી.',
+          wn_f3_title: 'પાસે કોમ્પોઝે વિ. અપૂર્ણ ભૂતકાળ માર્ગદર્શિકા',
+          wn_f3_desc: 'મૂવી કેમેરા વિ. ફોટો સ્નેપશોટનો સુવર્ણ નિયમ અને વાક્ય નિર્માતા.',
+          wn_f4_title: 'મોન્ટ્રિયલ ઇતિહાસ સમયરેખા',
+          wn_f4_desc: 'પોઈન્ટ-આ-કેલિયર ઇન્ટરેક્ટિવ ઐતિહાસિક યાત્રા (ઈ.પૂ. ૬૦૦૦ થી આધુનિક ક્વિબેક).',
+          wn_btn_gotit: 'સમજાઈ ગયું',
+          wn_btn_full: 'સંપૂર્ણ અપડેટ પેજ જુઓ',
+
+          // Story Trainer (Passé Composé vs Imparfait)
+          ptt_main_title: 'પાસે કોમ્પોઝે વિ. અપૂર્ણ ભૂતકાળ • વાર્તા ટ્રેનર',
+          ptt_main_subtitle: 'વર્તમાનકાળની વાર્તાઓને સાચા ફ્રેન્ચ ભૂતકાળમાં ફેરવો અને કારણ સમજો',
+          ptt_mode_study: 'અભ્યાસ',
+          ptt_mode_test: 'ટેસ્ટ',
+          ptt_btn_create: 'બનાવો',
+          ptt_stat_completed: 'ક્રિયાપદો પૂર્ણ થયા',
+          ptt_stat_accuracy: 'પ્રથમ પ્રયાસ સચોટતા:',
+          ptt_stat_hint: 'કાળ પસંદ કરવા અને કન્જુગેટ કરવા માટે હાઇલાઇટ કરેલા ક્રિયાપદો પર ક્લિક કરો',
+          ptt_pop_title: 'કન્જુગેટ કરો:',
+          ptt_pop_sub: 'વાર્તાનો કાળ ઓળખો અને યોગ્ય રૂપ પસંદ કરો',
+          ptt_pop_q1: '૧. કયો ભૂતકાળ વાપરવો જોઈએ?',
+          ptt_pop_pc_desc: 'ચોક્કસ ઘટના / પૂર્ણ થયેલી ક્રિયા',
+          ptt_pop_imp_desc: 'પૃષ્ઠભૂમિ / આદત / ચાલુ સ્થિતિ',
+          ptt_pop_pqp_desc: 'ભૂતકાળમાં પહેલાં થયેલી ક્રિયા (કરી ચૂક્યો હતો)',
+          ptt_pop_q2: '૨. ક્રિયાપદનું સાચું રૂપ લખો:',
+          ptt_pop_btn_validate: 'ચકાસો',
+          ptt_pop_accents: 'ચિહ્નો (Accents):'
         },
       },
 
@@ -496,6 +728,85 @@
           quizLabel_pr: 'Passé Récent — अभी-अभी हुआ काम बताएं',
           quizLabel_ger: 'Gérondif — -ant वाला रूप बनाएं',
           quizLabel_y: 'सर्वनाम Y — जगह बदलकर वाक्य बनाएं',
+
+          // Header Tools Dropdown & Actions
+          tools_btn: 'उपकरण एवं साधन',
+          tools_sec_practice: 'इंटरैक्टिव अभ्यास',
+          tools_sec_reference: 'त्वरित संदर्भ और अपडेट',
+          tools_sec_audio: 'उच्चारण और ऑडियो',
+          tool_conjugator_title: 'क्रिया कंजुगेटर',
+          tool_conjugator_desc: 'सभी कालों में 7,800+ से अधिक फ्रेंच क्रियाएं',
+          tool_srs_title: 'स्पैस्ड रिपीटिशन रिव्यू (SRS)',
+          tool_srs_desc: 'सहेजे गए कठिन नियमों और शब्दों का अभ्यास',
+          tool_stories_title: 'भूतकाल कहानी ट्रेनर',
+          tool_stories_desc: 'पासे कॉम्पोज़े बनाम अपूर्ण भूतकाल इंटरैक्टिव कहानियां',
+          tool_formulas_title: 'व्याकरण सूत्र और पैटर्न',
+          tool_formulas_desc: 'गणितीय सूत्र और निर्णय ट्री',
+          tool_whats_new_title: 'नया क्या है',
+          tool_whats_new_desc: 'हाल ही में जोड़े गए नए पाठ और सुविधाएं',
+          tool_cues_title: 'उच्चारण संकेत',
+          tool_cues_desc: 'मूक अक्षर और शब्दों का संयोजन (Liaisons)',
+
+          // Floating Action Button (FAB) Speed Dial
+          fab_conjugator: 'कंजुगेटर',
+          fab_review: 'रिव्यू कतार',
+          fab_stories: 'कहानियां',
+          fab_formulas: 'सूत्र',
+          fab_whats_new: 'नया क्या है',
+
+          // Curriculum Drawer Button
+          drawer_curriculum: 'पाठ्यक्रम',
+          // CEFR Level Filters
+          "level_all": "सभी स्तर",
+          "level_a1": "शुरुआती (A1)",
+          "level_a2": "बुनियादी (A2)",
+          "level_b1": "मध्यम (B1)",
+
+          // Central Modals & Drawers
+          fmodal_heading: 'दृश्य नियम, सूत्र और निर्णय ट्री',
+          fmodal_sub: 'व्याकरण के गणितीय सूत्र, ट्रिगर शब्द और निष्कर्ष तक पहुंचने का क्रमबद्ध मार्ग',
+          ptt_modal_heading: 'पासे कॉम्पोज़े बनाम अपूर्ण भूतकाल कहानी ट्रेनर',
+          ptt_modal_sub: 'कहानियों को भूतकाल में बदलें और व्याकरण के सटीक कारणों को समझें',
+          vmodal_heading: 'फ्रेंच क्रिया कंजुगेटर',
+          vmodal_sub: '7,800+ से अधिक क्रियाएं सभी कालों और रूपों में',
+          vmodal_btn_go: 'खोजें',
+          vmodal_quick_shortcuts: 'अक्सर प्रयुक्त क्रियाएं:',
+          srs_heading: 'स्पैस्ड रिपीटिशन रिव्यू (SRS)',
+          srs_sub: 'दीर्घकालिक स्मृति के लिए निर्धारित अध्ययन सामग्री',
+          wn_modal_title: 'फ्रेंच व्याकरण गाइड में नया क्या है',
+          wn_modal_sub: 'नवीनतम पाठ्यक्रम संयोजन और तकनीकी सुधार',
+          wn_new_badge: 'नया अनुभाग जोड़ा गया',
+          wn_sec28_title: 'अनुभाग 28: 76 व्यक्तित्व विशेषण',
+          wn_sec28_desc: 'क्यूबेक और फ्रांस की दैनिक बोलचाल के विशेषण, सरल व्याख्याएं, प्रामाणिक ऑडियो और 7 भाषाओं में अनुवाद।',
+          wn_f1_title: 'सुव्यवस्थित लंबवत सूची दृश्य',
+          wn_f1_desc: 'सर्च और A-Z फ़िल्टर के साथ व्यक्तित्व विशेषणों की स्पष्ट ऊर्ध्वाधर पठन सूची।',
+          wn_f2_title: 'नियो-ब्रूटलिस्ट विज़ुअल थीम',
+          wn_f2_desc: 'उच्च कंट्रास्ट tactile बॉर्डर, सॉलिड ड्रॉप शैडो और आधुनिक बोल्ड टाइपोग्राफी।',
+          wn_f3_title: 'पासे कॉम्पोज़े बनाम अपूर्ण भूतकाल गाइड',
+          wn_f3_desc: 'मूवी कैमरा बनाम फोटो स्नैपशॉट का सुनहरा नियम और इंटरैक्टिव वाक्य निर्माता।',
+          wn_f4_title: 'मॉन्ट्रियल इतिहास समयरेखा',
+          wn_f4_desc: 'प्वाइंट-आ-कैलियेर ऐतिहासिक यात्रा (6000 ईसा पूर्व से आधुनिक क्यूबेक तक)।',
+          wn_btn_gotit: 'समझ गया',
+          wn_btn_full: 'पूर्ण अपडेट पृष्ठ देखें',
+
+          // Story Trainer (Passé Composé vs Imparfait)
+          ptt_main_title: 'पासे कॉम्पोज़े बनाम अपूर्ण भूतकाल • कहानी ट्रेनर',
+          ptt_main_subtitle: 'वर्तमान काल की कहानियों को सही फ्रेंच भूतकाल में बदलें और कारण समझें',
+          ptt_mode_study: 'अध्ययन',
+          ptt_mode_test: 'टेस्ट',
+          ptt_btn_create: 'बनाएं',
+          ptt_stat_completed: 'क्रियाएं पूरी हुईं',
+          ptt_stat_accuracy: 'प्रथम प्रयास सटीकता:',
+          ptt_stat_hint: 'काल चुनने और कंजुगेट करने के लिए हाइलाइट की गई क्रियाओं पर क्लिक करें',
+          ptt_pop_title: 'कंजुगेट करें:',
+          ptt_pop_sub: 'कहानी के काल को पहचानें और सही रूप चुनें',
+          ptt_pop_q1: '1. किस भूतकाल का प्रयोग करें?',
+          ptt_pop_pc_desc: 'विशिष्ट घटना / पूर्ण क्रिया',
+          ptt_pop_imp_desc: 'पृष्ठभूमि / आदत / निरंतर स्थिति',
+          ptt_pop_pqp_desc: 'अतीत में पहले हो चुका कार्य (कर चुका था)',
+          ptt_pop_q2: '2. सही कंजुगेटेड रूप लिखें:',
+          ptt_pop_btn_validate: 'पुष्टि करें',
+          ptt_pop_accents: 'मात्राएं (Accents):'
         },
       },
 
@@ -616,6 +927,85 @@
           quizLabel_pr: 'Passé Récent — இப்பதான் நடந்த செயலை அமைங்க',
           quizLabel_ger: 'Gérondif — -ant வடிவத்தை அமைங்க',
           quizLabel_y: 'பிரதிபெயர் Y — இடத்தை மாற்றி வாக்கியம் அமைங்க',
+
+          // Header Tools Dropdown & Actions
+          tools_btn: 'கருவிகள்',
+          tools_sec_practice: 'ஊடாடும் பயிற்சி',
+          tools_sec_reference: 'விரைவு குறிப்புகள் & புதுப்பிப்புகள்',
+          tools_sec_audio: 'உச்சரிப்பு & ஆடியோ',
+          tool_conjugator_title: 'வினைச்சொல் மாற்றகம் (Conjugator)',
+          tool_conjugator_desc: 'அனைத்து காலங்களிலும் 7,800+ பிரெஞ்சு வினைகள்',
+          tool_srs_title: 'இடைவெளி விட்டு நினைவுகூர்தல் (SRS)',
+          tool_srs_desc: 'சேமிக்கப்பட்ட விதிகள் மற்றும் கடினமானவற்றை மீளாய்வு செய்தல்',
+          tool_stories_title: 'இறந்தகால கதைப் பயிற்சி',
+          tool_stories_desc: 'Passé Composé vs Imparfait ஊடாடும் கதைகள்',
+          tool_formulas_title: 'இலக்கண சூத்திரங்கள் & விதிகள்',
+          tool_formulas_desc: 'கணித சூத்திரங்கள் & முடிவெடுக்கும் வரைபடங்கள்',
+          tool_whats_new_title: 'புதிய அம்சங்கள்',
+          tool_whats_new_desc: 'சமீபத்திய புதிய பாடங்கள் மற்றும் தள மேம்பாடுகள்',
+          tool_cues_title: 'உச்சரிப்புக் குறிப்புகள்',
+          tool_cues_desc: 'மௌன எழுத்துகள் மற்றும் இணைப்புகள் (Liaisons)',
+
+          // Floating Action Button (FAB) Speed Dial
+          fab_conjugator: 'Conjugator',
+          fab_review: 'மீளாய்வு வரிசை',
+          fab_stories: 'கதைகள்',
+          fab_formulas: 'சூத்திரங்கள்',
+          fab_whats_new: 'புதியவை',
+
+          // Curriculum Drawer Button
+          drawer_curriculum: 'பாடத்திட்டம்',
+
+          // Central Modals & Drawers
+          fmodal_heading: 'காட்சி விதிகள், சூத்திரங்கள் & முடிவெடுக்கும் வரைபடங்கள்',
+          fmodal_sub: 'இலக்கண கணித சூத்திரங்கள், தூண்டுதல் சொற்கள் & தர்க்கப் பாதைகள்',
+          ptt_modal_heading: 'Passé Composé vs Imparfait கதைப் பயிற்சி',
+          ptt_modal_sub: 'நிகழ்காலக் கதைகளை இறந்தகாலத்திற்கு மாற்றி கற்பித்தல் காரணங்களை அறிக',
+          vmodal_heading: 'பிரெஞ்சு வினைச்சொல் மாற்றகம் (Conjugator)',
+          vmodal_sub: 'அனைத்து காலங்கள் மற்றும் நிலைகளிலும் 7,800+ வினைகள்',
+          vmodal_btn_go: 'தேடு',
+          vmodal_quick_shortcuts: 'அடிக்கடி பயன்படும் வினைகள்:',
+          srs_heading: 'இடைவெளி விட்டு நினைவுகூர்தல் (SRS)',
+          srs_sub: 'நீண்டகால நினைவாற்றலுக்கான மறுபயிற்சிப் பட்டியல்',
+          wn_modal_title: 'பிரெஞ்சு இலக்கண வழிகாட்டியில் புதியவை',
+          wn_modal_sub: 'சமீபத்திய பாடச் சேர்க்கைகள் மற்றும் தள மேம்பாடுகள்',
+          wn_new_badge: 'புதிய பிரிவு சேர்க்கப்பட்டது',
+          wn_sec28_title: 'பிரிவு 28: 76 குணநலன் பெயரடைகள்',
+          wn_sec28_desc: 'கியூபெக் மற்றும் பிரான்சின் அன்றாட பேச்சுவழக்கு பெயரடைகள், எளிய விளக்கங்கள், ஆடியோ மற்றும் 7 மொழிபெயர்ப்புகள்.',
+          wn_f1_title: 'செங்குத்து பட்டியல் காட்சி',
+          wn_f1_desc: 'தேடல் மற்றும் அகரவரிசை வடிகட்டியுடன் கூடிய நேர்த்தியான குணநலன் பெயரடைகள் பட்டியல்.',
+          wn_f2_title: 'நியோ-ப்ரூட்டலிஸ்ட் காட்சி வடிவம்',
+          wn_f2_desc: 'அடர்ந்த எல்லைக்கோடுகள், நேரடி நிழல்கள் மற்றும் நவீன அச்சுக்கலை.',
+          wn_f3_title: 'Passé Composé vs Imparfait வழிகாட்டி',
+          wn_f3_desc: 'திரைப்பட கேமரா vs புகைப்பட ஸ்னாப்ஷாட் பொன்விதியும் வாக்கிய அமைப்பியும்.',
+          wn_f4_title: 'மாண்ட்ரியல் வரலாற்று காலவரிசை',
+          wn_f4_desc: 'பாயிண்ட்-அ-காலியர் வரலாற்றுப் பயணம் (கி.மு 6000 முதல் நவீன கியூபெக் வரை).',
+          wn_btn_gotit: 'புரிந்தது',
+          wn_btn_full: 'முழு புதுப்பிப்புப் பக்கத்தைக் காண்க',
+          // CEFR Level Filters
+          "level_all": "அனைத்து நிலைகளும்",
+          "level_a1": "தொடக்க நிலை (A1)",
+          "level_a2": "அடிப்படை நிலை (A2)",
+          "level_b1": "இடைநிலை (B1)",
+
+          // Story Trainer (Passé Composé vs Imparfait)
+          ptt_main_title: 'Passé Composé vs. Imparfait • கதைப் பயிற்சி',
+          ptt_main_subtitle: 'நிகழ்காலக் கதைகளை சரியான பிரெஞ்சு இறந்தகாலத்திற்கு மாற்றி காரணத்தை அறிக',
+          ptt_mode_study: 'கற்றல்',
+          ptt_mode_test: 'தேர்வு',
+          ptt_btn_create: 'உருவாக்கு',
+          ptt_stat_completed: 'வினைகள் முடிவடைந்தன',
+          ptt_stat_accuracy: 'முதல் முயற்சி துல்லியம்:',
+          ptt_stat_hint: 'காலத்தைத் தேர்ந்தெடுத்து வினை மாற்ற செய்ய சிறப்பித்துக் காட்டப்பட்ட வினைகளைக் கிளிக் செய்க',
+          ptt_pop_title: 'வினை மாற்றம் செய்க:',
+          ptt_pop_sub: 'கதையின் காலத்தை அடையாளம் கண்டு சரியான வடிவத்தை எழுதுக',
+          ptt_pop_q1: '1. எந்த இறந்தகாலத்தைப் பயன்படுத்த வேண்டும்?',
+          ptt_pop_pc_desc: 'குறிப்பிட்ட நிகழ்வு / முடிந்த செயல்',
+          ptt_pop_imp_desc: 'பின்னணி / வழக்கம் / தொடர் நிலை',
+          ptt_pop_pqp_desc: 'கடந்த காலத்தில் அதற்கு முந்தைய செயல் (செய்திருந்தேன்)',
+          ptt_pop_q2: '2. சரியான வினை வடிவத்தை எழுதுக:',
+          ptt_pop_btn_validate: 'சரிபார்க்கவும்',
+          ptt_pop_accents: 'குறியீடுகள் (Accents):'
         },
       },
 
@@ -628,6 +1018,11 @@
         ui: {
           appSubtitle: '퀘벡 A1–B1 회화 가이드',
           prev: '← 이전', next: '다음 →',
+          // CEFR Level Filters
+          "level_all": "전체 레벨",
+          "level_a1": "초급 (A1)",
+          "level_a2": "기초 (A2)",
+          "level_b1": "중급 (B1)",
           markAsDone: '완료로 표시', completed: '학습 완료 ✓',
           reset: '↺ 처음부터', tryIt: '직접 해보기',
           correct: '✓ 맞았어요!', wrong: '✗ 다시 생각해보세요',
@@ -736,6 +1131,80 @@
           quizLabel_pr: 'Passé Récent — 방금 일어난 일 표현하기',
           quizLabel_ger: 'Gérondif — -ant 형태 만들기',
           quizLabel_y: '대명사 Y — 장소를 쏙 바꿔서 문장 만들기',
+
+          // Header Tools Dropdown & Actions
+          tools_btn: '학습 도구',
+          tools_sec_practice: '인터랙티브 실전 연습',
+          tools_sec_reference: '빠른 참고 & 업데이트',
+          tools_sec_audio: '발음 및 오디오 설정',
+          tool_conjugator_title: '프랑스어 동사 변위기',
+          tool_conjugator_desc: '모든 시제와 법에 따른 7,800개 이상 동사 검색',
+          tool_srs_title: '간격 반복 복습 (SRS)',
+          tool_srs_desc: '저장한 암기 카드와 까다로운 문법 규칙 집중 훈련',
+          tool_stories_title: '과거 시제 스토리 트레이너',
+          tool_stories_desc: '복합과거 vs 반과거 스토리 기반 인터랙티브 변위 훈련',
+          tool_formulas_title: '문법 공식 & 패턴 트리',
+          tool_formulas_desc: '구조 공식과 단계별 문법 판별 의사결정 트리',
+          tool_whats_new_title: '새로운 소식 및 기능',
+          tool_whats_new_desc: '최근 추가된 커리큘럼 섹션과 플랫폼 개선 사항',
+          tool_cues_title: '발음 시각 가이드 (Cues)',
+          tool_cues_desc: '묵음 철자 강조 및 연음(Liaison) 표시',
+
+          // Floating Action Button (FAB) Speed Dial
+          fab_conjugator: '동사 변위',
+          fab_review: '복습 대기열',
+          fab_stories: '스토리 훈련',
+          fab_formulas: '문법 공식',
+          fab_whats_new: '새로운 소식',
+
+          // Curriculum Drawer Button
+          drawer_curriculum: '커리큘럼',
+
+          // Central Modals & Drawers
+          fmodal_heading: '시각적 규칙, 공식 & 의사결정 트리',
+          fmodal_sub: '수학적 문법 공식, 트리거 키워드 뱃지 및 단계별 추론 경로',
+          ptt_modal_heading: '복합과거 vs 반과거 스토리 트레이너',
+          ptt_modal_sub: '현재 시제 이야기를 올바른 과거 서사로 변환하고 문법 원리를 학습하세요',
+          vmodal_heading: '프랑스어 동사 변위 사전 (Conjugator)',
+          vmodal_sub: '모든 시제 및 법에 걸친 7,800여 개 동사',
+          vmodal_btn_go: '검색',
+          vmodal_quick_shortcuts: '자주 찾는 핵심 동사 바로가기:',
+          srs_heading: '간격 반복 복습 (SRS)',
+          srs_sub: '장기 기억 정착을 위해 예정된 학습 카드',
+          wn_modal_title: '프랑스어 문법 가이드 새로운 소식',
+          wn_modal_sub: '최근 추가된 학습 콘텐츠 및 플랫폼 기능 향상',
+          wn_new_badge: '신규 섹션 추가',
+          wn_sec28_title: '섹션 28: 76개 성격 및 성향 형용사',
+          wn_sec28_desc: '퀘벡 및 프랑스 일상 회화 표현, 쉬운 정의, 원어민 음성 발음과 7개 국어 완벽 번역 제공.',
+          wn_f1_title: '깔끔한 수직 리스트 뷰',
+          wn_f1_desc: '검색 및 A-Z 알파벳 필터를 통해 직관적으로 읽을 수 있는 세로형 성격 형용사 목록.',
+          wn_f2_title: '네오-브루탈리즘 기본 비주얼 테마',
+          wn_f2_desc: '선명한 고대비 테두리, 입체적인 하드 드롭 섀도우와 감각적인 현대적 타이포그래피.',
+          wn_f3_title: '복합과거 vs 반과거 마스터 가이드',
+          wn_f3_desc: '영화 카메라 vs 사진 스냅샷 황금률과 대화형 문장 완성기.',
+          wn_f4_title: '몬트리올 역사 타임라인',
+          wn_f4_desc: '푸앵트아칼리에르 유적지로 떠나는 기원전 6000년부터 현대 퀘벡까지의 인터랙티브 역사 여정.',
+          wn_btn_gotit: '확인 완료',
+          wn_btn_full: '전체 업데이트 페이지 보기',
+
+          // Story Trainer (Passé Composé vs Imparfait)
+          ptt_main_title: '복합과거 vs. 반과거 • 스토리 트레이너',
+          ptt_main_subtitle: '현재 시제의 글을 자연스러운 프랑스어 과거 서사로 바꾸고 문법 원리를 체득하세요',
+          ptt_mode_study: '학습 모드',
+          ptt_mode_test: '테스트 모드',
+          ptt_btn_create: '만들기',
+          ptt_stat_completed: '개 동사 완료',
+          ptt_stat_accuracy: '첫 시도 정답률:',
+          ptt_stat_hint: '하이라이트된 동사를 클릭하여 알맞은 과거 시제를 선택하고 변위형을 입력하세요',
+          ptt_pop_title: '동사 변위:',
+          ptt_pop_sub: '이야기의 시제를 판별하고 과거분사 성수 일치를 맞추세요',
+          ptt_pop_q1: '1. 어떤 과거 시제를 사용해야 할까요?',
+          ptt_pop_pc_desc: '일회성 사건 / 완료된 구체적 행동',
+          ptt_pop_imp_desc: '배경 묘사 / 습관 / 지속 중인 상태',
+          ptt_pop_pqp_desc: '과거보다 더 이전에 일어난 일 (대과거)',
+          ptt_pop_q2: '2. 정확한 동사 변위 형태를 입력하세요:',
+          ptt_pop_btn_validate: '확인',
+          ptt_pop_accents: '특수문자 (Accents):'
         },
       },
 
@@ -856,6 +1325,85 @@
           quizLabel_pr: 'Passé Récent — 表达刚刚才做过的事',
           quizLabel_ger: 'Gérondif — 副动词 -ant 形式',
           quizLabel_y: '代词 Y — 巧妙替换地点词',
+
+          // Header Tools Dropdown & Actions
+          tools_btn: '实用工具',
+          tools_sec_practice: '互动强化练习',
+          tools_sec_reference: '快速参考与更新速览',
+          tools_sec_audio: '发音与音频调节',
+          tool_conjugator_title: '法语动词变位查询',
+          tool_conjugator_desc: '涵盖全时态和语态的 7,800+ 动词变位库',
+          tool_srs_title: '间隔重复智能复习 (SRS)',
+          tool_srs_desc: '巩固已收藏条目与易混淆语法难点',
+          tool_stories_title: '过去时故事实战特训',
+          tool_stories_desc: '复合过去时 vs 未完成过去时交互式故事变位训练',
+          tool_formulas_title: '核心语法公式与规律',
+          tool_formulas_desc: '结构化语法公式与分步决策树诊断图',
+          tool_whats_new_title: '新功能与更新速览',
+          tool_whats_new_desc: '近期新增教学章节与平台功能优化',
+          tool_cues_title: '发音视觉辅助 (Cues)',
+          tool_cues_desc: '突出不发音字母与连诵(Liaison)符号',
+
+          // Floating Action Button (FAB) Speed Dial
+          fab_conjugator: '动词变位',
+          fab_review: '待复习库',
+          fab_stories: '故事特训',
+          fab_formulas: '语法公式',
+          fab_whats_new: '最新动态',
+
+          // Curriculum Drawer Button
+          drawer_curriculum: '全部课程',
+          // CEFR Level Filters
+          "level_all": "全部级别",
+          "level_a1": "初级入门 (A1)",
+          "level_a2": "进阶基础 (A2)",
+          "level_b1": "中级精通 (B1)",
+
+          // Central Modals & Drawers
+          fmodal_heading: '可视化规则、数学公式与决策树',
+          fmodal_sub: '语法运算公式、关键词触发信号与判断推导路径',
+          ptt_modal_heading: '复合过去时 vs 未完成过去时故事特训',
+          ptt_modal_sub: '将现在时故事短文改写为地道法语过去时叙述，并获取详尽教学反馈',
+          vmodal_heading: '法语动词变位大字典 (Conjugator)',
+          vmodal_sub: '涵盖所有语式和时态的 7,800+ 常用法语动词',
+          vmodal_btn_go: '查询',
+          vmodal_quick_shortcuts: '高频动词快速直达：',
+          srs_heading: '间隔重复智能复习 (SRS)',
+          srs_sub: '助力长期记忆固化的待复习卡片',
+          wn_modal_title: '法语语法指南新版速览',
+          wn_modal_sub: '近期新增课程板块与平台系统升级',
+          wn_new_badge: '全新章节上线',
+          wn_sec28_title: '第 28 课：76 个个性与性格形容词',
+          wn_sec28_desc: '精选魁北克与法国日常生活地道性格描述词，配有通俗释义、情景例句、母语发音及 7 语双向对照。',
+          wn_f1_title: '清爽竖版阅读清单',
+          wn_f1_desc: '性格形容词以纵向清晰列表展现，支持实时搜索与 A–Z 快速字母筛选。',
+          wn_f2_title: '新野兽派 (Neo-Brutalist) 视觉主题',
+          wn_f2_desc: '高对比度硬朗边框、立体复古实心投影与极具现代质感的版式设计。',
+          wn_f3_title: '复合过去时 vs 未完成过去时实战指南',
+          wn_f3_desc: '掌握“电影摄影机 vs 照片快照”黄金法则与交互式组句练习器。',
+          wn_f4_title: '蒙特利尔历史探索时间线',
+          wn_f4_desc: '跟随布安特-阿-卡利埃考古遗址穿越从公元前 6000 年到现代魁北克的历史长河。',
+          wn_btn_gotit: '我知道了',
+          wn_btn_full: '查看完整更新详情页',
+
+          // Story Trainer (Passé Composé vs Imparfait)
+          ptt_main_title: '复合过去时 vs. 未完成过去时 • 故事实战特训',
+          ptt_main_subtitle: '将现在时短文转变为地道法语过去叙述，并在互动中领会语法原由',
+          ptt_mode_study: '学习模式',
+          ptt_mode_test: '测试模式',
+          ptt_btn_create: '自建练习',
+          ptt_stat_completed: '个动词已完成',
+          ptt_stat_accuracy: '首试正确率：',
+          ptt_stat_hint: '点击高亮标注的动词以选择目标时态并填写正确变位',
+          ptt_pop_title: '动词变位：',
+          ptt_pop_sub: '判别叙述时态并注意过去分词的性数配合',
+          ptt_pop_q1: '1. 这里应该选用哪个过去时态？',
+          ptt_pop_pc_desc: '瞬时动作 / 推动剧情发展的具体事件',
+          ptt_pop_imp_desc: '背景描绘 / 习惯行为 / 持续存在状态',
+          ptt_pop_pqp_desc: '过去之前已发生的动作 (愈过去时)',
+          ptt_pop_q2: '2. 输入准确的变位拼写：',
+          ptt_pop_btn_validate: '提交验证',
+          ptt_pop_accents: '特殊字符 (Accents)：'
         },
       },
     };
@@ -2107,6 +2655,7 @@
       const lang = translations[cur] || translations.en;
       return (lang.ui && lang.ui[key]) || (translations.en.ui && translations.en.ui[key]) || key;
     }
+    window.t = t;
 
     /**
      * Allows dynamically registering or extending translations for any new section added.
@@ -2157,7 +2706,22 @@
     function updateAppSubtitle() {
       const el = document.getElementById('app-subtitle');
       if (el) el.textContent = t('appSubtitle');
+      updateDomTranslations();
     }
+    window.updateAppSubtitle = updateAppSubtitle;
+
+    function updateDomTranslations() {
+      if (typeof document === 'undefined') return;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (!key) return;
+        const translated = t(key);
+        if (translated && translated !== key) {
+          el.textContent = translated;
+        }
+      });
+    }
+    window.updateDomTranslations = updateDomTranslations;
 
     // Register section translations for Personality Adjectives
     registerSectionTranslations('personality_adjectives', {
@@ -2255,5 +2819,325 @@
         subtitle: "近期新增章节、互动工具及版本亮点",
         '0_english': "汇总近期新增的语法板块、词汇库、互动工具与全新视觉主题。",
         '1_english': "近期更新记录与版本历史时间线。"
+      }
+    });
+    // Register section translations for Section 27: Passé Composé vs Imparfait & Story Practice
+    registerSectionTranslations('pc_vs_imparfait', {
+      en: {
+        title: "Passé Composé vs Imparfait",
+        subtitle: "Mastering the Movie Scene Rule & Interactive Story Practice",
+        '8_english': "Read authentic French stories in the present tense, click the target verbs, decide whether each action requires Passé Composé, Imparfait, or Plus-que-parfait, and conjugate with immediate pedagogical feedback."
+      },
+      fa: {
+        title: "گذشته مرکب در برابر استمراری",
+        subtitle: "قانون صحنه فیلم و تمرین تعاملی تبدیل داستان‌ها به گذشته",
+        '8_english': "داستان‌های فرانسوی زمان حال را بخوانید، روی افعال کلیک کنید، زمان گذشته مناسب (مرکب، استمراری یا گذشته کامل) را برگزینید و با فیدبک آموزشی فوری صرف کنید."
+      },
+      gu: {
+        title: "પાસે કોમ્પોઝે વિરુદ્ધ અપૂર્ણ ભૂતકાળ",
+        subtitle: "મૂવી દ્રશ્ય નિયમ અને વાર્તા દ્વારા ભૂતકાળની ક્રિયાપદ પ્રેક્ટિસ",
+        '8_english': "વાર્તાઓ વાંચો, ક્રિયાપદો પર ક્લિક કરો, સાચો ભૂતકાળ પસંદ કરો અને નિયમ સમજૂતી સાથે સાચો જવાબ મેળવો."
+      },
+      hi: {
+        title: "पासे कॉम्पोज़े बनाम अपूर्ण भूतकाल",
+        subtitle: "फिल्म दृश्य नियम और इंटरैक्टिव कहानी भूतकाल अभ्यास",
+        '8_english': "वर्तमान काल की कहानियां पढ़ें, लक्षित क्रियाओं पर क्लिक करें, सही भूतकाल चुनें और तत्काल व्याकरणिक फीडबैक के साथ अभ्यास करें।"
+      },
+      ta: {
+        title: "பாசே கம்போசே vs இம்பார்பே",
+        subtitle: "திரைப்பட காட்சி விதி மற்றும் ஊடாடும் கதை பயிற்சி",
+        '8_english': "பிரெஞ்சு கதைகளைப் படியுங்கள், வினைச்சொற்களைக் கிளிக் செய்து சரியான இறந்தகாலத்தை (Passé Composé / Imparfait / Plus-que-parfait) தேர்வு செய்து பயிற்சியுங்கள்."
+      },
+      ko: {
+        title: "복합과거 vs 반과거",
+        subtitle: "영화 장면의 황금률과 스토리 기반 과거 시제 인터랙티브 연습",
+        '8_english': "현재 시제로 쓰인 프랑스어 이야기를 읽고, 동사를 클릭하여 복합과거/반과거/대과거를 판별한 뒤 즉각적인 문법 설명과 함께 변위해 보세요."
+      },
+      zh: {
+        title: "复合过去时 vs 未完成过去时",
+        subtitle: "掌握电影场景法则与互动故事过去时实战练习",
+        '8_english': "阅读现在的法语故事短文，点击目标动词，判断其应转换为复合过去时、未完成过去时或愈过去时，并查看详细语法规则解析。"
+      }
+    });
+
+    // Register section translations for Section 30: Expressing Obligation and Necessity (Il faut que + Subjonctif)
+    registerSectionTranslations('il_faut_que', {
+      en: {
+        title: "Obligation & Necessity (Il faut que)",
+        subtitle: "The Subjunctive Mood after « Il faut que » & Impersonal Structures",
+        '0_english': "To express obligation, necessity, or duty in French, the impersonal construction \"Il faut que\" (It is necessary that / It is required that) is followed by the Subjunctive Mood (le subjonctif présent). Formula: Subject / Context ➔ Il faut que + [Pronoun / Noun] + [Verb in Subjunctive Present] + [Complement].",
+        '1_english': "Step 1: Take the 3rd person plural (ils/elles) form of the present indicative, drop the -ent ending to get the stem. Step 2: Add standard subjunctive endings: -e, -es, -e, -ions, -iez, -ent.",
+        '2_english': "Verbs like prendre and boire change stems: they use the ils-stem for je/tu/il/ils, but revert to the nous/vous stem for nous and vous.",
+        '3_english': "These high-frequency verbs have unique subjunctive stems and do not follow the ils stem rule. Memorize them carefully.",
+        '4_english': "Transforming modal obligation (devoir), adding euphonic \"l'\" with \"on\", and asking questions with inversion (Faut-il que...?).",
+        '5_english': "You can replace « Il faut que » with other impersonal expressions of necessity, all taking the Subjunctive.",
+        '6_english': "Master how everyday sentences with devoir convert to il faut que + subjunctive, including regular verbs, stem-changers, proper nouns, and reflexives.",
+        '7_english': "Test your mastery: transform each sentence using « Il faut que » and the correct subjunctive verb form.",
+        '8_english': "A complete B1 French text combining personal life, mobile software engineering journey, and professional duties with 'il faut que + subjonctif' and 'avoir besoin de'."
+      },
+      fa: {
+        title: "بیان الزام و ضرورت (Il faut que)",
+        subtitle: "وجه التزامی (سابژونکتیف) پس از «Il faut que» و ساختارهای غیرشخصی",
+        '0_english': "برای بیان اجبار، ضرورت یا وظیفه در فرانسوی، عبارت غیرشخصی «Il faut que» (باید / لازم است که) با وجه التزامی (le subjonctif présent) همراه می‌شود. فرمول: Il faut que + فاعل + فعل التزامی + متمم.",
+        '1_english': "قانون طلایی ساخت التزامی: ۱) ریشه را از سوم شخص جمع حال ساده (ils/elles) با حذف -ent به دست آورید. ۲) شناسه‌های التزامی را اضافه کنید: -e, -es, -e, -ions, -iez, -ent.",
+        '2_english': "افعال با دو ریشه (مانند prendre و boire): برای ضمایر je/tu/il/ils از ریشه ils و برای nous و vous از ریشه nous استفاده می‌کنند.",
+        '3_english': "افعال کاملاً بی‌قاعده کلیدی (être, avoir, faire, pouvoir, savoir, aller, vouloir) که ریشه‌های اختصاصی خود را دارند.",
+        '4_english': "تغییرات ساختاری: جایگزینی فعل devoir با il faut que، اضافه کردن «l'» به خاطر زیبایی تلفظ با on (que l'on)، و سوالی وارونه (Faut-il que...؟).",
+        '5_english': "عبارات هم‌معنی پیشرفته: Il est nécessaire que، Il est indispensable que، Il est important que (همگی نیازمند سابژونکتیف).",
+        '6_english': "جدول مرجع تبدیل جملات حاوی devoir به ساختار il faut que + سابژونکتیف برای انواع افعال باقاعده و بی‌قاعده.",
+        '7_english': "تمرین تعاملی: تبدیل جملات روزمره حاوی devoir به ساختار الزام‌آور با وجه التزامی صحیح.",
+        '8_english': "متن جامع سطح B1: تلفیق زندگی شخصی، مسیر حرفه‌ای مهندسی نرم‌افزار موبایل و شرح وظایف شغلی با ساختارهای الزام‌آور (il faut que و avoir besoin de)."
+      },
+      gu: {
+        title: "ફરજ અને જરૂરિયાત દર્શાવવી (Il faut que)",
+        subtitle: "«Il faut que» પછી સબજંક્ટિવ મૂડ (સંભાવનાર્થ કાળ)",
+        '0_english': "ફ્રેન્ચમાં ફરજ કે અનિવાર્યતા દર્શાવવા માટે «Il faut que» (તે જરૂરી છે કે / કરવું જ પડશે) પછી Subjonctif Présent વપરાય છે. સૂત્ર: Il faut que + કર્તા + સબજંક્ટિવ ક્રિયાપદ + પૂરક.",
+        '1_english': "સુવર્ણ નિયમ: વર્તમાનકાળના ત્રીજા પુરુષ બહુવચન (ils/elles) માંથી -ent કાઢીને મૂળ ધાતુ મેળવો અને -e, -es, -e, -ions, -iez, -ent પ્રત્યયો લગાવો.",
+        '2_english': "બે મૂળ ધરાવતા ક્રિયાપદો (જેમ કે prendre, boire): je/tu/il/ils માટે ils વાળું મૂળ અને nous/vous માટે nous વાળું મૂળ વાપરે છે.",
+        '3_english': "સંપૂર્ણપણે અનિયમિત મુખ્ય ક્રિયાપદો: être, avoir, faire, pouvoir, savoir, aller, vouloir ના ખાસ સબજંક્ટિવ રૂપો યાદ રાખો.",
+        '4_english': "વાક્ય રચના અને વિવિધતા: devoir ને બદલે il faut que નો ઉપયોગ, મધુર ઉચ્ચારણ માટે «que l'on», અને ઉલટાવીને પ્રશ્ન પૂછવો (Faut-il que...?).",
+        '5_english': "સમાનાર્થી અપરિચિત રચનાઓ: Il est nécessaire que, Il est indispensable que, Il est important que (આ તમામ સાથે Subjonctif આવે છે).",
+        '6_english': "Devoir માંથી Il faut que + Subjonctif માં રૂપાંતર માટેનું વ્યાપક સંદર્ભ કોષ્ટક.",
+        '7_english': "ઇન્ટરેક્ટિવ પ્રેક્ટિસ: સાચા સબજંક્ટિવ રૂપ સાથે વાક્યનું રૂપાંતરણ કરો અને ત્વરિત ઉત્તર મેળવો.",
+        '8_english': "સંપૂર્ણ B1 લેવલ ફ્રેન્ચ ટેક્સ્ટ: અંગત જીવન, મોબાઇલ સોફ્ટવેર એન્જિનિયરિંગ કારકિર્દી અને વ્યાવસાયિક ફરજો દર્શાવતો વ્યવસ્થિત લેખ."
+      },
+      hi: {
+        title: "अनिवार्यता और आवश्यकता व्यक्त करना (Il faut que)",
+        subtitle: "«Il faut que» के बाद सबजंक्टिव मूड (संभावनार्थ काल)",
+        '0_english': "फ्रेंच में बाध्यता, आवश्यकता या कर्तव्य व्यक्त करने के लिए «Il faut que» (यह आवश्यक है कि / ऐसा करना ही होगा) के बाद Subjonctif Présent का उपयोग किया जाता है। सूत्र: Il faut que + कर्ता + सबजंक्टिव क्रिया + पूरक।",
+        '1_english': "गोल्डन रूल: वर्तमान काल के तीसरे व्यक्ति बहुवचन (ils/elles) रूप से -ent हटाकर धातु (stem) निकालें और -e, -es, -e, -ions, -iez, -ent अंत्य प्रत्यय जोड़ें।",
+        '2_english': "दोहरे धातु वाले क्रियापद (जैसे prendre, boire): je/tu/il/ils के लिए ils वाली धातु और nous/vous के लिए nous वाली धातु लेते हैं।",
+        '3_english': "पूरी तरह से अनियमित मुख्य क्रियाएं: être, avoir, faire, pouvoir, savoir, aller, vouloir के अद्वितीय सबजंक्टिव रूप कंठस्थ करें।",
+        '4_english': "संरचनात्मक रूपांतरण: devoir के स्थान पर il faut que का प्रयोग, मधुर उच्चारण हेतु «que l'on» का प्रयोग, और औपचारिक प्रश्न (Faut-il que...?)।",
+        '5_english': "समानार्थी निर्वैयक्तिक अभिव्यक्तियाँ: Il est nécessaire que, Il est indispensable que, Il est important que (इन सभी के साथ Subjonctif लगता है)।",
+        '6_english': "Devoir से Il faut que + Subjonctif में बदलने के लिए विस्तृत संदर्भ तालिका।",
+        '7_english': "इंटरैक्टिव अभ्यास: वाक्यों को devoir से सही सबजंक्टिव रूप वाले il faut que में रूपांतरित करें।",
+        '8_english': "संपूर्ण B1 स्तर फ्रेंच पाठ: व्यक्तिगत जीवन, मोबाइल सॉफ्टवेयर इंजीनियरिंग यात्रा और व्यावसायिक जिम्मेदारियों का संरचित विवरण।"
+      },
+      ta: {
+        title: "கட்டாயம் மற்றும் தேவையை வெளிப்படுத்துதல் (Il faut que)",
+        subtitle: "«Il faut que» விற்கு பின் சப்ஜன்க்டிவ் நிலை (Subjonctif)",
+        '0_english': "பிரெஞ்சு மொழியில் ஒரு கடமை அல்லது அத்தியாவசிய தேவையை வெளிப்படுத்த «Il faut que» (இது அவசியம் / செய்ய வேண்டும்) என்ற சொல்லுக்குப் பின் Subjonctif Présent பயன்படுத்தப்படுகிறது. சூத்திரம்: Il faut que + எழுவாய் + சப்ஜன்க்டிவ் வினை + துணைச் சொல்.",
+        '1_english': "தங்க விதி: நிகழ்கால பலர்பால் (ils/elles) வினையிலிருந்து -ent நீக்கி மூலப் பகுதியை எடுத்து, -e, -es, -e, -ions, -iez, -ent ஆகிய விகுதிகளைச் சேர்க்கவும்.",
+        '2_english': "இரு வேறு மூலங்களைக் கொண்ட வினைகள் (எ.கா. prendre, boire): je/tu/il/ils க்கு ils மூலத்தையும், nous/vous க்கு nous மூலத்தையும் பயன்படுத்தும்.",
+        '3_english': "முற்றிலும் மாறுபட்ட முக்கிய வினைகள்: être, avoir, faire, pouvoir, savoir, aller ஆகியவற்றின் தனித்துவமான சப்ஜன்க்டிவ் வடிவங்கள்.",
+        '4_english': "அமைப்பு மாற்றங்கள்: devoir வினையை மாற்றி il faut que அமைத்தல், இனிமையான உச்சரிப்புக்காக «que l'on», மற்றும் தலைகீழ் வினா அமைப்பு (Faut-il que...?).",
+        '5_english': "இணை வெளிப்பாடுகள்: Il est nécessaire que, Il est indispensable que, Il est important que (இவை அனைத்தும் Subjonctif எடுக்கும்).",
+        '6_english': "Devoir வாக்கியங்களை Il faut que + Subjonctif அமைப்பாக மாற்றுவதற்கான முழுமையான ஒப்பீட்டு அட்டவணை.",
+        '7_english': "ஊடாடும் பயிற்சி: வாக்கியங்களைச் சரியான சப்ஜன்க்டிவ் வினையுடன் Il faut que அமைப்பாக மாற்றிப் பழகுங்கள்.",
+        '8_english': "முழுமையான B1 நிலை உரை: தனிப்பட்ட வாழ்க்கை, மொபைல் மென்பொருள் பொறியியல் மற்றும் கட்டாயத் தேவைகளை விளக்கும் கட்டமைக்கப்பட்ட பிரெஞ்சு கட்டுரை."
+      },
+      ko: {
+        title: "의무와 필요성 표현하기 (Il faut que)",
+        subtitle: "«Il faut que» 뒤에 오는 접속법 현재(Le Subjonctif Présent)",
+        '0_english': "프랑스어에서 의무, 당위, 필요성을 나타낼 때 비인칭 표현 «Il faut que»(~해야 한다 / ~하는 것이 필수적이다) 뒤에는 반드시 접속법 현재(Subjonctif Présent)를 사용합니다. 공식: Il faut que + 주어 + 접속법 현재 동사 + 보어.",
+        '1_english': "접속법 형성의 황금률: 1) 직설법 현재 3인칭 복수(ils/elles) 형태에서 어미 -ent를 탈락시켜 어간을 추출합니다. 2) 표준 접속법 어미(-e, -es, -e, -ions, -iez, -ent)를 결합합니다.",
+        '2_english': "어간이 바뀌는 2-어간 동사(prendre, boire 등): 단수 및 3인칭 복수(je/tu/il/ils)는 ils 어간을, nous와 vous는 직설법 1인칭 복수 어간을 유지합니다.",
+        '3_english': "완전 불규칙 핵심 동사: être(sois), avoir(aie), faire(fasse), pouvoir(puisse), savoir(sache), aller(aille) 등은 고유한 형태를 암기해야 합니다.",
+        '4_english': "문장 구조와 변형: devoir 화법조동사를 il faut que로 교체하기, 유음성을 위한 «que l'on», 도치 의문문(Faut-il que...?).",
+        '5_english': "동의어 비인칭 표현(B1 심화): Il est nécessaire que, Il est indispensable que, Il est important que (모두 접속법을 유도합니다).",
+        '6_english': "규칙 동사, 어간 변화 동사, 고유명사 주어, 대명동사를 포함한 devoir ➔ il faut que + 접속법 종합 변환 참조표.",
+        '7_english': "인터랙티브 실전 변환 연습: 각 문장을 올바른 접속법 동사와 함께 Il faut que 구문으로 변환해 보세요.",
+        '8_english': "B1 완벽 텍스트: 개인 생활, 모바일 소프트웨어 엔지니어링 경력 및 'il faut que + 접속법'과 'avoir besoin de'를 활용한 직무 의무 표현."
+      },
+      zh: {
+        title: "表达必须与必要性 (Il faut que)",
+        subtitle: "«Il faut que» 后的虚拟式现在时 (Le Subjonctif Présent)",
+        '0_english': "在法语中表达义务、必要性或责任时，无人称结构 “Il faut que”（必须…… / 有必要……）后面必须接虚拟式现在时（le subjonctif présent）。公式：Il faut que + 主语 + 虚拟式现在时动词 + 补语。",
+        '1_english': "虚拟式变位黄金法则：1）取直陈式现在时第三人称复数（ils/elles）形式，去掉词尾 -ent 获取词干；2）加上标准虚拟式词尾：-e, -es, -e, -ions, -iez, -ent。",
+        '2_english': "双词干变位动词（如 prendre, boire）：单数人称及 ils/elles 使用 ils 词干，而 nous 和 vous 保持 nous 词干（词尾分别对应 -ions 与 -iez）。",
+        '3_english': "核心不规则特殊动词：être (sois), avoir (aie), faire (fasse), pouvoir (puisse), savoir (sache), aller (aille), vouloir (veuille) 拥有独特词干，需重点熟记。",
+        '4_english': "句式转换与变体：用 il faut que 替换情态动词 devoir、为发音悦耳在 on 前加 l' (que l'on)、以及倒装疑问句 (Faut-il que...?)。",
+        '5_english': "同义无人称表达句型（B1进阶）：Il est nécessaire que（必须）、Il est indispensable que（必不可少）、Il est important que（重要的是），均需接虚拟式。",
+        '6_english': "Devoir 转换为 Il faut que + 虚拟式的全场景对照表（涵盖规则动词、变词干动词、代词式动词及专有名词主语）。",
+        '7_english': "互动实战测验：练习将 devoir 句子转换为带有正确虚拟式动词形式的 Il faut que 句式。",
+        '8_english': "B1 级完整结构化范文：融合蒙特利尔个人生活、移动端软件工程师成长历程、以及运用“il faut que + 虚拟式”与“avoir besoin de”的岗位职责阐述。"
+      }
+    });
+
+    // Register section translations for Section 31: Santé et Bien-être au Québec
+    registerSectionTranslations('sante_quebec', {
+      en: {
+        title: "Health & Medical Care",
+        subtitle: "Navigating Healthcare, Symptoms & Consultations in Quebec",
+        '0_english': "Essential institutions, cards, and terms for accessing health services across Montreal and Quebec.",
+        '1_english': "Master idiomatic structures to state what hurts, where it hurts, and describe bodily sensations.",
+        '2_english': "A typical, natural medical consultation dialogue between a doctor and a patient in Montreal.",
+        '3_english': "Professional health advice and medical recommendations using subjunctive necessity and imperative hygiene rules.",
+        '4_english': "Cold vs. Flu: Know the difference according to public health guidelines (gradual onset vs. sudden high fever and severe fatigue)."
+      },
+      fa: {
+        title: "بهداشت و درمان در کبک",
+        subtitle: "سیستم درمانی، علائم بیماری و مکالمات پزشکی در کبک",
+        '0_english': "اصطلاحات و نهادهای اساسی سیستم بهداشت و درمان کبک (کارت سانته، درمانگاه‌های CLSC و خط ۸۱۱).",
+        '1_english': "بیان درد و علائم جسمی با ساختارهای پرکاربرد فرانسوی (avoir mal à...).",
+        '2_english': "مکالمه نمونه و طبیعی میان پزشک و بیمار در درمانگاه یا مطب در مونترال.",
+        '3_english': "توصیه‌های پزشکی و اصول بهداشتی با وجه التزامی و جملات دستوری.",
+        '4_english': "مقایسه سرماخوردگی و آنفولانزا: تفاوت علائم، شدت تب، کوفتگی و خطرات طبق استانداردهای بهداشت عمومی."
+      },
+      gu: {
+        title: "આરોગ્ય અને તબીબી સેવાઓ",
+        subtitle: "ક્વિબેકમાં આરોગ્ય પ્રણાલી, લક્ષણો અને ડૉક્ટર સાથેની વાતચીત",
+        '0_english': "ક્વિબેકમાં આરોગ્ય સેવાઓ (કાર્તે સોલેઇલ, સીએલએસસી અને 811) માટેની સંસ્થાઓ અને શબ્દભંડોળ.",
+        '1_english': "શરીરના દર્દ અને શારીરિક લક્ષણો વ્યક્ત કરવા માટેની ફ્રેન્ચ રચનાઓ.",
+        '2_english': "મોન્ટ્રીયલમાં ડૉક્ટર અને દર્દી વચ્ચેનો વાસ્તવિક સંવાદ.",
+        '3_english': "સબજંક્ટિવ અને આજ્ઞાર્થ કાળ સાથે તબીબી સલાહ અને આરોગ્ય નિયમો.",
+        '4_english': "શરદી અને ફ્લૂ વચ્ચેનો તફાવત: શરૂઆતની ગતિ, તાવની તીવ્રતા અને સાવચેતીઓ."
+      },
+      hi: {
+        title: "स्वास्थ्य और चिकित्सा सेवाएं",
+        subtitle: "क्यूबेक में स्वास्थ्य प्रणाली, लक्षण और चिकित्सीय परामर्श",
+        '0_english': "क्यूबेक स्वास्थ्य प्रणाली के प्रमुख संस्थान और कार्ड (RAMQ, CLSC, Info-Santé 811)।",
+        '1_english': "शारीरिक दर्द और लक्षणों को व्यक्त करने के लिए आवश्यक फ्रेंच संरचनाएं (avoir mal à...)।",
+        '2_english': "मॉन्ट्रियल के क्लिनिक में डॉक्टर और मरीज के बीच स्वाभाविक बातचीत का मॉडल।",
+        '3_english': "सबजंक्टिव और आज्ञावाचक क्रियाओं के साथ चिकित्सीय सलाह और सावधानियां।",
+        '4_english': "सर्दी-जुकाम और फ्लू (इन्फ्लूएंजा) में अंतर: लक्षण, तेज बुखार, थकान और जटिलताओं की तुलना।"
+      },
+      ta: {
+        title: "சுகாதாரம் மற்றும் மருத்துவ பராமரிப்பு",
+        subtitle: "கியூபெக்கில் மருத்துவ அமைப்பு, அறிகுறிகள் மற்றும் ஆலோசனைகள்",
+        '0_english': "கியூபெக்கின் முக்கிய மருத்துவ நிறுவனங்கள் மற்றும் சொற்கள் (RAMQ, CLSC, 811).",
+        '1_english': "வலி மற்றும் உடல் உபாதைகளை விவரிக்க உதவும் பிரெஞ்சு வாக்கிய அமைப்புகள்.",
+        '2_english': "மான்ட்ரியலில் மருத்துவர் மற்றும் நோயாளி இடையேயான மாதிரி உரையாடல்.",
+        '3_english': "மருத்துவ ஆலோசனைகள் மற்றும் நோய்த்தடுப்பு வழிகாட்டுதல்கள்.",
+        '4_english': "சாதாரண சளி மற்றும் காய்ச்சல் (ஃப்ளூ) இடையேயான வேறுபாடுகள் மற்றும் அறிகுறிகள்."
+      },
+      ko: {
+        title: "건강 및 의료 시스템",
+        subtitle: "퀘벡의 의료 환경, 증상 표현 및 병원 진료 회화",
+        '0_english': "퀘벡 의료 서비스 이용을 위한 필수 기관 및 용어 (RAMQ 카드, CLSC, 811 핫라인).",
+        '1_english': "신체 통증 및 증상을 정확하게 전달하는 프랑스어 표현 (avoir mal à...).",
+        '2_english': "몬트리올 클리닉에서 의사와 환자 간의 실전 진료 대화 모델.",
+        '3_english': "접속법과 명령법을 활용한 의학적 권고 사항 및 건강 예방 수칙.",
+        '4_english': "감기와 독감(인플루엔자) 비교 가이드: 증상 발현 속도, 고열, 극심한 피로 및 합병증 비교 분석."
+      },
+      zh: {
+        title: "医疗卫生与就医指南",
+        subtitle: "魁北克医疗体系、病情描述与门诊会话",
+        '0_english': "在蒙特利尔及魁北克就医必备的核心机构与证件（太阳卡 RAMQ、社区诊所 CLSC、811咨询电话）。",
+        '1_english': "表达身体疼痛、不适与生理症状的法语固定句型（avoir mal à...）。",
+        '2_english': "蒙特利尔门诊就医时医生与患者之间的实景对话模版。",
+        '3_english': "运用虚拟式与祈使句表达医疗处方、医嘱与防病养生建议。",
+        '4_english': "普通感冒与流感（Influenza）辨析指南：发病速度、高烧、极度疲劳与并发症全方位对比。"
+      }
+    });
+
+    // Register section translations for Section 32: Culture, Médias et Loisirs
+    registerSectionTranslations('culture_medias', {
+      en: {
+        title: "Culture, Media & Arts",
+        subtitle: "Arts, Festivals, Journalism, Cinema & Digital Media in Quebec",
+        '0_english': "Vocabulary for cultural events, major festivals, performing arts, and venues.",
+        '1_english': "Terminology for traditional broadcasting, podcasts, press, and streaming media.",
+        '2_english': "Master nuanced adjectives and sentence structures to review, recommend, and critique art.",
+        '3_english': "Realistic conversational exchanges for planning an evening out at the cinema or theatre in Quebec."
+      },
+      fa: {
+        title: "فرهنگ، رسانه و هنرها",
+        subtitle: "جشنواره‌ها، تئاتر، سینما، روزنامه‌نگاری و رسانه‌های دیجیتال در کبک",
+        '0_english': "واژگان رویدادهای فرهنگی، جشنواره‌های بزرگ تابستانی و سالن‌های اجرای مونترال.",
+        '1_english': "اصطلاحات رادیو، تلویزیون، پادکست (بالادو)، مطبوعات و پخش آنلاین.",
+        '2_english': "ساختارها و صفت‌های توصیفی برای نقد و بررسی فیلم‌ها، سریال‌ها و کتاب‌ها.",
+        '3_english': "مکالمه کاربردی برای رزرو بلیط و برنامه‌ریزی تفریحات و گردش‌های فرهنگی."
+      },
+      gu: {
+        title: "સંસ્કૃતિ, મીડિયા અને મનોરંજન",
+        subtitle: "ક્વિબેકમાં કલા, તહેવારો, પત્રકારત્વ, સિનેમા અને ડિજિટલ મીડિયા",
+        '0_english': "સાંસ્કૃતિક કાર્યક્રમો, મોટા તહેવારો અને કલા પ્રદર્શનના સ્થળો માટેની શબ્દભંડોળ.",
+        '1_english': "પરંપરાગત પ્રસારણ, પોડકાસ્ટ (બાલાદો), પ્રેસ અને ઓનલાઇન મીડિયા માટેના શબ્દો.",
+        '2_english': "ચલચિત્રો અને પુસ્તકોની સમીક્ષા અને ભલામણ કરવા માટેની રચનાઓ.",
+        '3_english': "સિનેમા કે થિયેટરમાં જવા માટે ટિકિટ બુકિંગ અને યોજનાનો સંવાદ."
+      },
+      hi: {
+        title: "संस्कृति, मीडिया और कला",
+        subtitle: "क्यूबेक में कला, उत्सव, पत्रकारिता, सिनेमा और डिजिटल मीडिया",
+        '0_english': "सांस्कृतिक आयोजनों, प्रमुख मॉन्ट्रियल त्योहारों और प्रदर्शन कलाओं की शब्दावली।",
+        '1_english': "पारंपरिक प्रसारण, पॉडकास्ट (बालादो), समाचार पत्र और स्ट्रीमिंग मीडिया के शब्द।",
+        '2_english': "फिल्मों, नाटकों और पुस्तकों की समीक्षा और सिफारिश करने के लिए शब्दावली।",
+        '3_english': "सिनेमा या थिएटर जाने की योजना बनाने और टिकट बुक करने के लिए बातचीत।"
+      },
+      ta: {
+        title: "கலாச்சாரம், ஊடகம் மற்றும் கலைகள்",
+        subtitle: "கியூபெக்கில் கலை, திருவிழாக்கள், இதழியல், சினிமா மற்றும் ஊடகங்கள்",
+        '0_english': "கலாச்சார நிகழ்வுகள், மான்ட்ரியல் திருவிழாக்கள் மற்றும் கலைக்கூடங்களின் சொற்கள்.",
+        '1_english': "வானொலி, தொலைக்காட்சி, பாட்காஸ்ட் மற்றும் செய்தி ஊடகங்களுக்கான சொல்லகராதி.",
+        '2_english': "திரைப்படங்கள் மற்றும் கலைப்படைப்புகளை விமர்சிக்கவும் பாராட்டவும் உதவும் அமைப்புகள்.",
+        '3_english': "திரையரங்கம் செல்வதற்கு திட்டமிடுதல் மற்றும் முன்பதிவு உரையாடல்."
+      },
+      ko: {
+        title: "문화, 미디어 및 여가 생활",
+        subtitle: "퀘벡의 예술, 축제, 저널리즘, 영화 및 디지털 미디어",
+        '0_english': "문화 행사, 몬트리올 주요 축제 및 공연 예술 관련 핵심 어휘.",
+        '1_english': "전통 방송 매체, 팟캐스트(발라도), 신문 및 스트리밍 미디어 용어.",
+        '2_english': "영화, 드라마, 도서에 대한 감상평 작성 및 비평을 위한 프랑스어 표현.",
+        '3_english': "영화관이나 극장 나들이를 계획하고 예매하는 실전 대화."
+      },
+      zh: {
+        title: "文化、媒体与都市娱乐",
+        subtitle: "魁北克的节庆活动、影视艺术、新闻出版与数字媒体",
+        '0_english': "文化盛会、蒙特利尔知名夏季音乐艺术节与演艺场馆核心词汇。",
+        '1_english': "广播电视、官方播客（balado）、报刊杂志与流媒体播放专业术语。",
+        '2_english': "对电影、剧集与文学作品进行艺术品鉴、推介与文艺批评的句式。",
+        '3_english': "预约购票、安排周末剧场或影院观影出行的地道日常法语会话。"
+      }
+    });
+
+    // Register section translations for Section 33: Habitation et Logement au Québec
+    registerSectionTranslations('habitation_quebec', {
+      en: {
+        title: "Housing & Apartment Living",
+        subtitle: "Apartment Hunting, Leases, Moving & Quebec Housing Realities",
+        '0_english': "Understanding the unique Quebec notation for counting apartment rooms and bathroom fractions.",
+        '1_english': "Key legal, financial, and practical terms for signing leases and renting homes in Quebec.",
+        '2_english': "Learn about Moving Day in Quebec, related expressions, and municipal civic rules.",
+        '3_english': "A complete realistic dialogue between a prospective tenant and a landlord in Montreal."
+      },
+      fa: {
+        title: "مسکن و اجاره خانه در کبک",
+        subtitle: "جستجوی آپارتمان، قرارداد اجاره (بایل)، اسباب‌کشی و قوانین مسکن در کبک",
+        '0_english': "شناخت فرمول خاص شمارش اتاق‌های آپارتمان در کبک (یک و نیم، سه و نیم، چهار و نیم...).",
+        '1_english': "واژگان حقوقی، مالی و اداری قرارداد اجاره (بایل) و دادگاه مسکن (TAL).",
+        '2_english': "آشنایی با سنت منحصر‌به‌فرد اول ژوئیه (روز ملی اسباب‌کشی در کبک) و لوازم خانگی.",
+        '3_english': "مکالمه کامل و واقعی برای بازدید و اجاره آپارتمان در مونترال."
+      },
+      gu: {
+        title: "રહેઠાણ અને મકાન ભાડું",
+        subtitle: "ક્વિબેકમાં મકાનની શોધ, ભાડા કરાર, સ્થળાંતર અને રહેઠાણના નિયમો",
+        '0_english': "ક્વિબેકની વિશિષ્ટ રૂમ ગણતરી પદ્ધતિ (1 ½, 3 ½, 4 ½) ની સમજૂતી.",
+        '1_english': "ભાડા કરાર (બેલ) અને કાનૂની શરતો માટેની આવશ્યક શબ્દભંડોળ.",
+        '2_english': "ક્વિબેકમાં 1લી જુલાઈના મૂવિંગ ડે (સ્થળાંતર દિવસ) ની અનોખી પરંપરા.",
+        '3_english': "મોન્ટ્રીયલમાં એપાર્ટમેન્ટ જોવા અને ભાડે રાખવા માટેનો વ્યવહારુ સંવાદ."
+      },
+      hi: {
+        title: "आवास और किराया प्रणाली",
+        subtitle: "क्यूबेक में मकान खोजना, लीज अनुबंध, स्थानांतरण और नियम",
+        '0_english': "क्यूबेक में कमरों की अनूठी गिनती प्रणाली (1 ½, 3 ½, 4 ½) को समझें।",
+        '1_english': "किराया अनुबंध (लीज) और आवास ट्रिब्यूनल (TAL) से संबंधित कानूनी शब्द।",
+        '2_english': "क्यूबेक में 1 जुलाई (मूविंग डे) की अनूठी परंपरा और घरेलू उपकरण।",
+        '3_english': "मॉन्ट्रियल में मकान देखने और किराए पर लेने के लिए व्यावहारिक बातचीत।"
+      },
+      ta: {
+        title: "வீட்டு வசதி மற்றும் வாடகை",
+        subtitle: "கியூபெக்கில் வீடு தேடுதல், குத்தகை ஒப்பந்தம் மற்றும் இடமாற்ற நடைமுறைகள்",
+        '0_english': "கியூபெக்கின் தனித்துவமான அறை கணக்கீட்டு முறை (1 ½, 3 ½, 4 ½).",
+        '1_english': "குத்தகை ஒப்பந்தம் மற்றும் வீட்டு உரிமையாளர் விதிகளுக்கான முக்கிய சொற்கள்.",
+        '2_english': "கியூபெக்கில் ஜூலை 1 ஆம் தேதியின் இடமாற்ற நாள் பாரம்பரியம்.",
+        '3_english': "மான்ட்ரியலில் வீடு வாடகைக்கு எடுக்க உதவும் நேரடி உரையாடல் மாதிரி."
+      },
+      ko: {
+        title: "주거 및 임대차 생활",
+        subtitle: "퀘벡의 집 구하기, 임대차 계약(Bail), 이사 문화 및 거주 규칙",
+        '0_english': "퀘벡 특유의 아파트 구조 표기법 (1 ½, 3 ½, 4 ½ 등 방 개수 셈법) 완벽 이해.",
+        '1_english': "퀘벡 임대차 계약서(Bail) 작성 및 주택행정법원(TAL) 관련 필수 법률/부동산 용어.",
+        '2_english': "퀘벡만의 독특한 문화인 '7월 1일 이사의 날(Moving Day)'과 가전제품 용어.",
+        '3_english': "몬트리올에서 집주인과 진행하는 실전 아파트 방문 및 임대 계약 회화."
+      },
+      zh: {
+        title: "住房租赁与魁北克居住指南",
+        subtitle: "租房看房、租约签订（Bail）、搬家日文化与生活规范",
+        '0_english': "掌握魁北克独特的房屋户型计数系统（1 ½, 3 ½, 4 ½ 以及“半间”卫生间）。",
+        '1_english': "魁省官方标准租约（Bail）、房屋行政法庭（TAL）及房东租客权责法律词汇。",
+        '2_english': "了解魁北克著名的“7月1日全民搬家日”文化习俗与家用大电器术语。",
+        '3_english': "蒙特利尔电话咨询看房与实地签约实操对话模版。"
       }
     });
