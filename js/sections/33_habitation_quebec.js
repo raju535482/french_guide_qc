@@ -303,7 +303,7 @@ window.sectionsData.push({
   <div class="hab-main-display">
     <!-- Image Display -->
     <div class="hab-img-container">
-      <img id="hab-active-image" src="assets/images/logements_quebec.jpg" alt="Types de logements au Québec" class="hab-interactive-image" />
+      <img id="hab-active-image" src="" alt="Types de logements au Québec" class="hab-interactive-image" onerror="if(window.HABITATION_IMAGES&&window.HABITATION_IMAGES[window.currentHabCategory||'qc']){this.src=window.HABITATION_IMAGES[window.currentHabCategory||'qc'];}" />
       <div class="hab-img-caption">
         <span id="hab-img-title">Planche illustrée : Logements au Québec</span>
         <span style="font-size:0.75rem;opacity:0.8;">Cliquez sur un logement ci-dessous</span>
@@ -649,7 +649,8 @@ window.sectionsData.push({
     }
   };
 
-  let currentCategory = 'qc';
+  window.currentHabCategory = 'qc';
+  let currentCategory = window.currentHabCategory;
   let currentItemKey = 'plex';
 
   function renderCategoryChips(catKey) {
@@ -675,6 +676,7 @@ window.sectionsData.push({
     const catData = HABITATION_DATA[catKey];
     if (!catData) return;
     currentCategory = catKey;
+    window.currentHabCategory = catKey;
 
     // Set first item in category as active
     const firstKey = Object.keys(catData.items)[0];
@@ -748,7 +750,15 @@ window.sectionsData.push({
   window.initHabitationViewer = function() {
     const imgEl = document.getElementById("hab-active-image");
     if (imgEl) {
-      imgEl.src = getHabImageSrc(currentCategory);
+      const src = getHabImageSrc(currentCategory);
+      if (imgEl.src !== src) {
+        imgEl.src = src;
+      }
+      imgEl.onerror = function() {
+        if (window.HABITATION_IMAGES && window.HABITATION_IMAGES[currentCategory]) {
+          this.src = window.HABITATION_IMAGES[currentCategory];
+        }
+      };
     }
     renderCategoryChips(currentCategory);
     window.selectHabItem(currentItemKey);

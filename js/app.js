@@ -3488,8 +3488,13 @@ const sections = window.sectionsData || [];
       if (sid === 'il_faut_que' && typeof window.initIfqWidget === 'function') {
         window.initIfqWidget();
       }
-      if (sid === 'sante_quebec' && typeof window.initSanteBodyDiagram === 'function') {
-        window.initSanteBodyDiagram();
+      if (sid === 'sante_quebec') {
+        if (typeof window.initSanteBodyDiagram === 'function') {
+          window.initSanteBodyDiagram();
+        }
+        if (typeof window.renderMedicalRoleplayWidget === 'function') {
+          window.renderMedicalRoleplayWidget();
+        }
       }
       if (sid === 'habitation_quebec' && typeof window.initHabitationViewer === 'function') {
         window.initHabitationViewer();

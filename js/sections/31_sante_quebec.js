@@ -1090,6 +1090,432 @@ window.sectionsData.push({
   </div>
 </div>
 `
+    },
+    {
+      "rule": "6. Simulation de consultation : Dentiste et Optométriste (Jeu de rôle interactif)",
+      "english": "Interactive clinical roleplay with 3-phase patient-doctor consultations, oral practice, and trigger keywords.",
+      "customHtml": `
+<style>
+/* Medical Roleplay Simulation Styles */
+.med-sim-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin: 1.25rem 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.med-scenario-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+.med-scen-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.15rem;
+  background: var(--surface-1);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+}
+
+.med-scen-btn:hover {
+  border-color: #059669;
+  background: color-mix(in srgb, #059669 5%, var(--surface-1));
+  transform: translateY(-1px);
+}
+
+.med-scen-btn.active {
+  border-color: #059669;
+  background: color-mix(in srgb, #059669 10%, var(--surface-1));
+  box-shadow: 0 3px 10px rgba(5, 150, 105, 0.12);
+}
+
+.med-scen-btn .scen-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #D1FAE5;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.med-scen-btn.active .scen-icon-box {
+  background: #059669;
+  color: #ffffff;
+}
+
+.med-scen-title {
+  font-weight: 800;
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+
+.med-scen-sub {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.med-action-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background: var(--surface-2);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+}
+
+.med-mode-switcher {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.med-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.med-mode-btn:hover {
+  color: var(--text-primary);
+}
+
+.med-mode-btn.active {
+  background: var(--surface-1);
+  color: #059669;
+  border-color: var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.med-toggle-en-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.med-toggle-en-btn.active {
+  background: #059669;
+  color: #fff;
+  border-color: #059669;
+}
+
+.med-phases-stepper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.5rem;
+}
+
+.med-phase-step {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--surface-1);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  color: var(--text-primary);
+}
+
+.med-phase-step:hover {
+  border-color: #059669;
+}
+
+.med-phase-step.active {
+  border-color: #059669;
+  background: color-mix(in srgb, #059669 8%, var(--surface-1));
+}
+
+.phase-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  font-weight: 800;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.med-phase-step.active .phase-circle {
+  background: #059669;
+  color: #fff;
+}
+
+.phase-text-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.phase-step-title {
+  font-weight: 700;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.phase-step-sub {
+  font-size: 0.73rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.med-tip-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  border-left: 4px solid #059669;
+  padding: 0.85rem 1rem;
+  border-radius: var(--r-sm);
+  color: #065F46;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.med-tip-banner .ms {
+  color: #059669;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Card & Bubbles */
+.med-dialogue-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.med-exchange-item {
+  background: var(--surface-1);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.med-bubble {
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--r-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.med-bubble.doc {
+  background: color-mix(in srgb, #0284C7 8%, var(--surface-1));
+  border-left: 4px solid #0284C7;
+}
+
+.med-bubble.pat {
+  background: color-mix(in srgb, #059669 8%, var(--surface-1));
+  border-left: 4px solid #059669;
+}
+
+.bubble-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.role-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.role-pill.doc {
+  background: #BAE6FD;
+  color: #0369A1;
+}
+
+.role-pill.pat {
+  background: #D1FAE5;
+  color: #047857;
+}
+
+.bubble-audio-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  border-radius: var(--r-xs);
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  transition: all 0.15s ease;
+}
+
+.bubble-audio-btn:hover {
+  background: var(--surface-2);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.french-dialogue-text {
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+.english-dialogue-text {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: 0.1rem;
+}
+
+/* Practice Mode Interactive Elements */
+.med-reveal-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--surface-2);
+  border-radius: var(--r-xs);
+  border: 1px dashed var(--border);
+}
+
+.med-reveal-prompt {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.med-reveal-btn {
+  align-self: flex-start;
+  padding: 0.45rem 0.85rem;
+  background: #059669;
+  color: #fff;
+  border: none;
+  border-radius: var(--r-xs);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.15s ease;
+}
+
+.med-reveal-btn:hover {
+  background: #047857;
+}
+
+.med-vocab-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+.med-vocab-label {
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-right: 0.2rem;
+}
+
+.med-vocab-chip {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--r-xs);
+  color: var(--text-primary);
+}
+
+.med-vocab-chip strong {
+  color: #059669;
+}
+
+/* Neo-Brutalist Theme Overrides */
+[data-style="neo-brutalist"] .med-scen-btn {
+  border: 2px solid var(--neo-border);
+  box-shadow: 2px 2px 0px var(--neo-border);
+}
+[data-style="neo-brutalist"] .med-scen-btn.active {
+  box-shadow: 3px 3px 0px var(--neo-border);
+}
+[data-style="neo-brutalist"] .med-action-toolbar {
+  border: 2px solid var(--neo-border);
+}
+[data-style="neo-brutalist"] .med-phase-step {
+  border: 2px solid var(--neo-border);
+  box-shadow: 1.5px 1.5px 0px var(--neo-border);
+}
+[data-style="neo-brutalist"] .med-exchange-item {
+  border: 2px solid var(--neo-border);
+  box-shadow: 3px 3px 0px var(--neo-border);
+}
+[data-style="neo-brutalist"] .med-tip-banner {
+  border: 2px solid var(--neo-border);
+}
+</style>
+
+<div class="med-sim-container" id="med-roleplay-root">
+  <!-- Dynamic content will be injected by window.renderMedicalRoleplayWidget() -->
+</div>
+`
     }
   ]
 });
@@ -1328,11 +1754,698 @@ window.sectionsData.push({
     updateSanteBodyImage();
     renderBodyChips();
     window.selectBodyPart(activePart);
+    if (typeof window.renderMedicalRoleplayWidget === 'function') {
+      window.renderMedicalRoleplayWidget();
+    }
   };
 
   // Immediate init if DOM ready
   if (document.getElementById('body-chips-grid')) {
     window.initSanteBodyDiagram();
   }
+})();
+
+
+
+
+
+// ============================================================================
+// Interactive Medical Consultations Roleplay (Dentiste & Optométriste)
+// ============================================================================
+(function() {
+  const MEDICAL_SCENARIOS = [
+  {
+    "id": "dentiste",
+    "titleFr": "Chez la dentiste",
+    "titleEn": "At the Dentist",
+    "subtitleFr": "Sensibilité dentaire & contrôle général",
+    "subtitleEn": "Tooth sensitivity & routine dental examination",
+    "icon": "dentistry",
+    "summaryTipFr": "Identifier clairement la dent touchée (ex: molaire) et les déclencheurs thermiques ou sucrés (froid, chaud, glace).",
+    "summaryTipEn": "Clearly identify the affected tooth (e.g. molar) and thermal or sweet triggers (cold, heat, ice).",
+    "keywords": [
+      {
+        "termFr": "détartrage",
+        "termEn": "dental scaling / cleaning",
+        "note": "Nom masculin"
+      },
+      {
+        "termFr": "contrôle",
+        "termEn": "check-up",
+        "note": "Nom masculin"
+      },
+      {
+        "termFr": "sensibilité",
+        "termEn": "sensitivity",
+        "note": "Nom féminin"
+      },
+      {
+        "termFr": "médicament",
+        "termEn": "medication",
+        "note": "Nom masculin"
+      },
+      {
+        "termFr": "brosse à dents",
+        "termEn": "toothbrush",
+        "note": "Nom féminin"
+      },
+      {
+        "termFr": "serrer les dents",
+        "termEn": "to clench teeth",
+        "note": "Verbe"
+      },
+      {
+        "termFr": "molaire",
+        "termEn": "molar",
+        "note": "Nom féminin"
+      },
+      {
+        "termFr": "douleur vive",
+        "termEn": "sharp pain",
+        "note": "Nom féminin"
+      }
+    ],
+    "phases": [
+      {
+        "id": "phase-1",
+        "phaseNumber": 1,
+        "titleFr": "Phase 1 : L'Introduction & Le Contrôle",
+        "titleEn": "Phase 1: Intro & Check-in",
+        "subtitleFr": "Motif de consultation et dernier détartrage",
+        "subtitleEn": "Reason for visit and last cleaning",
+        "exchanges": [
+          {
+            "id": "den-1-1",
+            "doctorQuestionFr": "Bonjour, qu'est-ce qui vous amène aujourd'hui ?",
+            "doctorQuestionEn": "Hello, what brings you in today?",
+            "patientAnswerFr": "Bonjour docteur. Je viens parce que j'ai une forte sensibilité dentaire depuis quelques semaines.",
+            "patientAnswerEn": "Hello doctor. I'm here because I've been having intense tooth sensitivity for a few weeks.",
+            "keyVocab": [
+              {
+                "termFr": "sensibilité dentaire",
+                "termEn": "tooth sensitivity"
+              }
+            ]
+          },
+          {
+            "id": "den-1-2",
+            "doctorQuestionFr": "Est-ce pour une visite de contrôle ou avez-vous un problème particulier ?",
+            "doctorQuestionEn": "Is this for a routine check-up or do you have a specific problem?",
+            "patientAnswerFr": "C'est surtout pour ce problème de sensibilité, mais j'aimerais faire un contrôle général en même temps.",
+            "patientAnswerEn": "It's mainly for this sensitivity issue, but I'd like to do a general check-up at the same time.",
+            "keyVocab": [
+              {
+                "termFr": "contrôle général",
+                "termEn": "general check-up"
+              },
+              {
+                "termFr": "sensibilité",
+                "termEn": "sensitivity"
+              }
+            ]
+          },
+          {
+            "id": "den-1-3",
+            "doctorQuestionFr": "À quand remonte votre dernier détartrage ou contrôle ?",
+            "doctorQuestionEn": "When was your last dental scaling or check-up?",
+            "patientAnswerFr": "Ça fait environ un an.",
+            "patientAnswerEn": "It's been about a year.",
+            "keyVocab": [
+              {
+                "termFr": "détartrage",
+                "termEn": "dental scaling / cleaning"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "phase-2",
+        "phaseNumber": 2,
+        "titleFr": "Phase 2 : L'Historique & Les Habitudes",
+        "titleEn": "Phase 2: Medical History & Habits",
+        "subtitleFr": "Médicaments, acidité et technique de brossage",
+        "subtitleEn": "Medication, acid reflux, and brushing habits",
+        "exchanges": [
+          {
+            "id": "den-2-1",
+            "doctorQuestionFr": "Prenez-vous des médicaments ou avez-vous des problèmes de santé récents ?",
+            "doctorQuestionEn": "Are you taking any medication or have you had any recent health issues?",
+            "patientAnswerFr": "Non, aucun médicament et aucun problème en ce moment.",
+            "patientAnswerEn": "No, no medication and no health problems right now.",
+            "keyVocab": [
+              {
+                "termFr": "médicament",
+                "termEn": "medication"
+              }
+            ]
+          },
+          {
+            "id": "den-2-2",
+            "doctorQuestionFr": "Avez-vous des antécédents de reflux gastrique ou d'acidité ?",
+            "doctorQuestionEn": "Do you have a history of acid reflux or stomach acidity?",
+            "patientAnswerFr": "Non, pas du tout.",
+            "patientAnswerEn": "No, not at all.",
+            "keyVocab": [
+              {
+                "termFr": "reflux gastrique",
+                "termEn": "acid reflux"
+              }
+            ]
+          },
+          {
+            "id": "den-2-3",
+            "doctorQuestionFr": "Quel type de brosse à dents utilisez-vous : souple, moyenne ou dure ?",
+            "doctorQuestionEn": "What type of toothbrush do you use: soft, medium, or hard?",
+            "patientAnswerFr": "J'utilise une brosse manuelle à poils souples.",
+            "patientAnswerEn": "I use a manual toothbrush with soft bristles.",
+            "keyVocab": [
+              {
+                "termFr": "brosse à dents",
+                "termEn": "toothbrush"
+              },
+              {
+                "termFr": "poils souples",
+                "termEn": "soft bristles"
+              }
+            ]
+          },
+          {
+            "id": "den-2-4",
+            "doctorQuestionFr": "Brossez-vous fort ou avez-vous tendance à serrer les dents la nuit ?",
+            "doctorQuestionEn": "Do you brush hard or tend to clench your teeth at night?",
+            "patientAnswerFr": "J'essaie de faire attention au brossage, mais je crois que je serre les mâchoires la nuit.",
+            "patientAnswerEn": "I try to be careful when brushing, but I think I clench my jaw at night.",
+            "keyVocab": [
+              {
+                "termFr": "serrer les dents",
+                "termEn": "to clench teeth"
+              },
+              {
+                "termFr": "mâchoires",
+                "termEn": "jaws"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "phase-3",
+        "phaseNumber": 3,
+        "titleFr": "Phase 3 : Les Symptômes & La Douleur",
+        "titleEn": "Phase 3: Symptoms & Triggers",
+        "subtitleFr": "Localisation sur la molaire et déclenchement au froid",
+        "subtitleEn": "Molar location and cold triggers",
+        "exchanges": [
+          {
+            "id": "den-3-1",
+            "doctorQuestionFr": "Où ressentez-vous la sensibilité et depuis quand ?",
+            "doctorQuestionEn": "Where do you feel the sensitivity and since when?",
+            "patientAnswerFr": "Sur une molaire en bas à gauche, depuis dix jours.",
+            "patientAnswerEn": "On a lower molar on the left side, for about ten days.",
+            "keyVocab": [
+              {
+                "termFr": "molaire",
+                "termEn": "molar"
+              },
+              {
+                "termFr": "en bas à gauche",
+                "termEn": "lower left"
+              }
+            ]
+          },
+          {
+            "id": "den-3-2",
+            "doctorQuestionFr": "Est-ce déclenché plutôt par le froid, le chaud ou le sucré ?",
+            "doctorQuestionEn": "Is it triggered more by cold, heat, or sweet foods?",
+            "patientAnswerFr": "Surtout avec le froid, comme l'eau glacée, et parfois avec le sucré.",
+            "patientAnswerEn": "Especially with cold, like ice water, and sometimes with sweets.",
+            "keyVocab": [
+              {
+                "termFr": "eau glacée",
+                "termEn": "ice water"
+              },
+              {
+                "termFr": "sucré",
+                "termEn": "sweet"
+              }
+            ]
+          },
+          {
+            "id": "den-3-3",
+            "doctorQuestionFr": "La douleur disparaît-elle tout de suite après le contact ?",
+            "doctorQuestionEn": "Does the pain disappear right away after contact?",
+            "patientAnswerFr": "C'est une douleur vive qui disparaît en quelques secondes.",
+            "patientAnswerEn": "It is a sharp pain that goes away in a few seconds.",
+            "keyVocab": [
+              {
+                "termFr": "douleur vive",
+                "termEn": "sharp pain"
+              },
+              {
+                "termFr": "quelques secondes",
+                "termEn": "a few seconds"
+              }
+            ]
+          },
+          {
+            "id": "den-3-4",
+            "doctorQuestionFr": "Avez-vous mal quand vous brossez cette zone ou quand vous mastiquez ?",
+            "doctorQuestionEn": "Does it hurt when you brush that area or when you chew?",
+            "patientAnswerFr": "Ça tire un peu au brossage près de la gencive, mais pas de douleur quand je mastique.",
+            "patientAnswerEn": "It pulls slightly when brushing near the gum, but there's no pain when I chew.",
+            "keyVocab": [
+              {
+                "termFr": "gencive",
+                "termEn": "gum"
+              },
+              {
+                "termFr": "mastiquer",
+                "termEn": "to chew"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "optometriste",
+    "titleFr": "Chez l'optométriste",
+    "titleEn": "At the Optometrist",
+    "subtitleFr": "Fatigue visuelle sur écrans & vision floue",
+    "subtitleEn": "Screen eye strain & blurry vision",
+    "icon": "visibility",
+    "summaryTipFr": "Évaluer quand le flou arrive (fin de journée) et la distance critique (travail sur écran / vision de près).",
+    "summaryTipEn": "Assess when blur occurs (end of workday) and the critical distance (computer screen / reading near).",
+    "keywords": [
+      {
+        "termFr": "examen de la vue",
+        "termEn": "eye exam",
+        "note": "Nom masculin"
+      },
+      {
+        "termFr": "vision floue",
+        "termEn": "blurry vision",
+        "note": "Nom féminin"
+      },
+      {
+        "termFr": "lunettes",
+        "termEn": "glasses",
+        "note": "Nom féminin pluriel"
+      },
+      {
+        "termFr": "verres de contact / lentilles",
+        "termEn": "contact lenses",
+        "note": "Nom masculin / féminin"
+      },
+      {
+        "termFr": "antécédents",
+        "termEn": "history",
+        "note": "Nom masculin pluriel"
+      },
+      {
+        "termFr": "écran",
+        "termEn": "screen",
+        "note": "Nom masculin"
+      },
+      {
+        "termFr": "éblouissement",
+        "termEn": "glare",
+        "note": "Nom masculin"
+      },
+      {
+        "termFr": "yeux secs",
+        "termEn": "dry eyes",
+        "note": "Nom masculin pluriel"
+      }
+    ],
+    "phases": [
+      {
+        "id": "phase-1",
+        "phaseNumber": 1,
+        "titleFr": "Phase 1 : L'Introduction & Le Contrôle",
+        "titleEn": "Phase 1: Intro & Check-in",
+        "subtitleFr": "Examen de routine et lunettes actuelles",
+        "subtitleEn": "Routine check-up and current glasses",
+        "exchanges": [
+          {
+            "id": "opt-1-1",
+            "doctorQuestionFr": "Bonjour, qu'est-ce qui vous amène aujourd'hui ?",
+            "doctorQuestionEn": "Hello, what brings you in today?",
+            "patientAnswerFr": "Bonjour docteur. Je viens pour un examen de la vue de routine, et je remarque que ma vision devient floue en fin de journée.",
+            "patientAnswerEn": "Hello doctor. I'm here for a routine eye exam, and I notice my vision becomes blurry at the end of the day.",
+            "keyVocab": [
+              {
+                "termFr": "examen de la vue",
+                "termEn": "eye exam"
+              },
+              {
+                "termFr": "vision floue",
+                "termEn": "blurry vision"
+              }
+            ]
+          },
+          {
+            "id": "opt-1-2",
+            "doctorQuestionFr": "À quand remonte votre dernier examen de la vue ?",
+            "doctorQuestionEn": "When was your last eye exam?",
+            "patientAnswerFr": "Ça fait environ deux ans.",
+            "patientAnswerEn": "It has been about two years.",
+            "keyVocab": [
+              {
+                "termFr": "dernier examen",
+                "termEn": "last exam"
+              }
+            ]
+          },
+          {
+            "id": "opt-1-3",
+            "doctorQuestionFr": "Portez-vous déjà des lunettes ou des verres de contact ?",
+            "doctorQuestionEn": "Do you already wear glasses or contact lenses?",
+            "patientAnswerFr": "Oui, je porte des lunettes pour travailler, mais pas de lentilles.",
+            "patientAnswerEn": "Yes, I wear glasses for computer work, but no contact lenses.",
+            "keyVocab": [
+              {
+                "termFr": "lunettes",
+                "termEn": "glasses"
+              },
+              {
+                "termFr": "verres de contact / lentilles",
+                "termEn": "contact lenses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "phase-2",
+        "phaseNumber": 2,
+        "titleFr": "Phase 2 : L'Historique & Les Habitudes",
+        "titleEn": "Phase 2: Medical History & Habits",
+        "subtitleFr": "Temps d'écran, hérédité et éblouissement de nuit",
+        "subtitleEn": "Screen time, family genetics, and night glare",
+        "exchanges": [
+          {
+            "id": "opt-2-1",
+            "doctorQuestionFr": "Avez-vous des antécédents familiaux de maladies oculaires ?",
+            "doctorQuestionEn": "Do you have a family history of eye diseases?",
+            "patientAnswerFr": "Non, pas à ma connaissance.",
+            "patientAnswerEn": "No, not to my knowledge.",
+            "keyVocab": [
+              {
+                "termFr": "antécédents familiaux",
+                "termEn": "family history"
+              },
+              {
+                "termFr": "maladies oculaires",
+                "termEn": "eye diseases"
+              }
+            ]
+          },
+          {
+            "id": "opt-2-2",
+            "doctorQuestionFr": "Combien d'heures par jour passez-vous devant un écran ?",
+            "doctorQuestionEn": "How many hours a day do you spend in front of a screen?",
+            "patientAnswerFr": "Beaucoup, environ huit à dix heures par jour pour le travail.",
+            "patientAnswerEn": "A lot, about eight to ten hours a day for work.",
+            "keyVocab": [
+              {
+                "termFr": "devant un écran",
+                "termEn": "in front of a screen"
+              }
+            ]
+          },
+          {
+            "id": "opt-2-3",
+            "doctorQuestionFr": "Conduisez-vous souvent la nuit ?",
+            "doctorQuestionEn": "Do you often drive at night?",
+            "patientAnswerFr": "Oui, et les phares des autres voitures m'éblouissent beaucoup.",
+            "patientAnswerEn": "Yes, and the headlights of other cars cause severe glare for me.",
+            "keyVocab": [
+              {
+                "termFr": "phares",
+                "termEn": "headlights"
+              },
+              {
+                "termFr": "éblouissement",
+                "termEn": "glare"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "phase-3",
+        "phaseNumber": 3,
+        "titleFr": "Phase 3 : Les Symptômes & La Fatigue Oculaire",
+        "titleEn": "Phase 3: Symptoms & Eye Strain",
+        "subtitleFr": "Vision de près, yeux secs et céphalées",
+        "subtitleEn": "Near vision, dry eyes, and headaches",
+        "exchanges": [
+          {
+            "id": "opt-3-1",
+            "doctorQuestionFr": "Est-ce que le flou est surtout de loin, de près ou sur écrans ?",
+            "doctorQuestionEn": "Is the blurriness mostly at distance, near, or on screens?",
+            "patientAnswerFr": "C'est surtout de près et à distance d'écran, pour les petits textes.",
+            "patientAnswerEn": "It is mostly up close and at screen distance, for small text.",
+            "keyVocab": [
+              {
+                "termFr": "de près",
+                "termEn": "up close / near"
+              },
+              {
+                "termFr": "distance d'écran",
+                "termEn": "screen distance"
+              }
+            ]
+          },
+          {
+            "id": "opt-3-2",
+            "doctorQuestionFr": "Avez-vous les yeux secs, qui piquent ou qui brûlent ?",
+            "doctorQuestionEn": "Do you have dry, stinging, or burning eyes?",
+            "patientAnswerFr": "Oui, j'ai les yeux secs et irrités en fin de journée, sensation de sable.",
+            "patientAnswerEn": "Yes, I have dry and irritated eyes at the end of the day, with a gritty / sandy sensation.",
+            "keyVocab": [
+              {
+                "termFr": "yeux secs",
+                "termEn": "dry eyes"
+              },
+              {
+                "termFr": "sensation de sable",
+                "termEn": "sandy sensation"
+              }
+            ]
+          },
+          {
+            "id": "opt-3-3",
+            "doctorQuestionFr": "Avez-vous des maux de tête après le travail ?",
+            "doctorQuestionEn": "Do you get headaches after work?",
+            "patientAnswerFr": "Oui, souvent une tension autour des yeux et sur le front.",
+            "patientAnswerEn": "Yes, often tension around the eyes and on the forehead.",
+            "keyVocab": [
+              {
+                "termFr": "maux de tête",
+                "termEn": "headaches"
+              },
+              {
+                "termFr": "tension sur le front",
+                "termEn": "tension on the forehead"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
+
+  const medState = {
+    selectedScenarioId: 'dentiste',
+    activePhaseIndex: 0,
+    currentMode: 'practice', // 'study' | 'practice'
+    showTranslations: false,
+    revealedAnswers: {}
+  };
+
+  function getScenario() {
+    return MEDICAL_SCENARIOS.find(s => s.id === medState.selectedScenarioId) || MEDICAL_SCENARIOS[0];
+  }
+
+  function getPhase() {
+    const sc = getScenario();
+    return sc.phases[medState.activePhaseIndex] || sc.phases[0];
+  }
+
+  window.speakMedText = function(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'fr-CA';
+      utterance.rate = 0.92;
+      window.speechSynthesis.speak(utterance);
+    }
+  };
+
+  window.selectMedScenario = function(scId) {
+    medState.selectedScenarioId = scId;
+    medState.activePhaseIndex = 0;
+    medState.revealedAnswers = {};
+    window.renderMedicalRoleplayWidget();
+  };
+
+  window.selectMedPhase = function(idx) {
+    medState.activePhaseIndex = idx;
+    window.renderMedicalRoleplayWidget();
+  };
+
+  window.setMedMode = function(mode) {
+    medState.currentMode = mode;
+    window.renderMedicalRoleplayWidget();
+  };
+
+  window.toggleMedTranslations = function() {
+    medState.showTranslations = !medState.showTranslations;
+    window.renderMedicalRoleplayWidget();
+  };
+
+  window.revealMedAnswer = function(exchangeId) {
+    medState.revealedAnswers[exchangeId] = true;
+    window.renderMedicalRoleplayWidget();
+  };
+
+  window.renderMedicalRoleplayWidget = function() {
+    const root = document.getElementById('med-roleplay-root');
+    if (!root) return;
+
+    const scenario = getScenario();
+    const phase = getPhase();
+    const isStudy = medState.currentMode === 'study';
+
+    root.innerHTML = `
+      <!-- Scenario Selector Tabs -->
+      <div class="med-scenario-tabs">
+        ${MEDICAL_SCENARIOS.map(sc => `
+          <button class="med-scen-btn ${sc.id === medState.selectedScenarioId ? 'active' : ''}"
+                  onclick="window.selectMedScenario('${sc.id}')"
+                  id="med-scen-btn-${sc.id}">
+            <div class="scen-icon-box">
+              <span class="ms">${sc.icon}</span>
+            </div>
+            <div>
+              <div class="med-scen-title">${sc.titleFr}</div>
+              <div class="med-scen-sub">${medState.showTranslations ? sc.subtitleEn : sc.subtitleFr}</div>
+            </div>
+          </button>
+        `).join('')}
+      </div>
+
+      <!-- Action Toolbar: Mode Switcher & Translation Toggle -->
+      <div class="med-action-toolbar">
+        <div class="med-mode-switcher">
+          <button class="med-mode-btn ${isStudy ? 'active' : ''}" onclick="window.setMedMode('study')">
+            <span class="ms ms-sm">menu_book</span> Guide Pratique
+          </button>
+          <button class="med-mode-btn ${!isStudy ? 'active' : ''}" onclick="window.setMedMode('practice')">
+            <span class="ms ms-sm">record_voice_over</span> Simulation Dialogue
+          </button>
+        </div>
+
+        <button class="med-toggle-en-btn ${medState.showTranslations ? 'active' : ''}" 
+                onclick="window.toggleMedTranslations()"
+                title="Afficher ou masquer les traductions anglaises">
+          <span class="ms ms-sm">translate</span>
+          <span>${medState.showTranslations ? 'Masquer EN' : 'Traductions EN'}</span>
+        </button>
+      </div>
+
+      <!-- 3-Phase Stepper Navigation -->
+      <div class="med-phases-stepper">
+        ${scenario.phases.map((p, idx) => {
+          const isActive = idx === medState.activePhaseIndex;
+          const cleanTitle = p.titleFr.split(':')[1]?.trim() || p.titleFr;
+          return `
+            <button class="med-phase-step ${isActive ? 'active' : ''}" 
+                    onclick="window.selectMedPhase(${idx})">
+              <div class="phase-circle">${p.phaseNumber}</div>
+              <div class="phase-text-col">
+                <span class="phase-step-title">${cleanTitle}</span>
+                <span class="phase-step-sub">${medState.showTranslations ? p.subtitleEn : p.subtitleFr}</span>
+              </div>
+            </button>
+          `;
+        }).join('')}
+      </div>
+
+      <!-- Clinical Advice Banner -->
+      <div class="med-tip-banner">
+        <span class="ms">lightbulb</span>
+        <div>
+          <strong>Le coin conseil :</strong> ${scenario.summaryTipFr}
+          ${medState.showTranslations ? `<div style="font-size:0.8rem; margin-top:0.25rem; opacity:0.9;">${scenario.summaryTipEn}</div>` : ''}
+        </div>
+      </div>
+
+      <!-- Main Content: Exchanges -->
+      <div class="med-dialogue-stack">
+        ${phase.exchanges.map((ex, i) => {
+          const isRevealed = isStudy || medState.revealedAnswers[ex.id] || medState.showTranslations;
+          return `
+            <div class="med-exchange-item">
+              <!-- Doctor Question -->
+              <div class="med-bubble doc">
+                <div class="bubble-top-bar">
+                  <span class="role-pill doc">Praticien</span>
+                  <button class="bubble-audio-btn" onclick="window.speakMedText('${ex.doctorQuestionFr.replace(/'/g, "\\'")}')">
+                    <span class="ms ms-sm">volume_up</span> Écouter
+                  </button>
+                </div>
+                <div class="french-dialogue-text">${ex.doctorQuestionFr}</div>
+                ${medState.showTranslations ? `<div class="english-dialogue-text">${ex.doctorQuestionEn}</div>` : ''}
+              </div>
+
+              <!-- Patient Answer -->
+              <div class="med-bubble pat">
+                <div class="bubble-top-bar">
+                  <span class="role-pill pat">Patient</span>
+                  ${isRevealed ? `
+                    <button class="bubble-audio-btn" onclick="window.speakMedText('${ex.patientAnswerFr.replace(/'/g, "\\'")}')">
+                      <span class="ms ms-sm">volume_up</span> Écouter
+                    </button>
+                  ` : ''}
+                </div>
+
+                ${isRevealed ? `
+                  <div class="french-dialogue-text">${ex.patientAnswerFr}</div>
+                  ${medState.showTranslations ? `<div class="english-dialogue-text">${ex.patientAnswerEn}</div>` : ''}
+                ` : `
+                  <div class="med-reveal-container">
+                    <div class="med-reveal-prompt">
+                      <span class="ms ms-sm">psychology</span> Formulez votre réponse en français avant de vérifier :
+                    </div>
+                    <button class="med-reveal-btn" onclick="window.revealMedAnswer('${ex.id}')">
+                      <span class="ms ms-sm">visibility</span> Révéler la réponse modèle
+                    </button>
+                  </div>
+                `}
+              </div>
+
+              <!-- Trigger Vocabulary Bar -->
+              ${ex.keyVocab?.length ? `
+                <div class="med-vocab-tags-row">
+                  <span class="med-vocab-label"><span class="ms ms-sm">vpn_key</span> Mots-clés :</span>
+                  ${ex.keyVocab.map(v => `
+                    <span class="med-vocab-chip" title="${v.note || ''}">
+                      <strong>${v.termFr}</strong> <em>(${v.termEn})</em>
+                    </span>
+                  `).join('')}
+                </div>
+              ` : ''}
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  };
 })();
 
