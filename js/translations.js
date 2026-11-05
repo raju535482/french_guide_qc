@@ -3148,3 +3148,58 @@
         '3_english': "蒙特利尔电话咨询看房与实地签约实操对话模版。"
       }
     });
+
+
+    // Register section translations for Section 34: Les Pronoms Relatifs (pronoms_relatifs)
+    registerSectionTranslations('pronoms_relatifs', {
+      en: {
+        title: "Relative Pronouns",
+        subtitle: "Qui, Que, Où, Dont : Master clause connections and avoid common traps",
+        '0_english': "Essential reference table and core syntactic rules for French relative pronouns.",
+        '1_english': "Progressive examples and tricky edge cases: elision, spatial prepositions, and possession.",
+        '2_english': "Interactive high-contrast learning widget: color-coded flashcards, tricky cases, and stateful 5-question quiz with instant feedback."
+      },
+      fa: {
+        title: "ضمایر موصولی (qui, que, où, dont)",
+        subtitle: "اتصال جملات و تسلط بر تفاوت‌های ساختاری و نکات کلیدی",
+        '0_english': "جدول راهنمای سریع و قواعد بنیادین ضمایر موصولی ساده فرانسوی.",
+        '1_english': "مثال‌های کاربردی و موارد گمراه‌کننده (حذف واکه، حروف اضافه مکانی، و مالکیت با dont).",
+        '2_english': "ویجت تعاملی و آزمون چندگزینه‌ای با بازخورد آنی."
+      },
+      gu: {
+        title: "સાપેક્ષ સર્વનામ (Qui, Que, Où, Dont)",
+        subtitle: "વાક્યોને જોડવા અને વ્યાકરણની મુખ્ય ભૂલો ટાળવા માટે",
+        '0_english': "ફ્રેન્ચ સાપેક્ષ સર્વનામ માટે સંદર્ભ કોષ્ટક અને મૂળભૂત નિયમો.",
+        '1_english': "સામાન્ય ઉદાહરણો અને વિશેષ પરિસ્થિતિઓ (સ્વર લોપ, સ્થાન અને dont સાથે માલિકી).",
+        '2_english': "ઇન્ટરેક્ટિવ ક્વિઝ અને સ્વ-મૂલ્યાંકન ટૂલ."
+      },
+      hi: {
+        title: "संबंधवाचक सर्वनाम (Qui, Que, Où, Dont)",
+        subtitle: "वाक्यों को जोड़ना और प्रमुख व्याकरणिक गलतियों से बचना",
+        '0_english': "फ्रेंच संबंधवाचक सर्वनामों की त्वरित संदर्भ तालिका और मुख्य नियम।",
+        '1_english': "प्रगतिशील उदाहरण और भ्रामक स्थितियां (स्वरों का लोप, स्थान और dont का प्रयोग)।",
+        '2_english': "इंटरैक्टिव क्विज और तुरंत स्पष्टीकरण के साथ अभ्यास।"
+      },
+      ta: {
+        title: "தொடர்பு பிரதிப்பெயர்கள் (Qui, Que, Où, Dont)",
+        subtitle: "சொற்றொடர்களை இணைத்தல் மற்றும் முக்கிய விதிகளை அறிதல்",
+        '0_english': "பிரெஞ்சு தொடர்பு பிரதிப்பெயர்களுக்கான விரைவு குறிப்பு அட்டவணை மற்றும் விதிகள்.",
+        '1_english': "நடைமுறை உதாரணங்கள் மற்றும் நுட்பமான விதிகளுக்கான விளக்கம்.",
+        '2_english': "உடனடி கருத்துக்களுடன் கூடிய ஊடாடும் பயிற்சி வினாடி வினா."
+      },
+      ko: {
+        title: "관계대명사 (Qui, Que, Où, Dont)",
+        subtitle: "절과 절 연결, 필수 구문 규칙 및 핵심 함정 마스터하기",
+        '0_english': "프랑스어 단순 관계대명사 핵심 요약표 및 황금 문법 규칙.",
+        '1_english': "단계별 실전 예문 및 까다로운 함정 사례 (모음 축약, 장소 전치사, dont 소유격).",
+        '2_english': "컬러 코딩 플래시카드 및 즉각적인 피드백을 제공하는 5문항 인터랙티브 퀴즈."
+      },
+      zh: {
+        title: "法语关系代词（Qui, Que, Où, Dont）",
+        subtitle: "句子连接纽带：句法核心规则、高频易错避坑与实战演练",
+        '0_english': "法语四大简单关系代词核心速查表与核心句法黄金定律。",
+        '1_english': "阶梯式精选例句与四大典型疑难易错点辨析（省音规则、地点介词与 dont 表所属）。",
+        '2_english': "高对比度彩色卡片式互动演练组件与即时解析 5 题自测小测验。"
+      }
+    });
+

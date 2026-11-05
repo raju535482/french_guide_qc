@@ -151,31 +151,43 @@ window.sectionsData.push({
  "tip": "🍁 Quebec café order: 'Je voudrais un café, s'il vous plaît' sounds much nicer than 'Je veux un café'. Locals notice the politeness!"
  },
  {
- "rule": "Use 2: Hypotheticals with si + imparfait",
- "english": "To say what WOULD happen, use 'si + imparfait' in one clause and the conditional in the other. This is the 'if… would…' structure.",
- "examples": [
- {
- "french": "Si j'avais de l'argent, je voyagerais.",
- "english": "If I had money, I would travel."
- },
- {
- "french": "Si tu étudiais, tu réussirais.",
- "english": "If you studied, you would succeed."
- },
- {
- "french": "On irait à la plage s'il faisait beau.",
- "english": "We would go to the beach if it were nice out."
- },
- {
- "french": "Vous avez compris?",
- "english": "Did you understand? (Variation)"
- },
- {
- "french": "Il n'y a pas de problème.",
- "english": "There is no problem. (Variation)"
- }
+ "rule": "Use 2: Le système hypothétique : Irréel du présent & Usage mixte du Passé Composé",
+ "english": "Hypothetical systems in French: Unreal present conditions (Si + imparfait) vs. real past facts with immediate present consequences (Si + passé composé).",
+ "table": {
+ "headers": [
+ "Type d'hypothèse",
+ "Structure & Rôle",
+ "Exemple modèle",
+ "Traduction & Contexte"
  ],
- "tip": "💡 The pattern is fixed: SI + IMPARFAIT, then CONDITIONNEL. Never put the conditional directly after 'si'."
+ "rows": [
+ [
+ "1. Irréel du présent (Classique)",
+ "Si + Imparfait ➔ Conditionnel Présent\n(Situation imaginaire contraire à la réalité présente)",
+ "Si j'avais plus de temps libre, je voyagerais autour du monde.",
+ "If I had more free time, I would travel around the world.\n(Réalité : Je n'ai pas assez de temps libre)"
+ ],
+ [
+ "2. Constat passé à impact présent (Mixte)",
+ "Si + Passé Composé ➔ Présent de l'indicatif\n(Fait réel/achevé dans le passé entraînant un constat ou une action immédiate)",
+ "Si tu as oublié tes clés ce matin, nous devons rentrer par la fenêtre.",
+ "If you forgot your keys this morning, we have to climb in through the window.\n(Action passée accomplie ➔ obligation présente)"
+ ],
+ [
+ "3. Variante : Réussite sous condition",
+ "Si + Imparfait ➔ Conditionnel Présent",
+ "Si tu étudiais davantage, tu réussirais tous tes examens.",
+ "If you studied more, you would pass all your exams."
+ ],
+ [
+ "4. Variante : Météo & Loisir",
+ "Conditionnel Présent ➔ Si + Imparfait",
+ "On irait à la plage s'il faisait beau cet après-midi.",
+ "We would go to the beach if it were nice out this afternoon."
+ ]
+ ]
+ },
+ "tip": "💡 Règle d'or mnémotechnique : Pour l'irréel, retenez « Les « si » n'aiment pas les « rais » » — ne mettez JAMAIS le conditionnel immédiatement après si (*Si j'aurais ➔ INTERDIT*). Pour le passé composé, il introduit un fait réel passé dont découle une réaction directe au présent !"
  },
  {
  "rule": "Use 3: Wishes, advice & softened statements",

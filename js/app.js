@@ -3499,6 +3499,9 @@ const sections = window.sectionsData || [];
       if (sid === 'habitation_quebec' && typeof window.initHabitationViewer === 'function') {
         window.initHabitationViewer();
       }
+      if (sid === 'pronoms_relatifs' && typeof window.renderRelativePronounsWidget === 'function') {
+        window.renderRelativePronounsWidget();
+      }
 
       // ── ARTICLES: definite ─────────────────────────────────
       if (sid === 'articles') {
